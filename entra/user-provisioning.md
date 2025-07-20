@@ -22,8 +22,8 @@ This section demonstrates how user identities are created and managed in Microso
 4. Click *Create*
 
 📸 Screenshot:  
-`entra/screenshots/user-created.png` *(add screenshot when available)*
-
+![User Created](screenshots/user-created.png) 
+![User Created](screenshots/user-created1.png)
 ---
 
 ## 📂 Bulk Import via CSV
