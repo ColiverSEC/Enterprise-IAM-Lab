@@ -21,7 +21,7 @@ This section demonstrates how user identities are created and managed in Microso
 3. Assign a **usage location**  
 4. Click *Create*
 
-📸 Screenshot:  
+📸 Screenshots:  
 ![User Created](screenshots/user-created.png) 
 ![User Created](screenshots/user-created1.png)
 ---
