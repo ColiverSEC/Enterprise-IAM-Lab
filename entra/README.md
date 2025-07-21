@@ -29,8 +29,8 @@ This module simulates cloud identity provisioning and access management using Mi
 
 | Folder | Contents |
 |--------|----------|
-| `/scripts/` | PowerShell automation for Entra tasks |
-| `/screenshots/` | Visuals for documentation (user creation, sync, licensing, CA policies) |
+| [`scripts`](./scripts) | PowerShell automation for Entra tasks |
+| [`screenshots`](./screenshots) | Visuals for documentation (user creation, sync, licensing, CA policies) |
 
 ---
 
