@@ -62,37 +62,41 @@ Example: Chris Green, chris@contoso.com, myPassword1234, No
 
 Microsoft Entra supports user creation via PowerShell using the **AzureAD** or **Microsoft Graph** module. This lab uses `AzureAD` for simplicity.
 
-### 📁 Script Location  
-[`entra/scripts/entra-user-creation.ps1`](./scripts/entra-user-creation.ps1)
-
-### ▶️ Script Example: Create 10 Cloud-Only Users
-
-```powershell
-# Connect to Azure AD
-Connect-AzureAD
-
-# Create 10 test users
-for ($i = 1; $i -le 10; $i++) {
-    $user = @{
-        AccountEnabled = $true
-        DisplayName = "Test User $i"
-        PasswordProfile = @{
-            Password = "Pass@1234"
-            ForceChangePasswordNextLogin = $false
-        }
-        UserPrincipalName = "testuser$i@idsentinelsolutions.com"
-        MailNickname = "testuser$i"
-        UsageLocation = "US"
-    }
-    New-AzureADUser @user
-}
-```
-
-> 🧠 **Note:** Make sure you have the `AzureAD` module installed:
+> 🧠 **Note:** If this is your first time using PowerShell with Entra ID, make sure you install the AzureAD module and connect to your tenant first.
+>
+> 📁 [`install-azure-ad-module.ps1`](./scripts/install-azure-ad-module.ps1)
+>
 > ```powershell
-> Install-Module -Name AzureAD
+> # Installs the AzureAD module if not already installed
+> Install-Module -Name AzureAD -Force -Scope CurrentUser
+>
+> # Connect to your Microsoft Entra ID tenant
+> Connect-AzureAD
 > ```
+Once connected, run the script to create users:
 
+> 📁 [`entra-user-creation.ps1`](./scripts/entra-user-creation.ps1)
+>
+> ```powershell
+># Connect to Azure AD
+> Connect-AzureAD
+>
+> # Create 10 test users
+> for ($i = 1; $i -le 10; $i++) {
+>    $user = @{
+>        AccountEnabled = $true
+>        DisplayName = "Test User $i"
+>        PasswordProfile = @{
+>            Password = "Pass@1234"
+>            ForceChangePasswordNextLogin = $false
+>        }
+>        UserPrincipalName = "testuser$i@idsentinelsolutions.com"
+>        MailNickname = "testuser$i"
+>        UsageLocation = "US"
+>    }
+>    New-AzureADUser @user
+> }
+> ```
 📸 Screenshot (optional):  
 `entra/screenshots/powershell-user-create.png`
 
