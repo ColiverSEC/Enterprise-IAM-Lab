@@ -24,7 +24,7 @@ This section demonstrates how to create and test a Conditional Access policy in 
 <details>
 <summary>📸 Screenshot</summary>
 
-![Policy Overview](screenshots/entra-policy-overview.png)
+![Policy Overview](screenshots/01blank-conditional-access-policy-overview.png)
 
 </details>
 
