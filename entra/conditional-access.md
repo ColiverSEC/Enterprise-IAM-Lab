@@ -18,8 +18,8 @@ This section demonstrates how to create and test a Conditional Access policy in 
 ### 1️⃣ Navigate to Conditional Access
 
 - Go to **Microsoft Entra Admin Center**  
-- Click **Protection** → **Conditional Access**  
-- Select **+ New policy**
+- Click **Entra ID tab** → **Conditional Access**  
+- Click **+ Create New policy**
 
 <details>
 <summary>📸 Screenshot</summary>
@@ -39,7 +39,7 @@ This section demonstrates how to create and test a Conditional Access policy in 
 ### 3️⃣ Select Users or Groups
 
 - **Include**: `M365-E5-License-Group` *(or a test group you created earlier)*  
-- **Exclude** *(optional but recommended)*:
+- **Exclude**: *(optional but recommended)*:
   - Your **Global Admin** account to prevent lockout  
   - Any **break-glass** accounts
 
@@ -54,12 +54,29 @@ This section demonstrates how to create and test a Conditional Access policy in 
 
 ### 4️⃣ Choose Cloud Apps or Actions
 
-- **Include**: `All cloud apps`  
+- **Select**: `Target resources`
+- **Include**: `All resources (formerly 'All cloud apps')`  
   *(Or specify apps like Exchange Online, SharePoint, etc. if testing more narrowly)*
 
 ---
 
-### 5️⃣ Configure Conditions *(optional)*
+### 5️⃣ Configure Network (Optional for This Lab)
+
+- **Select**: `Network location`
+- This section allows you to **include or exclude access** based on:
+  - IP address ranges (e.g., corporate network)
+  - Named locations
+  - Country/region  
+- For this lab, **no network conditions will be applied**, but this is where you'd configure location-based rules in a real environment.
+
+📸 Screenshot:  
+![Network Conditions](screenshots/entra-network-conditions.png)
+
+> 💡 Tip: Network controls are useful in production environments to block access from risky countries or allow only trusted IP ranges.
+
+---
+
+### 6️⃣ Configure Conditions *(optional)*
 
 - **Sign-in risk**:
   - Trigger on: `Medium and above`  
@@ -77,7 +94,7 @@ This section demonstrates how to create and test a Conditional Access policy in 
 
 ---
 
-### 6️⃣ Grant Access Controls
+### 7️⃣ Grant Access Controls
 
 - Under **Grant**, choose:
   - ✅ `Require multi-factor authentication`  
@@ -92,7 +109,7 @@ This section demonstrates how to create and test a Conditional Access policy in 
 
 ---
 
-### 7️⃣ Enable the Policy
+### 8️⃣ Enable the Policy
 
 - Set **Enable Policy** to: `On`  
 - Click **Create** to save and apply the policy
