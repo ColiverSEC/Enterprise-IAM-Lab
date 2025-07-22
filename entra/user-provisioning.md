@@ -97,8 +97,8 @@ Once connected, run the script to create users:
 >    New-AzureADUser @user
 > }
 > ```
-📸 Screenshot (optional):  
-`entra/screenshots/powershell-user-create.png`
+📸 Screenshot:  
+![Powershell User Create](screenshots/powershell-user-create.png)
 
 ---
 
@@ -133,8 +133,8 @@ In that lab, I created a hybrid identity environment by connecting an on-prem Ac
 - **Directory sync** configured between on-prem AD and Microsoft Entra
 
 📸 Screenshot (user sync successful):  
-`entra/screenshots/users-synced.png`
-
+![AD and Entra User Sync](screenshots/users-synced-to-entra-id.png
+)
 ---
 
 ### 🔎 How to Verify Sync:
