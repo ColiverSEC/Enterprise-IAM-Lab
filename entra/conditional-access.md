@@ -21,12 +21,7 @@ This section demonstrates how to create and test a Conditional Access policy in 
 - Click **Entra ID tab** → **Conditional Access**  
 - Click **+ Create New policy**
 
-<details>
-<summary>📸 Screenshot</summary>
-
 ![Policy Overview](screenshots/01blank-conditional-access-policy-overview.png)
-
-</details>
 
 ---
 
@@ -43,13 +38,8 @@ This section demonstrates how to create and test a Conditional Access policy in 
   - Your **Global Admin** account to prevent lockout  
   - Any **break-glass** accounts
 
-<details>
-<summary>📸 Screenshot</summary>
-
-![Group Assignment](screenshots/entra-policy-users-group.png)
-
-</details>
-
+![Select Users or Groups](screenshots/02conditional-access-select-users-or-groups.png)
+![Select Users or Groups](screenshots/03conditional-access-exclude-global-admin.png)
 ---
 
 ### 4️⃣ Choose Cloud Apps or Actions
@@ -57,6 +47,8 @@ This section demonstrates how to create and test a Conditional Access policy in 
 - **Select**: `Target resources`
 - **Include**: `All resources (formerly 'All cloud apps')`  
   *(Or specify apps like Exchange Online, SharePoint, etc. if testing more narrowly)*
+
+![Select Target Resources](screenshots/09conditional-access-target-resources.png)
 
 ---
 
@@ -68,9 +60,9 @@ This section demonstrates how to create and test a Conditional Access policy in 
   - Named locations
   - Country/region  
 - For this lab, **no network conditions will be applied**, but this is where you'd configure location-based rules in a real environment.
-
-📸 Screenshot:  
-![Network Conditions](screenshots/entra-network-conditions.png)
+ 
+![Network Conditions](screenshots/04conditional-access-network-config.png
+)
 
 > 💡 Tip: Network controls are useful in production environments to block access from risky countries or allow only trusted IP ranges.
 
@@ -85,12 +77,7 @@ This section demonstrates how to create and test a Conditional Access policy in 
 - **Location** *(optional)*:
   - Exclude trusted network locations if configured
 
-<details>
-<summary>📸 Screenshot</summary>
-
-![Sign-in Risk Condition](screenshots/entra-signin-risk.png)
-
-</details>
+![Sign-in Risk Condition](screenshots/05conditional-access-trigger.png)
 
 ---
 
@@ -100,12 +87,7 @@ This section demonstrates how to create and test a Conditional Access policy in 
   - ✅ `Require multi-factor authentication`  
   - Make sure “**Require all the selected controls**” is selected
 
-<details>
-<summary>📸 Screenshot</summary>
-
-![MFA Requirement](screenshots/entra-mfa-control.png)
-
-</details>
+![MFA Requirement](screenshots/06conditional-access-grant-access.png)
 
 ---
 
@@ -114,12 +96,8 @@ This section demonstrates how to create and test a Conditional Access policy in 
 - Set **Enable Policy** to: `On`  
 - Click **Create** to save and apply the policy
 
-<details>
-<summary>📸 Screenshot</summary>
-
-![Policy Enabled](screenshots/entra-policy-enabled.png)
-
-</details>
+![Policy Enabled](screenshots/07conditional-access-enable-policy.png)
+![Policy Enabled](screenshots/08conditional-access-policy-created.png)
 
 ---
 
