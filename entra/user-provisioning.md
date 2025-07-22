@@ -97,7 +97,8 @@ Once connected, run the script to create users:
 >    New-AzureADUser @user
 > }
 > ```
-📸 Screenshot:  
+
+📸 Screenshot: 
 ![Powershell User Create](screenshots/powershell-user-create.png)
 
 ---
@@ -203,10 +204,16 @@ Microsoft Entra allows licenses (such as Microsoft 365 E5) to be assigned automa
 
 ---
 
-### 📸 Screenshot
+### 📸 Screenshots:
 
-Group license assignment confirmation:  
-`entra/screenshots/group-assignment.png` *(Upload when available)*
+**Group creation confirmation:**  
+![License Group Created](screenshots/m365-license-group-created.png)
+**License added to group in Admin Center:**
+![License Added to Group Admin Center](screenshots/m365-license-added-in-365-admin-center.png)
+**License added and verfied in Entra:**
+![License Added to Group in Entra](screenshots/license-added-to-m365-group.png)
+**User added to License Group confirmation:**
+![User Added to Group](screenshots/member-added-to-group.png)
 
 ---
 
