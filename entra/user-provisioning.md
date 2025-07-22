@@ -270,7 +270,7 @@ Your HR team hires a new employee who needs access to email, Teams, and SharePoi
 
 🎯 Now that users and groups are provisioned, the next step is securing their access.
 
-📁 Continue to: [`conditional_access.md`](./conditional_access.md)
+📁 Continue to: [`conditional_access.md`](./conditional-access.md)
 
 
 
