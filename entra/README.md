@@ -1,5 +1,7 @@
 # 🔐 Microsoft Entra ID Lab
 
+[⬅️ Back to Enterprise IAM Lab Overview](../README.md)
+
 This module simulates cloud identity provisioning and access management using Microsoft Entra ID (formerly Azure AD). It includes hands-on demonstrations of cloud-only user creation, hybrid sync from on-prem Active Directory, group-based license assignment, and Conditional Access policies.
 
 ---
