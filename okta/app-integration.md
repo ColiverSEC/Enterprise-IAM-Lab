@@ -58,7 +58,6 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
    - Go to **Applications** → **Applications** → click *Create App Integration*.
    - Choose the appropriate sign-in method:
      - **SAML 2.0** for enterprise web apps.
-     - **OIDC** - Web Application for modern or public-facing apps.
    - Click **Next**, then provide:
      - A name for your app (e.g., “GitHub SSO Test”).
      - Optionally, upload an app logo for easier identification.
@@ -119,8 +118,11 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
    - Navigate to the Okta Admin Console
    - Go to **Applications** → **Applications** → click *Create App Integration*.
    - Choose the appropriate sign-in method:
-     - **SAML 2.0** for enterprise web apps.
-     - **OIDC** - Web Application for modern or public-facing apps.
+   - **OIDC** - Web Application for modern or public-facing apps.
+   - select **App Type**:
+     - **Web Application**: For server-side apps that can keep a client secret secure (e.g., traditional web servers).
+     - **Single Page Application (SPA)**: JavaScript apps running in browsers that cannot securely keep a client secret.
+     - **Native Application**: Mobile or desktop apps installed on a device 
    - Click **Next**, then provide:
      - A name for your app (e.g., “GitHub SSO Test”).
      - Optionally, upload an app logo for easier identification.
