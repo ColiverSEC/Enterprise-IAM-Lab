@@ -55,7 +55,7 @@ This module covers identity and access management using Okta, a leading cloud id
 ## 🔗 Related Labs
 
 - [Microsoft Entra ID Lab](../entra/README.md) – Cloud identity and access management with Azure AD  
-- [Active Directory Lab](../activedirectory/README.md) – On-premises domain and group management  
+- [AD-Entra-Hybrid-Lab](https://github.com/ColiverSEC/AD-Entra-Hybrid-Lab/blob/main/README.md) – On-premises domain, group management and cloud sync
 - [Federation Protocols](../federation-protocols/README.md) – Deep dive into SAML, SCIM, OAuth, and OpenID Connect  
 
 ---
