@@ -1,5 +1,30 @@
 # 🔗 Okta Application Integration Walkthrough
 
+### Introduction
+
+This walkthrough guides you step-by-step through integrating an application with Okta using the SAML 2.0 and OpenID Connect (OIDC) protocols. You will learn how to add and configure an app in Okta, assign users for access, and test Single Sign-On (SSO) functionality. The guide also touches on Just-In-Time (JIT) provisioning to automate user account creation on the app side.
+
+---
+
+### What You’ll Need
+
+#### 🔹 For SAML Integration
+- Admin access to the Okta Admin Console  
+- A test user account in Okta to assign the app  
+- Application-specific information from the service provider (IdP metadata), including:  
+  - Single Sign-On URL (ACS URL)  
+  - Audience URI (SP Entity ID)  
+  - Supported Name ID format and attributes  
+
+#### 🔹 For OIDC Integration
+- Admin access to the Okta Admin Console  
+- A test user account in Okta to assign the app  
+- Application details including:  
+  - Redirect URI(s) for your app (where Okta sends tokens)  
+  - Client ID and Client Secret (provided after app creation)  
+  - Scopes and claims required by the app for authentication and profile data  
+
+
 ## 📝 What This Covers
 - Adding apps to Okta
 - Configuring SAML and OIDC settings
@@ -42,6 +67,8 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 📸 **Screenshots**: 
 ![Create App Integration](screenshots/app-integration/create-app-integration-saml.png)
 ![Name App Integration](screenshots/app-integration/name-app-integration-saml.png) 
+
+---
   
 2. **Configure SAML Settings**
    - **For SAML 2.0:**
@@ -53,11 +80,24 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
       - **Application Username** - This determines which Okta user profile attribute is sent as the NameID. Typically, use *Email* here.
       - **Update Application Username on** - This controls when Okta updates the username in the SAML assertion after the user profile changes.
 > - **📒 Optional:** Enable JIT Provisioning by including required attributes (like email) and ensuring the app supports it
+
+📸 **Screenshots**: 
+![App Configuration Page](screenshots/app-integration/saml-settings-configured.png)
+![App Configuration Summary](screenshots/app-integration/saml-config-summary-page.png)
+
+---
   
 3. **Assign the App to a Test User**
    - Go to **Assignments** → click **Assign** → choose **Assign to People** or **Groups**.
    - Select a test user (or group), confirm the user details, and click **Save and Go Back** → **Done**.
    - This ensures the user has access and can initiate the login flow.
+
+📸 **Screenshots**: 
+![SAML Assignments Page](screenshots/app-integration/saml-assignments-page.png)
+![SAML Test User Assigned](screenshots/app-integration/saml-assigned-test-user.png)
+![Assignment Confirmation](screenshots/app-integration/assignment-confirmation.png)
+
+---
 
 4. **Test the SSO Flow**
    - Open a new browser/incognito window.
@@ -68,9 +108,12 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
      - User profile attributes are passed correctly (check via developer tools or app-side logs).
      - You can use browser dev tools or SAML-tracer (which was used for this lab) to inspect the SAML assertion.
 
+📸 **Screenshots**: 
+![Test SSO Flow](screenshots/app-integration/sso-confirmation-with-saml-tracer.png)
+
 ---
 
-## 🛠️ How to Set It Up: SAML
+## 🛠️ How to Set It Up: OIDC
 
 1. **Add a New App in Okta**
    - Navigate to the Okta Admin Console
