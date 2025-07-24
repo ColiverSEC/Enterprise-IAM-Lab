@@ -87,5 +87,3 @@ This module covers identity and access management using Okta, a leading cloud id
 
 ---
 
-Happy learning with Okta!  
-— *Cleveland Oliver / Lab Owner*
