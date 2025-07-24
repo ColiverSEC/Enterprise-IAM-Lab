@@ -38,6 +38,10 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
      - A name for your app (e.g., “GitHub SSO Test”).
      - Optionally, upload an app logo for easier identification.
    - Click **Next** to proceed to the configuration screen.
+
+📸 **Screenshots**: 
+![Create App Integration](screenshots/app-integration/create-app-integration-saml.png)
+![Name App Integration](screenshots/app-integration/name-app-integration-saml.png) 
   
 2. **Configure SAML Settings**
    - **For SAML 2.0:**
