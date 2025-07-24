@@ -34,19 +34,21 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
    - Choose the appropriate sign-in method:
      - **SAML 2.0** for enterprise web apps.
      - **OIDC** - Web Application for modern or public-facing apps.
-   - Provide basic info (App name, logo, etc.)
+   - Click **Next**, then provide:
+     - A name for your app (e.g., “GitHub SSO Test”).
+     - Optionally, upload an app logo for easier identification.
+   - Click **Next** to proceed to the configuration screen.
+  
+2. **Configure SAML Settings**
 
   
-
-3. **Configure SAML / OIDC Settings**
-   - Fill in SSO URL, Entity ID, Attributes
-   - (Use a test app like *GitHub* or *dummyapp.io* if desired)
-  
----
 
 3. **Assign the App to a Test User**
+   - Fill in SSO URL, Entity ID, Attributes
+   - (Use a test app like *GitHub* or *dummyapp.io* if desired)
 
----
+4. **Test the SSO Flow**
+
 
 5. **Test SSO Flow**
 
