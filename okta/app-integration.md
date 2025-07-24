@@ -26,7 +26,7 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 
 ---
 
-## 🛠️ How to Set It Up
+## 🛠️ How to Set It Up SAML
 
 1. **Add a New App in Okta**
    - Navigate to the Okta Admin Console
