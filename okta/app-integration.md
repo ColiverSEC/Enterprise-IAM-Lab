@@ -28,18 +28,27 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 
 ## 🛠️ How to Set It Up
 
-1. **Add a New App in Okta**  
-   - Go to **Applications** → *Create App Integration*
-   - Choose **SAML 2.0** or **OIDC - Web Application**
+1. **Add a New App in Okta**
+   - Navigate to the Okta Admin Console
+   - Go to **Applications** → **Applications** → click *Create App Integration*.
+   - Choose the appropriate sign-in method:
+     - **SAML 2.0** for enterprise web apps.
+     - **OIDC** - Web Application for modern or public-facing apps.
    - Provide basic info (App name, logo, etc.)
 
-2. **Configure SAML / OIDC Settings**
+  
+
+3. **Configure SAML / OIDC Settings**
    - Fill in SSO URL, Entity ID, Attributes
    - (Use a test app like *GitHub* or *dummyapp.io* if desired)
+  
+---
 
 3. **Assign the App to a Test User**
 
-4. **Test SSO Flow**
+---
+
+5. **Test SSO Flow**
 
 📸 Screenshots:
 - App created and assigned  
@@ -47,8 +56,9 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 - Logged in successfully to app
 
 ## ✅ Expected Behavior
-- SSO should succeed for assigned users  
-- Okta logs the event in **System Log**
+- SSO should successfully authenticate assigned users into the app  
+- Users should not be prompted for credentials after Okta login  
+- Okta logs each authentication event in the **System Log**
 
 ---
 
