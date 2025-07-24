@@ -134,14 +134,14 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
      - **Trusted Origins:** (Optional but recommended) Add your domain to Trusted Origins for CORS support.
   
 3. **Assign the App to a Test User**
-  - Go to **Assignments** → click **Assign** → choose **Assign to People** or **Groups**.
-   - Select a test user (or group), confirm the user details, and click **Save and Go Back** → **Done**.
-   - This ensures the user has access and can initiate the login flow.
+    - Go to **Assignments** → click **Assign** → choose **Assign to People** or **Groups**.
+    - Select a test user (or group), confirm the user details, and click **Save and Go Back** → **Done**.
+    - This ensures the user has access and can initiate the login flow.
 
 4. **Grab Credentials**
-  - After saving, Okta generates a Client ID and Client Secret.
-  - Go to **Applications** → **Applications** → click *Your Created App* → **General**
-  - You’ll then see your credentials and You’ll use these in your app to request tokens.
+    - After saving, Okta generates a Client ID and Client Secret.
+    - Go to **Applications** → **Applications** → click *Your Created App* → **General**
+    - You’ll then see your credentials and You’ll use these in your app to request tokens.
   
   
 ## ✅ Expected Behavior
