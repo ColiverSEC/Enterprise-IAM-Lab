@@ -2,7 +2,7 @@
 
 ## 📝 What This Covers
 - Adding apps to Okta
-- Configuring SAML or OIDC settings
+- Configuring SAML and OIDC settings
 - Assigning users and testing SSO
 - Just-in-Time (JIT) provisioning basics
 
