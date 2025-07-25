@@ -123,6 +123,7 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
     - **Single Page Application (SPA)**: JavaScript apps running in browsers that cannot securely keep a client secret.
     - **Native Application**: Mobile or desktop apps installed on a device 
 - Click **Next** to proceed to the configuration screen.
+![OIDC App Creation Page](screenshots/app-integration/oidc-app-creation.png)
      
 2. **Configure OIDC Settings**
 - Fill in the following:
@@ -131,16 +132,20 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
   - **Sign-in redirect URIs**: This is where Okta sends users after login.
   - **Sign-out redirect URIs**: (Optional) Where users are sent after logout.
   - **Trusted Origins:** (Optional but recommended) Add your domain to Trusted Origins for CORS support.
+![OIDC Config Page](screenshots/app-integration/oidc-app-name.png)
   
 3. **Assign the App to a Test User**
 - Go to **Assignments** → click **Assign** → choose **Assign to People** or **Groups**.
 - Select a test user (or group), confirm the user details, → click **Save and Go Back** → **Done**.
   - This ensures the user has access and can initiate the login flow.
+![Assignment Page](screenshots/app-integration/oicd-test-user-assigned.png)
+![Assignment Page Confirmation](screenshots/app-integration/oicd-test-user-assigned-confirmation.png)
 
 4. **Grab Credentials**
 - After saving, Okta generates a Client ID and Client Secret.
 - Go to **Applications** → **Applications** → click *Your Created App* → **General**
 - You’ll then see your credentials and You’ll use these in your app to request tokens.
+![General Credential Page](screenshots/app-integration/oidc-credential-page.png)
 
 5. **Set Up Your Application to Use OIDC**
 > ‼️Important‼️
