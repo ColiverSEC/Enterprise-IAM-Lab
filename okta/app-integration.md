@@ -231,6 +231,7 @@ if __name__ == '__main__':
   - Example command cd /path/to/your/folder
 - Once you're in the target folder run ``` .\python.exe app.py ```
 - you should see an output similar to ``` * Running on http://127.0.0.1:8080/ ```
+![Active Script](screenshots/app-integration/oidc-active-script.png)
 
 7. **Test It**
 - Open your browser and go to: ``` http://localhost:8080 ```
@@ -240,6 +241,8 @@ if __name__ == '__main__':
 - After successful login, you'll be redirected back to your app.
 - The app will display the user's name and email.
 💡 Tip: If the page doesn’t load after login, check your redirect URI in Okta and ensure it matches `http://localhost:8080/authorization-code/callback`
+![Loign with Okta](screenshots/app-integration/login-with-okta-screen.png)
+![Successful Sign In](screenshots/app-integration/oidc-successful-login.png)
 
 
 
