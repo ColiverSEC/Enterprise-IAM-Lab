@@ -126,6 +126,8 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 
 📸 **Screenshot**: 
 ![OIDC App Creation Page](screenshots/app-integration/oidc-app-creation.png)
+
+---
      
 2. **Configure OIDC Settings**
 - Fill in the following:
@@ -137,6 +139,8 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 
 📸 **Screenshot**: 
 ![OIDC Config Page](screenshots/app-integration/oidc-app-name.png)
+
+---
   
 3. **Assign the App to a Test User**
 - Go to **Assignments** → click **Assign** → choose **Assign to People** or **Groups**.
@@ -147,6 +151,8 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 ![Assignment Page](screenshots/app-integration/oicd-test-user-assigned.png)
 ![Assignment Page Confirmation](screenshots/app-integration/oicd-test-user-assigned-confirmation.png)
 
+---
+
 4. **Grab Credentials**
 - After saving, Okta generates a Client ID and Client Secret.
 - Go to **Applications** → **Applications** → click *Your Created App* → **General**
@@ -154,6 +160,8 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 
 📸 **Screenshot**: 
 ![General Credential Page](screenshots/app-integration/oidc-credential-page.png)
+
+---
 
 5. **Set Up Your Application to Use OIDC**
 > ‼️Important‼️
@@ -233,6 +241,8 @@ if __name__ == '__main__':
 - `YOUR_CLIENT_SECRET` → Your client secret from the Okta app  
 - `https://trial-9842597.okta.com` → Your Okta domain (if different)
 
+---
+
 
 6. **Run the Flask App**
 - Open Terminal by → clicking  **View** → click **Terminal** or press **Ctrl + `** (make sure you're in the same folder as app.py):
@@ -242,6 +252,8 @@ if __name__ == '__main__':
 
 📸 **Screenshot**: 
 ![Active Script](screenshots/app-integration/oidc-active-script.png)
+
+---
 
 7. **Test It**
 - Open your browser and go to: ``` http://localhost:8080 ```
@@ -256,13 +268,12 @@ if __name__ == '__main__':
 ![Loign with Okta](screenshots/app-integration/login-with-okta-screen.png)
 ![Successful Sign In](screenshots/app-integration/oidc-successful-login.png)
 
-
+---
 
 ## ✅ Success Criteria 
 - You can log in through Okta.
 - The Flask app receives and displays user info (name/email).
 - You can log out and repeat the login flow.
-
 
 ## 📌 Expected Behavior
 - SSO should successfully authenticate assigned users into the app  
