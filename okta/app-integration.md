@@ -107,7 +107,7 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
     - User profile attributes are passed correctly (check via developer tools or app-side logs).
     - You can use browser dev tools or SAML-tracer (which was used for this lab) to inspect the SAML assertion.
 
-📸 **Screenshots**: 
+📸 **Screenshot**: 
 ![Test SSO Flow](screenshots/app-integration/sso-confirmation-with-saml-tracer.png)
 
 ---
@@ -123,6 +123,8 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
     - **Single Page Application (SPA)**: JavaScript apps running in browsers that cannot securely keep a client secret.
     - **Native Application**: Mobile or desktop apps installed on a device 
 - Click **Next** to proceed to the configuration screen.
+
+📸 **Screenshot**: 
 ![OIDC App Creation Page](screenshots/app-integration/oidc-app-creation.png)
      
 2. **Configure OIDC Settings**
@@ -132,12 +134,16 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
   - **Sign-in redirect URIs**: This is where Okta sends users after login.
   - **Sign-out redirect URIs**: (Optional) Where users are sent after logout.
   - **Trusted Origins:** (Optional but recommended) Add your domain to Trusted Origins for CORS support.
+
+📸 **Screenshot**: 
 ![OIDC Config Page](screenshots/app-integration/oidc-app-name.png)
   
 3. **Assign the App to a Test User**
 - Go to **Assignments** → click **Assign** → choose **Assign to People** or **Groups**.
 - Select a test user (or group), confirm the user details, → click **Save and Go Back** → **Done**.
   - This ensures the user has access and can initiate the login flow.
+
+📸 **Screenshots**: 
 ![Assignment Page](screenshots/app-integration/oicd-test-user-assigned.png)
 ![Assignment Page Confirmation](screenshots/app-integration/oicd-test-user-assigned-confirmation.png)
 
@@ -145,6 +151,8 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 - After saving, Okta generates a Client ID and Client Secret.
 - Go to **Applications** → **Applications** → click *Your Created App* → **General**
 - You’ll then see your credentials and You’ll use these in your app to request tokens.
+
+📸 **Screenshot**: 
 ![General Credential Page](screenshots/app-integration/oidc-credential-page.png)
 
 5. **Set Up Your Application to Use OIDC**
@@ -231,6 +239,8 @@ if __name__ == '__main__':
   - Example command cd /path/to/your/folder
 - Once you're in the target folder run ``` .\python.exe app.py ```
 - you should see an output similar to ``` * Running on http://127.0.0.1:8080/ ```
+
+📸 **Screenshot**: 
 ![Active Script](screenshots/app-integration/oidc-active-script.png)
 
 7. **Test It**
@@ -241,6 +251,8 @@ if __name__ == '__main__':
 - After successful login, you'll be redirected back to your app.
 - The app will display the user's name and email.
 💡 Tip: If the page doesn’t load after login, check your redirect URI in Okta and ensure it matches `http://localhost:8080/authorization-code/callback`
+
+📸 **Screenshots**: 
 ![Loign with Okta](screenshots/app-integration/login-with-okta-screen.png)
 ![Successful Sign In](screenshots/app-integration/oidc-successful-login.png)
 
