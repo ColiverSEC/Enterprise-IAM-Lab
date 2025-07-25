@@ -134,7 +134,7 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
   
 3. **Assign the App to a Test User**
 - Go to **Assignments** → click **Assign** → choose **Assign to People** or **Groups**.
-- Select a test user (or group), confirm the user details, and click **Save and Go Back** → **Done**.
+- Select a test user (or group), confirm the user details, → click **Save and Go Back** → **Done**.
   - This ensures the user has access and can initiate the login flow.
 
 4. **Grab Credentials**
@@ -156,9 +156,9 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 >> - Installed required Python packages using **pip**:
 >> ``` pip install flask authlib python-dotenv ```
 >> - Create a working folder (e.g., `C:\Users\a-doliver\PythonOIDCApp`)
-- After installing the necessary tools you will need to create a python script in Visual Studio Code (VSC):
-  - While in VSC → click **Open Folder** and navigate to the target folder → right click in the **Explorer** tab then create **New File** named *app.py*
-  - In the *app_py* file paste the following:
+- After installing the necessary tools, you will need to create a python script in Visual Studio Code (VSC):
+  - While in VSC → click **Open Folder** and navigate to the target folder → right click in the **Explorer** tab → create **New File** named *app.py*
+  - In the *app_py* file paste the following → **Save**:
     
 ```
 from flask import Flask, redirect, url_for, session
@@ -215,21 +215,36 @@ def logout():
 if __name__ == '__main__':
     app.run(port=8080, debug=True)
 ```
-> 📌 Replace These Placeholders:
->  - YOUR_CLIENT_ID with Your client ID from the Okta app settings
->  - YOUR_CLIENT_SECRET with Your client secret from the Okta app
->  - https://trial-9842597.okta.com	 with Your Okta domain
+📌 Replace These Placeholders:
+- `YOUR_CLIENT_ID` → Your client ID from the Okta app settings  
+- `YOUR_CLIENT_SECRET` → Your client secret from the Okta app  
+- `https://trial-9842597.okta.com` → Your Okta domain (if different)
+
+
+6. **Run the Flask App**
+- Open Terminal by → clicking  **View** → click **Terminal** or press **Ctrl + `** (make sure you're in the same folder as app.py):
+  - Example command cd /path/to/your/folder
+- Once you're in the target folder run ``` .\python.exe app.py ```
+- you should see an output similar to ``` * Running on http://127.0.0.1:8080/ ```
+
+7. **Test It**
+- Open your browser and go to: ``` http://localhost:8080 ```
+- Click **Login with Okta**.
+- You will be redirected to your Okta trial login screen.
+- Sign in with a test user (create users in the Okta admin panel if needed).
+- After successful login, you'll be redirected back to your app.
+- The app will display the user's name and email.
+💡 Tip: If the page doesn’t load after login, check your redirect URI in Okta and ensure it matches `http://localhost:8080/authorization-code/callback`
 
 
 
+## ✅ Success Criteria 
+- You can log in through Okta.
+- The Flask app receives and displays user info (name/email).
+- You can log out and repeat the login flow.
 
 
-
-
-   
-  
-  
-## ✅ Expected Behavior
+## 📌 Expected Behavior
 - SSO should successfully authenticate assigned users into the app  
 - Users should not be prompted for credentials after Okta login  
 - Okta logs each authentication event in the **System Log**
