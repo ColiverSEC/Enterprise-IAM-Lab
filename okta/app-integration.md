@@ -54,14 +54,14 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 ## 🛠️ How to Set It Up: SAML
 
 1. **Add a New App in Okta**
-   - Navigate to the Okta Admin Console
-   - Go to **Applications** → **Applications** → click *Create App Integration*.
-   - Choose the appropriate sign-in method:
-     - **SAML 2.0** for enterprise web apps.
-   - Click **Next**, then provide:
-     - A name for your app (e.g., “GitHub SSO Test”).
-     - Optionally, upload an app logo for easier identification.
-   - Click **Next** to proceed to the configuration screen.
+- Navigate to the Okta Admin Console
+- Go to **Applications** → **Applications** → click *Create App Integration*.
+- Choose the appropriate sign-in method:
+  - **SAML 2.0** for enterprise web apps.
+- Click **Next**, then provide:
+  - A name for your app (e.g., “GitHub SSO Test”).
+  - Optionally, upload an app logo for easier identification.
+- Click **Next** to proceed to the configuration screen.
 
 📸 **Screenshots**: 
 ![Create App Integration](screenshots/app-integration/create-app-integration-saml.png)
@@ -70,14 +70,14 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 ---
   
 2. **Configure SAML Settings**
-   - **For SAML 2.0:**
-   - Input required fields:
-      - **Single Sign-On URL (SSO URL)** – where Okta will send the authentication response.
-      - **Audience URI (SP Entity ID)** – unique identifier for the app.
-      - **Default RelayState** - It tells Okta where to redirect users after successful SSO login. leave it blank or put / if you want to redirect to your site’s root URL.
-      - **Name ID Format** - This defines how the user’s identifier is sent in the SAML assertion. For most apps, the default or *EmailAddress* format works best.
-      - **Application Username** - This determines which Okta user profile attribute is sent as the NameID. Typically, use *Email* here.
-      - **Update Application Username on** - This controls when Okta updates the username in the SAML assertion after the user profile changes.
+- **For SAML 2.0:**
+- Input required fields:
+  - **Single Sign-On URL (SSO URL)** – where Okta will send the authentication response.
+  - **Audience URI (SP Entity ID)** – unique identifier for the app.
+  - **Default RelayState** - It tells Okta where to redirect users after successful SSO login. leave it blank or put / if you want to redirect to your site’s root URL.
+  - **Name ID Format** - This defines how the user’s identifier is sent in the SAML assertion. For most apps, the default or *EmailAddress* format works best.
+  - **Application Username** - This determines which Okta user profile attribute is sent as the NameID. Typically, use *Email* here.
+  - **Update Application Username on** - This controls when Okta updates the username in the SAML assertion after the user profile changes.
 > - **📒 Optional:** Enable JIT Provisioning by including required attributes (like email) and ensuring the app supports it
 
 📸 **Screenshots**: 
@@ -87,9 +87,9 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 ---
   
 3. **Assign the App to a Test User**
-   - Go to **Assignments** → click **Assign** → choose **Assign to People** or **Groups**.
-   - Select a test user (or group), confirm the user details, and click **Save and Go Back** → **Done**.
-   - This ensures the user has access and can initiate the login flow.
+- Go to **Assignments** → click **Assign** → choose **Assign to People** or **Groups**.
+- Select a test user (or group), confirm the user details, and click **Save and Go Back** → **Done**.
+  - This ensures the user has access and can initiate the login flow.
 
 📸 **Screenshots**: 
 ![SAML Assignments Page](screenshots/app-integration/saml-assignments-page.png)
@@ -99,13 +99,13 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 ---
 
 4. **Test the SSO Flow**
-   - Open a new browser/incognito window.
-   - Log in as the assigned test user.
-   - Access the app directly or through the **Okta Dashboard**.
-   - Confirm:
-     - You’re redirected to the app without re-authenticating.
-     - User profile attributes are passed correctly (check via developer tools or app-side logs).
-     - You can use browser dev tools or SAML-tracer (which was used for this lab) to inspect the SAML assertion.
+- Open a new browser/incognito window.
+- Log in as the assigned test user.
+- Access the app directly or through the **Okta Dashboard**.
+  - Confirm:
+    - You’re redirected to the app without re-authenticating.
+    - User profile attributes are passed correctly (check via developer tools or app-side logs).
+    - You can use browser dev tools or SAML-tracer (which was used for this lab) to inspect the SAML assertion.
 
 📸 **Screenshots**: 
 ![Test SSO Flow](screenshots/app-integration/sso-confirmation-with-saml-tracer.png)
@@ -115,33 +115,32 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 ## 🛠️ How to Set It Up: OIDC
 
 1. **Add a New App in Okta**
-   - Navigate to the Okta Admin Console
-   - Go to **Applications** → **Applications** → click *Create App Integration*.
-   - Choose the appropriate sign-in method:
-   - **OIDC** - Web Application for modern or public-facing apps.
-   - select **App Type**:
-     - **Web Application**: For server-side apps that can keep a client secret secure (e.g., traditional web servers).
-     - **Single Page Application (SPA)**: JavaScript apps running in browsers that cannot securely keep a client secret.
-     - **Native Application**: Mobile or desktop apps installed on a device 
-   - Click **Next** to proceed to the configuration screen.
+- Navigate to the Okta Admin Console
+- Go to **Applications** → **Applications** → click *Create App Integration*.
+- Choose : **OIDC** - Web Application for modern or public-facing apps. 
+  - select **App Type**:
+    - **Web Application**: For server-side apps that can keep a client secret secure (e.g., traditional web servers).
+    - **Single Page Application (SPA)**: JavaScript apps running in browsers that cannot securely keep a client secret.
+    - **Native Application**: Mobile or desktop apps installed on a device 
+- Click **Next** to proceed to the configuration screen.
      
 2. **Configure OIDC Settings**
-   - Fill in the following:
-     - A name for your app (e.g., “GitHub SSO Test”).
-     - Optionally, upload an app logo for easier identification.
-     - **Sign-in redirect URIs**: This is where Okta sends users after login.
-     - **Sign-out redirect URIs**: (Optional) Where users are sent after logout.
-     - **Trusted Origins:** (Optional but recommended) Add your domain to Trusted Origins for CORS support.
+- Fill in the following:
+  - A name for your app (e.g., “GitHub SSO Test”).
+  - Optionally, upload an app logo for easier identification.
+  - **Sign-in redirect URIs**: This is where Okta sends users after login.
+  - **Sign-out redirect URIs**: (Optional) Where users are sent after logout.
+  - **Trusted Origins:** (Optional but recommended) Add your domain to Trusted Origins for CORS support.
   
 3. **Assign the App to a Test User**
-    - Go to **Assignments** → click **Assign** → choose **Assign to People** or **Groups**.
-    - Select a test user (or group), confirm the user details, and click **Save and Go Back** → **Done**.
-    - This ensures the user has access and can initiate the login flow.
+- Go to **Assignments** → click **Assign** → choose **Assign to People** or **Groups**.
+- Select a test user (or group), confirm the user details, and click **Save and Go Back** → **Done**.
+  - This ensures the user has access and can initiate the login flow.
 
 4. **Grab Credentials**
-    - After saving, Okta generates a Client ID and Client Secret.
-    - Go to **Applications** → **Applications** → click *Your Created App* → **General**
-    - You’ll then see your credentials and You’ll use these in your app to request tokens.
+- After saving, Okta generates a Client ID and Client Secret.
+- Go to **Applications** → **Applications** → click *Your Created App* → **General**
+- You’ll then see your credentials and You’ll use these in your app to request tokens.
   
   
 ## ✅ Expected Behavior
