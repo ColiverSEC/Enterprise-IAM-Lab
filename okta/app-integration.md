@@ -141,6 +141,88 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 - After saving, Okta generates a Client ID and Client Secret.
 - Go to **Applications** → **Applications** → click *Your Created App* → **General**
 - You’ll then see your credentials and You’ll use these in your app to request tokens.
+
+5. **Set Up Your Application to Use OIDC**
+> ‼️Important‼️
+> 
+> Your app needs to:
+>  - Redirect users to Okta’s authorization endpoint.
+>  - Handle the callback on the redirect URI.
+>  - Exchange the authorization code for tokens using client ID/secret.
+>  - Validate tokens and extract user info.
+>> 🔑 What was used:
+>> - **Used Visual Studio Code (VS Code)** as the code editor and terminal for running the app locally.[Link to install Visual Studio Code](https://code.visualstudio.com/Download)
+>> - Installed **Python 3.13** (or used embedded Python) on Windows. [Link to download Python](https://www.python.org/downloads/windows/)
+>> - Installed required Python packages using **pip**:
+>> ``` pip install flask authlib python-dotenv ```
+>> - Create a working folder (e.g., `C:\Users\a-doliver\PythonOIDCApp`)
+- After installing the necessary tools you will need to create a python script in Visual Studio Code (VSC):
+  - While in VSC → click **Open Folder** and navigate to the target folder → right click in the **Explorer** tab then create **New File** named *app.py*
+  - In the *app_py* file paste the following:
+    
+```
+from flask import Flask, redirect, url_for, session
+from authlib.integrations.flask_client import OAuth
+import os
+import secrets  # for nonce generation
+
+app = Flask(__name__)
+app.secret_key = 'random_secret_key'  # Replace with something secure in production
+
+oauth = OAuth(app)
+
+# Configure Okta OIDC client
+okta = oauth.register(
+    name='okta',
+    client_id='YOUR_CLIENT_ID',
+    client_secret='YOUR_CLIENT_SECRET',
+    server_metadata_url='https://trial-9842597.okta.com/.well-known/openid-configuration',
+    client_kwargs={
+        'scope': 'openid profile email',
+    }
+)
+
+@app.route('/')
+def homepage():
+    user = dict(session).get('user')
+    if user:
+        return f"<h1>Welcome {user['name']}</h1><p>Email: {user['email']}</p><a href='/logout'>Logout</a>"
+    return '<a href="/login">Login with Okta</a>'
+
+@app.route('/login')
+def login():
+    # Generate nonce and store in session
+    nonce = secrets.token_urlsafe(16)
+    session['nonce'] = nonce
+
+    redirect_uri = url_for('auth', _external=True)
+    return okta.authorize_redirect(redirect_uri, nonce=nonce)
+
+@app.route('/authorization-code/callback')
+def auth():
+    token = okta.authorize_access_token()
+    nonce = session.get('nonce')
+    user_info = okta.parse_id_token(token, nonce=nonce)
+
+    session['user'] = user_info
+    return redirect('/')
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect('/')
+
+if __name__ == '__main__':
+    app.run(port=8080, debug=True)
+```
+  - 📌 Replace These Placeholders:
+    -
+
+
+
+
+
+   
   
   
 ## ✅ Expected Behavior
