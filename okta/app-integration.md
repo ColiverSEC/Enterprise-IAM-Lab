@@ -215,8 +215,12 @@ def logout():
 if __name__ == '__main__':
     app.run(port=8080, debug=True)
 ```
-  - 📌 Replace These Placeholders:
-    -
+> 📌 Replace These Placeholders:
+>  - YOUR_CLIENT_ID with Your client ID from the Okta app settings
+>  - YOUR_CLIENT_SECRET with Your client secret from the Okta app
+>  - https://trial-9842597.okta.com	 with Your Okta domain
+
+
 
 
 
