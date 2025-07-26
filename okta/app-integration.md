@@ -277,15 +277,34 @@ if __name__ == '__main__':
 
 ---
 
-## ✅ Success Criteria 
-- You can log in through Okta.
-- The Flask app receives and displays user info (name/email).
-- You can log out and repeat the login flow.
+## ✅ Success Criteria
+
+### For SAML
+- Users assigned to the app can successfully SSO via Okta with a valid SAML assertion.
+- Correct user attributes (NameID, email) are passed to the app.
+- JIT provisioning (if enabled) automatically creates or updates user accounts on first login.
+- Users are redirected appropriately post-login.
+- Okta logs all authentication events.
+
+### For OIDC
+- Users can log in through Okta using OIDC and receive valid ID tokens.
+- The application receives and displays user info (e.g., name, email).
+- Users can log out and repeat the login flow without errors.
+- Okta logs all authentication events.
+
+### For Just-In-Time (JIT) Provisioning
+- New users are automatically provisioned in the target app on first successful SSO.
+- User attributes used for provisioning match Okta profile data.
+- No manual user creation required for assigned users.
+- Provisioning errors are clearly logged and reported.
 
 ## 📌 Expected Behavior
-- SSO should successfully authenticate assigned users into the app  
-- Users should not be prompted for credentials after Okta login  
-- Okta logs each authentication event in the **System Log**
+- Assigned users access apps seamlessly without extra credential prompts.
+- Authentication tokens/assertions are properly signed and consumed by the apps.
+- User profile attributes are correctly mapped and updated.
+- Authentication failures are logged with clear error messages.
+- Sessions respect configured timeout and security policies.
+
 
 ---
 
