@@ -117,6 +117,11 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 📸 **Screenshot**: 
 ![Test SSO Flow](screenshots/app-integration/sso-confirmation-with-saml-tracer.png)
 
+
+## 🎯 Results
+
+- The assigned user can seamlessly authenticate via Okta SSO, with attributes passed correctly and accounts auto-provisioned if JIT is enabled.
+
 ---
 
 ## 🛠️ How to Set It Up: OIDC
@@ -274,6 +279,10 @@ if __name__ == '__main__':
 📸 **Screenshots**: 
 ![Loign with Okta](screenshots/app-integration/login-with-okta-screen.png)
 ![Successful Sign In](screenshots/app-integration/oidc-successful-login.png)
+
+## 🎯 Results
+
+- The test user can log in through Okta OIDC, with tokens successfully received and user info displayed by the app, confirming correct integration and optional JIT provisioning.
 
 ---
 
