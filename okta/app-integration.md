@@ -8,7 +8,7 @@ This walkthrough guides you step-by-step through integrating an application with
 - [🔍 Overview](#-okta-application-integration-walkthrough)  
 - [🛠️ SAML Setup](#️-how-to-set-it-up-saml)  
 - [🛠️ OIDC Setup](#️-how-to-set-it-up-oidc)  
-- [💡 JIT Provisioning](#️-note-on-just-in-time-jit-provisioning)  
+- [💡 JIT Provisioning](#-just-in-time-jit-provisioning) 
 - [✅ Success & Next Steps](#-success-criteria)
 
 ---
@@ -274,6 +274,71 @@ if __name__ == '__main__':
 📸 **Screenshots**: 
 ![Loign with Okta](screenshots/app-integration/login-with-okta-screen.png)
 ![Successful Sign In](screenshots/app-integration/oidc-successful-login.png)
+
+---
+
+## ⚡ Just-In-Time (JIT) Provisioning
+
+Just-in-Time (JIT) provisioning allows Okta to create or update user accounts in an external application the first time a user signs in via SSO. This eliminates the need to pre-provision users manually in the app and ensures access is granted instantly, using attributes passed in the SAML or OIDC assertion.
+
+---
+
+### 🔐 JIT with SAML
+
+1. **Configure Attribute Statements in Okta**  
+   - In your SAML app integration settings, scroll down to **Attribute Statements (Optional)**.  
+   - Add the user attributes your service provider (SP) requires to auto-create accounts:
+
+   | Name       | Name Format | Value          |
+   |------------|-------------|----------------|
+   | `email`    | Unspecified | `user.email`   |
+   | `firstName`| Unspecified | `user.firstName`|
+   | `lastName` | Unspecified | `user.lastName`|
+
+   ![SAML JIT Attributes](screenshots/app-integration/saml-jit-attribute-statements.png)
+
+2. **Enable JIT in the Application**  
+   - In the service provider’s admin console, enable JIT provisioning or user auto-creation.  
+   - Ensure attribute names match what Okta sends.
+
+3. **Test JIT Provisioning**  
+   - Create a new user in Okta not previously provisioned in the app.  
+   - Assign the app to that user.  
+   - Sign in as the user; the app should auto-create the account based on attributes sent by Okta.
+
+   ![SAML JIT Success](screenshots/app-integration/saml-jit-new-user-login.png)
+
+---
+
+### 🔓 JIT with OIDC
+
+1. **Add User Claims in Okta**  
+   - In your OIDC app integration, go to **Sign-On** → click **Edit**.  
+   - Under **Attribute Statements (Claims)**, add required claims, commonly:
+
+   | Claim Name    | Value           |
+   |--------------|-----------------|
+   | `email`       | `user.email`    |
+   | `given_name`  | `user.firstName`|
+   | `family_name` | `user.lastName` |
+
+   ![OIDC Claims](screenshots/app-integration/oidc-claims-setup.png)
+
+2. **Ensure JIT Support in the Application**  
+   - Verify the client app or API supports JIT provisioning using claims from the ID token or userinfo endpoint.  
+   - Map claims like `email`, `given_name`, and `family_name` to user creation logic.
+
+3. **Test OIDC-Based JIT**  
+   - Create and assign a new user in Okta.  
+   - Initiate login via OIDC in the app.  
+   - On first login, the app should auto-create the user account using data from the token or userinfo response.
+
+   ![OIDC JIT Success](screenshots/app-integration/oidc-jit-user-created.png)
+
+---
+
+✅ **Result:**  
+Users gain immediate access on their first login without manual provisioning, streamlining user lifecycle management.
 
 ---
 
