@@ -9,8 +9,7 @@ This walkthrough guides you step-by-step through integrating an application with
 - [🛠️ SAML Setup](#️-how-to-set-it-up-saml)  
 - [🛠️ OIDC Setup](#️-how-to-set-it-up-oidc)  
 - [💡 JIT Provisioning](#️-note-on-just-in-time-jit-provisioning)  
-- [✅ Success Criteria](#-success-criteria)  
-- [🔗 Next Steps](#-next-steps)
+- [✅ Success & Next Steps](#-success-criteria)
 
 ---
 
