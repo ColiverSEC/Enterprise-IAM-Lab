@@ -13,27 +13,59 @@ This section demonstrates how to configure and test Okta Multi-Factor Authentica
 
 ---
 
+
 ## 🛠️ Step-by-Step Configuration
 
-### 1️⃣ Enable Factor Enrollment
-
-1. Go to **Okta Admin Console** → *Security* → *Multifactor* → *Factor Enrollment*
-2. Click **Edit** under the default policy (or create a new one)
-3. Enable factors such as:
-   - ✅ *Okta Verify* (Push or TOTP)
-   - ✅ *SMS Authentication*
-   - ✅ *Email Authentication* (optional fallback)
+### 1️⃣ Create A Test Group
+- Go to **Directory** → **Groups**
+- Click **Add Group**
+- Name the group something like: ```MFA-Test-Group```
+- (Optional) Add your test user(s) to this group now
+- Click **Done**
 
 📸 Screenshot:  
 ![Factor Enrollment Screen](../screenshots/okta_factor_enrollment.png)
 
 ---
 
-### 2️⃣ Create an Authentication Policy
+### 2️⃣ Enable Factor Enrollment
 
-1. Go to **Security** → *Authentication Policies*
+- Go to **Okta Admin Console** → **Security** → **Authenticators**
+- Under the **Authenticators** tab, confirm that **Okta Verify** and **Email** are listed
+   - If needed, click **Add Authenticator** to add other factors like:
+        - **SMS Authentication**
+        - **Security Questions** (not recommended for production) 
+- Click the **Enrollment** tab
+- Click **Add Policy**
+- Name the policy something like: ``` MFA Enrollment Policy – Demo Group ```
+- Under **Assign to Groups**, assign the policy to ```MFA-Test-Group```(created in step 1) or another test group
+- For each authenticator (e.g., Okta Verify, Email), click dropdown and choose:
+   - **Required**, **Optional**, or **Disabled**, depending on your goal
+        - Example:
+             - Okta Verify → **Required**
+             - Email → **Optional**
+-** Click **Create Policy** to configure the rule
+- In the **Add Rule** settings:
+   - Set the **Rule Name** (e.g., ```Require Okta Verify```)
+   - **IF**: User IP is
+      - set to **Anywhere**
+   - **AND**: User is accessing
+      - For the lab, select **Okta**, **Applications** and **Any application that supports MFA enrollment**
+   - **THEN**: Enrollment is
+      - **Allowed for all authenticators****
+- click **Create rule**
+     
+
+📸 Screenshot:  
+![Factor Enrollment Screen](../screenshots/okta_factor_enrollment.png)
+
+---
+
+### 3️⃣ Create an Authentication Policy
+
+- Go to **Okta Admin Console** → **Security** → **Authentication Policies**
 2. Click **Add a policy**
-3. Name it: `Require MFA for Okta Apps`
+3. Name the policy something like: `Require MFA for Okta Apps`
 4. Under **Rules**, add:
    - **IF**: User is in `All users` or a custom group (e.g., `MFA-Test-Group`)
    - **THEN**: Require `Password + Any enrolled factor`
