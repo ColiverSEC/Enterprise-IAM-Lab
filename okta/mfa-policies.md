@@ -80,20 +80,30 @@ This section demonstrates how to configure and test Okta Multi-Factor Authentica
    - **And**: Device state is:
       - Select **Any**
   - **AND**: Device assurance policy is:
+     - Select **No policy**
   - **AND**: Device platform is:
+     - Select **Any platform**
   - **AND**: User's IP is:
+     - Select **Any IP**
   - **AND**: Risk is:
+     - Select **Any**
   - **AND**: The following custom expression is true:
+     - Optional, in this case you can leave blank
 - Under the **THEN** section configure the following:
    - **THEN** Access is
+      - Select **Allowed after succesful authentication**
    - **AND** User must authenticate with
+      - Select **Any 2 factor types**
    - **AND** Possession factor constraints are
+      - Select **Phishing resistant**, **Require user interaction** and **Any interaction**
    - **AND** Authentication methods
+      - Select **Allow any method can be used to meet the requriement**
 - Now under the **When to prompt for authentication** section configure the last **AND** conditon:
    - **AND** Prompt for authentication
-   
-   
-
+      - Select **When it’s been over a specified length of time since the user accessed any resource protected by the active Okta global session**
+         - For Time since last sign in, set to 1 hour.
+- Click **Save**
+     
 📸 Screenshot:  
 ![Authentication Policy Setup](../screenshots/okta_auth_policy.png)
 
