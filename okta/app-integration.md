@@ -286,7 +286,7 @@ if __name__ == '__main__':
 
 ---
 
-⚡ Just-In-Time (JIT) Provisioning (Coming Soon)
+## ⚡ Just-In-Time (JIT) Provisioning (Coming Soon)
 Just-In-Time (JIT) provisioning enables automatic user creation during their first login through SSO, streamlining access without pre-provisioning. This section will cover how to configure JIT provisioning with Microsoft Entra ID and SimpleSAMLphp, including attribute mapping and first-login testing.
 
 🚧 Work in Progress
