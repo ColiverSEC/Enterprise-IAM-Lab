@@ -64,11 +64,35 @@ This section demonstrates how to configure and test Okta Multi-Factor Authentica
 ### 3️⃣ Create an Authentication Policy
 
 - Go to **Okta Admin Console** → **Security** → **Authentication Policies**
-2. Click **Add a policy**
-3. Name the policy something like: `Require MFA for Okta Apps`
-4. Under **Rules**, add:
-   - **IF**: User is in `All users` or a custom group (e.g., `MFA-Test-Group`)
-   - **THEN**: Require `Password + Any enrolled factor`
+- Click **Add a policy**
+- Name the policy something like: `Require MFA for Okta Apps`
+- Click **Save**
+- Click **Add rule**
+- Name the rule something like: `MFA Rule for MFA-Test-Group`
+- Under the **IF** section configure the following:
+   - **IF**: User's user type is
+      -  Select **Any user type**
+   - **AND**: User's group membership includes
+      - Select **At least one of the following groups:**
+         - Type the name of test group, `MFA-Test-Group`
+   - **AND**: User is
+      - Select **Any user**
+   - **And**: Device state is:
+      - Select **Any**
+  - **AND**: Device assurance policy is:
+  - **AND**: Device platform is:
+  - **AND**: User's IP is:
+  - **AND**: Risk is:
+  - **AND**: The following custom expression is true:
+- Under the **THEN** section configure the following:
+   - **THEN** Access is
+   - **AND** User must authenticate with
+   - **AND** Possession factor constraints are
+   - **AND** Authentication methods
+- Now under the **When to prompt for authentication** section configure the last **AND** conditon:
+   - **AND** Prompt for authentication
+   
+   
 
 📸 Screenshot:  
 ![Authentication Policy Setup](../screenshots/okta_auth_policy.png)
