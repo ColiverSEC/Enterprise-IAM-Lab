@@ -8,7 +8,7 @@ This walkthrough guides you step-by-step through integrating an application with
 - [🔍 Overview](#-okta-application-integration-walkthrough)  
 - [🛠️ SAML Setup](#️-how-to-set-it-up-saml)  
 - [🛠️ OIDC Setup](#️-how-to-set-it-up-oidc)  
-- [💡 JIT Provisioning](#-just-in-time-jit-provisioning) 
+- [💡 JIT Provisioning](#-just-in-time-jit-provisioning-coming-soon) 
 - [✅ Success & Next Steps](#-success-criteria)
 
 ---
