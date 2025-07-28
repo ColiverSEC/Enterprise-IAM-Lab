@@ -109,18 +109,19 @@ This section demonstrates how to configure and test Okta Multi-Factor Authentica
 
 ---
 
-### 3️⃣ Apply Policy to Application(s)
+### 4️⃣ Apply Policy to Application(s)
 
-1. Go to **Applications** → Choose your test app (e.g., GitHub SAML)
-2. Click the **Sign-On** tab
-3. Under *Authentication Policy*, click **Edit** → Assign your new policy
+- Go to **Applications** → Choose your test app (e.g., GitHub SAML)
+- Click the **Sign-On** tab
+- Under **User authentication**, click **Edit** → Assign your new policy
+- Click **Save**
 
 📸 Screenshot:  
 ![Apply Policy to App](../screenshots/okta_policy_applied_to_app.png)
 
 ---
 
-### 4️⃣ Test Sign-In
+### 5️⃣ Test Sign-In
 
 1. Ensure your **test user** is in the correct group (if applicable)
 2. Open a new incognito browser window
