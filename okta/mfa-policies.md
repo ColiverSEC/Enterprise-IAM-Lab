@@ -24,7 +24,8 @@ This section demonstrates how to configure and test Okta Multi-Factor Authentica
 - Click **Done**
 
 📸 Screenshot:  
-![Factor Enrollment Screen](../screenshots/okta_factor_enrollment.png)
+![Create Test User and Group](./screenshots/mfa-policies/00test-group-created-with-user-added.png
+)
 
 ---
 
@@ -57,7 +58,12 @@ This section demonstrates how to configure and test Okta Multi-Factor Authentica
      
 
 📸 Screenshot:  
-![Factor Enrollment Screen](../screenshots/okta_factor_enrollment.png)
+![Auth Methods](./screenshots/mfa-policies/01available-auth-methods.png
+)]
+![New Policy Overview](./screenshots/mfa-policies/02new-policy-overview.png
+)
+![Test Policy Rule](./screenshots/mfa-policies/03test-policy-rule-config.png
+)
 
 ---
 
@@ -105,7 +111,8 @@ This section demonstrates how to configure and test Okta Multi-Factor Authentica
 - Click **Save**
      
 📸 Screenshot:  
-![Authentication Policy Setup](../screenshots/okta_auth_policy.png)
+![Test Policy Rule](./screenshots/mfa-policies/04auth-policy-rule-config.png
+)
 
 ---
 
@@ -117,7 +124,8 @@ This section demonstrates how to configure and test Okta Multi-Factor Authentica
 - Click **Save**
 
 📸 Screenshot:  
-![Apply Policy to App](../screenshots/okta_policy_applied_to_app.png)
+![Auth Policy Applied](./screenshots/mfa-policies/05policy-applied-to-app.png
+)
 
 ---
 
@@ -130,7 +138,8 @@ This section demonstrates how to configure and test Okta Multi-Factor Authentica
 5. Confirm you are prompted for MFA
 
 📸 Screenshot:  
-![MFA Prompt](../screenshots/okta_mfa_prompt.png)
+![MFA Required Prompt](./screenshots/mfa-policies/06mfa-required-prompt.png
+)
 
 ---
 
