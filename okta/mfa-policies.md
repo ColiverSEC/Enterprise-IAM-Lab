@@ -150,7 +150,9 @@ This section demonstrates how to configure and test Okta Multi-Factor Authentica
   **Reports** → *System Log*
 
 📸 Screenshot:  
-![System Log Screenshot](../screenshots/okta_mfa_logs.png)
+![System Log Screenshot](./screenshots/mfa-policies/07expected-behavior.png
+)
+
 
 ---
 
