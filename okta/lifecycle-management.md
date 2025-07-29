@@ -10,7 +10,10 @@ This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automa
 ## 🛠️ Key Steps
 
 1️⃣ **Enable Provisioning for an App**
-   - Go to *Applications* → select app → *Provisioning* tab
+   - Go to **Applications** → **Applications**
+   - Select a SCIM-enabled app like **Slack**, **GitHub** in the **Browse App Catalog**, or your custom SCIM app
+   - Click **Add Integration** then fill out the fields in the **General Settings** tab → **Done**
+   - Go to the **Provisioning** tab click → **Configure API Integration** → **Check Enable API integration**
    - Enable SCIM or API integration
 
 2. **Configure Lifecycle Hooks**
