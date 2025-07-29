@@ -124,9 +124,10 @@ This section demonstrates how to configure and test Okta Multi-Factor Authentica
 ### 5️⃣ Test Sign-In
 
 1. Ensure your **test user** is in the correct group (if applicable)
-2. Open a new incognito browser window
-3. Go to the **Okta user portal** or launch the app directly
-4. Confirm you are prompted for MFA
+2. Copy your app URL from the **Embed Link** section of the **General** tab of your app
+3. Open a new incognito browser window and paste the URL
+4. Go to the **Okta user portal** or launch the app directly
+5. Confirm you are prompted for MFA
 
 📸 Screenshot:  
 ![MFA Prompt](../screenshots/okta_mfa_prompt.png)
