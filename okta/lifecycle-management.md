@@ -112,6 +112,13 @@ This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automa
 ---
 
 ## ✅ Outcome
-- When a user is removed from Okta, the app account is also deactivated  
-- Logs confirm provisioning events
+- Users assigned to SCIM-integrated apps are **automatically provisioned** with mapped attributes 
+- When users are deactivated in Okta, their accounts in connected apps are also **automatically deactivated**
+- The **System Log** provides a full audit trail confirming provisioning and deactivation events
+- A **custom Okta Workflow** was built to automate alerts upon user deactivation, demonstrating lifecycle event-based automation
+- This lab shows proficiency in:
+   - SCIM-based lifecycle integration\
+   - Attribute mapping and provisioning hooks
+   - Deactivation flows and event logging
+   - Workflow automation using Okta Workflows Console
 
