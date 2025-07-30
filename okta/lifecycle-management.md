@@ -11,12 +11,20 @@ This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automa
 
 1️⃣ **Enable Provisioning for an App**
    - Go to **Applications** → **Applications**
-   - Select a SCIM-enabled app like **Slack**, **GitHub** in the **Browse App Catalog**, or your custom SCIM app
-   - Click **Add Integration** then fill out the fields in the **General Settings** tab → **Done**
+   - Select a SCIM-enabled app like **Slack** or **GitHub** in the **Browse App Catalog**, or for testing purposes you can use the built in SCIM 2.0 Test App (OAuth Bearer Token) app 
+   - Click **Add Integration** then fill out the fields in the **General Settings** tab → **Next** → **Done**
    - Go to the **Provisioning** tab click → **Configure API Integration** → **Check Enable API integration**
-   - Enable SCIM or API integration
+   - For this step, if you’re using the **SCIM 2.0 Test App (OAuth Bearer Token)**:
+      - Go to https `//scim.dev` and click **Get an API Key** to generate a free SCIM 2.0 Base URL and OAuth Bearer Token.
+      - Paste those values into the **SCIM 2.0 Base URL** and **OAuth Bearer Token** fields to continue setup
+   - **Test Credentials** and click **Save**
 
-2. **Configure Lifecycle Hooks**
+📸 Screenshot:
+![Provisioning Settings Enabled](./screenshots/lifecycle/provisioning-settings.png)
+
+---
+
+2️⃣ **Configure Lifecycle Hooks**
    - Enable *Create Users*, *Deactivate Users*, etc.
    - Map Okta attributes to the app
 
