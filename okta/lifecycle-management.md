@@ -20,7 +20,7 @@ This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automa
    - **Test API Credentials** and click **Save**
 
 📸 Screenshot:
-![Provisioning Settings Enabled](./screenshots/lifecycle/provisioning-settings.png)
+![API Credentials Tested and Saved](./screenshots/lifecycle-management/00api-credentials-success.png)
 
 ---
 
@@ -37,7 +37,7 @@ This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automa
    - Click **Save Mappings** if prompted
 
 📸 Screenshot:
-![Provisioning Settings Enabled](./screenshots/lifecycle/provisioning-settings.png)
+![Mapped Attributes](./screenshots/lifecycle-management/01mapped-attributes.png)
 
 ---
          
@@ -50,7 +50,7 @@ This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automa
    - Click **Done** to complete the assignment
 
 📸 Screenshot:
-![Provisioning Settings Enabled](./screenshots/lifecycle/provisioning-settings.png)
+![Assign Test User](./screenshots/lifecycle-management/02test-user-assigned.png)
 
 ---
 
@@ -65,7 +65,8 @@ This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automa
    - Check **System Log** to confirm user was deactivated
 
 📸 Screenshot:
-![Provisioning Settings Enabled](./screenshots/lifecycle/provisioning-settings.png)
+![Deactivate Test User](./screenshots/lifecycle-management/03deactivation-confirmation.png)
+![System Log](./screenshots/lifecycle-management/04system-log-confirmation.png)
 
 ---
 
@@ -93,7 +94,7 @@ This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automa
 - **Save** Your Flow and turn flow **ON**
   
 📸 Screenshot:
-![Provisioning Settings Enabled](./screenshots/lifecycle/provisioning-settings.png)
+![Okta Workflow Configured](./screenshots/lifecycle-management/05okta-workflow-on.png)
 
 ---
 
@@ -106,7 +107,7 @@ This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automa
    - It may take a few seconds for the workflow to trigger and send
 
 📸 Screenshot:
-![Provisioning Settings Enabled](./screenshots/lifecycle/provisioning-settings.png)
+![Workflow Triggered](./screenshots/lifecycle-management/06workflow-triggered.png)
 
 ---
 
