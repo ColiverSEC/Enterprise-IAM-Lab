@@ -10,13 +10,14 @@ These walkthroughs are designed to give practical experience with core AD admini
 
 | File | Description |
 |-------|-------------|
-| [Active Directory Security Hardening](./active-directory-security-hardening.md) | Best practices for securing domain controllers, audit policies, and service account management. |
-| [AD Backup and Recovery](./ad-backup-and-recovery.md) | Procedures for backing up AD, recovering deleted objects using tombstone and recycle bin, and disaster recovery basics. |
 | [AD Forest and Domain Architecture](./ad-forest-and-domain-architecture.md) | Overview of AD forests, domains, trusts, and their design considerations. |
-| [Delegation and Access Control](./delegation-and-access-control.md) | How to delegate administrative permissions securely and manage access control within OUs. |
 | [OU and GPO Management](./ou-gpo-management.md) | Creating and organizing Organizational Units and Group Policy Objects (GPOs) for centralized policy management. |
-| [Powershell for AD Managment](./powershell-for-ad-management.md) | PowerShell scripts and cmdlets for automating user, group, and policy management in AD. |
 | [User and Group Management](./user-and-group-management.md) | User account lifecycle management, group types/scopes, and best practices for group membership. |
+| [Delegation and Access Control](./delegation-and-access-control.md) | How to delegate administrative permissions securely and manage access control within OUs. |
+| [Active Directory Security Hardening](./active-directory-security-hardening.md) | Best practices for securing domain controllers, audit policies, and service account management. |
+| [Powershell for AD Managment](./powershell-for-ad-management.md) | PowerShell scripts and cmdlets for automating user, group, and policy management in AD. |
+| [AD Backup and Recovery](./ad-backup-and-recovery.md) | Procedures for backing up AD, recovering deleted objects using tombstone and recycle bin, and disaster recovery basics. |
+
 
 ---
 
