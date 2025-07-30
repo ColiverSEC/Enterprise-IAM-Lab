@@ -69,6 +69,47 @@ This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automa
 
 ---
 
+5️⃣ **Optional: Create an Okta Workflow**
+> Add automation like alerting IT when a user is deactivated
+- Go to **Workflows** → **Workflows Console**
+   - **Workflows** opens in a new tab.
+- Click **New Flow** → **From scratch**
+- Select **Default Folder** (or any folder you want to organize your flows into) → **Create Flow** 
+- Once youre in the flow builder, name your flow something like: `Alert on User Deactivation`
+-  Add Trigger (Left Box — “When this happens”):
+   - Click **Add Event**
+   - In the Event menu, go to:
+      - **Okta** → **User Deactivated** then connect Okta account with:
+         - **Domain**: Your Okta Admin Console URL without the `https://` prefix or the `-admin` portion of the URL
+         - **Client ID** and **Client Secret**: To retrieve them, log in to your Okta Admin Console, go to **Applications** → **Applications**, open the **Okta Workflows OAuth** application, click the **Sign On** tab, and copy the values
+- Add an Action (Right Box — “Then do this”)
+- 📧  Example: Send Email:
+  - Click **Add app action**
+   - Select **Email** → **Send Email**
+   - Configure:
+     - **To**: Your email or IT team’s
+      - **Subject**: “User Deactivated Alert”
+      - **Body**: Use fields like {{user.profile.login}} has been deactivated
+- **Save** Your Flow and turn flow **ON**
+  
+📸 Screenshot:
+![Provisioning Settings Enabled](./screenshots/lifecycle/provisioning-settings.png)
+
+---
+
+6️⃣ **Test the Flow**
+- Go back to **Directory** → **People** in Okta
+- Find another test user (or re-activate and then re-deactivate your current one)
+- Click on their name → **Deactivate**
+- Confrim it works:
+   - Check your inbox for the email you just configured
+   - It may take a few seconds for the workflow to trigger and send
+
+📸 Screenshot:
+![Provisioning Settings Enabled](./screenshots/lifecycle/provisioning-settings.png)
+
+---
+
 ## ✅ Outcome
 - When a user is removed from Okta, the app account is also deactivated  
 - Logs confirm provisioning events
