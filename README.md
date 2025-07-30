@@ -25,9 +25,9 @@ This lab demonstrates how identity platforms are used in enterprise environments
 
 | Module | Description |
 |--------|-------------|
-| [Entra ID](./entra/) | User provisioning, group-based access, Conditional Access, PowerShell |
-| [Okta](./okta/) | SAML app integration, MFA policy creation, lifecycle management |
-| [Active Directory](./activedirectory/) | OU/GPO setup, domain user management, AD PowerShell |
+| [Microsoft Entra ID](./entra/) | Cloud and hybrid identity provisioning, group-based licensing, Conditional Access (MFA, device compliance), PowerShell automation |
+| [Okta](./okta/) | SAML/OIDC app integrations, MFA policies, JIT provisioning, lifecycle automation with Okta Workflows |
+| [Active Directory (On-Prem)](./activedirectory/) | OU structure, GPOs, delegated access, user/group management with PowerShell|
 | [Federation Protocols](./federation-protocols/) | SAML, SCIM, OAuth, and OIDC authentication flows |
 | [Secure Access Controls](./secure-access/) | MFA policies, RBAC, Conditional Access enforcement |
 | [Automation](./automation/) | IAM scripting with PowerShell and Okta Workflows |
