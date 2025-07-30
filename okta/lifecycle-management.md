@@ -76,7 +76,7 @@ This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automa
    - **Workflows** opens in a new tab.
 - Click **New Flow** → **From scratch**
 - Select **Default Folder** (or any folder you want to organize your flows into) → **Create Flow** 
-- Once youre in the flow builder, name your flow something like: `Alert on User Deactivation`
+- Once you're in the flow builder, name your flow something like: `Alert on User Deactivation`
 -  Add Trigger (Left Box — “When this happens”):
    - Click **Add Event**
    - In the Event menu, go to:
@@ -102,7 +102,7 @@ This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automa
 - Go back to **Directory** → **People** in Okta
 - Find another test user (or re-activate and then re-deactivate your current one)
 - Click on their name → **Deactivate**
-- Confrim it works:
+- Confirm it works:
    - Check your inbox for the email you just configured
    - It may take a few seconds for the workflow to trigger and send
 
