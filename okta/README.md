@@ -81,9 +81,9 @@ This module covers identity and access management using Okta, a leading cloud id
 
 | Description                      | Image |
 |---------------------------------|-------|
-| Okta SAML Application Setup     | ![](./screenshots/okta_github_saml.png) |
-| MFA Policy Creation              | ![](./screenshots/okta_mfa_policy.png) |
-| Lifecycle Management Provisioning| ![](./screenshots/okta_provisioning.png) |
+| Okta SAML Application Setup     | ![Name App Integration](screenshots/app-integration/name-app-integration-saml.png)  |
+| MFA Policy Creation              | ![New Policy Overview](./screenshots/mfa-policies/02new-policy-overview.png) |
+| Lifecycle Management Provisioning| ![Okta Workflow Configured](./screenshots/lifecycle-management/05okta-workflow-on.png) |
 
 ---
 
