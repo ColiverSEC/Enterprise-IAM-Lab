@@ -9,7 +9,6 @@ This section demonstrates how user identities are created and managed in Microso
 - Manual user creation in Entra Admin Center  
 - Bulk user import with CSV  
 - PowerShell automation for user creation  
-- Entra ID Connect hybrid sync with on-prem AD  
 - Group-based license assignment  
 
 ---
@@ -118,48 +117,11 @@ Once connected, run the script to create users:
 
 ---
 
-## 🔁 Hybrid Sync from On-Prem AD (via Azure AD Connect)
+> 🔁 **Looking for hybrid sync setup?**
+> Learn how to connect on-prem AD to Entra ID and sync thousands of users using Azure AD Connect.
+>
+> 👉 [Go to Hybrid Identity Walkthrough](./hybrid_identity.md)
 
-This lab builds on the configuration completed in my previous project:  
-🔗 [AD-Entra-Hybrid-Lab](https://github.com/ColiverSEC/AD-Entra-Hybrid-Lab)
-
-In that lab, I created a hybrid identity environment by connecting an on-prem Active Directory domain to Microsoft Entra ID using Azure AD Connect.
-
-### 🧱 What Was Configured:
-
-- **1,000 users** created in on-prem Active Directory using PowerShell
-- **Organizational Units (OUs)** built for departments and devices
-- **Custom domain** `IDSentinelSolutions.com` registered via GoDaddy and verified in Entra ID
-- **Azure AD Connect** installed on a dedicated VM
-- **Directory sync** configured between on-prem AD and Microsoft Entra
-
-📸 Screenshot (user sync successful):  
-![AD and Entra User Sync](screenshots/users-synced-to-entra-id.png
-)
----
-
-### 🔎 How to Verify Sync:
-
-- Go to **Entra Admin Center → Users**
-- Filter by **Source**: `Windows Server AD`
-- You should see users marked as "Synced from on-premises AD"
-
-💡 These users **cannot be edited** directly in Entra — changes must be made in Active Directory and synced.
-
----
-
-### ✅ Why This Matters:
-
-Hybrid identity allows organizations to:
-
-- Maintain **existing on-prem environments**
-- Extend security and access management into the **cloud**
-- Enable **SSO**, **Conditional Access**, and **MFA** for synced users
-
----
-
-📁 Learn more in the full walkthrough:  
-🔗 [AD-Entra-Hybrid-Lab](https://github.com/ColiverSEC/AD-Entra-Hybrid-Lab)
 
 ---
 
@@ -249,10 +211,7 @@ Your HR team hires a new employee who needs access to email, Teams, and SharePoi
 2. **License Assignment**
    - The user is added to the `M365-E5-License-Group`, which automatically assigns Microsoft 365 E5 licensing.
 
-3. **Sync to Cloud (if hybrid)**
-   - If the user was created in AD, they are synced to Microsoft Entra ID via Azure AD Connect.
-
-4. **Access Control**
+3. **Access Control**
    - Conditional Access and MFA policies (covered next) apply based on group membership and device compliance.
 
 ---
@@ -270,7 +229,7 @@ Your HR team hires a new employee who needs access to email, Teams, and SharePoi
 
 🎯 Now that users and groups are provisioned, the next step is securing their access.
 
-📁 Continue to: [`conditional_access.md`](./conditional-access.md)
+📁 Continue to: [`hybrid-identity`](./hybrid-identity.md)
 
 
 
