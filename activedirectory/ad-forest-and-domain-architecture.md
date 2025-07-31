@@ -151,23 +151,43 @@ Enable users in one domain/forest to access resources in another.
 
 ---
 
-## 📝 Summary
+## 🧩 Use Case Example: Building a Corporate Directory
 
-You learned about:
+### Scenario:  
+A growing company needs a centralized directory service to manage employees, secure access to internal apps, and enable future cloud sync.
 
-- AD forests, domains, and trust relationships  
-- How to create and explore an AD forest and domain  
-- Understanding trust relationships and architecture  
+### 🛠 Steps Taken:
+
+1. **Forest and Domain Creation**  
+   A new `corp.lab` domain is created to serve as the organization’s root domain.
+
+2. **Domain Controller Deployment**  
+   AD DS is installed and configured on a secure server.
+
+3. **Child Domain Added (Optional)**  
+   A child domain `sales.corp.lab` is deployed for departmental autonomy.
+
+4. **Trusts Reviewed**  
+   Built-in and configured trust relationships are verified to allow future expansion.
+
+---
+
+## ✅ Outcome
+
+- A new AD forest and domain have been successfully created
+- You now have a functioning domain controller with AD DS installed
+- You can manage users, groups, and OUs using Active Directory tools
+- Trust relationships (if configured) are visible and manageable
 
 This foundation supports secure, scalable Active Directory environments.
 
 ---
 
-## 📖 Further Reading
+## 🔗 Next Steps
 
-- [Active Directory Forests and Domains (Microsoft Docs)](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/active-directory-forests-and-domains)  
-- [Understanding Trusts (Microsoft Docs)](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/understanding-trusts)
+Now that your forest and domain are operational:
 
----
+- ➡️ Continue to [`ou-gpo-management.md`](./ou-gpo-management.md) to structure OUs and apply group policies  
+- ➕ Or move to [`user-group-management.md`](./user-group-management.md) to begin provisioning users and delegating access  
+- 🔗 Want to connect to Microsoft Entra ID? Jump to [`hybrid_identity.md`](../entra/hybrid_identity.md)
 
-⬅️ [Back to Enterprise IAM Lab Overview](../README.md)
