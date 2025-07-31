@@ -18,6 +18,9 @@ This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automa
       - Go to https `//scim.dev` and click **Get an API Key** to generate a free SCIM 2.0 Base URL and OAuth Bearer Token.
       - Paste those values into the **SCIM 2.0 Base URL** and **OAuth Bearer Token** fields to continue setup
    - **Test API Credentials** and click **Save**
+> 🧪 **Test Lab Tip**  
+> The SCIM 2.0 Test App + scim.dev is perfect for testing SCIM flows without needing a real app integration.
+
 
 📸 Screenshot:
 ![API Credentials Tested and Saved](./screenshots/lifecycle-management/00api-credentials-success.png)
