@@ -225,11 +225,16 @@ Your HR team hires a new employee who needs access to email, Teams, and SharePoi
 
 ---
 
-## 🔗 Next Step: Conditional Access Policies
+## 🔗 Next Steps
 
-🎯 Now that users and groups are provisioned, the next step is securing their access.
+🎯 Now that users and groups are provisioned, you have two key next steps depending on your focus:
 
-📁 Continue to: [`hybrid-identity`](./hybrid-identity.md)
+- If you want to **connect your on-prem AD to Microsoft Entra ID** and sync users, go to the Hybrid Identity walkthrough.  
+  📁 [`hybrid-identity`](./hybrid-identity.md)
+
+- If you’re ready to **secure access with Conditional Access policies**, continue here:  
+  📁 [`conditional_access.md`](./conditional-access.md)
+
 
 
 
