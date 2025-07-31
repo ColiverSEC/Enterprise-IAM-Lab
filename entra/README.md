@@ -44,16 +44,16 @@ This module simulates cloud identity provisioning and access management using Mi
 
 ## 🛠 Tools Used
 
-🔧 Admin Portals  
-- Microsoft Entra Admin Center  
-- Microsoft 365 Admin Center  
-
-💻 Command-line & Scripting  
-- PowerShell (AzureAD & MSOnline modules)  
-
-🖥️ Infrastructure  
-- Azure AD Connect  
-- On-Prem Windows Server (via Hyper-V or VirtualBox)
+> 🔧 Admin Portals  
+> - Microsoft Entra Admin Center  
+> - Microsoft 365 Admin Center
+>
+> 💻 Command-line & Scripting 
+> - PowerShell (AzureAD & MSOnline modules)
+>  
+> 🖥️ Infrastructure
+> - Azure AD Connect  
+> - On-Prem Windows Server (via Hyper-V or VirtualBox)
 
 ---
 
