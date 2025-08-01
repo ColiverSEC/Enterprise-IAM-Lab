@@ -4,7 +4,7 @@ This section demonstrates how to create and test a Conditional Access policy in 
 
 ---
 
-## 📝 What This Covers
+## 📚 What This Lab Covers
 
 - Creating a Conditional Access policy  
 - Targeting specific users or groups  
@@ -15,7 +15,7 @@ This section demonstrates how to create and test a Conditional Access policy in 
 
 ## 🛠️ How to Set It Up
 
-### 1️⃣ Navigate to Conditional Access
+### Navigate to Conditional Access
 
 - Go to **Microsoft Entra Admin Center**  
 - Click **Entra ID tab** → **Conditional Access**  
@@ -25,13 +25,13 @@ This section demonstrates how to create and test a Conditional Access policy in 
 
 ---
 
-### 2️⃣ Define Policy Basics
+### Define Policy Basics
 
 - **Name**: `Require MFA for Licensed Users`
 
 ---
 
-### 3️⃣ Select Users or Groups
+### Select Users or Groups
 
 - **Include**: `M365-E5-License-Group` *(or a test group you created earlier)*  
 - **Exclude**: *(optional but recommended)*:
@@ -42,7 +42,7 @@ This section demonstrates how to create and test a Conditional Access policy in 
 ![Select Users or Groups](screenshots/03conditional-access-exclude-global-admin.png)
 ---
 
-### 4️⃣ Choose Cloud Apps or Actions
+### Choose Cloud Apps or Actions
 
 - **Select**: `Target resources`
 - **Include**: `All resources (formerly 'All cloud apps')`  
@@ -52,7 +52,7 @@ This section demonstrates how to create and test a Conditional Access policy in 
 
 ---
 
-### 5️⃣ Configure Network (Optional for This Lab)
+### Configure Network (Optional for This Lab)
 
 - **Select**: `Network location`
 - This section allows you to **include or exclude access** based on:
@@ -68,7 +68,7 @@ This section demonstrates how to create and test a Conditional Access policy in 
 
 ---
 
-### 6️⃣ Configure Conditions *(optional)*
+### Configure Conditions *(optional)*
 
 - **Sign-in risk**:
   - Trigger on: `Medium and above`  
@@ -81,7 +81,7 @@ This section demonstrates how to create and test a Conditional Access policy in 
 
 ---
 
-### 7️⃣ Grant Access Controls
+### Grant Access Controls
 
 - Under **Grant**, choose:
   - ✅ `Require multi-factor authentication`  
@@ -91,7 +91,7 @@ This section demonstrates how to create and test a Conditional Access policy in 
 
 ---
 
-### 8️⃣ Enable the Policy
+### Enable the Policy
 
 - Set **Enable Policy** to: `On`  
 - Click **Create** to save and apply the policy
@@ -101,7 +101,7 @@ This section demonstrates how to create and test a Conditional Access policy in 
 
 ---
 
-## 🧪 Optional Testing Steps
+## Optional Testing Steps
 
 You can validate the policy using the following steps:
 
@@ -111,6 +111,34 @@ You can validate the policy using the following steps:
 4. Observe that MFA is triggered by the new Conditional Access policy
 
 > ⚠️ **Important**: Always keep a backup Global Admin or break-glass account excluded from CA policies.
+
+---
+
+## 🧪 **Sample Use Case**
+
+> These scenarios demonstrate real-world applications of Conditional Access policies in Microsoft Entra. You can adapt and test them in your lab to simulate production-level enforcement
+
+**Use Case 1: Enforce MFA for All Licensed Users**
+**Goal**: Require MFA for all users in the M365-E5-License-Group when accessing Microsoft 365 services.
+
+**Why**: Enforces a baseline security posture for all licensed users.
+
+- **Users**: M365-E5-License-Group
+- **Apps**: All cloud apps
+- **Conditions**: None
+- **Controls**: Require MFA
+- **Testing**: Log in with a user from the group via incognito window – prompt for MFA should occur.
+
+**Use Case 2**: Block Access from Non-US Locations
+**Goal**: Restrict sign-ins from outside the United States.
+
+**Why**: Helps mitigate the risk of unauthorized international access.
+
+- **Users**: All users
+- **Conditions**:
+   - **Location**: Exclude Named location: United States
+- **Controls**: Block access
+- **Testing**: Temporarily modify location in browser dev tools or use VPN to simulate foreign IP.
 
 ---
 
