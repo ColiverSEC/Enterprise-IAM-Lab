@@ -9,7 +9,7 @@ This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automa
 
 ## 🛠️ Key Steps
 
-1️⃣ **Enable Provisioning for an App**
+**Enable Provisioning for an App**
    - Go to **Applications** → **Applications**
    - Select a SCIM-enabled app like **Slack** or **GitHub** in the **Browse App Catalog**, or for testing purposes you can use the built in SCIM 2.0 Test App (OAuth Bearer Token) app 
    - Click **Add Integration** then fill out the fields in the **General Settings** tab → **Next** → **Done**
@@ -27,7 +27,7 @@ This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automa
 
 ---
 
-2️⃣ **Configure Lifecycle Hooks**
+**Configure Lifecycle Hooks**
    - Under the same **Provisioning** tab, ensure **Create Users**, ***Deactivate Users*** and **Sync Password** are set to **Enable**
    - Scroll down to the **Attribute Mappings** section and map Okta attributes to the app
    - You'll notice that **userName** says **"Configured in Sign On Settings"** — that’s normal
@@ -44,7 +44,7 @@ This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automa
 
 ---
          
-3️⃣ **Assign a Test User**
+**Assign a Test User**
    - Go to **Directory** → **People**
    - Select an existing test user or click **Add Person** to create one
    - After creating or selecting a user, click **Assign Applications**
@@ -57,7 +57,7 @@ This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automa
 
 ---
 
-4️⃣ **Deactivate the Test User**
+**Deactivate the Test User**
    - Go to **Directory** → **People**
       - Find the test user you assigned the SCIM app to in Step 3
    - Click on the User’s Name to open profile
@@ -73,7 +73,7 @@ This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automa
 
 ---
 
-5️⃣ **Optional: Create an Okta Workflow**
+**Optional: Create an Okta Workflow**
 > Add automation like alerting IT when a user is deactivated
 - Go to **Workflows** → **Workflows Console**
    - **Workflows** opens in a new tab.
@@ -101,7 +101,7 @@ This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automa
 
 ---
 
-6️⃣ **Test the Flow**
+**Test the Flow**
 - Go back to **Directory** → **People** in Okta
 - Find another test user (or re-activate and then re-deactivate your current one)
 - Click on their name → **Deactivate**
