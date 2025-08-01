@@ -31,7 +31,7 @@ This walkthrough guides you step-by-step through integrating an application with
   - Scopes and claims required by the app for authentication and profile data  
 
 
-## 📝 What This Covers
+## 📚 What This Lab Covers
 - Adding apps to Okta
 - Configuring SAML and OIDC settings
 - Assigning users and testing SSO
