@@ -3,7 +3,7 @@
 ### Introduction
 
 This walkthrough guides you step-by-step through integrating an application with Okta using the SAML 2.0 and OpenID Connect (OIDC) protocols. You will learn how to add and configure an app in Okta, assign users for access, and test Single Sign-On (SSO) functionality. The guide also touches on Just-In-Time (JIT) provisioning to automate user account creation on the app side.
-
+  
 ## 📚 Table of Contents
 - [🔍 Overview](#-okta-application-integration-walkthrough)  
 - [🛠️ SAML Setup](#️-how-to-set-it-up-saml)  
@@ -60,7 +60,7 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 
 ## 🛠️ How to Set It Up: SAML
 
-1. **Add a New App in Okta**
+**Add a New App in Okta**
 - Navigate to the Okta Admin Console
 - Go to **Applications** → **Applications** → click *Create App Integration*.
 - Choose the appropriate sign-in method:
@@ -76,7 +76,7 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 
 ---
   
-2. **Configure SAML Settings**
+**Configure SAML Settings**
 - **For SAML 2.0:**
 - Input required fields:
   - **Single Sign-On URL (SSO URL)** – where Okta will send the authentication response.
@@ -93,7 +93,7 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 
 ---
   
-3. **Assign the App to a Test User**
+**Assign the App to a Test User**
 - Go to **Assignments** → click **Assign** → choose **Assign to People** or **Groups**.
 - Select a test user (or group), confirm the user details, and click **Save and Go Back** → **Done**.
   - This ensures the user has access and can initiate the login flow.
@@ -105,7 +105,7 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 
 ---
 
-4. **Test the SSO Flow**
+**Test the SSO Flow**
 - Open a new browser/incognito window.
 - Log in as the assigned test user.
 - Access the app directly or through the **Okta Dashboard**.
@@ -126,7 +126,7 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 
 ## 🛠️ How to Set It Up: OIDC
 
-1. **Add a New App in Okta**
+**Add a New App in Okta**
 - Navigate to the Okta Admin Console
 - Go to **Applications** → **Applications** → click *Create App Integration*.
 - Choose : **OIDC** - Web Application for modern or public-facing apps. 
@@ -141,7 +141,7 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 
 ---
      
-2. **Configure OIDC Settings**
+**Configure OIDC Settings**
 - Fill in the following:
   - A name for your app (e.g., “GitHub SSO Test”).
   - Optionally, upload an app logo for easier identification.
@@ -154,7 +154,7 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 
 ---
   
-3. **Assign the App to a Test User**
+**Assign the App to a Test User**
 - Go to **Assignments** → click **Assign** → choose **Assign to People** or **Groups**.
 - Select a test user (or group), confirm the user details, → click **Save and Go Back** → **Done**.
   - This ensures the user has access and can initiate the login flow.
@@ -165,7 +165,7 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 
 ---
 
-4. **Grab Credentials**
+**Grab Credentials**
 - After saving, Okta generates a Client ID and Client Secret.
 - Go to **Applications** → **Applications** → click *Your Created App* → **General**
 - You’ll then see your credentials and You’ll use these in your app to request tokens.
@@ -175,7 +175,7 @@ JIT provisioning allows Okta to automatically create or update user accounts in 
 
 ---
 
-5. **Set Up Your Application to Use OIDC**
+**Set Up Your Application to Use OIDC**
 > ‼️Important‼️
 > 
 > Your app needs to:
@@ -256,7 +256,7 @@ if __name__ == '__main__':
 ---
 
 
-6. **Run the Flask App**
+**Run the Flask App**
 - Open Terminal by → clicking  **View** → click **Terminal** or press **Ctrl + `** (make sure you're in the same folder as app.py):
   - Example command cd /path/to/your/folder
 - Once you're in the target folder run ``` .\python.exe app.py ```
@@ -267,7 +267,7 @@ if __name__ == '__main__':
 
 ---
 
-7. **Test It**
+**Test It**
 - Open your browser and go to: ``` http://localhost:8080 ```
 - Click **Login with Okta**.
 - You will be redirected to your Okta trial login screen.
