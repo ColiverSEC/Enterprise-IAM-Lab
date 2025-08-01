@@ -4,7 +4,7 @@ This section demonstrates how user identities are created and managed in Microso
 
 ---
 
-## 🔹 What This Covers
+## 📚 What This Lab Covers
 
 - Manual user creation in Entra Admin Center  
 - Bulk user import with CSV  
