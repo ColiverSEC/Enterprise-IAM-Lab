@@ -15,13 +15,13 @@ This section demonstrates how user identities are created and managed in Microso
 
 ## 🧑‍💻 Manual User Creation (Cloud-Only)
 
-1. Go to **Microsoft Entra Admin Center** → *Users* → *New User*  
-2. Fill in basic info (Display Name, UPN, password)  
-3. Assign a **usage location**  
-4. Click *Create*
+- Go to **Microsoft Entra Admin Center** → **Users** → **New User** 
+- Fill in basic info (Display Name, UPN, password)  
+- Assign a **usage location**  
+- Click **Create**
 
-📸 Screenshots:  
-![User Created](screenshots/user-created.png) 
+📸 Screenshots:
+![User Created](screenshots/user-created.png)
 ![User Created](screenshots/user-created1.png)
 ---
 
@@ -31,10 +31,10 @@ Microsoft Entra Admin Center supports bulk user creation using a CSV file.
 
 ### 📌 Steps to Upload
 
-1. Navigate to **Microsoft Entra Admin Center** → *Users* → *Bulk Create*
-2. Download the **sample CSV template** (optional but very helpful)
-3. Fill in your user details preferably in Excel or a text editor
-4. Upload your completed CSV file and submit the import
+- Navigate to **Microsoft Entra Admin Center** → **Users** → **Bulk Create**
+- Download the **sample CSV template** (optional but very helpful)
+- Fill in your user details preferably in *Excel* or a *text editor*
+- Upload your completed CSV file and **submit** the import
 
 ### 📄 Example CSV Format
 
@@ -141,25 +141,24 @@ Microsoft Entra allows licenses (such as Microsoft 365 E5) to be assigned automa
 
 ### 🛠️ How to Set It Up
 
-1. **Create a Security Group**
-
-   - Go to **Microsoft Entra Admin Center** → *Groups* → *New Group*
+**Create a Security Group**
+- Go to **Microsoft Entra Admin Center** → *Groups* → *New Group*
    - Group type: `Security`
    - Name example: `M365-E5-License-Group`
    - Membership type: `Assigned` (for now)
 
-2. **Assign a License to the Group**
+**Assign a License to the Group**
 
    - After creating the group, go to **Licenses** → *All Products*
    - Click on a license (e.g., *Microsoft 365 E5*) → *Licensed Groups* → *Assign to Group*
    - Choose your security group (e.g., `M365-E5-License-Group`)
    - Enable the services you want → *Assign*
 
-3. **Add Users to the Group**
+ **Add Users to the Group**
 
-   - Add users manually or via PowerShell
-   - Example:
-     ```powershell
+- Add users manually or via PowerShell
+- Example:
+  - ```powershell
      Add-AzureADGroupMember -ObjectId "<GroupObjectId>" -RefObjectId "<UserObjectId>"
      ```
 
