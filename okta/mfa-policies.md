@@ -16,7 +16,7 @@ This section demonstrates how to configure and test Okta Multi-Factor Authentica
 
 ## 🛠️ Step-by-Step Configuration
 
-### 1️⃣ Create A Test Group
+### Create A Test Group
 - Go to **Directory** → **Groups**
 - Click **Add Group**
 - Name the group something like: ```MFA-Test-Group```
@@ -29,7 +29,7 @@ This section demonstrates how to configure and test Okta Multi-Factor Authentica
 
 ---
 
-### 2️⃣ Enable Factor Enrollment
+### Enable Factor Enrollment
 
 - Go to **Okta Admin Console** → **Security** → **Authenticators**
 - Under the **Authenticators** tab, confirm that **Okta Verify** and **Email** are listed
@@ -67,7 +67,7 @@ This section demonstrates how to configure and test Okta Multi-Factor Authentica
 
 ---
 
-### 3️⃣ Create an Authentication Policy
+### Create an Authentication Policy
 
 - Go to **Okta Admin Console** → **Security** → **Authentication Policies**
 - Click **Add a policy**
@@ -116,7 +116,7 @@ This section demonstrates how to configure and test Okta Multi-Factor Authentica
 
 ---
 
-### 4️⃣ Apply Policy to Application(s)
+### Apply Policy to Application(s)
 
 - Go to **Applications** → Choose your test app (e.g., GitHub SAML)
 - Click the **Sign-On** tab
@@ -129,7 +129,7 @@ This section demonstrates how to configure and test Okta Multi-Factor Authentica
 
 ---
 
-### 5️⃣ Test Sign-In
+### Test Sign-In
 
 1. Ensure your **test user** is in the correct group (if applicable)
 2. Copy your app URL from the **Embed Link** section of the **General** tab of your app
