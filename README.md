@@ -15,7 +15,7 @@ This lab demonstrates how identity platforms are used in enterprise environments
 - [Modules](#lab-modules)
 - [Lab Environment](#lab-environment)
 - [Tools Used](#tools-used)
-- [Use Cases](#use-cases)
+- [Use Cases](#sample-use-cases)
 - [Coming Soon](#coming-soon)
 - [Screenshots](#screenshots)
 </details>
