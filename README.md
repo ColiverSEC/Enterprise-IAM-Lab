@@ -8,6 +8,20 @@ This lab demonstrates how identity platforms are used in enterprise environments
 
 ---
 
+<details>
+  <summary>📚 Table of Contents</summary>
+
+- [Overview](#wenterprise-iam-lab)
+- [Modules](#lab-modules)
+- [Lab Environment](#lab-environment)
+- [Tools Used](#tools-used)
+- [Use Cases](#use-cases)
+- [Coming Soon](#coming-soon)
+- [Screenshots](#screenshots)
+</details>
+
+---
+
 ## 📚 What This Lab Covers
 
 - Microsoft Entra user and group provisioning (manual & scripted)
