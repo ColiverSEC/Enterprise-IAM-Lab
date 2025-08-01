@@ -4,7 +4,7 @@ This section demonstrates how to configure and test Okta Multi-Factor Authentica
 
 ---
 
-## 📝 What This Covers
+## 📚 What This Lab Covers
 
 - Enabling user factor enrollment
 - Creating and customizing MFA policies
