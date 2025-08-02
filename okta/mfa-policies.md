@@ -61,7 +61,7 @@ This section demonstrates how to configure and test Okta Multi-Factor Authentica
 
 📸 Screenshot:  
 ![Auth Methods](./screenshots/mfa-policies/01available-auth-methods.png
-)]
+)
 ![New Policy Overview](./screenshots/mfa-policies/02new-policy-overview.png
 )
 ![Test Policy Rule](./screenshots/mfa-policies/03test-policy-rule-config.png
