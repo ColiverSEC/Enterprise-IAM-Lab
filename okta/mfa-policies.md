@@ -1,5 +1,7 @@
 # 🔐 Okta MFA Policy Configuration Walkthrough
 
+[⬅️ Back to Okta IAM Lab Overview](./README.md)
+
 This section demonstrates how to configure and test Okta Multi-Factor Authentication (MFA) policies. You’ll enable factor enrollment, define an authentication policy, assign it to applications, and verify enforcement.
 
 ---
