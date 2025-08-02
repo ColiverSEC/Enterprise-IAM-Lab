@@ -120,7 +120,9 @@ Enable users in one domain/forest to access resources in another.
 - Complete the wizard by clicking **Next** through the rest of the options until **Install**
 
 📸 **Screenshots**: 
-> _Screenshot placeholder: AD DS role selection_
+![Active Directory Roles Overview](.../screenshots/ad-forest-and-domain-architecture/01ad-ds-role-overview.png)
+
+
 
 ---
 
