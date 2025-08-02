@@ -1,5 +1,7 @@
 # 🔐 Microsoft Entra Conditional Access Policy Walkthrough
 
+[⬅️ Back to Microsoft Entra ID Lab Overview](./README.md)
+
 This section demonstrates how to create and test a Conditional Access policy in Microsoft Entra ID. The goal is to enforce Multi-Factor Authentication (MFA) under specific conditions, such as risky sign-ins or access to certain apps.
 
 ---
