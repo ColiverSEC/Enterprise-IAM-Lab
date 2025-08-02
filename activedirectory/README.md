@@ -1,5 +1,5 @@
 # 🧱 Active Directory (On-Prem) Lab
-
+[⬅️ Back to Enterprise IAM Lab Overview](../README.md)
 This lab provides **hands-on experience** with managing and securing traditional **on-premises Active Directory environments**. It focuses on critical areas such as:
 
 - ✅ Organizational design  
