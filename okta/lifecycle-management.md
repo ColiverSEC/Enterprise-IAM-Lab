@@ -1,5 +1,7 @@
 # 🔄 Okta Lifecycle Management Walkthrough
 
+[⬅️ Back to Okta IAM Lab Overview](./README.md)
+
 This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automatically provision and deprovision users in connected applications and how workflows can enhance automation during key lifecycle events.
 
 ## 📝 What This Covers
