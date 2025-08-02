@@ -111,12 +111,12 @@ Enable users in one domain/forest to access resources in another.
 
 ### Step 1: Install Active Directory Domain Services (AD DS)
 
-- Open **Server Manager**.  
-- Select **Add roles and features**.  
-- Choose **Role-based or feature-based installation**.  
-- Select your server.  
-- Check **Active Directory Domain Services** role.  
-- Complete the wizard.
+- Open **Server Manager**  
+- Select **Add roles and features**  
+- Choose **Role-based or feature-based installation**  
+- Select your server  
+- Check **Active Directory Domain Services** role  
+- Complete the wizard by clicking **Next** through the rest of the options until **Install**
 
 📸 **Screenshots**: 
 > _Screenshot placeholder: AD DS role selection_
@@ -125,12 +125,12 @@ Enable users in one domain/forest to access resources in another.
 
 ### Step 2: Promote Server to Domain Controller and Create New Forest
 
-1. Click **Promote this server to a domain controller** in Server Manager.  
-2. Choose **Add a new forest**.  
-3. Enter root domain name (e.g., `corp.lab`).  
-4. Set forest/domain functional levels (latest supported).  
-5. Provide DSRM password.  
-6. Review and install; server will reboot.
+- Click **Promote this server to a domain controller** in Server Manager.
+- Choose **Add a new forest**.
+- Enter root domain name (e.g., `corp.lab`).
+- Set forest/domain functional levels (latest supported).  
+- Provide DSRM password.  
+- Review and install; server will reboot.
 
 📸 **Screenshots**: 
 > _Screenshot placeholder: New forest creation_
@@ -139,9 +139,9 @@ Enable users in one domain/forest to access resources in another.
 
 ### Step 3: Explore the New Forest and Domain
 
-1. Open **Active Directory Users and Computers (ADUC)**.  
-2. Expand domain node (e.g., `corp.lab`).  
-3. View default containers like **Users**, **Computers**, **Domain Controllers**.
+- Open **Active Directory Users and Computers (ADUC)**.
+- Expand domain node (e.g., `corp.lab`).  
+- View default containers like **Users**, **Computers**, **Domain Controllers**.
 
 📸 **Screenshots**: 
 > _Screenshot placeholder: ADUC domain structure_
