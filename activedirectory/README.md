@@ -29,8 +29,6 @@ These walkthroughs simulate **real-world enterprise IAM** and **Windows infrastr
 
 ## 🛠️ Tools Used
 
-## 🛠️ Tools Used
-
 - **VirtualBox** (for running lab VMs)
 - **Active Directory Users and Computers (ADUC)**
 - **Group Policy Management Console (GPMC)**
