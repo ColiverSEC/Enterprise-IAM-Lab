@@ -1,6 +1,6 @@
 # Active Directory Forest and Domain Architecture
 
-⬅️ [Back to Enterprise IAM Lab Overview](../README.md)
+⬅️ [Back to Active Directory (On-Prem) Lab Overview](./README.md)
 
 ---
 
