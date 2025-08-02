@@ -8,20 +8,6 @@ This lab demonstrates how identity platforms are used in enterprise environments
 
 ---
 
-<details>
-  <summary>📚 Table of Contents</summary>
-
-- [Overview](#wenterprise-iam-lab)
-- [Modules](#lab-modules)
-- [Lab Environment](#lab-environment)
-- [Tools Used](#tools-used)
-- [Use Cases](#sample-use-cases)
-- [Coming Soon](#coming-soon)
-- [Screenshots](#screenshots)
-</details>
-
----
-
 ## 📚 What This Lab Covers
 
 - Microsoft Entra user and group provisioning (manual & scripted)
@@ -100,10 +86,10 @@ This lab demonstrates how identity platforms are used in enterprise environments
 
 | Description                    | Image |
 |--------------------------------|-------|
-| Entra User Provisioning        | ![](./screenshots/entra_user_creation.png) |
-| Okta SAML Integration (GitHub) | ![](./screenshots/okta_github_saml.png) |
-| Conditional Access Policy      | ![](./screenshots/entra_conditional_access.png) |
-| Okta MFA Enforcement           | ![](./screenshots/okta_mfa_policy.png) |
+| Entra User Provisioning        | ![](./entra/screenshots/user-created1.png) |
+| Okta SAML Integration (GitHub) | ![](./okta/screenshots/app-integration/assignment-confirmation.png) |
+| Conditional Access Policy      | ![](./entra/screenshots/08conditional-access-policy-created.png) |
+| Okta MFA Enforcement           | ![](./okta/screenshots/mfa-policies/06mfa-required-prompt.png) |
 
 ---
 
