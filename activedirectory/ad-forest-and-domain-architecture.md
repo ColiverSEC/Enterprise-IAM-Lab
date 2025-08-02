@@ -94,15 +94,31 @@ Enable users in one domain/forest to access resources in another.
 
 ---
 
+> 🧰 VM Setup (Quick Overview)
+> Before starting, ensure you have the following:
+>
+> A Windows Server 2016/2019/2022 VM (Hyper-V, VirtualBox, VMware, or cloud VM)
+>
+> 2 vCPUs and at least 4GB RAM recommended
+>
+> A static IP address configured (for DNS reliability)
+>
+> Administrator access to install server roles
+>
+> ⚠️ Skip this step if you're using a prebuilt Windows Server VM with a static IP already configured.
+
+---
+
 ### Step 1: Install Active Directory Domain Services (AD DS)
 
-1. Open **Server Manager**.  
-2. Select **Add roles and features**.  
-3. Choose **Role-based or feature-based installation**.  
-4. Select your server.  
-5. Check **Active Directory Domain Services** role.  
-6. Complete the wizard.
+- Open **Server Manager**.  
+- Select **Add roles and features**.  
+- Choose **Role-based or feature-based installation**.  
+- Select your server.  
+- Check **Active Directory Domain Services** role.  
+- Complete the wizard.
 
+📸 **Screenshots**: 
 > _Screenshot placeholder: AD DS role selection_
 
 ---
@@ -116,6 +132,7 @@ Enable users in one domain/forest to access resources in another.
 5. Provide DSRM password.  
 6. Review and install; server will reboot.
 
+📸 **Screenshots**: 
 > _Screenshot placeholder: New forest creation_
 
 ---
@@ -126,6 +143,7 @@ Enable users in one domain/forest to access resources in another.
 2. Expand domain node (e.g., `corp.lab`).  
 3. View default containers like **Users**, **Computers**, **Domain Controllers**.
 
+📸 **Screenshots**: 
 > _Screenshot placeholder: ADUC domain structure_
 
 ---
@@ -137,6 +155,7 @@ Enable users in one domain/forest to access resources in another.
 3. Choose **Child Domain**, enter name (e.g., `sales.corp.lab`).  
 4. Complete wizard and reboot.
 
+📸 **Screenshots**: 
 > _Screenshot placeholder: Child domain creation_
 
 ---
@@ -147,6 +166,7 @@ Enable users in one domain/forest to access resources in another.
 2. Right-click domain → **Properties** → **Trusts** tab.  
 3. Review trust relationships.
 
+📸 **Screenshots**: 
 > _Screenshot placeholder: Trusts tab_
 
 ---
