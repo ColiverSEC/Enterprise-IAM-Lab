@@ -1,6 +1,6 @@
 # 🔐 Okta IAM Lab
 
-[⬅️ Back to Enterprise IAM Lab Overview](./README.md)
+[⬅️ Back to Enterprise IAM Lab Overview](../README.md)
 
 This module covers identity and access management using Okta, a leading cloud identity provider. It provides hands-on guidance to integrate applications with Okta via SAML and OIDC, configure Multi-Factor Authentication (MFA) policies, and automate user lifecycle management including provisioning and deprovisioning.
 
