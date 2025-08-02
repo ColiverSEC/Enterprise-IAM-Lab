@@ -49,6 +49,7 @@ Containers within domains to organize objects and delegate administration. Not s
 _See [OU and GPO Management](./ou-gpo-management.md) for details._
 
 ### 🔐 Trust Relationships
+*This lab does not configure any child or external trusts.*
 
 Enable users in one domain/forest to access resources in another.
 
@@ -139,7 +140,7 @@ Enable users in one domain/forest to access resources in another.
 
 ### Step 3: Explore the New Forest and Domain
 
-- Open **Active Directory Users and Computers (ADUC)**.
+- Click **Start Menu** → **Windows Administrative Tools** →  **Active Directory Users and Computers (ADUC)**.
 - Expand domain node (e.g., `corp.lab`).  
 - View default containers like **Users**, **Computers**, **Domain Controllers**.
 
@@ -148,56 +149,24 @@ Enable users in one domain/forest to access resources in another.
 
 ---
 
-### Step 4 (Optional): Create a Child Domain
-
-1. On another server, install AD DS role.  
-2. Promote to domain controller, selecting **Add a new domain to existing forest**.  
-3. Choose **Child Domain**, enter name (e.g., `sales.corp.lab`).  
-4. Complete wizard and reboot.
-
-📸 **Screenshots**: 
-> _Screenshot placeholder: Child domain creation_
+### 🧭 Optional Exploration:
+> If you later choose to expand your forest, you can revisit Active Directory Domains and Trusts to create child domains and configure trust relationships. For now, this lab uses a single-domain structure.
 
 ---
 
-### Step 5: View Trust Relationships
+🧩 Use Case Example: Building a Corporate Directory
 
-1. Open **Active Directory Domains and Trusts** MMC.  
-2. Right-click domain → **Properties** → **Trusts** tab.  
-3. Review trust relationships.
-
-📸 **Screenshots**: 
-> _Screenshot placeholder: Trusts tab_
-
----
-
-## 🧩 Use Case Example: Building a Corporate Directory
-
-### Scenario:  
+Scenario:
 A growing company needs a centralized directory service to manage employees, secure access to internal apps, and enable future cloud sync.
 
-### 🛠 Steps Taken:
+🛠 Steps Taken:
+- Forest and Domain Creation: A new IDSentinelSolutions.com domain is created to serve as the organization’s root and only domain.
+- Domain Controller Deployment: AD DS is installed and configured on a secure Windows Server VM.
 
-1. **Forest and Domain Creation**  
-   A new `corp.lab` domain is created to serve as the organization’s root domain.
-
-2. **Domain Controller Deployment**  
-   AD DS is installed and configured on a secure server.
-
-3. **Child Domain Added (Optional)**  
-   A child domain `sales.corp.lab` is deployed for departmental autonomy.
-
-4. **Trusts Reviewed**  
-   Built-in and configured trust relationships are verified to allow future expansion.
-
----
-
-## ✅ Outcome
-
-- A new AD forest and domain have been successfully created
-- You now have a functioning domain controller with AD DS installed
+✅ Outcome:
+- A functional AD forest and domain are created
 - You can manage users, groups, and OUs using Active Directory tools
-- Trust relationships (if configured) are visible and manageable
+- This provides a foundation for secure identity management and future cloud integration
 
 This foundation supports secure, scalable Active Directory environments.
 
