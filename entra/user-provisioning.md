@@ -1,5 +1,7 @@
 # 👤 Microsoft Entra User Provisioning
 
+[⬅️ Back to Microsoft Entra ID Lab Overview](./README.md)
+
 This section demonstrates how user identities are created and managed in Microsoft Entra ID. It includes direct user creation (manual and scripted), group-based license assignment, and syncing identities from on-prem Active Directory.
 
 ---
