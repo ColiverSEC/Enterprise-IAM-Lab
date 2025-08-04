@@ -119,7 +119,10 @@ Enable users in one domain/forest to access resources in another.
 - Check **Active Directory Domain Services** role  
 - Complete the wizard by clicking **Next** through the rest of the options until **Install**
 
-![API Credentials Tested and Saved](./activedirectory/screenshots/ad-forest-and-domain-architecture.png)
+
+![AD DS Role Overview](/activedirectory/screenshots/ad-forest/01ad-ds-role-overview.png)
+![AD Role Installed](/activedirectory/screenshots/ad-forest/02ad-ds-installed.png)
+
 
 ---
 
@@ -133,8 +136,9 @@ Enable users in one domain/forest to access resources in another.
 - Review and install; server will reboot.
 
 📸 **Screenshots**: 
-> _Screenshot placeholder: New forest creation_
-
+![Promote Server](/activedirectory/screenshots/ad-forest/03promote-server.png)
+![Add Forest](/activedirectory/screenshots/ad-forest/04add-forest.png)
+![Configure Domain Controller](/activedirectory/screenshots/ad-forest/05domain-controller-options.png)
 ---
 
 ### Step 3: Explore the New Forest and Domain
@@ -144,7 +148,7 @@ Enable users in one domain/forest to access resources in another.
 - View default containers like **Users**, **Computers**, **Domain Controllers**.
 
 📸 **Screenshots**: 
-> _Screenshot placeholder: ADUC domain structure_
+![Default Containers](/activedirectory/screenshots/ad-forest/06default-containers.png)
 
 ---
 
