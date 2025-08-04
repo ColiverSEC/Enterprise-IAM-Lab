@@ -179,7 +179,15 @@ This foundation supports secure, scalable Active Directory environments.
 
 Now that your forest and domain are operational:
 
-- ➡️ Continue to [`ou-gpo-management.md`](./ou-gpo-management.md) to structure OUs and apply group policies  
-- ➕ Or move to [`user-group-management.md`](./user-group-management.md) to begin provisioning users and delegating access  
-- 🔗 Want to connect to Microsoft Entra ID? Jump to [`hybrid_identity.md`](../entra/hybrid_identity.md)
+➡️ [Organize OUs and apply GPOs](./ou-gpo-management.md)  
+Structure your directory for policy-based management and delegation.
+
+➕ [Provision users and groups](./user-and-group-management.md)  
+Start creating user accounts, managing groups, and controlling access.
+
+🌐 [Configure DNS for domain clients](./dns-configuration-for-active-directory-clients.md)  
+Ensure proper name resolution and domain join reliability.
+
+🔗 [Connect your AD to Microsoft Entra ID](https://github.com/ColiverSEC/Enterprise-IAM-Lab/blob/main/entra/hybrid-identity.md)  
+Extend identity management into the cloud with hybrid sync.
 
