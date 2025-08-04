@@ -21,7 +21,12 @@ This walkthrough shows how to configure DNS on a Windows 10 client so it can loc
 🔹 **Windows 10 VM** (client system)  
 🔹 Both machines on the same network or virtual switch  
 🔹 Static IP or DHCP reservation for the Domain Controller (recommended)
-
+> ⚠️ **VirtualBox Networking Note:**
+> If you are running your Windows Server 2019 and Windows 10 VMs in VirtualBox, you’ll need to configure two network adapters for each VM:
+> - Adapter 1: Set to NAT for internet access
+> - Adapter 2: Set to Internal Network (or Host-Only) to enable communication between the Domain Controller and the client VM for domain join and DNS resolution
+>
+> *Ensure both VMs are connected to the same internal network name so they can see each other on the network*
 ---
 
 ## 🛠️ DNS Configuration Steps
@@ -33,6 +38,8 @@ This walkthrough shows how to configure DNS on a Windows 10 client so it can loc
   - Run: `ipconfig`
   - Note the IPv4 address (e.g., `192.168.56.10`)
 
+📸 **Screenshots**:
+![AD DS Role Overview](/activedirectory/screenshots/ad-forest/01ad-ds-role-overview.png)
 ---
 
 ### Step 2: Configure DNS on Windows 10 Client
