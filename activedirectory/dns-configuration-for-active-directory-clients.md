@@ -22,15 +22,6 @@ This walkthrough shows how to configure DNS on a Windows 10 client so it can loc
 
 ---
 
-## 🔍 Quick Overview
-
-You’ll configure the Windows 10 client to:
-- Use the domain controller’s IP as its primary DNS
-- Test DNS resolution of the domain
-- Join the domain successfully
-
----
-
 ## 🛠️ DNS Configuration Steps
 
 ### Step 1: Identify the Domain Controller’s IP Address
