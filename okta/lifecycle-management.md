@@ -4,7 +4,7 @@
 
 This lab demonstrates how Okta’s Lifecycle Management (LCM) feature can automatically provision and deprovision users in connected applications and how workflows can enhance automation during key lifecycle events.
 
-## 📝 What This Covers
+## 📚 What This Lab Covers
 - Auto-provisioning users to connected apps via SCIM
 - Automatically deactivating users when offboarded from Okta
 - Using Okta Workflows to send alerts or perform actions on lifecycle events (e.g., deactivation)
