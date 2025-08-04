@@ -8,70 +8,147 @@ This walkthrough shows how to configure DNS on a Windows 10 client so it can loc
 
 ## 📚 What This Lab Covers
 
-- Pointing a Windows client to the domain controller for DNS
-- Verifying domain name resolution
-- Joining a Windows 10 device to an Active Directory domain
-- Optional PowerShell-based domain join
+- Configuring a static IP and loopback DNS on the Domain Controller  
+- Installing and configuring NAT using Remote Access  
+- Installing DHCP and setting up a scope  
+- Configuring a Windows 10 client for domain connectivity  
+- Joining the Windows 10 client to the AD domain
 
 ---
 
 ## 📝 What You’ll Need
 
-🔹 **Windows Server 2019** with AD DS and DNS configured  
-🔹 **Windows 10 VM** (client system)  
-🔹 Both machines on the same network or virtual switch  
-🔹 Static IP or DHCP reservation for the Domain Controller (recommended)
-> ⚠️ **VirtualBox Networking Note:**
-> If you are running your Windows Server 2019 and Windows 10 VMs in VirtualBox, you’ll need to configure two network adapters for each VM:
-> - Adapter 1: Set to NAT for internet access
-> - Adapter 2: Set to Internal Network (or Host-Only) to enable communication between the Domain Controller and the client VM for domain join and DNS resolution
-> - Your domain controller should have a static IP on the Internal Network adapter (like 192.168.56.10), and your Windows 10 client should use that IP as its DNS server.
->
-> *Ensure both VMs are connected to the same internal network name so they can see each other on the network*
+🔹 **Windows Server 2019** VM with Active Directory and DNS installed  
+🔹 **Windows 10** VM on the same **Internal Network** (VirtualBox)  
+🔹 Two VirtualBox network adapters:  
+- Adapter 1: NAT (for internet)  
+- Adapter 2: Internal Network (e.g., `intnet`)  
+
+> 💡 If using VirtualBox, you must use **two adapters**: one for NAT and one for the internal lab network.
+
 ---
 
-## 🛠️ DNS Configuration Steps
+## 🛠️ Configure Static IP and DNS on Domain Controller
 
-### Step 1: Identify the Domain Controller’s IP Address
+### Step 1: Assign Static IP to DC
 
-- On your **Windows Server 2019** (Domain Controller):
-  - Open **Command Prompt**
-  - Run: `ipconfig`
-  - Note the IPv4 address (e.g., `192.168.56.10`)
-
+- Right-click the **network icon** in the system tray → **Open Network & Internet settings**  
+- Click **Change adapter options**  
+- Right-click the **Internal Network adapter** (usually `Ethernet 2` or renamed to `_Internal_`) → **Properties**  
+- Select **Internet Protocol Version 4 (TCP/IPv4)** → **Properties**  
+- Configure the following manually:
+  - **IP address**: `192.168.56.1`
+  - **Subnet mask**: `255.255.255.0`
+  - **Default gateway**: *(leave blank)*
+  - **Preferred DNS server**: `127.0.0.1`
+  - **Alternate DNS server**: *(leave blank)*  
+- Click **OK** → **OK**
 📸 **Screenshots**:
-![AD DS Role Overview](/activedirectory/screenshots/ad-forest/01ad-ds-role-overview.png)
----
-
-### Step 2: Configure DNS on Windows 10 Client
-
-- Go to **Control Panel** → *Network and Sharing Center*  
-- Click **Change adapter settings**  
-- Right-click your active network → **Properties**  
-- Select **Internet Protocol Version 4 (TCP/IPv4)** → Click **Properties**
-
-- Set DNS manually:
-  - **Preferred DNS server**: `192.168.56.10` (your domain controller IP)
-  - **Alternate DNS server**: *(leave blank or set to internal DNS if available)*
-
-> 💡 **Do not use public DNS (e.g., 8.8.8.8) — it will break domain name resolution.**
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
 
 ---
 
-### Step 3: Test DNS Resolution
+## 🌐 Set Up NAT with Routing and Remote Access
 
-- Open **Command Prompt**:
-```nslookup corp.lab```
-  - You should receive a reply from your domain controller.
-> 💡 Replace corp.lab with your actual domain name. If it fails, check your network settings or firewall on the DC.
+### Step 2: Install Remote Access with NAT
 
-### Step 4: Join the Domain
-- Go to Settings → Accounts → Access work or school
-- Click + Connect → Join this device to a local Active Directory domain
-- Enter your domain name (e.g., corp.lab)
-- Provide domain credentials (e.g., corp\administrator)
-- Restart the client when prompted
-> 🔐 Use a domain account with permissions to join devices to the domain.
+- Open **Server Manager** → **Add Roles and Features**  
+- Choose **Role-based or feature-based installation**  
+- Select your server → Click **Next**  
+- Choose **Remote Access** → Click **Next**  
+- On Features screen → Click **Next**  
+- Under Role Services → Select:
+  - ✅ Routing  
+  - (RAS and DirectAccess will auto-check)  
+- Click **Next** → **Install**  
+
+### Step 3: Enable NAT Routing
+
+- After install, go to **Tools** → **Routing and Remote Access**  
+- Right-click your server name → **Configure and Enable Routing and Remote Access**  
+- Choose: **Network Address Translation (NAT)** → Click **Next**  
+- Select: **Use this public interface to connect to the internet**  
+- Choose your **Ethernet** adapter (Adapter 1 - NAT)  
+- Click **Next** → **Finish**
+
+---
+
+## 📦 Install DHCP and Create a Scope
+
+### Step 4: Install DHCP Role
+
+- Open **Server Manager** → **Add Roles and Features**  
+- Role-based installation → Select your server  
+- Choose **DHCP Server** → Click **Add Features** when prompted  
+- Click **Next** → **Install**  
+
+### Step 5: Create DHCP Scope
+
+- Go to **Tools** → **DHCP**  
+- Expand your server → Right-click **IPv4** → **New Scope**  
+- In the wizard:
+  - **Scope Name**: `192.168.56.100-200`  
+  - **Start IP**: `192.168.56.100`  
+  - **End IP**: `192.168.56.200`  
+  - **Subnet mask**: `255.255.255.0`  
+- Click **Next** through options  
+- Lease duration: Keep default (8 days)  
+- Choose: `Yes, I want to configure these options now`  
+- Configure:
+  - **Router (Default Gateway)**: `192.168.56.1`
+  - **Parent Domain**: `corp.lab` *(or your custom domain)*
+  - **DNS Server**: `192.168.56.1`
+
+### Step 6: Finalize DHCP Options
+
+- Under **DHCP > IPv4 > Server Options**:
+  - Right-click → **Configure Options**  
+  - Check:
+    - ✅ `003 Router` → `192.168.56.1`
+    - ✅ `006 DNS Servers` → `192.168.56.1`  
+- Click **Apply** → **OK**  
+- Right-click your DHCP server → **All Tasks** → **Restart**
+
+---
+
+## 💻 Configure Windows 10 Client
+
+### Step 7: Assign Static IP or Use DHCP
+
+**Option A: Static IP**
+- Right-click **Network icon** → **Change adapter options**  
+- Right-click **Ethernet 2** (internal adapter) → **Properties**  
+- Select **IPv4** → **Use the following IP**  
+  - **IP**: `192.168.56.2`  
+  - **Subnet Mask**: `255.255.255.0`  
+  - **Default Gateway**: `192.168.56.1`  
+  - **Preferred DNS**: `192.168.56.1`  
+
+**Option B: Use DHCP**
+- Choose:
+  - `Obtain an IP address automatically`  
+  - `Obtain DNS server address automatically`  
+- IP should be assigned from your configured DHCP scope
+
+### Step 8: Verify Connection
+
+Open **Command Prompt**:
+
+```cmd
+ipconfig
+ping 192.168.56.1
+```
+- You should see replies from the domain controller.
+
+## 🏷️ Join the Domain
+
+### Step 9: Join the Domain
+- Go to Settings → System → About → Rename this PC (Advanced)
+- Click Change
+- Under Member of, choose Domain
+- Enter your domain (e.g., corp.lab)
+- Provide domain admin credentials
+- Restart when prompted
 
 ---
 
