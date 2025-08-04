@@ -25,6 +25,7 @@ This walkthrough shows how to configure DNS on a Windows 10 client so it can loc
 > If you are running your Windows Server 2019 and Windows 10 VMs in VirtualBox, you’ll need to configure two network adapters for each VM:
 > - Adapter 1: Set to NAT for internet access
 > - Adapter 2: Set to Internal Network (or Host-Only) to enable communication between the Domain Controller and the client VM for domain join and DNS resolution
+> - Your domain controller should have a static IP on the Internal Network adapter (like 192.168.56.10), and your Windows 10 client should use that IP as its DNS server.
 >
 > *Ensure both VMs are connected to the same internal network name so they can see each other on the network*
 ---
