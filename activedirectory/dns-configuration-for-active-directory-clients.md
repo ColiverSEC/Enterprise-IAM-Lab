@@ -90,6 +90,7 @@ You’ll configure the Windows 10 client to:
 --- 
 
 🔗 Next Steps
-➡️ Create and apply GPOs to manage this device
-➕ Provision domain users and test logins
-🧪 Test policy refresh and domain-wide settings
+➡️ [Create and apply GPOs to manage this device](./ou-gpo-management.md)  
+➕ [Provision domain users and test logins](./user-group-management.md)  
+🧪 [Test policy refresh and domain-wide settings](./active-directory-security.md)
+
