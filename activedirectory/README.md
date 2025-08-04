@@ -4,7 +4,8 @@
 
 This lab provides **hands-on experience** with managing and securing traditional **on-premises Active Directory environments**. It focuses on critical areas such as:
 
-- ✅ Organizational design  
+- ✅ Organizational design
+- ✅ DNS Configuration  
 - ✅ Security hardening  
 - ✅ User & group lifecycle management  
 - ✅ Delegated administration  
@@ -20,6 +21,7 @@ These walkthroughs simulate **real-world enterprise IAM** and **Windows infrastr
 | Walkthrough | Description |
 |------------|-------------|
 | 🔧 [AD Forest and Domain Architecture](./ad-forest-and-domain-architecture.md) | Overview of AD forests, domains, trusts, and key design considerations. |
+| 🌐 [DNS Configuration for Active Directory Clients](./dns-configuration-for-active-directory-clients.md) | Configure client systems to use domain DNS for proper join and resolution. |
 | 🗂️ [OU and GPO Management](./ou-gpo-management.md) | Create and organize OUs and apply GPOs for centralized policy control. |
 | 👥 [User and Group Management](./user-and-group-management.md) | Lifecycle tasks, group scope/type, and membership management. |
 | 🛡️ [Delegation and Access Control](./delegation-and-access-control.md) | Delegate admin roles and securely manage permissions across OUs. |
