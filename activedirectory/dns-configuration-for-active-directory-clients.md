@@ -1,5 +1,7 @@
 # 🌐 DNS Configuration for Domain-Joined Windows Clients
 
+⬅️ [Back to Active Directory (On-Prem) Lab Overview](./README.md)
+
 This walkthrough shows how to configure DNS on a Windows 10 client so it can locate and join an Active Directory domain hosted on Windows Server 2019. Proper DNS setup is essential for successful domain joins, Group Policy processing, and Active Directory authentication.
 
 ---
