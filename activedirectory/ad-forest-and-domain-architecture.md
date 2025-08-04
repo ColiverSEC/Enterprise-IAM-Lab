@@ -135,7 +135,7 @@ Enable users in one domain/forest to access resources in another.
 - Provide DSRM password.  
 - Review and install; server will reboot.
 
-📸 **Screenshots**: 
+📸 **Screenshots**:
 ![Promote Server](/activedirectory/screenshots/ad-forest/03promote-server.png)
 ![Add Forest](/activedirectory/screenshots/ad-forest/04add-forest.png)
 ![Configure Domain Controller](/activedirectory/screenshots/ad-forest/05domain-controller-options.png)
