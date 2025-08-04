@@ -33,7 +33,7 @@ You’ll configure the Windows 10 client to:
 
 ## 🛠️ DNS Configuration Steps
 
-### 1️⃣ Identify the Domain Controller’s IP Address
+### Step 1: Identify the Domain Controller’s IP Address
 
 - On your **Windows Server 2019** (Domain Controller):
   - Open **Command Prompt**
@@ -42,7 +42,7 @@ You’ll configure the Windows 10 client to:
 
 ---
 
-### 2️⃣ Configure DNS on Windows 10 Client
+### Step 2: Configure DNS on Windows 10 Client
 
 - Go to **Control Panel** → *Network and Sharing Center*  
 - Click **Change adapter settings**  
@@ -57,8 +57,39 @@ You’ll configure the Windows 10 client to:
 
 ---
 
-### 3️⃣ Test DNS Resolution
+### Step 3: Test DNS Resolution
 
 - Open **Command Prompt**:
-```bash
-nslookup corp.lab
+```nslookup corp.lab```
+  - You should receive a reply from your domain controller.
+> 💡 Replace corp.lab with your actual domain name. If it fails, check your network settings or firewall on the DC.
+
+### Step 4: Join the Domain
+- Go to Settings → Accounts → Access work or school
+- Click + Connect → Join this device to a local Active Directory domain
+- Enter your domain name (e.g., corp.lab)
+- Provide domain credentials (e.g., corp\administrator)
+- Restart the client when prompted
+> 🔐 Use a domain account with permissions to join devices to the domain.
+
+---
+
+### ✅ Expected Behavior
+- The Windows 10 client will reboot and be part of the domain
+- You’ll be able to sign in with domain credentials (e.g., corp\jdoe)
+- The machine becomes manageable from the domain controller (e.g., via GPO)
+
+---
+
+### 🔄 Optional Enhancements
+- Configure DHCP on your network to issue DNS from the DC automatically
+- Add **DNS forwarders** on your DC to allow internet access from domain clients
+- Use PowerShell to join the domain:
+  - ```Add-Computer -DomainName "corp.lab" -Credential "corp\administrator" -Restart```
+
+--- 
+
+🔗 Next Steps
+➡️ Create and apply GPOs to manage this device
+➕ Provision domain users and test logins
+🧪 Test policy refresh and domain-wide settings
