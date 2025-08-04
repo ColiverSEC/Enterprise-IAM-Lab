@@ -119,7 +119,7 @@ Enable users in one domain/forest to access resources in another.
 - Check **Active Directory Domain Services** role  
 - Complete the wizard by clicking **Next** through the rest of the options until **Install**
 
-
+📸 **Screenshots**:
 ![AD DS Role Overview](/activedirectory/screenshots/ad-forest/01ad-ds-role-overview.png)
 ![AD Role Installed](/activedirectory/screenshots/ad-forest/02ad-ds-installed.png)
 
