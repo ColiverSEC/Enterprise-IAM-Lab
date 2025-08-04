@@ -119,7 +119,7 @@ Enable users in one domain/forest to access resources in another.
 - Check **Active Directory Domain Services** role  
 - Complete the wizard by clicking **Next** through the rest of the options until **Install**
 
-📸 **Screenshots**:
+![API Credentials Tested and Saved](./activedirectory/screenshots/ad-forest-and-domain-architecture.png)
 
 ---
 
