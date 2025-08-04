@@ -12,7 +12,7 @@ This walkthrough covers core concepts of forests, domains, trusts, and design co
 
 ---
 
-## 📚 Concepts Overview
+## 📚 What This Lab Covers
 
 ### 🌲 Active Directory Forests
 
