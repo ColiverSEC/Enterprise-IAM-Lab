@@ -4,8 +4,6 @@
 
 ---
 
-## 📝 Introduction
-
 Active Directory (AD) is organized into logical containers called forests and domains. Understanding the architecture of forests and domains is essential for designing a secure, scalable, and manageable AD environment.
 
 This walkthrough covers core concepts of forests, domains, trusts, and design considerations, along with a hands-on lab to create and explore your own AD forest and domain.
