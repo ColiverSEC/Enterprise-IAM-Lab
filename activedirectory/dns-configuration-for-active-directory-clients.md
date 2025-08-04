@@ -40,11 +40,22 @@ This walkthrough shows how to configure DNS on a Windows 10 client so it can loc
   - **IP address**: `192.168.56.1`
   - **Subnet mask**: `255.255.255.0`
   - **Default gateway**: *(leave blank)*
-  - **Preferred DNS server**: `127.0.0.1`
+  - **Preferred DNS server**: `192.168.56.1` or loopback address 
   - **Alternate DNS server**: *(leave blank)*  
 - Click **OK** → **OK**
+
 📸 **Screenshots**:
 ![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+
+### How to Install DNS (If Not Already Installed)
+- Open **Server Manager**
+- Click **Add Roles and Features**
+- Choose:
+  - **Role-based or feature-based installation** → Your server
+- On the Server Roles screen:
+  - Check **DNS Server**
+  - Click Add Features if prompted
+- Continue through the wizard and click **Install**
 
 ---
 
@@ -60,7 +71,10 @@ This walkthrough shows how to configure DNS on a Windows 10 client so it can loc
 - Under Role Services → Select:
   - ✅ Routing  
   - (RAS and DirectAccess will auto-check)  
-- Click **Next** → **Install**  
+- Click **Next** → **Next** → **Next** → **Install**
+
+📸 **Screenshots**:
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
 
 ### Step 3: Enable NAT Routing
 
@@ -70,6 +84,11 @@ This walkthrough shows how to configure DNS on a Windows 10 client so it can loc
 - Select: **Use this public interface to connect to the internet**  
 - Choose your **Ethernet** adapter (Adapter 1 - NAT)  
 - Click **Next** → **Finish**
+
+📸 **Screenshots**:
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
 
 ---
 
