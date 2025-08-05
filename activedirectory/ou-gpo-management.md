@@ -62,16 +62,28 @@ This walkthrough shows how to create Organizational Units (OUs) and apply Group 
 ![Create OUs](/activedirectory/screenshots/ou-gpo-management/04gpo-management-overview.png)
 
 ### Step 4: Create GPOs
-- Right-click the appropriate OU → "Create a GPO in this domain, and Link it here"
+- Right-click the appropriate OU → **Create a GPO in this domain, and Link it here**
+> ### 🏷️ Recommended Naming Convention
+> - Use clear, consistent names that reflect:
+>   - **The purpose** of the GPO
+>   - **The scope** (who or what it's applied to)
+>   - **The type** (Computer vs. User)
+> - 📌 Format example: `[GPO Type] – [Purpose] – [Target OU or Department]`
+> - Examples:
+>   - `Computer – Password Policy – Domain`
+>   - `User – USB Restrictions – Finance`
+>   - `User – Desktop Wallpaper – HR`
+> - This naming convention helps with long-term manageability, auditing, and troubleshooting.
 
-Examples:
-- **Password Policy GPO** (linked to domain root or `Users` OU)
-  - Minimum password length: 12 characters
-  - Maximum password age: 45 days
-  - Enforce password history: 24
-- **USB Restriction GPO** (linked to `Finance`)
-  - Navigate: `Computer Configuration` → `Policies` → `Administrative Templates` → `System` → `Removable Storage Access`
-  - Deny all access to removable storage
+
+- Example policies:
+  - **Password Policy GPO** (linked to domain root or `Users` OU)
+    - Minimum password length: 12 characters
+    - Maximum password age: 45 days
+    - Enforce password history: 24
+  - **USB Restriction GPO** (linked to `Finance`)
+    - Navigate: `Computer Configuration` → `Policies` → `Administrative Templates` → `System` → `Removable Storage Access`
+    - Deny all access to removable storage
 
 📸 Screenshot: GPO editor showing policy settings
 
