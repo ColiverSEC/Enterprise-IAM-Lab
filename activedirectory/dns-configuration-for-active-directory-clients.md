@@ -44,8 +44,8 @@ This walkthrough shows how to configure DNS on a Windows 10 client so it can loc
   - **Alternate DNS server**: *(leave blank)*  
 - Click **OK** → **OK**
 
-📸 **Screenshots**:
-![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+📸 **Screenshot**:
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/01static-ip-configuration.png)
 
 ### How to Install DNS (If Not Already Installed)
 - Open **Server Manager**
@@ -73,8 +73,8 @@ This walkthrough shows how to configure DNS on a Windows 10 client so it can loc
   - (RAS and DirectAccess will auto-check)  
 - Click **Next** → **Next** → **Next** → **Install**
 
-📸 **Screenshots**:
-![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+📸 **Screenshot**:
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/02ras-installation.png)
 
 ### Step 3: Enable NAT Routing
 
@@ -86,9 +86,9 @@ This walkthrough shows how to configure DNS on a Windows 10 client so it can loc
 - Click **Next** → **Finish**
 
 📸 **Screenshots**:
-![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/03nat-installation.png)
 
-![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/04nat-success.png)
 
 ---
 
@@ -101,8 +101,8 @@ This walkthrough shows how to configure DNS on a Windows 10 client so it can loc
 - Choose **DHCP Server** → Click **Add Features** when prompted  
 - Click **Next** → **Install**
 
-📸 **Screenshots**:
-![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+📸 **Screenshot**:
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/05dhcp-installation.png)
 
 ### Step 5: Create DHCP Scope
 
@@ -124,7 +124,7 @@ This walkthrough shows how to configure DNS on a Windows 10 client so it can loc
 - right click **IPv4** → **Refresh** → right click IPv6 → **Refresh**
 
 📸 **Screenshots**:
-![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/06scope-creation.png)
 
 ### Step 6: Finalize DHCP Options
 
@@ -137,7 +137,7 @@ This walkthrough shows how to configure DNS on a Windows 10 client so it can loc
 - Right-click your DHCP server → **All Tasks** → **Restart**
 
 📸 **Screenshots**:
-![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/07dns-dhcp-router-configured.png)
 
 ---
 
@@ -155,7 +155,7 @@ This walkthrough shows how to configure DNS on a Windows 10 client so it can loc
   - **Preferred DNS**: `192.168.56.1`
 
 📸 **Screenshots**:
-![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/08option-a.png)
 
 **Option B: Use DHCP**
 - Choose:
@@ -164,7 +164,7 @@ This walkthrough shows how to configure DNS on a Windows 10 client so it can loc
 - IP should be assigned from your configured DHCP scope
 
 📸 **Screenshots**:
-![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/09option-b.png)
 
 ### Step 8: Verify Connection
 
@@ -177,9 +177,9 @@ ping 192.168.56.1
 - You should see replies from the domain controller.
 
 📸 **Screenshots**:
-![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/10ipconfig.png)
 
-![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/11ping-ip.png)
 
 ## 🏷️ Join the Domain
 
@@ -192,7 +192,7 @@ ping 192.168.56.1
 - **Restart** when prompted
 
 📸 **Screenshots**:
-![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/12domain-join.png)
 
 ### Step 10: Confirm Client is on Domain
 
@@ -204,7 +204,7 @@ Method 1: System settings
 - If it says “Workgroup” instead, the join didn't succeed
 
 📸 **Screenshots**:
-![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/13method1.png)
 
 Method 2: Command Prompt
 - Run:
@@ -216,7 +216,7 @@ Method 2: Command Prompt
 - Then it's **not joined**
 
 📸 **Screenshots**:
-![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/14method2.png)
 
 Method 3: Sign in With a Domain Account
 - Try signing in with a domain user:
@@ -224,7 +224,7 @@ Method 3: Sign in With a Domain Account
 - If login is successful and you see a domain profile (roaming or standard), the join worked
 
 📸 **Screenshots**:
-![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/15method3.png)
 
 
 Method 4: Active Directory Users and Computers (ADUC)
@@ -235,7 +235,7 @@ Method 4: Active Directory Users and Computers (ADUC)
 - If it appears there, the client is on the domain.
 
 📸 **Screenshots**:
-![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/17method4.png)
 
 ---
 
