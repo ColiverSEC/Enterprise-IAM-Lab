@@ -99,7 +99,10 @@ This walkthrough shows how to configure DNS on a Windows 10 client so it can loc
 - Open **Server Manager** → **Add Roles and Features**  
 - Role-based installation → Select your server  
 - Choose **DHCP Server** → Click **Add Features** when prompted  
-- Click **Next** → **Install**  
+- Click **Next** → **Install**
+
+📸 **Screenshots**:
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
 
 ### Step 5: Create DHCP Scope
 
@@ -117,6 +120,11 @@ This walkthrough shows how to configure DNS on a Windows 10 client so it can loc
   - **Router (Default Gateway)**: `192.168.56.1`
   - **Parent Domain**: `corp.lab` *(or your custom domain)*
   - **DNS Server**: `192.168.56.1`
+- If **IPv4** and **IPv6** have red arrows right click your server → select **Authorize**
+- right click **IPv4** → **Refresh** → right click IPv6 → **Refresh**
+
+📸 **Screenshots**:
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
 
 ### Step 6: Finalize DHCP Options
 
@@ -127,6 +135,9 @@ This walkthrough shows how to configure DNS on a Windows 10 client so it can loc
     - ✅ `006 DNS Servers` → `192.168.56.1`  
 - Click **Apply** → **OK**  
 - Right-click your DHCP server → **All Tasks** → **Restart**
+
+📸 **Screenshots**:
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
 
 ---
 
@@ -141,13 +152,19 @@ This walkthrough shows how to configure DNS on a Windows 10 client so it can loc
   - **IP**: `192.168.56.2`  
   - **Subnet Mask**: `255.255.255.0`  
   - **Default Gateway**: `192.168.56.1`  
-  - **Preferred DNS**: `192.168.56.1`  
+  - **Preferred DNS**: `192.168.56.1`
+
+📸 **Screenshots**:
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
 
 **Option B: Use DHCP**
 - Choose:
   - `Obtain an IP address automatically`  
   - `Obtain DNS server address automatically`  
 - IP should be assigned from your configured DHCP scope
+
+📸 **Screenshots**:
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
 
 ### Step 8: Verify Connection
 
@@ -159,15 +176,23 @@ ping 192.168.56.1
 ```
 - You should see replies from the domain controller.
 
+📸 **Screenshots**:
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+
 ## 🏷️ Join the Domain
 
 ### Step 9: Join the Domain
-- Go to Settings → System → About → Rename this PC (Advanced)
-- Click Change
-- Under Member of, choose Domain
+- Go to **Settings** → **System** → **About** → **Rename this PC (Advanced)**
+- Click **Change**
+- Under **Member of**, choose **Domain**
 - Enter your domain (e.g., corp.lab)
 - Provide domain admin credentials
-- Restart when prompted
+- **Restart** when prompted
+
+📸 **Screenshots**:
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
 
 ---
 
