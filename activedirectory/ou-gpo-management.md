@@ -31,7 +31,7 @@ This walkthrough shows how to create Organizational Units (OUs) and apply Group 
 - Once you're in **Active Directory Users and Computers** expand your domain (e.g., corp.lab)
 
 📸 **Screenshot**:
-![AD DS](/activedirectory/screenshots/ou-gpo/01active-directory.png)
+![AD DS](/activedirectory/screenshots/ou-gpo-management/01active-directory.png)
 
 ### Step 2: Create OUs
 
@@ -44,8 +44,8 @@ This walkthrough shows how to create Organizational Units (OUs) and apply Group 
   - `Security Groups` *(optional)*
 
 📸 **Screenshots**:
-![Create OUs](/activedirectory/screenshots/ou-gpo/02ou-creation.png)
-![Create OUs](/activedirectory/screenshots/ou-gpo/03ous-created.png)
+![Create OUs](/activedirectory/screenshots/ou-gpo-management/02ou-creation.png)
+![Create OUs](/activedirectory/screenshots/ou-gpo-management/03ous-created.png)
 
 ---
 
@@ -58,8 +58,8 @@ This walkthrough shows how to create Organizational Units (OUs) and apply Group 
   - **Start** → **Windows Administrative Tools** → **Group Policy Management**
   - Press **Win + R** and run `gpedit.msc`
 
-📸 **Screenshots**:
-![Create OUs](/activedirectory/screenshots/ou-gpo/)
+📸 **Screenshot**:
+![Create OUs](/activedirectory/screenshots/ou-gpo-management/04gpo-management-overview.png)
 
 ### Step 4: Create GPOs
 - Right-click the appropriate OU → "Create a GPO in this domain, and Link it here"
