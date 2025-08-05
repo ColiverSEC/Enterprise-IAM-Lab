@@ -20,26 +20,48 @@ This walkthrough shows how to create Organizational Units (OUs) and apply Group 
 🔹 Windows 10 domain-joined VM (same internal network)  
 🔹 Working DNS and domain join configuration
 
-🗂️ Create Organizational Units (OUs)
-Step 1: Open Active Directory Users and Computers (ADUC)
-- On the Domain Controller, open **Server Manager** → **Tools** → **Active Directory Users and Computers**
-- Expand your domain (e.g., corp.lab)
+## 🗂️ Create Organizational Units (OUs)
 
-Step 2: Create OUs
-- Right-click your domain → New → Organizational Unit
+### Step 1: Open Active Directory Users and Computers (ADUC)
+
+- To open **Active Directory Users and Computers** there are a few steps you can take:
+  - On the Domain Controller, open **Server Manager** → **Tools** → **Active Directory Users and Computers**
+  - **Start** → **Windows Administrative Tools** → **Active Directory Users and Computers**
+  - Press **Win + R** and run `dsa.msc`
+- Once you're in **Active Directory Users and Computers** expand your domain (e.g., corp.lab)
+
+📸 **Screenshot**:
+![AD DS](/activedirectory/screenshots/ou-gpo/01active-directory.png)
+
+### Step 2: Create OUs
+
+- Right-click your domain → **New** → **Organizational Unit**
 - Create the following OUs:
   - `Workstations`
   - `IT`
   - `HR`
   - `Finance`
   - `Security Groups` *(optional)*
-📸 Screenshot: OU hierarchy in ADUC
 
-🛠️ Create and Link GPOs
-Step 3: Open Group Policy Management
-- Server Manager → Tools → Group Policy Management
+📸 **Screenshots**:
+![Create OUs](/activedirectory/screenshots/ou-gpo/02ou-creation.png)
+![Create OUs](/activedirectory/screenshots/ou-gpo/03ous-created.png)
 
-Step 4: Create GPOs
+---
+
+## 🛠️ Create and Link GPOs
+
+### Step 3: Open Group Policy Management
+
+- To open **Group Policy Management** there are a few steps you can take: 
+  - **Server Manager** → **Tools** → **Group Policy Management**
+  - **Start** → **Windows Administrative Tools** → **Group Policy Management**
+  - Press **Win + R** and run `gpedit.msc`
+
+📸 **Screenshots**:
+![Create OUs](/activedirectory/screenshots/ou-gpo/)
+
+### Step 4: Create GPOs
 - Right-click the appropriate OU → "Create a GPO in this domain, and Link it here"
 
 Examples:
@@ -53,7 +75,8 @@ Examples:
 
 📸 Screenshot: GPO editor showing policy settings
 
-Step 5: Apply a Desktop Wallpaper GPO (Optional)
+### Step 5: Apply a Desktop Wallpaper GPO (Optional)
+
 - Link to the `HR` OU
 - Navigate: `User Configuration` → `Administrative Templates` → `Desktop` → `Desktop`
 - Enable: **Desktop Wallpaper**
@@ -61,11 +84,60 @@ Step 5: Apply a Desktop Wallpaper GPO (Optional)
 
 📸 Screenshot: Desktop wallpaper policy
 
-🔁 Force Group Policy Update on Clients
-Step 6: Force GPO on Windows 10 Client
+---
+
+## 🔁 Force Group Policy Update on Clients
+
+### Step 6: Force GPO on Windows 10 Client
+
 - Log into your Windows 10 VM with a domain account
 - Open Command Prompt and run:
 
 ```powershell
 gpupdate /force
+```
+📸 Screenshot: gpupdate in command prompt
 
+### Step 7: Verify GPO Application
+
+- Method 1: Check Resultant Set of Policy (RSOP)
+  - Run `rsop.msc` on client
+  - Expand **Computer Configuration** and **User Configuration**
+  - Confirm GPO settings applied
+
+- Method 2: Use gpresult:
+  - Open **Command Prompt** and run `gpresult /r`
+  - Shows which GPOs are applied to the machine/user
+ 
+- Method 3: Functional Test:
+  - Try to use USB (if blocked by policy)
+  - Confirm password change prompt meets policy
+  - Check for applied desktop wallpaper
+
+📸 Screenshots: GPO application, gpresult output
+
+---
+
+### ✅ Expected Behavior
+- GPOs apply based on OU structure
+- USB is blocked only for Finance users
+- Password policy is enforced domain-wide
+- RSOP reflects correct GPO links
+
+---
+
+### 🔄 Optional Enhancements
+
+- Create a logon script and apply via GPO
+- Use security filtering to apply GPO to specific users or groups
+- Delegate OU permissions to junior IT admins using ADUC
+
+---
+
+### 🔗 Next Steps
+
+You've now built a logical OU structure and enforced security policies using GPOs — a cornerstone of centralized identity governance in enterprise environments.
+Next, you'll manage **users and groups** to simulate employee lifecycle tasks, control access with group-based security models, and prepare for delegated administration.
+
+➡️ [Continue to: User and Group Management](./user-and-group-management.md
+)
