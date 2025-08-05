@@ -194,6 +194,49 @@ ping 192.168.56.1
 📸 **Screenshots**:
 ![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
 
+### Step 10: Confirm Client is on Domain
+
+Method 1: System settings
+- Right-click the Start button → Select System
+- Scroll down and click “Advanced system settings” on the right
+- Under the Computer Name tab, you should see:
+  - Domain: yourdomain.com
+- If it says “Workgroup” instead, the join didn't succeed
+
+📸 **Screenshots**:
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+
+Method 2: Command Prompt
+- Run:
+  - ```systeminfo | findstr /i "Domain" ```
+- Expected output:
+  - ```Domain: yourdomain.com```
+- If it says:
+  - ```Domain: WORKGROUP```
+- Then it's **not joined**
+
+📸 **Screenshots**:
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+
+Method 3: Sign in With a Domain Account
+- Try signing in with a domain user:
+  - ```yourdomain\jdoe```
+- If login is successful and you see a domain profile (roaming or standard), the join worked
+
+📸 **Screenshots**:
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+
+
+Method 4: Active Directory Users and Computers (ADUC)
+- On the **Domain Controller**:
+  - Open **ADUC**
+  - Expand **Computers** or the appropriate **OU**
+  - Look for the computer name you joined
+- If it appears there, the client is on the domain.
+
+📸 **Screenshots**:
+![AD DS Role Overview](/activedirectory/screenshots/dns-config/01ad-ds-role-overview.png)
+
 ---
 
 ### ✅ Expected Behavior
