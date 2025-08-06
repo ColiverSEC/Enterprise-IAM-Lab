@@ -62,7 +62,7 @@ This walkthrough shows how to create Organizational Units (OUs) and apply Group 
 ![Create OUs](/activedirectory/screenshots/ou-gpo-management/04gpo-management-overview.png)
 
 ### Step 4: Create GPOs
-- Right-click the appropriate OU → **Create a GPO in this domain, and Link it here**
+- Right-click the appropriate OU → **Create a GPO in this domain, and Link it here** → Right click the created OU → **Edit**
 > ### 🏷️ Recommended Naming Convention
 > - Use clear, consistent names that reflect:
 >   - **The purpose** of the GPO
@@ -82,19 +82,24 @@ This walkthrough shows how to create Organizational Units (OUs) and apply Group 
     - Maximum password age: 45 days
     - Enforce password history: 24
   - **USB Restriction GPO** (linked to `Finance`)
-    - Navigate: `Computer Configuration` → `Policies` → `Administrative Templates` → `System` → `Removable Storage Access`
-    - Deny all access to removable storage
+    - Navigate: **User Configuration** → **Policies** → **Administrative Templates** → **System** → **Removable Storage Access**
+    - **Deny all access to removable storage** → **Enable** → **Apply**
 
-📸 Screenshot: GPO editor showing policy settings
+**📸 Screenshot:**
+![GPO Settings](/activedirectory/screenshots/ou-gpo-management/05example-policy.png)
 
 ### Step 5: Apply a Desktop Wallpaper GPO (Optional)
 
 - Link to the `HR` OU
-- Navigate: `User Configuration` → `Administrative Templates` → `Desktop` → `Desktop`
+- Right-click the `HR` OU → **Create a GPO in this domain, and Link it here**
+- Name the GPO something like `User – Desktop Wallpaper – HR`
+- Right click the new GPO → **Edit** → **User Configuration** → **Policies** → **Administrative Templates** → **Desktop** → **Desktop**
 - Enable: **Desktop Wallpaper**
 - Enter path to wallpaper (UNC path or local for testing)
+  - Example path: `C:\Windows\Web\Wallpaper\Theme1`
 
-📸 Screenshot: Desktop wallpaper policy
+**📸 Screenshot:**
+![GPO Settings](/activedirectory/screenshots/ou-gpo-management/06hr-wallpaper.png)
 
 ---
 
@@ -108,7 +113,19 @@ This walkthrough shows how to create Organizational Units (OUs) and apply Group 
 ```powershell
 gpupdate /force
 ```
-📸 Screenshot: gpupdate in command prompt
+> 🧠 Important:
+>
+> - If your GPO contains **User Configuration** settings (e.g., desktop wallpaper, logon scripts):
+>   - Log into the client VM **as a domain user** who is located in the target OU
+>   - Then run `gpupdate /force` under that user session
+> - If your GPO contains **Computer Configuration** settings (e.g., USB restrictions, password policy):
+>   - Just boot or log into the computer itself (joined to the domain and in the correct OU), then run `gpupdate /force`
+>
+> 📌 Group Policy settings only apply when the **object type (user or computer)** resides in the OU the GPO is linked to.
+
+
+**📸 Screenshot:**
+![Gpupdate](/activedirectory/screenshots/ou-gpo-management/06hr-wallpaper.png)
 
 ### Step 7: Verify GPO Application
 
