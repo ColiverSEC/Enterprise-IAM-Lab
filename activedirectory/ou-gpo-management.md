@@ -125,7 +125,7 @@ gpupdate /force
 
 
 **📸 Screenshot:**
-![Gpupdate](/activedirectory/screenshots/ou-gpo-management/06hr-wallpaper.png)
+![Gpupdate](/activedirectory/screenshots/ou-gpo-management/07gpupdate.png)
 
 ### Step 7: Verify GPO Application
 
@@ -134,16 +134,23 @@ gpupdate /force
   - Expand **Computer Configuration** and **User Configuration**
   - Confirm GPO settings applied
 
+**📸 Screenshot:**
+![Gpupdate](/activedirectory/screenshots/ou-gpo-management/08rsop.msc.png)
+
 - Method 2: Use gpresult:
   - Open **Command Prompt** and run `gpresult /r`
   - Shows which GPOs are applied to the machine/user
+
+**📸 Screenshot:**
+![Gpupdate](/activedirectory/screenshots/ou-gpo-management/09method2.png)
  
 - Method 3: Functional Test:
   - Try to use USB (if blocked by policy)
   - Confirm password change prompt meets policy
   - Check for applied desktop wallpaper
 
-📸 Screenshots: GPO application, gpresult output
+**📸 Screenshot:**
+![Gpupdate](/activedirectory/screenshots/ou-gpo-management/10method3.png)
 
 ---
 
