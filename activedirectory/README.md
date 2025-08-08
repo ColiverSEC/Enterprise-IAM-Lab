@@ -26,6 +26,7 @@ These walkthroughs simulate **real-world enterprise IAM** and **Windows infrastr
 | 👥 [User and Group Management](./user-and-group-management.md) | Lifecycle tasks, group scope/type, and membership management. |
 | 🛡️ [Delegation and Access Control](./delegation-and-access-control.md) | Delegate admin roles and securely manage permissions across OUs. |
 | 🔒 [Active Directory Security Hardening](./active-directory-security-hardening.md) | Secure DCs, harden audit policy, and manage privileged accounts. |
+| 🗝️ [Authentication Protocols in Active Directory](./authentication-protocols-in-active-directory.md) | Overview and configuration of AD authentication methods and protocols. |
 | 💻 [PowerShell for AD Management](./powershell-for-ad-management.md) | Automate routine tasks with common AD cmdlets and scripts. |
 | ♻️ [AD Backup and Recovery](./ad-backup-and-recovery.md) | Protect and restore AD using backup, tombstone, and recycle bin. |
 
