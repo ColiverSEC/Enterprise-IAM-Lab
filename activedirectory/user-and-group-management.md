@@ -128,7 +128,7 @@ New-ADUser -Name "Jane Doe" -GivenName "Jane" -Surname "Doe" `
    - Go to **Members** tab → Click **Add**
    - Enter user names (e.g., jdoe) → **Apply** → Click **OK**
 - To remove members:
-   - Select user → Click **Remove**
+   - Select user → Click **Remove** → **Apply** → Click **OK**
 
 📸 Screenshot: ADUC – Add Group Members
 
