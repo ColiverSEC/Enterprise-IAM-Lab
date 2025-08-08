@@ -68,7 +68,7 @@ This walkthrough focuses on managing users and groups in Windows Server Active D
 ### Step 4: PowerShell – Create a User (Optional)
 
 - Launch **powershell** and be sure to **Run as administrator**
-- run:
+- Run:
 ```markdown
 New-ADUser -Name "Jane Doe" -GivenName "Jane" -Surname "Doe" `
   -SamAccountName "jdoe" -UserPrincipalName "jdoe@corp.lab" `
