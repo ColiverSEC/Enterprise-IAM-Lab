@@ -117,7 +117,8 @@ When delegating, keep these in mind:
  - Add delegated user or group → **View effective access**
  - Confirm expected permissions are granted
 
-📸 Screenshot: Effective Permissions Tab
+📸 **Screenshot:** Effective Permissions Tab
+![Effective Permissions Tab](/activedirectory/screenshots/delegation-and-access-control/07effective-permissions-tab.png)
 
 ---
 
@@ -140,14 +141,19 @@ Set-Acl -AclObject $acl -Path "AD:\OU=Sales,DC=corp,DC=lab"
 Delegating OU control does not automatically give permission to edit GPOs linked to that OU — you must delegate this separately in GPMC.
 
 - Open the **Group Policy Management Console** (gpmc.msc)
-- In the left pane, expand your domain and select the **OU** where you want to delegate GPO management.
-- In the right pane, click the **Delegation** tab
-- Click **Add**
+- In the **left pane**, expand your domain and then expand **Group Policy Objects** (not the OU)
+- Select the specific **GPO** linked to your OU (e.g., `HR Users GPO`)
+- In the **right pane**, click the **Delegation** tab
 - In the **Enter the object names to select** box, type the **user** or **group** you want to delegate to, then click **OK**
-- In the **Permissions** drop-down, choose the desired level (e.g., **Edit settings**, **Delete**,**Modify security**)
-- Click **OK** to apply the changes
+- Click **Add**, then enter the user/group (e.g., `HR-Admins`), click **OK**
+- Now in the **Permissions** drop-down, you will see options like:
+  - Edit settings
+  - Delete
+  - Modify Security
+- Select the permissions you want to delegate and click **OK**
 
-📸 Screenshot: GPO Delegation Tab
+📸 **Screenshot:** GPO Delegation Tab
+![GPO Delegation Tab](/activedirectory/screenshots/delegation-and-access-control/08gpo-delegation-tab.png)
 
 ---
 
@@ -157,7 +163,8 @@ Delegating OU control does not automatically give permission to edit GPOs linked
 - Delegate control on `OU=HR,DC=corp,DC=lab` to the `HRAdmins` group
 - Verify HRAdmins can only manage users inside HR OU, no domain-wide rights
 
-📸 Screenshot: HRAdmins delegated on HR OU
+📸 **Screenshot:** HRAdmins delegated on HR OU
+![HRAdmins delegated on HR OU](/activedirectory/screenshots/delegation-and-access-control/09hr-admins-delegated-on-hr-ou.png)
 
 ---
 
