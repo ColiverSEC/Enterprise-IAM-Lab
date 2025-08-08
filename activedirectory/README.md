@@ -47,7 +47,7 @@ These walkthroughs simulate **real-world enterprise IAM** and **Windows infrastr
 | Lab | Focus |
 |-----|-------|
 | 🔄 [AD-Entra-Hybrid-Lab](https://github.com/ColiverSEC/AD-Entra-Hybrid-Lab) | Sync and federate on-prem AD with Microsoft Entra ID. |
-| ☁️ [Microsoft Entra ID Lab](https://github.com/ColiverSEC/Enterprise-IAM-Lab) | Cloud-based identity and access management (MFA, SAML, OIDC, automation). |
+| ☁️ [Microsoft Entra ID Lab](../entra/README.md) | Cloud-based identity and access management (MFA, SAML, OIDC, automation). |
 
 ---
 
