@@ -129,11 +129,13 @@ Set-Acl -AclObject $acl -Path "AD:\OU=Sales,DC=corp,DC=lab"
 
 Delegating OU control does not automatically give permission to edit GPOs linked to that OU — you must delegate this separately in GPMC.
 
-- **Step 1**: **Open** the **Group Policy Management Console (GPMC)**
-- **Step 2**: Navigate to the GPO linked to the OU
-- **Step 3**: Right-click the GPO → Edit **Delegation tab**
-- **Step 4**: **Add** the user/group (e.g., `SalesAdmins`) and assign **Edit Settings**,**Edit**, **Delete**, **Modify Security**, or other required permissions
-> 💡 *Tip: GPO delegation is separate from OU delegation — you must set it in GPMC*
+- Open the **Group Policy Management Console** (gpmc.msc)
+- In the left pane, expand your domain and select the **OU** where you want to delegate GPO management.
+- In the right pane, click the **Delegation** tab
+- Click **Add**
+- In the **Enter the object names to select** box, type the **user** or **group** you want to delegate to, then click **OK**
+- In the **Permissions** drop-down, choose the desired level (e.g., **Edit settings**, **Delete**,**Modify security**)
+- Click **OK** to apply the changes
 
 📸 Screenshot: GPO Delegation Tab
 
