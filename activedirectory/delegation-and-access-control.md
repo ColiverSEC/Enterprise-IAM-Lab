@@ -33,7 +33,7 @@ This walkthrough focuses on delegating administrative roles and securely managin
 Before delegating, it’s important to understand what happens under the hood:
 - **Delegation in AD** works by adding Access Control Entries (ACEs) to an object’s Access Control List (ACL)
 - The **Delegation of Control Wizard** modifies these ACLs for the selected OU, granting the specified rights to a user or group
-- Permissions can be **inherited** by child objects if **Apply to descendant objects** is enabled in the permission scope
+- Permissions can be **inherited** by child objects if **Apply to descendant objects** is selected when configuring permissions
 - **Least Privilege Principle**: Always grant only the rights needed for the specific OU or task to avoid unintended access
 > 💡 *Tip: You can review an OU’s ACL in the “Advanced Security Settings” window to see exactly what’s applied*
 
@@ -127,7 +127,7 @@ Set-Acl -AclObject $acl -Path "AD:\OU=Sales,DC=corp,DC=lab"
 
 ## 🛠️ Delegate Group Policy Object (GPO) Management *(Optional but Recommended)*
 
-Sometimes delegated admins also need to manage GPOs linked to their OU
+Delegating OU control does not automatically give permission to edit GPOs linked to that OU — you must delegate this separately in GPMC.
 
 - **Step 1**: **Open** the **Group Policy Management Console (GPMC)**
 - **Step 2**: Navigate to the GPO linked to the OU
