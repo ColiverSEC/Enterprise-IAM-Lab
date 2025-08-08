@@ -88,6 +88,7 @@ New-ADUser -Name "Jane Doe" -GivenName "Jane" -Surname "Doe" `
   -Enabled $true -Path "OU=Users,DC=corp,DC=lab" `
   -ChangePasswordAtLogon $true
 ```
+> 📒 If you're unsure about the path to the OU, run: `Get-ADOrganizationalUnit -Filter 'Name -like "IT"' | Select-Object Name, DistinguishedName`
 
 📸 Screenshot: PowerShell – New-ADUser
 
