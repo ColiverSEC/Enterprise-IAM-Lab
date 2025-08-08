@@ -115,8 +115,8 @@ New-ADUser -Name "Jane Doe" -GivenName "Jane" -Surname "Doe" `
 | Domain Local  | Assign permissions in same domain only | Users from any domain     |
 | Universal     | Cross-domain access & nesting        | Any user/group            |
 
-- Security Groups: Used for access control and permissions
-- Distribution Groups: Only for email (Exchange environments)
+- **Security Groups**: Used for access control and permissions
+- **Distribution Groups**: Only for email (Exchange environments)
 
 📸 Screenshot: ADUC – Group Properties
 
@@ -134,8 +134,8 @@ New-ADUser -Name "Jane Doe" -GivenName "Jane" -Surname "Doe" `
 ### Step 8: Nested Groups (Group Within Group)
 
 - Create a second group (e.g., All-IT)
-- Add IT-Support group as a member of All-IT
-- Right-click All-IT → **Properties** → **Members** → Add IT-Support
+- Add `IT-Support` group as a member of All-IT
+- Right-click **All-IT** → **Properties** → **Members** → **Add** → Add **IT-Support**
 
 - 📸 Screenshot: ADUC – Nested Group Example
 
@@ -182,6 +182,7 @@ If you want to create hundreds or even thousands of users automatically from a t
 ---
 
 ## 🔐 Delegate Group Management (Optional)
+> 📝 Delegation is covered more in next section [Delegation and Access Control](delegation-and-access-control.md)
 
 - Right-click the OU or group → **Delegate Control**
 - Select user or group (e.g., HRAdmin)
@@ -208,7 +209,7 @@ If you want to create hundreds or even thousands of users automatically from a t
 - Automate onboarding with PowerShell scripts
 - Apply Group Policy to security groups
 - Audit group membership changes with Event Viewer or third-party tools
-- Combine with your hybrid lab for synced users (covered in hybrid-identity.md)
+- Combine with your hybrid lab for synced users (covered in [hybrid-identity.md](../entra/hybrid-identity.md)
 
 
 
