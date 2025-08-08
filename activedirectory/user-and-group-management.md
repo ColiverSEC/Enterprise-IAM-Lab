@@ -41,7 +41,7 @@ This walkthrough focuses on managing users and groups in Windows Server Active D
    - Last Name: Doe  
    - User logon name: `jdoe`  
 - Set an initial password  
-- Uncheck “User must change password at next logon” for testing (optional)  
+- Uncheck **User must change password at next logon** for testing (optional)  
 - Click **Finish**
 
 📸 *Screenshot: ADUC – New User Wizard*
@@ -69,13 +69,14 @@ This walkthrough focuses on managing users and groups in Windows Server Active D
 
 - Launch **powershell** and be sure to **Run as administrator**
 - Run:
+
 ```markdown
 New-ADUser -Name "Jane Doe" -GivenName "Jane" -Surname "Doe" `
   -SamAccountName "jdoe" -UserPrincipalName "jdoe@corp.lab" `
   -AccountPassword (ConvertTo-SecureString "P@ssw0rd123" -AsPlainText -Force) `
   -Enabled $true -Path "OU=Users,DC=corp,DC=lab"
 ```
-- If you would like the user to change password at next logon, you can add the end of script: 
+- If you would like the user to change password at next logon, you can add at the end of script: 
 ```
 -ChangePasswordAtLogon $true
 ```
@@ -97,7 +98,7 @@ New-ADUser -Name "Jane Doe" -GivenName "Jane" -Surname "Doe" `
 ### Step 5: Create a Security Group in ADUC
 
 - Open ADUC
-- Right-click an OU → New → Group
+- Right-click an OU → **New** → **Group**
 - Set:
    - Group name: `IT-Support`
    - Group scope: **Global**
@@ -125,7 +126,7 @@ New-ADUser -Name "Jane Doe" -GivenName "Jane" -Surname "Doe" `
    - Right-click group → **Properties**
    - Go to **Members** tab → Click **Add**
    - Enter user names (e.g., jdoe) → Click **OK**
-- To remove memebers:
+- To remove members:
    - Select user → Click **Remove**
 
 📸 Screenshot: ADUC – Add Group Members
@@ -185,8 +186,8 @@ If you want to create hundreds or even thousands of users automatically from a t
 - Right-click the OU or group → **Delegate Control**
 - Select user or group (e.g., HRAdmin)
 - Choose:
-   - “Manage group membership”
-   - “Reset passwords” (if needed)
+   - **Manage group membership**
+   - **Reset passwords** (if needed)
 
 📸 Screenshot: ADUC – Delegation Wizard
 
