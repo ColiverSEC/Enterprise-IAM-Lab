@@ -55,7 +55,8 @@ When delegating, keep these in mind:
 - Navigate to the OU you want to delegate control on (e.g., `OU=Sales,DC=corp,DC=lab`)
 - Right-click the OU → **Delegate Control**...
 
-📸 Screenshot: ADUC – Right-click OU → Delegate Control
+📸 **Screenshot**: ADUC – Right-click OU → Delegate Control
+![ADUC – Right-click OU → Delegate Control](/activedirectory/screenshots/delegation-and-access-control/01delegate-control.png)
 
 ### Step 2: Add User or Group to Delegate
 - Click Next on the welcome screen
@@ -63,7 +64,8 @@ When delegating, keep these in mind:
 - Enter the user or group to delegate permissions to (e.g., `SalesAdmins`)
 - Click **OK**, then **Next**
 
-📸 Screenshot: Delegation Wizard – Add User/Group
+**📸 Screenshot:** Delegation Wizard – Add User/Group
+![Delegation Wizard – Add User/Group](/activedirectory/screenshots/delegation-and-access-control/02it-admins-added.png)
 
 ### Step 3: Choose Tasks to Delegate
 
@@ -74,7 +76,9 @@ When delegating, keep these in mind:
 - Or choose Create a custom task to delegate for fine-grained control
 - Click **Next** → **Finish**
 
-📸 Screenshot: Delegation Wizard – Task Selection
+**📸 Screenshots:** Delegation Wizard – Task Selection
+![Delegation Wizard – Task Selection](/activedirectory/screenshots/delegation-and-access-control/03delegation-wizard-task-selection.png)
+![Delegation Wizard – Task Selection - Overview](/activedirectory/screenshots/delegation-and-access-control/04delegation-complete-overview.png)
 
 ---
 
