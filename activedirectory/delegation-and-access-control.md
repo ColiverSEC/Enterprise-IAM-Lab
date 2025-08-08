@@ -87,9 +87,13 @@ When delegating, keep these in mind:
 ### Step 4: Open OU Properties Security Tab
 - Right-click the OU → **Properties**
 - Go to the **Security** tab → **Advanced**
-- Click **Add** → Select the user or group to delegate (e.g., `SalesAdmins`)
+- Click **Add** → Select the user or group to delegate by clicking **Principal** (e.g., `SalesAdmins`)
 
-📸 Screenshot: OU Properties – Security Tab
+> 💡 **Note:**
+> If you don’t see the **Security** tab when viewing the OU properties, go to the ADUC **View** menu and enable **Advanced Features**. Then, right-click the domain root, select **Refresh**, and retry opening the OU properties. The **Security** tab should now be visible.
+
+📸 **Screenshot:** OU Properties – Security Tab
+![OU Properties – Security Tab](/activedirectory/screenshots/delegation-and-access-control/05ou-properties-security-tab.png)
 
 ### Step 5: Configure Permissions
 - Select specific permissions like:
@@ -99,7 +103,9 @@ When delegating, keep these in mind:
 - Enable or disable **Apply to** targets (this object only, descendant objects, etc.)
 - Click **OK** → **Apply** → **OK**
 
- 📸 Screenshot: Advanced Security Settings – Permission Entry
+ 📸 **Screenshot:** Advanced Security Settings – Permission Entry
+ ![Advanced Security Settings – Permission Entry](/activedirectory/screenshots/delegation-and-access-control/06advanced-security-settings-permission-entry.png
+)
 
  --- 
 
