@@ -152,6 +152,12 @@ Add-ADGroupMember -Identity "HR-Team" -Members "jdoe"
 
 ---
 
+# 🧩 Optional: Bulk Provisioning with PowerShell
+
+If you want to create hundreds or even thousands of users automatically from a text file, check out the Bulk User Provisioning (Advanced) section ➡️ [Powershell for AD Management](powershell-for-ad-management.md)
+
+---
+
 ## 🔄 Real-World Scenario Examples
 
 ### Scenario A: IT New Hire – John Doe
