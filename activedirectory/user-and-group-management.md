@@ -44,7 +44,8 @@ This walkthrough focuses on managing users and groups in Windows Server Active D
 - Uncheck **User must change password at next logon** for testing (optional)  
 - Click **Finish**
 
-📸 *Screenshot: ADUC – New User Wizard*
+📸 **Screenshot**:
+![AD DS](/activedirectory/screenshots/user-group-mgt/01new-user-wizard.png)
 
 ### Step 2: Modify User Properties
 
@@ -54,7 +55,9 @@ This walkthrough focuses on managing users and groups in Windows Server Active D
    - **Account** tab: Logon hours, Account expiration
 - Click **Apply** → **OK**
 
-📸 *Screenshot: ADUC – User Properties*
+📸 **Screenshots**:
+![AD DS](/activedirectory/screenshots/user-group-mgt/02organization-tab-properties.png)
+![AD DS](/activedirectory/screenshots/user-group-mgt/03account-properties.png)
 
 ### Step 3: Disable or Delete a User
 
@@ -63,7 +66,9 @@ This walkthrough focuses on managing users and groups in Windows Server Active D
 - To **delete**:
    - Right-click the user → **Delete** → **Confirm**
 
-📸 *Screenshot: ADUC – Disable User*
+📸 **Screenshot**:
+![AD DS](/activedirectory/screenshots/user-group-mgt/04disabled-account.png)
+![AD DS](/activedirectory/screenshots/user-group-mgt/05account-deleted.png)
 
 ### Step 4: PowerShell – Create a User (Optional)
 
@@ -90,7 +95,8 @@ New-ADUser -Name "Jane Doe" -GivenName "Jane" -Surname "Doe" `
 ```
 > 📒 If you're unsure about the path to the OU, run: `Get-ADOrganizationalUnit -Filter 'Name -like "IT"' | Select-Object Name, DistinguishedName`
 
-📸 Screenshot: PowerShell – New-ADUser
+📸 **Screenshot**:
+![AD DS](/activedirectory/screenshots/user-group-mgt/06user-added-via-powershell.png)
 
 ---
 
@@ -106,7 +112,8 @@ New-ADUser -Name "Jane Doe" -GivenName "Jane" -Surname "Doe" `
    - Group type: **Security**
 - Click **OK**
 
-📸 Screenshot: ADUC – Create New Group
+📸 **Screenshot**:
+![AD DS](/activedirectory/screenshots/user-group-mgt/07group-creation-wizard.png)
 
 ### Step 6: Group Scope and Type Reference
 
@@ -119,7 +126,8 @@ New-ADUser -Name "Jane Doe" -GivenName "Jane" -Surname "Doe" `
 - **Security Groups**: Used for access control and permissions
 - **Distribution Groups**: Only for email (Exchange environments)
 
-📸 Screenshot: ADUC – Group Properties
+📸 **Screenshot**:
+![AD DS](/activedirectory/screenshots/user-group-mgt/08group-properties.png)
 
 ### Step 7: Add or Remove Group Members
 
@@ -130,7 +138,9 @@ New-ADUser -Name "Jane Doe" -GivenName "Jane" -Surname "Doe" `
 - To remove members:
    - Select user → Click **Remove** → **Apply** → Click **OK**
 
-📸 Screenshot: ADUC – Add Group Members
+📸 **Screenshot**:
+![AD DS](/activedirectory/screenshots/user-group-mgt/09add-memeber-to-group.png)
+![AD DS](/activedirectory/screenshots/user-group-mgt/10remove-member-from-group.png)
 
 ### Step 8: Nested Groups (Group Within Group)
 
@@ -138,7 +148,8 @@ New-ADUser -Name "Jane Doe" -GivenName "Jane" -Surname "Doe" `
 - Add `IT-Support` group as a member of All-IT
 - Right-click **All-IT** → **Properties** → **Members** → **Add** → Add **IT-Support**
 
-- 📸 Screenshot: ADUC – Nested Group Example
+📸 **Screenshot**:
+![AD DS](/activedirectory/screenshots/user-group-mgt/11nested-group.png)
 
 ### Step 9: PowerShell – Create and Add to Group
 
@@ -150,7 +161,8 @@ New-ADGroup -Name "HR-Team" -GroupScope Global -GroupCategory Security -Path "OU
 Add-ADGroupMember -Identity "HR-Team" -Members "jdoe"
 ```
 
-📸 Screenshot: PowerShell – Group Management
+📸 **Screenshot**:
+![AD DS](/activedirectory/screenshots/user-group-mgt/12security-group-created-and-user-added-via-powershell.png)
 
 ---
 
@@ -169,7 +181,8 @@ If you want to create hundreds or even thousands of users automatically from a t
 - Add IT-Support to All-IT (nested)
 - Use security groups to assign folder or application permissions via Group Policy
 
-📸 Screenshot: User Added to Group
+📸 **Screenshot**:
+![AD DS](/activedirectory/screenshots/user-group-mgt/13scenario-a.png)
 
 ### Scenario B: Offboarding – Contractor Removal
 
@@ -178,7 +191,8 @@ If you want to create hundreds or even thousands of users automatically from a t
 - Move to a "Disabled Users" OU
 - Optionally delete after 30 days
 
-📸 Screenshot: Disabled User OU
+📸 **Screenshot**:
+![AD DS](/activedirectory/screenshots/user-group-mgt/14scenario-b.png)
 
 ---
 
@@ -191,7 +205,8 @@ If you want to create hundreds or even thousands of users automatically from a t
    - **Manage group membership**
    - **Reset passwords** (if needed)
 
-📸 Screenshot: ADUC – Delegation Wizard
+📸 **Screenshot**:
+![AD DS](/activedirectory/screenshots/user-group-mgt/15delegation-wizard.png)
 
 ---
 
