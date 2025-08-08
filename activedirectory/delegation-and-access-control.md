@@ -13,6 +13,7 @@ This walkthrough focuses on delegating administrative roles and securely managin
 - Delegating password reset and user management tasks
 - Best practices for secure delegation
 - Verifying delegated permissions
+- Understanding how delegation works behind the scenes (permissions, inheritance, ACEs in ACLs)
 
 ---
 
@@ -25,6 +26,25 @@ This walkthrough focuses on delegating administrative roles and securely managin
 🔹 Active Directory domain set up (e.g., corp.lab)
 
 🔹 PowerShell (on the domain controller or client with RSAT)
+
+---
+
+## 📖 Understanding How Delegation Works (Concepts)
+Before delegating, it’s important to understand what happens under the hood:
+- **Delegation in AD** works by adding Access Control Entries (ACEs) to an object’s Access Control List (ACL)
+- The **Delegation of Control Wizard** modifies these ACLs for the selected OU, granting the specified rights to a user or group
+- Permissions can be **inherited** by child objects if **Apply to descendant objects** is enabled in the permission scope
+- **Least Privilege Principle**: Always grant only the rights needed for the specific OU or task to avoid unintended access
+> 💡 *Tip: You can review an OU’s ACL in the “Advanced Security Settings” window to see exactly what’s applied*
+
+---
+
+## ⚠️ Common Pitfalls to Avoid
+When delegating, keep these in mind:
+- **Too broad scope**: Make sure you are delegating at the OU level you intend, not higher
+- **Over-inheritance**: Leaving **Apply to all descendant objects** enabled may give rights to objects you didn’t intend
+- **No testing**: Always log in as the delegated account to confirm only the intended tasks can be performed
+- **Wrong group**: Double-check you’re delegating to the correct security group to avoid accidental access.
 
 ---
 
@@ -102,6 +122,20 @@ $rule = New-Object System.DirectoryServices.ActiveDirectoryAccessRule($identity,
 $acl.AddAccessRule($rule)
 Set-Acl -AclObject $acl -Path "AD:\OU=Sales,DC=corp,DC=lab"
 ```
+
+---
+
+## 🛠️ Delegate Group Policy Object (GPO) Management *(Optional but Recommended)*
+
+Sometimes delegated admins also need to manage GPOs linked to their OU
+
+- **Step 1**: **Open** the **Group Policy Management Console (GPMC)**
+- **Step 2**: Navigate to the GPO linked to the OU
+- **Step 3**: Right-click the GPO → Edit **Delegation tab**
+- **Step 4**: **Add** the user/group (e.g., `SalesAdmins`) and assign **Edit Settings**,**Edit**, **Delete**, **Modify Security**, or other required permissions
+> 💡 *Tip: GPO delegation is separate from OU delegation — you must set it in GPMC*
+
+📸 Screenshot: GPO Delegation Tab
 
 ---
 
