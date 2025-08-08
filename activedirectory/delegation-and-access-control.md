@@ -19,8 +19,11 @@ This walkthrough focuses on delegating administrative roles and securely managin
 ## 📝 What You’ll Need
 
 🔹 Windows Server 2019 (or later) with AD DS and ADUC installed
+
 🔹 Windows 10/11 client (domain-joined)
+
 🔹 Active Directory domain set up (e.g., corp.lab)
+
 🔹 PowerShell (on the domain controller or client with RSAT)
 
 ---
