@@ -126,7 +126,7 @@ New-ADUser -Name "Jane Doe" -GivenName "Jane" -Surname "Doe" `
 - To add members:
    - Right-click group → **Properties**
    - Go to **Members** tab → Click **Add**
-   - Enter user names (e.g., jdoe) → Click **OK**
+   - Enter user names (e.g., jdoe) → **Apply** → Click **OK**
 - To remove members:
    - Select user → Click **Remove**
 
