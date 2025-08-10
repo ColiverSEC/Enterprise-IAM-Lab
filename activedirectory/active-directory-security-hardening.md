@@ -68,7 +68,7 @@ This walkthrough guides you through fundamental security hardening practices for
 - Run `gpupdate /force` on DCs to apply  
 - Verify audit logs in **Event Viewer → Security Logs**  
 
-📸 **Screenshot:**  
+📸 **Screenshot:** Advanced Audit Policy Configuration  
 ![Advanced Audit Policy Configuration](./screenshots/ad-security-hardening/audit-policy-settings.png)
 
 ---
@@ -84,7 +84,7 @@ This walkthrough guides you through fundamental security hardening practices for
   - Create a GPO under `Computer Configuration → Policies → Administrative Templates → LAPS` to enable password management  
   - Verify local admin passwords rotate and are stored securely in AD  
 
-📸 **Screenshot:**  
+📸 **Screenshot:** LAPS Group Policy Settings
 ![LAPS Group Policy Settings](./screenshots/ad-security-hardening/laps-gpo-settings.png)
 
 ---
