@@ -38,7 +38,12 @@ This walkthrough guides you through fundamental security hardening practices for
   - **Network security: Restrict NTLM: Incoming NTLM traffic** → **Deny all**  
   - **Network security: Restrict NTLM: Outgoing NTLM traffic to remote servers** → **Deny all**  
   - **Domain controller: LDAP server signing requirements** → **Require signing**  
-  - Limit **User Rights Assignment** such as who can log on locally to DCs  
+  - Limit **User Rights Assignment** such as who can log on locally to DCs
+
+> 💡 Note: If the **Domain controller: LDAP server signing requirements** setting is greyed out, it is likely being enforced via **Group Policy**. You can view or change the setting in **Group Policy Management** under:
+**Computer Configuration** → **Policies** → **Windows Settings** → **Security Settings** → **Local Policies** → **Security Options**.
+> 
+> *The warning about “modifying this setting may affect compatibility” is expected and should be reviewed before making changes.*
 
 📸 **Screenshot:**  
 ![Local Security Policy - Security Options](./screenshots/ad-security-hardening/secpol-security-options.png)
