@@ -45,8 +45,8 @@ This walkthrough guides you through fundamental security hardening practices for
 > 
 > *The warning about “modifying this setting may affect compatibility” is expected and should be reviewed before making changes.*
 
-📸 **Screenshot:**  
-![Local Security Policy - Security Options](./screenshots/ad-security-hardening/secpol-security-options.png)
+📸 **Screenshot:** Local Security Policy - Security Options
+![Local Security Policy - Security Options](./screenshots/ad-security-hardening/01local-security-policy-security-options.png)
 
 ---
 
