@@ -69,20 +69,23 @@ This walkthrough guides you through fundamental security hardening practices for
 - Verify audit logs in **Event Viewer → Security Logs**  
 
 📸 **Screenshot:** Advanced Audit Policy Configuration  
-![Advanced Audit Policy Configuration](./screenshots/ad-security-hardening/audit-policy-settings.png)
+![Advanced Audit Policy Configuration](./screenshots/ad-security-hardening/02advanced-audit-policy-config.png)
 
 ---
 
 ## 🛡️ Step 3: Manage Privileged Accounts
 
-- Open **Active Directory Users and Computers (ADUC)**  
-- Review membership of privileged groups: **Domain Admins**, **Enterprise Admins**, **Administrators**  
-- Remove unnecessary members; use dedicated admin accounts for elevated tasks  
-- Add critical accounts to **Protected Users** group to enforce security restrictions  
-- Deploy Local Administrator Password Solution (LAPS):  
-  - Install LAPS on DCs and management machines  
-  - Create a GPO under `Computer Configuration → Policies → Administrative Templates → LAPS` to enable password management  
-  - Verify local admin passwords rotate and are stored securely in AD  
+- Open **Active Directory Users and Computers (ADUC)**
+- Review membership of privileged groups: **Domain Admins**, **Enterprise Admins**, **Administrators**
+  - If you have only a few users, verify they are all appropriate admin accounts
+  - Remove any unnecessary members; ensure use of dedicated admin accounts for elevated tasks only
+- Add critical accounts to the **Protected Users** group to enforce stronger authentication and security restrictions
+- Deploy Local Administrator Password Solution (LAPS):
+  - Install LAPS on Domain Controllers and management workstations
+  - Create or edit a GPO linked to the Domain Controllers OU under  
+    `Computer Configuration → Policies → Administrative Templates → LAPS`  
+    to enable password management and configure password policies
+  - Verify local administrator passwords rotate regularly and are securely stored in Active Directory
 
 📸 **Screenshot:** LAPS Group Policy Settings
 ![LAPS Group Policy Settings](./screenshots/ad-security-hardening/laps-gpo-settings.png)
