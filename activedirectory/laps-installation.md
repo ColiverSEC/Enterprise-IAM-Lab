@@ -56,6 +56,7 @@ This walkthrough shows how to install Microsoft Local Administrator Password Sol
 ```
 \\<YourDomain>\SYSVOL\<YourDomain>\Policies\PolicyDefinitions\en-US\
 ```
+> 📒**Note:** If the `PolicyDefinitions` or `en-US` folders do not exist in the specified path, you may need to create them manually before copying the files.
 
 ---
 
