@@ -92,17 +92,35 @@ This walkthrough guides you through fundamental security hardening practices for
 - Verify local administrator passwords rotate regularly and are securely stored in Active Directory
 
 📸 **Screenshot:** LAPS Group Policy Settings
-![LAPS Group Policy Settings](./screenshots/ad-security-hardening/laps-gpo-settings.png)
+![LAPS Group Policy Settings](./screenshots/ad-security-hardening/03laps-group-policy-settings.png)
 
 ---
 
-## 🔎 Step 4: Verify Hardening and Monitoring
+## 🔎 Step 4: Verify LAPS Functionality
 
-- Review Event Viewer Security logs for key events (e.g., 4624, 4720, 4732, 4907)  
-- Test that Protected Users group members cannot authenticate using NTLM  
-- Confirm LAPS is rotating passwords properly  
+**On a managed client machine**:
+- Open **PowerShell** as **Administrator**
+- Import the LAPS module (if not already loaded):
+  ```Import-Module AdmPwd.PS```
+  - Run:
+```Get-AdmPwdPassword -ComputerName "COMPUTERNAME"```
+   - Replace `COMPUTERNAME` with the actual device name
 
----
+**Check password rotation**:
+   - Compare the `PasswordExpirationTimestamp` from the above output.
+   - Ensure it aligns with the rotation policy you set (e.g., every 30 days).
+
+**In Active Directory Users and Computers (ADUC)**:
+   - Enable **Advanced Features** under the **View** menu.
+   - Navigate to the computer object → **Properties** → **Attribute Editor**.
+   - Locate the attribute:
+     - `msLAPS-Password` (Windows LAPS) or  
+     - `ms-Mcs-AdmPwd` (Legacy LAPS).
+   - Confirm a password value exists and updates according to your policy.
+
+📸 **Screenshot**: Verification of LAPS Functionality
+![Verification of LAPS Functionality](./screenshots/ad-security-hardening/04verify-laps-function.png)
+
 
 ## 🔄 Real-World Scenario Example
 
@@ -119,7 +137,7 @@ This walkthrough guides you through fundamental security hardening practices for
 After implementing these controls, the security team receives detailed audit logs to quickly detect suspicious activity. Unauthorized access attempts are blocked, and compromised admin accounts are minimized. The risk of credential theft and lateral movement within the domain is significantly reduced, improving overall AD security posture.
 
 📸 **Screenshot:**  
-![Event Viewer - Security Logs](./screenshots/ad-security-hardening/event-viewer-security-logs.png)
+![Event Viewer - Security Logs](./screenshots/ad-security-hardening/05event-viewer.png)
 
 ---
 
