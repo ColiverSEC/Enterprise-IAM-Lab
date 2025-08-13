@@ -87,6 +87,9 @@ This walkthrough guides you through fundamental security hardening practices for
   - Go to **Computer Configuration** → **Policies** → **Administrative Templates** → **LAPS**
   - Enable password management and configure password policies
 - Verify local administrator passwords rotate regularly and are securely stored in Active Directory
+> ⚠️ **Note:** If you haven't installed LAPS yet, please refer to the [LAPS Installation Guide](./laps-installation.md) before proceeding.  
+> This walkthrough assumes LAPS client and management tools are installed, and ADMX templates deployed.
+
 
 📸 **Screenshot:** LAPS Group Policy Settings
 ![LAPS Group Policy Settings](./screenshots/ad-security-hardening/laps-gpo-settings.png)
