@@ -55,7 +55,7 @@ This walkthrough guides you through fundamental security hardening practices for
 - Open **Group Policy Management Console (GPMC)**  
 - Create or edit a GPO linked to the **Domain Controllers OU**  
 - Navigate to:  
-  `Computer Configuration → Policies → Windows Settings → Security Settings → Advanced Audit Policy Configuration → Audit Policies`  
+  **Computer Configuration** → **Policies** → **Windows Settings** → **Security Settings** → **Advanced Audit Policy Configuration** → **Audit Policies** 
 - Enable **Success** and **Failure** auditing for:  
   - Account Logon  
   - Account Management  
