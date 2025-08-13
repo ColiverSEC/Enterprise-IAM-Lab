@@ -81,15 +81,16 @@ This walkthrough guides you through fundamental security hardening practices for
   - Remove any unnecessary members; ensure use of dedicated admin accounts for elevated tasks only
 - Add critical accounts to the **Protected Users** group to enforce stronger authentication and security restrictions
 - Deploy Local Administrator Password Solution (LAPS):
-  - Install LAPS on Domain Controllers and management workstations [link to download LAPS](https://www.microsoft.com/en-us/download/details.aspx?id=46899)|[Link to Download Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=55319)
+    - Install LAPS on Domain Controllers and management workstations  
+    [Link to download LAPS](https://www.microsoft.com/en-us/download/details.aspx?id=46899) | [Link to download Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=55319)  
+  > ⚠️ **Note:** If you haven't installed LAPS yet, please refer to the [LAPS Installation Guide](./laps-installation.md) before proceeding.  
+  > This walkthrough assumes LAPS client and management tools are installed, and ADMX templates deployed.
+
   - Open **Group Policy Management**
   - Create or edit a GPO linked to the builtin **Domain Controllers** OU:
   - Go to **Computer Configuration** → **Policies** → **Administrative Templates** → **LAPS**
   - Enable password management and configure password policies
 - Verify local administrator passwords rotate regularly and are securely stored in Active Directory
-> ⚠️ **Note:** If you haven't installed LAPS yet, please refer to the [LAPS Installation Guide](./laps-installation.md) before proceeding.  
-> This walkthrough assumes LAPS client and management tools are installed, and ADMX templates deployed.
-
 
 📸 **Screenshot:** LAPS Group Policy Settings
 ![LAPS Group Policy Settings](./screenshots/ad-security-hardening/laps-gpo-settings.png)
