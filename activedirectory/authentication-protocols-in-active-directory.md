@@ -58,6 +58,7 @@ This walkthrough focuses on understanding and configuring authentication protoco
 - You should see a TGT for your logged-in user
 
 📸**Screenshot**: klist output showing TGT
+![klist output showing TGT](./screenshots/auth-protocols/01klist-output-tgt.png)
 
 ### Step 2: Force Kerberos Authentication to a Service
 
