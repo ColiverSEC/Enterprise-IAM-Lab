@@ -54,29 +54,100 @@ This walkthrough focuses on understanding and configuring authentication protoco
 
 ### Step 1: Verify Kerberos Tickets
 - Open PowerShell or Command Prompt on a client
+- **Run**: `klist`
+- You should see a TGT for your logged-in user
 
+📸**Screenshot**: klist output showing TGT
 
+### Step 2: Force Kerberos Authentication to a Service
 
+- Connect to a network service using a domain account (e.g., file share)
+- Use PowerShell to validate ticket usage:
+ - **Run**: `klist tgt`
 
+---
 
+## 🔧 Configure and Test NTLM Authentication
 
+### Step 3: Enable NTLM for a Specific Server (Optional)
 
+- Open **Group Policy Management** → Domain Controllers Policy
+- Navigate to **Computer Configuration** → **Policies** → **Windows Settings** → **Security Settings** → **Local Policies** → **Security Options**
+- Check settings like **Network security: LAN Manager authentication level**
 
+### Step 4: Test NTLM Login
 
+- Use a legacy SMB share or remote desktop connection
+- Optionally capture authentication with Wireshark to view NTLM handshake
 
+📸 **Screenshot**: NTLM challenge/response captured in Wireshark
 
+---
 
+## 🔧 Configure LDAP / LDAPS Authentication
 
+### Step 5: Enable LDAPS
 
+- Import a valid SSL certificate to the Domain Controller
+- Restart AD DS service to enable LDAPS
 
+### Step 6: Test LDAP/LDAPS Connection
 
+- From a client, **run**:
+```# LDAP (unencrypted)
+Get-ADUser -Identity username
 
+# LDAPS (encrypted)
+Get-ADUser -Identity username -Server "ldaps://corp.lab:636"
+```
 
+📸 **Screenshot**: LDAPS query returning user object successfully
 
+---
 
+## 🔍 Verify and Audit Authentication
 
+### Step 7: Check Event Logs
 
+- Open **Event Viewer** → **Windows Logs** → **Security**
+- Look for event IDs:
+  - 4768: Kerberos TGT requested
+  - 4769: Service ticket requested
+  - 4624: Successful logon
 
+### Step 8: Troubleshoot Failures
+
+- Use `klist purge` to clear tickets
+- Use `nltest /sc_verify:corp` to verify secure channel
+- Check clock sync, SPNs, and user permissions
+
+---
+
+## 🔄 Real-World Scenario Example
+
+**Scenario**: An application must authenticate to AD using Kerberos and failover to LDAPS if necessary.
+- Verify client tickets using `klist`
+- Test LDAPS connection using PowerShell
+- Confirm NTLM fallback only occurs when necessary
+
+📸 **Screenshot**: Kerberos and LDAPS authentication flow diagram
+
+---
+
+## ✅ Expected Behavior
+
+- Kerberos is used by default for domain logons
+- LDAPS secures application authentication
+- NTLM is only used when legacy systems require it
+- All authentication events are logged in Security Event Log for auditing
+
+---
+
+## 🔄 Optional Enhancements
+
+- Configure constrained Kerberos delegation for specific services
+- Capture and analyze authentication packets using Wireshark
+- Enforce stronger NTLM policies or disable NTLM entirely
 
 
 
