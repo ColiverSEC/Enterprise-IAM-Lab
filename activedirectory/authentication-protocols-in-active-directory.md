@@ -74,12 +74,34 @@ This walkthrough focuses on understanding and configuring authentication protoco
 
 - Open **Group Policy Management** → Domain Controllers Policy
 - Navigate to **Computer Configuration** → **Policies** → **Windows Settings** → **Security Settings** → **Local Policies** → **Security Options**
-- Check settings like **Network security: LAN Manager authentication level**
+- Check settings like **Network security: LAN Manager authentication level** and enabled
+ - `Send LM & NTLM – use NTLMv2 session security if negotiated`
+ - (Optional) `Network security: Do not store LAN Manager hash value on next password change` – should generally be enabled for security
+- Apply policy with `gpupdate /force` if needed
 
 ### Step 4: Test NTLM Login
 
-- Use a legacy SMB share or remote desktop connection
-- Optionally capture authentication with Wireshark to view NTLM handshake
+> 📒 **Note**: If you don’t already have Wireshark installed, [download](https://www.wireshark.org/download.html) it from and install it before proceeding.
+- **Prepare Your Lab Client**
+ - Log in as a standard domain user (not an admin)
+ - Open **PowerShell** on Your Lab Client
+- **Start Capturing Network Traffic**
+ - Open **Wireshark** on your lab client machine
+ - Select the network interface that connects to your lab domain controller
+ - Click **Start Capture**
+- **Trigger NTLM Authentication**
+ - In **PowerShell**, **run**:
+```dir \\IDS-DC01\C$```
+ - Accessing the share will perform an NTLM handshake if Kerberos is not used or NTLM is allowed
+- **Stop Capturing Traffic**
+ - Immediately after the directory listing completes, stop the capture in Wireshark
+- **Filter for NTLM Traffic**
+ - In **Wireshark**, enter the filter:`ntlmssp`
+ - To also see SMB context: `smb || ntlmssp`
+ - This isolates packets related to NTLM authentication
+- **Identify the NTLM Challenge/Response**
+ - Look for a **Negotiate / Challenge / Authenticate** sequence in the packet list
+ - This represents the NTLM handshake
 
 📸 **Screenshot**: NTLM challenge/response captured in Wireshark
 
