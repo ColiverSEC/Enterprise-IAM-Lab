@@ -81,27 +81,42 @@ This walkthrough focuses on understanding and configuring authentication protoco
 
 ### Step 4: Test NTLM Login
 
-> 📒 **Note**: If you don’t already have Wireshark installed, [download](https://www.wireshark.org/download.html) it from and install it before proceeding.
-- **Prepare Your Lab Client**
- - Log in as a standard domain user (not an admin)
- - Open **PowerShell** on Your Lab Client
-- **Start Capturing Network Traffic**
- - Open **Wireshark** on your lab client machine
- - Select the network interface that connects to your lab domain controller
- - Click **Start Capture**
-- **Trigger NTLM Authentication**
- - In **PowerShell**, **run**:
-```dir \\IDS-DC01\C$```
- - Accessing the share will perform an NTLM handshake if Kerberos is not used or NTLM is allowed
-- **Stop Capturing Traffic**
- - Immediately after the directory listing completes, stop the capture in Wireshark
-- **Filter for NTLM Traffic**
- - In **Wireshark**, enter the filter:`ntlmssp`
- - To also see SMB context: `smb || ntlmssp`
- - This isolates packets related to NTLM authentication
-- **Identify the NTLM Challenge/Response**
- - Look for a **Negotiate / Challenge / Authenticate** sequence in the packet list
- - This represents the NTLM handshake
+> 📒 **Note**: If you don’t already have Wireshark installed, [download](https://www.wireshark.org/download.html) it and install it before proceeding.
+
+- **Prepare Your Lab Client**  
+  - Log in as a standard domain user (not an admin)  
+  - Open **PowerShell** on your lab client
+
+- **Start Capturing Network Traffic**  
+  - Open **Wireshark** on your lab client machine  
+  - Select the network interface that connects to your lab domain controller  
+  - Click **Start Capture**
+
+- **Trigger NTLM Authentication**  
+  - In **PowerShell**, run:  
+    ```powershell
+    dir \\IDS-DC01\C$
+    ```  
+  - Accessing the share will perform an NTLM handshake if Kerberos is not used or NTLM is allowed
+
+- **Stop Capturing Traffic**  
+  - Immediately after the directory listing completes, stop the capture in Wireshark
+
+- **Filter for NTLM Traffic**  
+  - In **Wireshark**, enter the filter:  
+    ```
+    ntlmssp
+    ```  
+  - To also see SMB context:  
+    ```
+    smb || ntlmssp
+    ```  
+  - This isolates packets related to NTLM authentication
+
+- **Identify the NTLM Challenge/Response**  
+  - Look for a **Negotiate / Challenge / Authenticate** sequence in the packet list  
+  - This represents the NTLM handshake
+
 
 📸 **Screenshot**: NTLM challenge/response captured in Wireshark
 
