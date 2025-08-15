@@ -181,6 +181,9 @@ foreach ($n in $USER_FIRST_LAST_LIST) {
 - Creates a dedicated *_USERS* OU if it doesn’t exist
 - Sets passwords, enables accounts, and ensures password never expires
 > 💡 *Tip: This TXT-based approach is ideal for creating hundreds or thousands of users quickly. You can adjust `$PASSWORD_FOR_USERS` or OU path to fit your environment.*
+> 
+> 📒 *Note:* The full list of 1,000 user names is in [`names.txt`](./scripts/names.txt) for reference.
+
 ---
 
 ## 🔄 Verify Changes
