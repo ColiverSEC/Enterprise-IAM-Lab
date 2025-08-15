@@ -144,6 +144,8 @@ Import-Csv "C:\Temp\NewUsers.csv" | ForEach-Object {
     -Enabled $true -Path $_.OU
 }
 ```
+📸 **Screenshot**: PowerShell – Bulk Creation with CSV
+
 ### Step 8: Create Multiple Users via TXT (Optional / Bulk Script)
 ```
 # ----- Edit these Variables for your own Use Case ----- #
@@ -174,6 +176,8 @@ foreach ($n in $USER_FIRST_LAST_LIST) {
                -Enabled $true
 }
 ```
+📸 **Screenshot**: PowerShell – Bulk Creation with TXT
+
 **Explanation:**
 - `names.txt` contains one user per line in the format: **FirstName LastName**
 - Generates a **SamAccountName** from the first initial + last name
