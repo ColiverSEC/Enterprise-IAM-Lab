@@ -74,7 +74,7 @@ This walkthrough focuses on understanding and configuring authentication protoco
 
 - Open **Group Policy Management** → Domain Controllers Policy
 - Navigate to **Computer Configuration** → **Policies** → **Windows Settings** → **Security Settings** → **Local Policies** → **Security Options**
-- Check settings like **Network security: LAN Manager authentication level** and enabled
+- Check settings like **Network security: LAN Manager authentication level** and enable
  - `Send LM & NTLM – use NTLMv2 session security if negotiated`
  - (Optional) `Network security: Do not store LAN Manager hash value on next password change` – should generally be enabled for security
 - Apply policy with `gpupdate /force` if needed
