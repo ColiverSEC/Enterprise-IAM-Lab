@@ -70,7 +70,7 @@ Get-ADGroup -Filter *
 # Get members of a specific group
 Get-ADGroupMember -Identity "HRAdmins"
 ```
-- -**Identity**: Specifies the target group
+- **Identity**: Specifies the target group
 
 📸 **Screenshot**: PowerShell – Get-ADGroupMember
 
@@ -108,7 +108,7 @@ Set-ADUser -Identity jdoe -Title "Sales Representative" -Department "Sales"
 ```
 Remove-ADUser -Identity jdoe
 ```
-- -**Identity**: Specifies the user to delete
+- **Identity**: Specifies the user to delete
 
 📸 **Screenshot**: PowerShell – User Creation/Modification
 
