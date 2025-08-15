@@ -12,7 +12,7 @@ This walkthrough focuses on automating routine Active Directory (AD) management 
 - Querying AD objects (users, groups, OUs)
 - Creating, modifying, and removing AD objects
 - Managing group membership
-- Bulk operations with CSV files
+- Bulk operations with CSV or TXT files
 - PowerShell best practices for AD management
 - Verifying changes using both PowerShell and GUI tools
 
@@ -70,6 +70,8 @@ Get-ADGroup -Filter *
 # Get members of a specific group
 Get-ADGroupMember -Identity "HRAdmins"
 ```
+- -**Identity**: Specifies the target group
+
 📸 **Screenshot**: PowerShell – Get-ADGroupMember
 
 ---
@@ -84,17 +86,30 @@ New-ADUser -Name "John Doe" -GivenName "John" -Surname "Doe" `
 -UserPrincipalName "jdoe@corp.lab" -AccountPassword (ConvertTo-SecureString "P@ssw0rd!" -AsPlainText -Force) `
 -Enabled $true -Path "OU=Sales,DC=corp,DC=lab"
 ```
+**Explanation of Parameters:**
+- **Name**: Full name of the account
+- **GivenName** / Surname: First and last names
+- **DisplayName**: Name displayed in AD and email address book
+- **SamAccountName**: Legacy logon name
+- **UserPrincipalName**: Modern logon format (email-style)
+- **AccountPassword**: Initial password (secure string)
+- **Enabled**: Account status (True = active)
+- **Path**: Target OU in AD
 
 ### Step 4: Modify User Attributes
 ```
 Set-ADUser -Identity jdoe -Title "Sales Representative" -Department "Sales"
 ```
+- **Identity**: Specifies the user to modify
+- **Title / -Department**: Updates job-related attributes
 
 ### Step 5: Remove a User
 
 ```
 Remove-ADUser -Identity jdoe
 ```
+- -**Identity**: Specifies the user to delete
+
 📸 **Screenshot**: PowerShell – User Creation/Modification
 
 ---
@@ -110,10 +125,13 @@ Add-ADGroupMember -Identity "SalesAdmins" -Members jdoe
 # Remove user from group
 Remove-ADGroupMember -Identity "SalesAdmins" -Members jdoe -Confirm:$false
 ```
-
+- **Identity**: Target group
+- **Members**: User(s) to add/remove
+- **Confirm:$false**: Suppresses confirmation prompts
+- 
 ---
 
-## 📊 Bulk Operations with CSV Files
+## 📊 Bulk Operations with CSV or TXT Files
 
 ### Step 7: Create Multiple Users
 ```
@@ -134,6 +152,9 @@ Import-Csv "C:\Temp\NewUsers.csv" | ForEach-Object {
 ```
 Get-ADUser -Filter * -SearchBase "OU=Sales,DC=corp,DC=lab" | Select-Object Name, SamAccountName
 ```
+- **SearchBase:** Limits search to specific OU
+- **Select-Object:** Displays only chosen properties
+
 📸 **Screenshot**: PowerShell – Verification
 
 ---
@@ -145,12 +166,14 @@ Get-ADUser -Filter * -Properties DisplayName, EmailAddress, Department |
 Select-Object DisplayName, EmailAddress, Department | 
 Export-Csv "C:\Temp\ADUsersReport.csv" -NoTypeInformation
 ```
+- Exports user data to CSV for auditing or reporting
 
 ---
 
 ## 🔄 Real-World Scenario Example
 
 **Scenario**: A new sales cohort joins the company
+
 - Bulk-create 20 new users in `OU=Sales,DC=corp,DC=lab` from a CSV
 - Assign them to `SalesAdmins` group
 - Verify creation and group membership
@@ -172,3 +195,4 @@ Export-Csv "C:\Temp\ADUsersReport.csv" -NoTypeInformation
 - Schedule PowerShell scripts via Task Scheduler for routine automation
 - Combine with logging to maintain an audit trail
 - Integrate with Active Directory Administrative Center (ADAC) for hybrid GUI/script workflows
+- Use TXT-based scripts for large-scale bulk user creation
