@@ -57,7 +57,7 @@ This walkthrough focuses on automating routine Active Directory (AD) management 
 Get-ADUser -Filter * 
 
 # Get a specific user
-Get-ADUser -Identity jdoe -Properties DisplayName, EmailAddress
+Get-ADUser -Identity Jsmith -Properties DisplayName, EmailAddress
 ```
 
 📸 **Screenshot**: PowerShell – Get-ADUser
