@@ -126,18 +126,26 @@ This walkthrough focuses on understanding and configuring authentication protoco
 
 ### Step 5: Enable LDAPS
 
-- Import a valid SSL certificate to the Domain Controller
-- Restart AD DS service to enable LDAPS
+> ⚠️ **Note:** If Active Directory Certificate Services (AD CS) isn’t installed, you’ll need to install it before importing a certificate.
 
-### Step 6: Test LDAP/LDAPS Connection
-
-- From a client, **run**:
-```# LDAP (unencrypted)
-Get-ADUser -Identity username
-
-# LDAPS (encrypted)
-Get-ADUser -Identity username -Server "ldaps://corp.lab:636"
-```
+- **Open Certificates MMC**
+  - Press **Win + R**, type `mmc`, and press **Enter**
+  - Go to **File → Add/Remove Snap-in**, select **Certificates**, click **Add**
+  - Choose **Computer account → Local computer → Finish → OK**
+- **Import SSL Certificate**
+  - In **Certificates (Local Computer)**, expand **Personal → Certificates**
+  - Right-click **Certificates → All Tasks → Request New Certificate**
+  - Click **Next** → choose **Active Directory Enrollment Policy** → **Next**
+  - Select the **Domain Controller** template → **Enroll** → **Finish**
+- **Verify Certificate Properties**
+  - Ensure the certificate: 
+    - Is issued by a trusted CA (or your internal CA in the lab)
+    - Contains the **Server Authentication EKU**
+    - Has the **Subject** or **SAN** matching your Domain Controller’s FQDN.
+  - Complete the import wizard and verify the certificate appears under **Personal → Certificates**
+  - Certificate appears under **Personal** → **Certificates**
+- **Restart AD DS Service**
+  - Restart the **Active Directory Domain Services (AD DS)** service to enable LDAPS
 
 📸 **Screenshot**: LDAPS query returning user object successfully
 
