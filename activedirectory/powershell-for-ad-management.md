@@ -128,7 +128,7 @@ Remove-ADGroupMember -Identity "SalesAdmins" -Members jdoe -Confirm:$false
 - **Identity**: Target group
 - **Members**: User(s) to add/remove
 - **Confirm:$false**: Suppresses confirmation prompts
-- 
+
 ---
 
 ## 📊 Bulk Operations with CSV or TXT Files
@@ -144,11 +144,48 @@ Import-Csv "C:\Temp\NewUsers.csv" | ForEach-Object {
     -Enabled $true -Path $_.OU
 }
 ```
+### Step 8: Create Multiple Users via TXT (Optional / Bulk Script)
+```
+# ----- Edit these Variables for your own Use Case ----- #
+$PASSWORD_FOR_USERS   = "Password1"
+$USER_FIRST_LAST_LIST = Get-Content .\names.txt
+# ------------------------------------------------------ #
+
+$password = ConvertTo-SecureString $PASSWORD_FOR_USERS -AsPlainText -Force
+New-ADOrganizationalUnit -Name _USERS -ProtectedFromAccidentalDeletion $false
+
+foreach ($n in $USER_FIRST_LAST_LIST) {
+    $first = $n.Split(" ")[0].ToLower()
+    $last = $n.Split(" ")[1].ToLower()
+    $username = "$($first.Substring(0,1))$($last)".ToLower()
+    $UPN = "$username@corp.lab"
+
+    Write-Host "Creating user: $($username)" -BackgroundColor Black -ForegroundColor Cyan
+    
+    New-AdUser -AccountPassword $password `
+               -GivenName $first `
+               -Surname $last `
+               -DisplayName "$first $last" `
+               -Name $username `
+               -UserPrincipalName $UPN `
+               -EmployeeID $username `
+               -PasswordNeverExpires $true `
+               -Path "OU=_USERS,DC=corp,DC=lab" `
+               -Enabled $true
+}
+```
+**Explanation:**
+- `names.txt` contains one user per line in the format: **FirstName LastName**
+- Generates a **SamAccountName** from the first initial + last name
+- Automatically constructs **UserPrincipalName** using domain suffix
+- Creates a dedicated *_USERS* OU if it doesn’t exist
+- Sets passwords, enables accounts, and ensures password never expires
+> 💡 *Tip: This TXT-based approach is ideal for creating hundreds or thousands of users quickly. You can adjust `$PASSWORD_FOR_USERS` or OU path to fit your environment.*
 ---
 
 ## 🔄 Verify Changes
 
-### Step 8: Confirm User Creation
+### Step 9: Confirm User Creation
 ```
 Get-ADUser -Filter * -SearchBase "OU=Sales,DC=corp,DC=lab" | Select-Object Name, SamAccountName
 ```
