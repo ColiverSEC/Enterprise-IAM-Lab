@@ -21,8 +21,11 @@ This walkthrough focuses on automating routine Active Directory (AD) management 
 ## 📝 What You’ll Need
 
 🔹 Windows Server 2019 (or later) with AD DS installed
+
 🔹 Windows 10/11 client (domain-joined) with RSAT tools installed
+
 🔹 Active Directory domain set up (e.g., corp.lab)
+
 🔹 PowerShell (5.1+ or PowerShell 7) with ActiveDirectory module
 > 💡 *Tip: Run Import-Module ActiveDirectory to ensure the module is loaded before starting*
 
@@ -57,7 +60,7 @@ Get-ADUser -Filter *
 Get-ADUser -Identity jdoe -Properties DisplayName, EmailAddress
 ```
 
-📸 Screenshot: PowerShell – Get-ADUser
+📸 **Screenshot**: PowerShell – Get-ADUser
 
 ### Step 2: Get Groups and Membership
 
@@ -67,7 +70,7 @@ Get-ADGroup -Filter *
 # Get members of a specific group
 Get-ADGroupMember -Identity "HRAdmins"
 ```
-📸 Screenshot: PowerShell – Get-ADGroupMember
+📸 **Screenshot**: PowerShell – Get-ADGroupMember
 
 ---
 
@@ -92,7 +95,7 @@ Set-ADUser -Identity jdoe -Title "Sales Representative" -Department "Sales"
 ```
 Remove-ADUser -Identity jdoe
 ```
-📸 Screenshot: PowerShell – User Creation/Modification
+📸 **Screenshot**: PowerShell – User Creation/Modification
 
 ---
 
@@ -131,7 +134,7 @@ Import-Csv "C:\Temp\NewUsers.csv" | ForEach-Object {
 ```
 Get-ADUser -Filter * -SearchBase "OU=Sales,DC=corp,DC=lab" | Select-Object Name, SamAccountName
 ```
-📸 Screenshot: PowerShell – Verification
+📸 **Screenshot**: PowerShell – Verification
 
 ---
 
@@ -152,7 +155,7 @@ Export-Csv "C:\Temp\ADUsersReport.csv" -NoTypeInformation
 - Assign them to `SalesAdmins` group
 - Verify creation and group membership
 
-📸 Screenshot: Bulk User Creation
+📸 **Screenshot**: Bulk User Creation
 
 ---
 
