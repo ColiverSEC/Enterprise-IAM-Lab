@@ -81,9 +81,9 @@ Get-ADGroupMember -Identity "HRAdmins"
 ### Step 3: Create a New User
 
 ```
-New-ADUser -Name "John Doe" -GivenName "John" -Surname "Doe" `
--DisplayName "John Doe" -SamAccountName "jdoe" `
--UserPrincipalName "jdoe@corp.lab" -AccountPassword (ConvertTo-SecureString "P@ssw0rd!" -AsPlainText -Force) `
+New-ADUser -Name "John Cena" -GivenName "John" -Surname "Cena" `
+-DisplayName "John Cena" -SamAccountName "Jcena" `
+-UserPrincipalName "Jcena@ad.IDSentinelSolutions.com" -AccountPassword (ConvertTo-SecureString "Password1" -AsPlainText -Force) `
 -Enabled $true -Path "OU=Sales,DC=corp,DC=lab"
 ```
 **Explanation of Parameters:**
@@ -98,7 +98,7 @@ New-ADUser -Name "John Doe" -GivenName "John" -Surname "Doe" `
 
 ### Step 4: Modify User Attributes
 ```
-Set-ADUser -Identity jdoe -Title "Sales Representative" -Department "Sales"
+Set-ADUser -Identity Jcena -Title "Sales Representative" -Department "Sales"
 ```
 - **Identity**: Specifies the user to modify
 - **Title / -Department**: Updates job-related attributes
@@ -106,7 +106,7 @@ Set-ADUser -Identity jdoe -Title "Sales Representative" -Department "Sales"
 ### Step 5: Remove a User
 
 ```
-Remove-ADUser -Identity jdoe
+Remove-ADUser -Identity Jcena
 ```
 - **Identity**: Specifies the user to delete
 
@@ -120,10 +120,10 @@ Remove-ADUser -Identity jdoe
 
 ```
 # Add user to group
-Add-ADGroupMember -Identity "SalesAdmins" -Members jdoe
+Add-ADGroupMember -Identity "SalesAdmins" -Members Jcena
 
 # Remove user from group
-Remove-ADGroupMember -Identity "SalesAdmins" -Members jdoe -Confirm:$false
+Remove-ADGroupMember -Identity "SalesAdmins" -Members Jcena -Confirm:$false
 ```
 - **Identity**: Target group
 - **Members**: User(s) to add/remove
