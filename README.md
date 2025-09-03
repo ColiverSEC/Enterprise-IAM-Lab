@@ -1,6 +1,6 @@
 # 🛡️ Enterprise IAM Lab
 
-Hands-on identity and access management (IAM) lab focused on Microsoft Entra ID, Okta, on-prem Active Directory, and identity federation protocols including SAML, SCIM, OAuth 2.0, and OpenID Connect.
+Hands-on identity and access management (IAM) lab focused on Microsoft Entra ID, Okta, on-prem Active Directory, automation and identity federation protocols including SAML, SCIM, OAuth 2.0, and OpenID Connect.
 
 ---
 
