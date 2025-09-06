@@ -19,7 +19,7 @@ This lab demonstrates how enterprises:
 | 🔐 [Okta](./okta/) | SAML/OIDC app integrations, MFA policies, JIT provisioning, lifecycle automation with Okta Workflows |
 | 🧱 [Active Directory (On-Prem)](./activedirectory/) | OU structure, GPOs, delegated access, user/group management with PowerShell|
 | 🔄 [Federation Protocols](./federation-protocols/) | SAML, SCIM, OAuth, and OIDC authentication flows |
-| 🛡️ [Secure Access Controls](./secure-access/) | MFA policies, RBAC, Conditional Access enforcement |
+| 🛡️ [Secure Access Controls](./secure-access-controls/) | MFA policies, RBAC, Conditional Access enforcement |
 | ⚙️ [Automation](./automation/) | IAM scripting with PowerShell and Okta Workflows. |
 | 📌 [Real-World Tasks](./real-world-tasks.md) | Enterprise tasks mirrored in this lab. |
 
