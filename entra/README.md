@@ -2,15 +2,35 @@
 
 [⬅️ Back to Enterprise IAM Lab Overview](../README.md)
 
-This lab provides hands-on experience with Microsoft Entra ID (formerly Azure AD), a modern cloud-based identity and access management platform. It focuses on key areas such as:
+This lab provides hands-on experience with Microsoft Entra ID (formerly Azure AD), a modern cloud-based identity and access management platform. It covers the full spectrum of enterprise IAM tasks, including identity management, authentication, application access, governance, and monitoring.
 
-- ✅ Cloud-only and hybrid identity provisioning
-- ✅ Group-based licensing automation
-- ✅ Conditional Access policies and MFA enforcement
-- ✅ Integration with on-prem Active Directory via Entra Connect
-- ✅ PowerShell automation for identity management
+Key focus areas include:
 
-These walkthroughs simulate **real-world IAM engineering tasks** that security, identity, and cloud engineers perform daily.
+✅ Tenant configuration, roles, and delegation
+
+✅ User and group provisioning (manual, bulk, PowerShell, dynamic groups)
+
+✅ External identities (B2B/B2C) and guest lifecycle management
+
+✅ Hybrid identity with Azure AD Connect (PHS/PTA, SSO, password writeback, monitoring)
+
+✅ Authentication methods, MFA, Windows Hello, and self-service password reset
+
+✅ Conditional Access policies with device compliance and session management
+
+✅ Identity Protection and risk-based policies (user & sign-in risk)
+
+✅ Azure resource access and RBAC, managed identities, and Key Vault security
+
+✅ Enterprise application integrations, app registrations, and SCIM provisioning
+
+✅ Identity Governance (access packages, PIM, access reviews, emergency accounts)
+
+✅ Monitoring, reporting, and integration with Microsoft Sentinel and Entra Workbooks
+
+✅ Global Secure Access for Internet and Private Access, and network-level Conditional Access
+
+These walkthroughs simulate real-world IAM engineering tasks, preparing you to design, implement, and manage a secure, scalable, and governed identity environment across cloud and hybrid infrastructures.
 
 ---
 
