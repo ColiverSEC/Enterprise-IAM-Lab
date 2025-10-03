@@ -13,13 +13,24 @@ This lab provides hands-on experience with Microsoft Entra ID (formerly Azure AD
 These walkthroughs simulate **real-world IAM engineering tasks** that security, identity, and cloud engineers perform daily.
 
 ---
+
 ## 📂 Lab Walkthroughs
 
-| Walkthrough | Description |
-|------------|-------------|
-| 👤 [User Provisioning](././user-provisioning.md) | Create users manually, in bulk (CSV), or via PowerShell. Sync from on-prem AD and automate license assignment. |
-| 🔗 [Hybrid Identity](./hybrid-identity.md) | Install and configure Azure AD Connect, filter OUs/attributes, and verify sync with password hash sync. |
-| 🛡️ [Conditional Access](./conditional-access.md) | Enforce MFA, block legacy authentication, and apply device-compliance policies. |
+| Walkthrough                                                           | Description                                                                                                               |
+| --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| 🏁 [Initial Tenant Configuration & Roles](./initial-tenant-config.md) | Configure custom domains, assign built-in & custom roles, delegate admins, and manage tenant-wide settings.               |
+| 👤 [User & Group Provisioning](./user-and-group-provisioning.md)      | Create users and groups manually, via CSV, or PowerShell. Assign licenses and configure dynamic groups.                   |
+| 🌐 [External Identities (B2B/B2C)](./external-identities.md)          | Invite external users, configure collaboration, social & SAML identity providers, and manage guest lifecycle.             |
+| 🔗 [Hybrid Identity with Entra Connect](./hybrid-identity.md)         | Plan, install, and manage Entra Connect. Configure PHS/PTA, seamless SSO, password writeback, and monitoring.             |
+| 🔑 [Authentication Methods & SSPR](./authentication-methods.md)       | Enable MFA, FIDO2, Windows Hello, self-service password reset, and tenant restrictions.                                   |
+| 🛡️ [Conditional Access](./conditional-access.md)                     | Plan and implement security defaults and Conditional Access policies with MFA, device compliance, and session management. |
+| ⚡ [Identity Protection](./identity-protection.md)                     | Configure user & sign-in risk policies, monitor risky users, and integrate Microsoft Defender for Identity.               |
+| ☁️ [Azure Resource Access Management](./azure-access.md)              | Assign RBAC roles, configure managed identities, and control access to Key Vault.                                         |
+| 📲 [Enterprise App Integrations & Registration](./enterprise-apps.md) | Configure gallery apps, custom apps, app proxy, token customization, SCIM provisioning, and monitoring.                   |
+| 🎛️ [Identity Governance](./identity-governance.md)                   | Implement access packages, terms of use, access reviews, PIM, and emergency access accounts.                              |
+| 📊 [Monitoring & Reporting](./monitoring-reporting.md)                | Review sign-in and audit logs, diagnostic logs, and use workbooks/Sentinel dashboards.                                    |
+| 🌍 [Global Secure Access](./global-secure-access.md)                  | Configure Internet & Private Access, remote networks, and Conditional Access for network resources.                       |
+
 
 ---
 
