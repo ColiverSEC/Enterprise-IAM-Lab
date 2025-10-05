@@ -15,11 +15,14 @@ These walkthroughs mirror **enterprise IAM engineer tasks** for securing access 
 
 ## 📂 Lab Walkthroughs
 
-| Walkthrough | Description |
-|------------|-------------|
-| 📦 [Application Integration](./app-integration.md) | Add and configure apps in Okta, set up SAML/OIDC connections, and test seamless SSO.
-| 🔐 [MFA Policies](./mfa-policies.md) | Enable factor enrollment, create and assign authentication policies, and verify MFA enforcement.
-| 🔄 [Lifecycle Management](./lifecycle-management.md) | Automate provisioning/deprovisioning, sync user attributes, and use Okta Workflows for lifecycle events.
+| Walkthrough                                                          | Description                                                                                                |
+| -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| 👥 [User & Group Management](./user-and-group-management.md)         | Create users, manage custom attributes, assign admin roles, and automate group membership with rules.      |
+| 📦 [Application Integrations (SAML/OIDC)](./app-integrations.md)     | Integrate apps using SAML & OIDC via Okta Integration Network (OIN). Configure provisioning and SSO.       |
+| 🔐 [Authentication & MFA Policies](./authentication-mfa-policies.md) | Set up authenticators, create authentication and enrollment policies, and enforce contextual MFA.          |
+| 🔄 [Lifecycle Management & Workflows](./lifecycle-management.md)     | Automate onboarding/offboarding, sync attributes, and trigger deprovisioning events using Okta Workflows.  |
+| 🧩 [Attribute Mapping & Profile Management](./attribute-mapping.md)  | Map user attributes between Okta and integrated apps. Extend the user schema with custom attributes.       |
+| 🧰 [Troubleshooting & Syslog Analysis](./troubleshooting-syslog.md)  | Troubleshoot login and provisioning issues, analyze syslog events, and identify common integration errors. |
 
 ---
 
