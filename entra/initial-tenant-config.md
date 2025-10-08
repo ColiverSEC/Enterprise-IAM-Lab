@@ -1,1 +1,155 @@
+# 🏁 Initial Tenant Configuration & Roles  
+
+⬅️ [Back to Entra ID Lab Overview](./README.md)
+
+This walkthrough covers how to set up your Microsoft Entra ID tenant for the first time. You’ll configure tenant branding, add custom domains, assign roles, and review tenant-wide settings — laying the foundation for secure identity management.
+
+---
+
+## 📚 What This Lab Covers
+
+- Configuring tenant branding (organization name, logos, and colors)
+- Adding and verifying a custom domain (e.g., `contoso.com`)
+- Assigning built-in roles (Global Admin, User Admin, etc.)
+- Creating and assigning custom roles
+- Delegating admin access using Privileged Identity Management (PIM)
+- Reviewing tenant-wide settings (security defaults, collaboration, and monitoring)
+
+---
+
+## 📝 What You’ll Need
+
+🔹 **Microsoft Entra ID tenant** (trial or sandbox)  
+🔹 **Global Administrator** privileges  
+🔹 Access to **DNS management** for domain verification  
+🔹 *(Optional)* **Microsoft Entra ID P1/P2** license for role delegation or PIM
+
+---
+
+## ⚙️ Configure Tenant Branding
+
+### Step 1: Open Microsoft Entra Admin Center  
+- Go to [https://entra.microsoft.com](https://entra.microsoft.com)  
+- Navigate to **Identity** → **Overview** → **Tenant Properties** → **Customize Branding**
+
+### Step 2: Apply Branding  
+- Configure:
+  - **Banner logo**
+  - **Background image**
+  - **Organization name** and **support contact**
+- Click **Save** and preview your sign-in page.
+
+📸 **Screenshot Example:**  
+`/entra/screenshots/initial-tenant-config/01branding.png`
+
+---
+
+## 🌐 Add and Verify a Custom Domain
+
+### Step 3: Add a Custom Domain  
+- Navigate to **Microsoft Entra ID** → **Custom Domain Names** → **+ Add custom domain**  
+- Enter your domain (e.g., `contoso.com`) → **Add domain**
+
+### Step 4: Verify the Domain  
+- Copy the **TXT record** provided by Microsoft  
+- Add it to your domain registrar’s DNS records  
+- Return to the portal → click **Verify**
+
+> 💡 Once verified, set it as the **primary domain** for new users (e.g., `user@contoso.com`).
+
+📸 **Screenshot Example:**  
+`/entra/screenshots/initial-tenant-config/02domain-verify.png`
+
+---
+
+## 👤 Assign Built-In Admin Roles
+
+### Step 5: Review Built-In Roles  
+- Navigate to **Microsoft Entra ID** → **Roles and Administrators**  
+- Review key roles such as:
+  - **Global Administrator**
+  - **User Administrator**
+  - **Groups Administrator**
+  - **Authentication Administrator**
+
+### Step 6: Assign a Role  
+- Select a role → **Add assignments** → choose a user → **Add**  
+- Verify role assignment under **Active Assignments**
+
+📸 **Screenshot Example:**  
+`/entra/screenshots/initial-tenant-config/03assign-roles.png`
+
+---
+
+## 🧩 Create and Assign Custom Roles
+
+### Step 7: Create a Custom Role *(Optional – Requires P1/P2 License)*  
+- Navigate to **Microsoft Entra ID** → **Roles and Administrators** → **+ New custom role**
+- Define:
+  - **Name:** `Helpdesk - Password Reset`
+  - **Permissions:** `microsoft.directory/users/password/reset`
+- Save and assign the role to your helpdesk users.
+
+📸 **Screenshot Example:**  
+`/entra/screenshots/initial-tenant-config/04custom-role.png`
+
+---
+
+## 🔒 Delegate Admin Access with PIM *(Optional)*
+
+### Step 8: Enable Privileged Identity Management  
+- Go to **Identity Governance** → **Privileged Identity Management (PIM)**  
+- Activate **Microsoft Entra roles**  
+- Configure **eligible assignments** and **approval workflows** for high-privilege roles
+
+📸 **Screenshot Example:**  
+`/entra/screenshots/initial-tenant-config/05pim-eligible.png`
+
+---
+
+## ⚙️ Review Tenant-Wide Settings
+
+### Step 9: Review Security Defaults  
+- Navigate to **Microsoft Entra ID** → **Properties** → **Manage Security Defaults**
+- Choose to:
+  - Keep **Security Defaults** enabled, or  
+  - Disable and replace them later with **Conditional Access** (covered in a later module)
+
+### Step 10: Review External Collaboration Settings  
+- Navigate to **External Identities** → **External Collaboration Settings**
+- Review:
+  - **Guest invitation permissions**
+  - **Collaboration restrictions**
+  - **Guest access expiration**
+
+📸 **Screenshot Example:**  
+`/entra/screenshots/initial-tenant-config/06security-defaults.png`
+
+---
+
+## ✅ Expected Behavior
+
+- Tenant branding is visible on the login page  
+- Custom domain verified and available for new user creation  
+- Built-in and custom roles properly delegated  
+- *(Optional)* PIM configured for just-in-time admin elevation  
+- Security defaults and collaboration settings reviewed and documented
+
+---
+
+## 🔄 Optional Enhancements
+
+- Add custom **Terms of Use** for external users  
+- Enable **Access Reviews** for admin roles  
+- Create a **break-glass emergency account** (Global Admin)  
+- Customize sign-in experiences for different regions or brands
+
+---
+
+## 🔗 Next Steps
+
+Your tenant is now configured with secure foundations for Entra ID.  
+Next, you’ll create and manage **users and groups**, assign licenses, and set up dynamic memberships.
+
+➡️ [Continue to: User & Group Provisioning](./user-and-group-provisioning.md)
 
