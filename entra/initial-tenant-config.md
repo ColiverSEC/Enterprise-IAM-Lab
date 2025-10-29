@@ -57,11 +57,11 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 
 ## 🌐 Add and Verify a Custom Domain
 
-### Step 3: Add a Custom Domain  
-- Navigate to **Microsoft Entra ID** → **Custom Domain Names** → **+ Add custom domain**  
+### Step 4: Add a Custom Domain  
+- Navigate to **Microsoft Entra ID** → **Domain Names** → **+ Add custom domain**  
 - Enter your domain (e.g., `contoso.com`) → **Add domain**
 
-### Step 4: Verify the Domain  
+### Step 5: Verify the Domain  
 - Copy the **TXT record** provided by Microsoft  
 - Add it to your domain registrar’s DNS records  
 - Return to the portal → click **Verify**
