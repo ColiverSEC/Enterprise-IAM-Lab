@@ -28,16 +28,27 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 
 ## ⚙️ Configure Tenant Branding
 
-### Step 1: Open Microsoft Entra Admin Center  
+### Step 1: Open Microsoft Entra Admin Center
 - Go to [https://entra.microsoft.com](https://entra.microsoft.com)  
-- Navigate to **Identity** → **Overview** → **Tenant Properties** → **Customize Branding**
+- Sign in with a **Global Administrator** or **Company Branding Administrator** account.  
+- In the **left-hand menu**, click **Microsoft Entra ID**.  
+- Scroll to the **bottom** and select **Custom branding** (just above **Identity Protection**).
 
-### Step 2: Apply Branding  
-- Configure:
-  - **Banner logo**
-  - **Background image**
-  - **Organization name** and **support contact**
-- Click **Save** and preview your sign-in page.
+### Step 2: Choose Branding Type
+- In the **Getting Started** tab, you’ll see:  
+  - **Default sign-in experience** → Click **Customize** to edit your default branding.  
+  - **Customize by browser language** → Click **Add browser language** to create language-specific branding.
+
+### Step 3: Customize Your Branding
+- After clicking **Customize**, you’ll see **six tabs**:  
+  - **Basics** – Set your **organization name**, **support contact info**, and **banner logo**.
+  - **Layout** – Configure **background image**, **page layout**, and **accent colors**.
+  - **Header** – Edit **header text** and optional **logo placement**.
+  - **Footer** – Add **footer text**, **links**, or **privacy/legal information**.
+  - **Sign-in form** – Customize **sign-in page text**, placeholders, and other form elements.
+  - **Review** – Preview all changes and confirm before saving.  
+- Click **Save** to apply your branding.  
+- Preview your sign-in page to verify the updates.
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/initial-tenant-config/01branding.png`
