@@ -57,16 +57,22 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 
 ## 🌐 Add and Verify a Custom Domain
 
-### Step 4: Add a Custom Domain  
-- Navigate to **Microsoft Entra ID** → **Domain Names** → **+ Add custom domain**  
-- Enter your domain (e.g., `contoso.com`) → **Add domain**
+### Step 4: Add or Confirm a Custom Domain
 
-### Step 5: Verify the Domain  
-- Copy the **TXT record** provided by Microsoft  
-- Add it to your domain registrar’s DNS records  
-- Return to the portal → click **Verify**
+- Navigate to **Microsoft Entra ID** → **Domain names**.  
+- If you **already have a verified custom domain** (e.g., `contoso.com`), you can skip the add/verify steps and move on to the next section.  
+- If not, follow these steps:
+  - Click **+ Add custom domain**.
+  - Enter your domain name (e.g., `contoso.com`) → **Add domain**.
 
-> 💡 Once verified, set it as the **primary domain** for new users (e.g., `user@contoso.com`).
+### Step 5: Verify the Domain (if new)
+- Copy the **TXT record** provided by Microsoft.  
+- Add the record to your domain registrar’s DNS settings.  
+- Return to the portal → click **Verify**.  
+
+💡 **Tip:**  
+> If your domain is already verified, you can simply confirm it’s set as the **primary domain** for new users under:  
+**Microsoft Entra ID → Domain names → [Your Domain] → Set as primary.**
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/initial-tenant-config/02domain-verify.png`
