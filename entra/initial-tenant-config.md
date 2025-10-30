@@ -30,25 +30,25 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 
 ### Step 1: Open Microsoft Entra Admin Center
 - Go to [https://entra.microsoft.com](https://entra.microsoft.com)  
-- Sign in with a **Global Administrator** or **Company Branding Administrator** account.  
-- In the **left-hand menu**, click **Microsoft Entra ID**.  
-- Scroll to the **bottom** and select **Custom branding** (just above **Identity Protection**).
+- Sign in with a **Global Administrator** or **Company Branding Administrator** account 
+- In the **left-hand menu**, click **Microsoft Entra ID**  
+- Scroll to the **bottom** and select **Custom branding** (just above **Identity Protection**)
 
 ### Step 2: Choose Branding Type
 - In the **Getting Started** tab, you’ll see:  
-  - **Default sign-in experience** → Click **Customize** to edit your default branding.  
-  - **Customize by browser language** → Click **Add browser language** to create language-specific branding.
+  - **Default sign-in experience** → Click **Customize** to edit your default branding  
+  - **Customize by browser language** → Click **Add browser language** to create language-specific branding
 
 ### Step 3: Customize Your Branding
 - After clicking **Customize**, you’ll see **six tabs**:  
-  - **Basics** – Set your **organization name**, **support contact info**, and **banner logo**.
-  - **Layout** – Configure **background image**, **page layout**, and **accent colors**.
-  - **Header** – Edit **header text** and optional **logo placement**.
-  - **Footer** – Add **footer text**, **links**, or **privacy/legal information**.
-  - **Sign-in form** – Customize **sign-in page text**, placeholders, and other form elements.
-  - **Review** – Preview all changes and confirm before saving.  
-- Click **Save** to apply your branding.  
-- Preview your sign-in page to verify the updates.
+  - **Basics** – Set your **organization name**, **support contact info**, and **banner logo**
+  - **Layout** – Configure **background image**, **page layout**, and **accent colors**
+  - **Header** – Edit **header text** and optional **logo placement**
+  - **Footer** – Add **footer text**, **links**, or **privacy/legal information**
+  - **Sign-in form** – Customize **sign-in page text**, placeholders, and other form elements
+  - **Review** – Preview all changes and confirm before saving 
+- Click **Save** to apply your branding  
+- Preview your sign-in page to verify the updates
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/initial-tenant-config/01branding.png`
@@ -63,16 +63,16 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 - If you **already have a verified custom domain** (e.g., `contoso.com`), you can skip the add/verify steps and move on to the next section.  
 - If not, follow these steps:
   - Click **+ Add custom domain**.
-  - Enter your domain name (e.g., `contoso.com`) → **Add domain**.
+  - Enter your domain name (e.g., `contoso.com`) → **Add domain**
 
 ### Step 5: Verify the Domain (if new)
-- Copy the **TXT record** provided by Microsoft.  
-- Add the record to your domain registrar’s DNS settings.  
-- Return to the portal → click **Verify**.  
+- Copy the **TXT record** provided by Microsoft  
+- Add the record to your domain registrar’s DNS settings  
+- Return to the portal → click **Verify**  
 
 💡 **Tip:**  
 > If your domain is already verified, you can simply confirm it’s set as the **primary domain** for new users under:  
-**Microsoft Entra ID → Domain names → [Your Domain] → Set as primary.**
+**Microsoft Entra ID → Domain names → [Your Domain] → Set as primary**
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/initial-tenant-config/02domain-verify.png`
@@ -81,7 +81,7 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 
 ## 👤 Assign Built-In Admin Roles
 
-### Step 5: Review Built-In Roles  
+### Step 6: Review Built-In Roles  
 - Navigate to **Microsoft Entra ID** → **Roles and Administrators**  
 - Review key roles such as:
   - **Global Administrator**
@@ -89,9 +89,14 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
   - **Groups Administrator**
   - **Authentication Administrator**
 
-### Step 6: Assign a Role  
-- Select a role → **Add assignments** → choose a user → **Add**  
+### Step 7: Assign a Role to group or user  
+- Select a role → **Add assignments** → **Select Members** → **Select** → **Next** → **Assign**
 - Verify role assignment under **Active Assignments**
+
+💡 **Tip:**
+> Before assigning a role you can choose to either assign as eligible or active
+> - Eligible role assignment means a user can activate the role for a limited time when needed
+> - Active role assignment means the user has the permissions of that role at all times
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/initial-tenant-config/03assign-roles.png`
@@ -100,12 +105,18 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 
 ## 🧩 Create and Assign Custom Roles
 
-### Step 7: Create a Custom Role *(Optional – Requires P1/P2 License)*  
+### Step 8: Create a Custom Role *(Optional – Requires P1/P2 License)*  
 - Navigate to **Microsoft Entra ID** → **Roles and Administrators** → **+ New custom role**
 - Define:
   - **Name:** `Helpdesk - Password Reset`
-  - **Permissions:** `microsoft.directory/users/password/reset`
-- Save and assign the role to your helpdesk users.
+  - **Description** `This custom role grants delegated permissions to helpdesk or support personnel to manage basic user account password operations without granting full administrative privileges.`
+  - **Permissions:** `microsoft.directory/users/passwordPolicies/update`
+- **Next** → **Create**
+
+💡 **Tip:**  
+> When creating a new custom role, you can **Start from scratch** or **clone an existing custom role**  
+> - Cloning an existing custom role is recommended if you want to reuse or slightly modify a role you've already configured  
+> - Starting from scratch is best when you need a completely new permission set tailored to a different function
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/initial-tenant-config/04custom-role.png`
@@ -114,7 +125,7 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 
 ## 🔒 Delegate Admin Access with PIM *(Optional)*
 
-### Step 8: Enable Privileged Identity Management  
+### Step 9: Enable Privileged Identity Management  
 - Go to **Identity Governance** → **Privileged Identity Management (PIM)**  
 - Activate **Microsoft Entra roles**  
 - Configure **eligible assignments** and **approval workflows** for high-privilege roles
@@ -126,13 +137,13 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 
 ## ⚙️ Review Tenant-Wide Settings
 
-### Step 9: Review Security Defaults  
+### Step 10: Review Security Defaults  
 - Navigate to **Microsoft Entra ID** → **Properties** → **Manage Security Defaults**
 - Choose to:
   - Keep **Security Defaults** enabled, or  
   - Disable and replace them later with **Conditional Access** (covered in a later module)
 
-### Step 10: Review External Collaboration Settings  
+### Step 11: Review External Collaboration Settings  
 - Navigate to **External Identities** → **External Collaboration Settings**
 - Review:
   - **Guest invitation permissions**
