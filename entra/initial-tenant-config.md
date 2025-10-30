@@ -122,23 +122,29 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 `/entra/screenshots/initial-tenant-config/04custom-role.png`
 
 ---
-
+ 
 ## 🔒 Delegate Admin Access with PIM *(Optional)*
 
-### Step 9: Enable Privileged Identity Management  
-- Go to **Identity Governance** → **Privileged Identity Management (PIM)**  
-- Activate **Microsoft Entra roles**  
-- Configure **eligible assignments** and **approval workflows** for high-privilege roles
+### Step 9: Enable Privileged Identity Management 
+- In the **left-hand menu**, select **Identity Governance** → **Privileged Identity Management (PIM)**.  
+- In the PIM navigation pane on the left, click **Microsoft Entra roles**.  
+- From here you can:
+  - View all **eligible**, **active**, and **expired** role assignments.  
+  - Configure **role settings** (activation duration, MFA requirement, approval workflow, justification, etc.).  
+  - Assign users as **eligible** for specific roles (e.g., Global Administrator, User Administrator).  
+- Use **Assignments** → **+ Add assignments** to make a user eligible for a role.  
+- Optionally, configure **notifications** and **access reviews** under **Settings**.
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/initial-tenant-config/05pim-eligible.png`
+
 
 ---
 
 ## ⚙️ Review Tenant-Wide Settings
 
 ### Step 10: Review Security Defaults  
-- Navigate to **Microsoft Entra ID** → **Properties** → **Manage Security Defaults**
+- Navigate to **Microsoft Entra ID** → **Overview** → **Properties** → **Manage Security Defaults**
 - Choose to:
   - Keep **Security Defaults** enabled, or  
   - Disable and replace them later with **Conditional Access** (covered in a later module)
