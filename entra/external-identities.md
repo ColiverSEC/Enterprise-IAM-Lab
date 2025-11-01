@@ -79,7 +79,7 @@ New-MgInvitation -BodyParameter $guest
 
 - Navigate to **External Identities → External collaboration settings**
 - Configure:
-  - **Guest user access restrictions** (e.g., require MFA, limit access)
+  - **Guest user access restrictions** (e.g., limit access)
   - **Collaboration restrictions** (domains allowed/blocked)
   - **Permissions for guests** (directory read/write, group membership)
 
@@ -92,7 +92,7 @@ New-MgInvitation -BodyParameter $guest
 
 ### Step 5: Add a Social Identity Provider
 
-- Go to **External Identities → All identity providers → + New provider**  
+- Go to **External Identities** → **All identity providers** 
 - Select **provider type** (e.g., Google, Facebook)  
 - Enter required **Client ID / Secret** from the social provider  
 - Click **Save and enable**
@@ -104,7 +104,7 @@ New-MgInvitation -BodyParameter $guest
 
 ### Step 6: Add a SAML Identity Provider
 
-- Go to **External Identities → All identity providers → + New provider → SAML**  
+- Go to **External Identities → All identity providers → Custom → SAML/WS-Fed**  
 - Enter:
    - **Metadata URL** or manual configuration  
    - **Name identifier and claim mappings**  
