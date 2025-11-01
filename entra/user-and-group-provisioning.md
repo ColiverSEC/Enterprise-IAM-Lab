@@ -36,11 +36,15 @@ This walkthrough covers how to create and manage users and groups in Microsoft E
 ### Step 2: Add a New User  
 - Choose **Create user** (not *Invite external user*)  
 - Enter:
-  - **User name:** `jane.doe@contoso.com`
-  - **Display name:** `Jane Doe`
+  - **User name:** `kblock@contoso.com`
+  - **Display name:** `Ken Block`
   - **Password:** Auto-generate or set manually  
 - (Optional) Assign **Roles** or **Groups**  
 - Click **Create**
+
+> 🏷️ **Note:**  
+> Replace `contoso.com` with your organization’s verified domain (e.g., `idsentinelsolutions.com`) when following these steps.
+
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/user-and-group-provisioning/01-create-user.png`
@@ -49,32 +53,53 @@ This walkthrough covers how to create and manage users and groups in Microsoft E
 
 ## 📂 Bulk Import Users via CSV
 
-### Step 3: Prepare a CSV File  
+### Step 3: Prepare a CSV File
 
-Create a CSV file named `bulk-users.csv` with headers and sample users:
+- In the Microsoft Entra admin center, navigate to:  
+  **Identity** → **Users** → **Bulk operations** → **Bulk create**
+- Under **Download a CSV template**, click **Download** to get the sample file provided by Microsoft.
 
-```csv
-User principal name,Display name,First name,Last name,Job title,Department
-alex.johnson@contoso.com,Alex Johnson,Alex,Johnson,IT Support,IT
-mary.lopez@contoso.com,Mary Lopez,Mary,Lopez,Finance Analyst,Finance
-```
+> 🧠 **Tip:** Always use the official CSV template from Entra.  
+> It includes the correct headers and formatting required for a successful upload.  
+> Editing this downloaded file ensures compatibility with Entra’s import process.
 
-### Step 4: Import the CSV
+- Open the downloaded CSV file in Excel or a text editor, then fill in your user details.  
+  Example CSV (based on your tenant):
 
-- In the Entra admin center, navigate to:
-**Users** →**Bulk Operations** → **Bulk Create**
-- Upload your bulk-users.csv file
-- Click Submit to begin the import
-> 🧠 Tip: After the import completes, check the Bulk Operation Results tab to verify the upload or download an error report if needed.
+  ```csv
+  Name [displayName] Required,User name [userPrincipalName] Required,Initial password [passwordProfile] Required,Block sign in (Yes/No) [accountEnabled] Required,First name [givenName],Last name [surname],Job title [jobTitle],Department [department],Usage location [usageLocation],Street address [streetAddress],State or province [state],Country or region [country],Office [physicalDeliveryOfficeName],City [city],ZIP or postal code [postalCode],Office phone [telephoneNumber],Mobile phone [mobile]
+  Alex Johnson,ajohnson@idsentinelsolutions.com,Password1,No,Alex,Johnson,IT Support,IT,US,,,,,,,
+  Mary Lopez,mlopez@idsentinelsolutions.com,Password1,No,Mary,Lopez,Finance Analyst,Finance,US,,,,,,,
+- After all the required columns are filled out you can fill the rest of the 17 columns with `,` 
 
-📸 Screenshot Example:
-/entra/screenshots/user-and-group-provisioning/02-bulk-upload.png
+### Step 4: Upload and Import the CSV
+
+- Return to the **Bulk create** page in the Entra admin center.  
+- Click **Upload your CSV file** and select your edited file (`bulk-users.csv`).  
+- Once uploaded, click **Submit** to start the bulk import process.  
+- You’ll see a notification confirming that your bulk operation has started.
+
+### Step 5: Verify User Creation
+
+1. After the process completes, go to:  
+   **Users** → **Bulk operations** → **Bulk operation results**
+2. Review the status of your upload:  
+   - ✅ **Completed** — All users were successfully created.  
+   - ⚠️ **Failed** — Click **Download results** to review errors and correct your CSV file if needed.
+3. Navigate back to **All Users** and use the search bar to confirm the new accounts (e.g., *Alex Johnson*, *Mary Lopez*) appear in the list.
+
+> 💡 **Tip:**  
+> It may take a minute or two for new users to appear under **All Users**.  
+> Once visible, you can open each user profile to verify properties, reset passwords, or assign licenses.
+
+📸 **Screenshot Example:**  
+`/entra/screenshots/user-and-group-provisioning/02-bulk-upload.png`
 
 ---
 
 ## 🧑‍🤝‍🧑 Create Groups
 
-### Step 5: Create a New Group
+### Step 6: Create a New Group
 - Navigate to **Groups** → **All Groups** → **+ New group**
 - Choose:
   - Group type: Security or Microsoft 365
@@ -82,43 +107,59 @@ mary.lopez@contoso.com,Mary Lopez,Mary,Lopez,Finance Analyst,Finance
   - Membership type: Assigned
 - Click **Create**
 
+> 💡 **Tip:**
+> - Security groups are used to give group members access to applications, resources and assign licenses
+> - Microsoft 365 groups are used for collaboration, giving members access to a shared mailbox, calendar, files, SharePoint site, and so on
+
 📸 Screenshot Example:
 /entra/screenshots/user-and-group-provisioning/03-create-group.png
 
-### Step 6: Add Members
-- Open the created group →** Members** → **+ Add members**
-- Search and add Jane Doe, Mary Lopez
+### Step 7: Add Members
+- Open the created group → **Members** → **+ Add members**
+- Search and add Alex Johnson, Mary Lopez
 - Click **Select** → **Save**
 
 📸 Screenshot Example:
 /entra/screenshots/user-and-group-provisioning/04-add-members.png
 
+---
+
 ## 🧾 Assign Licenses
 
-### Step 7: Assign Licenses to Individual Users
-- Navigate to Users → select a user → Licenses → + Assignments
-- Choose available licenses (e.g., Microsoft 365 E5) → click Save
+> ⚠️ **Note:** Microsoft now manages user and group licenses in the **Microsoft 365 Admin Center** rather than directly in Entra ID.
 
-📸 Screenshot Example:
-/entra/screenshots/user-and-group-provisioning/05-assign-license.png
+### Step 8: Assign Licenses to Individual Users
 
-### Step 8: Assign Licenses to a Group
+- Go to the **Microsoft 365 Admin Center**: [https://admin.microsoft.com](https://admin.microsoft.com)  
+- Navigate to **Users** → **Active users**.  
+- Select the user you want to license (e.g., *Alex Johnson*).  
+- In the **Licenses and Apps** section, turn on the license(s) you want to assign (e.g., Microsoft Entra ID P2).  
+- Click **Save changes**.
 
-🧠 Note: Group-based licensing requires Entra ID P1 or P2.
+📸 **Screenshot Example:**  
+`/m365/screenshots/user-license-assign.png`
 
-- Navigate to Groups → select a group → Licenses → + Assignments
-- Choose the license and services to include → Save
-- All members automatically receive assigned licenses.
+### Step 9: Assign Licenses to a Group (Group-based Licensing)
 
-📸 Screenshot Example:
-/entra/screenshots/user-and-group-provisioning/06-group-license.png
+> 🧠 **Tip:** Group-based licensing requires **Entra ID P1 or P2**.
+
+- In the Microsoft 365 Admin Center, navigate to **Groups** → **Active groups**.
+- Select the group you want to license (e.g., *Finance Team*).
+- Click **Licenses and apps**
+- Assign the desired license(s)
+- Click **Save changes**.  
+
+- All current and future members of the group automatically receive the assigned licenses.
+
+📸 **Screenshot Example:**  
+`/m365/screenshots/group-license-assign.png`
 
 ---
 
 ## ⚡ Create Dynamic Groups
 
-### Step 9: Create a Dynamic Group
-- Navigate to Groups → + New group
+### Step 10: Create a Dynamic Group
+- Navigate to Entra → **Groups** → **+ New group**
 - Select:
   - Group type: Security or Microsoft 365
   - Membership type: Dynamic User
@@ -131,7 +172,7 @@ mary.lopez@contoso.com,Mary Lopez,Mary,Lopez,Finance Analyst,Finance
 📸 Screenshot Example:
 /entra/screenshots/user-and-group-provisioning/07-dynamic-group.png
 
-### Step 10: Verify Membership
+### Step 11: Verify Membership
 
 - Once the rule processes, users with Department = IT automatically appear in the group
 - Check Members (Preview) or Dynamic Membership Rules to validate results
@@ -143,7 +184,7 @@ mary.lopez@contoso.com,Mary Lopez,Mary,Lopez,Finance Analyst,Finance
 
 ## 💻 Manage Users & Groups with PowerShell
 
-### Step 11: Install and Connect Microsoft Graph Module
+### Step 12: Install and Connect Microsoft Graph Module
 - Install the Microsoft Graph PowerShell module: ```Install-Module Microsoft.Graph -Scope CurrentUser```
   - This downloads the module that lets you manage Entra ID (Azure AD) users, groups, and licenses from PowerShell
   - ```Scope CurrentUser``` installs it for your user account only, so you don’t need admin rights
@@ -152,7 +193,7 @@ mary.lopez@contoso.com,Mary Lopez,Mary,Lopez,Finance Analyst,Finance
   - You’ll be prompted to log in with a Global Admin or User Admin account
 - Once you run both commands, your PowerShell session is ready to manage users, groups, licenses, and dynamic rules
 
-### Step 12: Create a New User via PowerShell
+### Step 13: Create a New User via PowerShell
 - Open Powershell and run:
 ```
 New-MgUser -AccountEnabled $true -DisplayName "John Adams" `
@@ -160,7 +201,7 @@ New-MgUser -AccountEnabled $true -DisplayName "John Adams" `
 -PasswordProfile @{forceChangePasswordNextSignIn=$true; password="P@ssw0rd123"}
 ```
 
-### Step 13: Create a Group via PowerShell
+### Step 14: Create a Group via PowerShell
 - Open Powershell and run:
 ```
 New-MgGroup -DisplayName "Sales Team" -MailEnabled:$false -MailNickname "salesteam" `
