@@ -217,6 +217,19 @@ New-MgUser `
     -AccountEnabled:$true `
     -PasswordProfile @{ForceChangePasswordNextSignIn=$true; Password="Password1"}
 ```
+> 💡 **Tip:** If you want to create multiple users from CSV, you can loop through the CSV file like this:
+```
+$users = Import-Csv "C:\bulk-users.csv"
+
+foreach ($user in $users) {
+    New-MgUser `
+        -DisplayName $user.displayName `
+        -UserPrincipalName $user.userPrincipalName `
+        -MailNickname $user.mailNickname `
+        -AccountEnabled:$true `
+        -PasswordProfile @{ForceChangePasswordNextSignIn=$true; Password=$user.passwordProfile}
+}
+```
 📸 Screenshot Example: /entra/screenshots/user-and-group-provisioning/09-powershell.png
 
 ### Step 14: Create a Group via PowerShell
