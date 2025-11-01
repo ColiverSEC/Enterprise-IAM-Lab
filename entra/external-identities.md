@@ -30,13 +30,16 @@ This walkthrough covers inviting external users (B2B), configuring B2C user flow
 
 ### Step 1: Invite a Guest User Manually
 
--  Go to **Entra Admin Center** → **Identity** → **Users** → **New guest user** → **Invite user**
+-  Go to **Entra Admin Center** → **Entra ID** → **Users** → **+ New user** → **Invite external user**
 -  Fill in details:
    - **Name:** `Alice Smith`
    - **Email address:** `alice.smith@example.com`
    - (Optional) **Message to send**  
 - Choose **Groups/roles** if needed  
-- Click **Invite**  
+- Click **Invite**
+
+> 💡 **Tip:**
+> Make sure to use a valid email address for this step
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/external-identities/01-invite-guest.png`
@@ -48,6 +51,9 @@ This walkthrough covers inviting external users (B2B), configuring B2C user flow
 - Alice receives an email invitation  
 - She clicks the link and signs in with her existing Microsoft or organizational account  
 - Guest account appears in your Entra ID under **Users → Guest users**
+
+📸 **Screenshot Example:**  
+`/entra/screenshots/external-identities/01-invite-guest.png`
 
 ---
 
