@@ -185,21 +185,39 @@ This walkthrough covers how to create and manage users and groups in Microsoft E
 ## 💻 Manage Users & Groups with PowerShell
 
 ### Step 12: Install and Connect Microsoft Graph Module
-- Install the Microsoft Graph PowerShell module: ```Install-Module Microsoft.Graph -Scope CurrentUser```
-  - This downloads the module that lets you manage Entra ID (Azure AD) users, groups, and licenses from PowerShell
-  - ```Scope CurrentUser``` installs it for your user account only, so you don’t need admin rights
-- Connect to Microsoft Graph: ```Connect-MgGraph -Scopes "User.ReadWrite.All","Group.ReadWrite.All"```
-  - This authenticates your session with your tenant so you can run commands like ```New-MgUser``` and ```New-MgGroup```
-  - You’ll be prompted to log in with a Global Admin or User Admin account
-- Once you run both commands, your PowerShell session is ready to manage users, groups, licenses, and dynamic rules
+- You’ll use **Windows PowerShell** or **PowerShell 7 (Core)** to manage users, groups, and licenses through Microsoft Graph
+- On your computer, click **Start** → search for **PowerShell**  
+- Right-click **Windows PowerShell** (or **PowerShell 7**) → select **Run as Administrator** *(recommended for module installation)*
+- Run the following command to install the Microsoft Graph PowerShell module:
+  -  ```Install-Module Microsoft.Graph -Scope CurrentUser```
+- This command downloads and installs the Microsoft Graph module from the PowerShell Gallery
+- The -Scope CurrentUser flag installs it only for your account — you don’t need local admin rights
+- If prompted to install from an untrusted repository, type Y and press Enter
+- Once the module is installed, connect your session to Microsoft Graph by running:
+  - ```Connect-MgGraph -Scopes "User.ReadWrite.All","Group.ReadWrite.All"```
+- This command opens a sign-in window
+- Log in using a Global Administrator or User Administrator account
+- These scopes give you permission to create and manage users and groups in Entra ID
+- After signing in, you can verify your connection with:
+  - ```Get-MgContext```
+- If successful, this will display your current tenant ID, account, and connected Graph endpoint 
+
+> 💡 **Tip:**
+> Once connected, your PowerShell session can now run commands like:
+> - New-MgUser — create users
+> - New-MgGroup — create groups
 
 ### Step 13: Create a New User via PowerShell
 - Open Powershell and run:
 ```
-New-MgUser -AccountEnabled $true -DisplayName "John Adams" `
--UserPrincipalName "john.adams@contoso.com" -MailNickname "john.adams" `
--PasswordProfile @{forceChangePasswordNextSignIn=$true; password="P@ssw0rd123"}
+New-MgUser `
+    -DisplayName "John Adams" `
+    -UserPrincipalName "jadams@idsentinelsolutions.com" `
+    -MailNickname "john.adams" `
+    -AccountEnabled:$true `
+    -PasswordProfile @{ForceChangePasswordNextSignIn=$true; Password="Password1"}
 ```
+📸 Screenshot Example: /entra/screenshots/user-and-group-provisioning/09-powershell.png
 
 ### Step 14: Create a Group via PowerShell
 - Open Powershell and run:
