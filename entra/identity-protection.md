@@ -11,8 +11,7 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 - Enabling Identity Protection in Entra ID  
 - Configuring **User Risk Policies** and **Sign-in Risk Policies**  
 - Monitoring risky users and sign-in events  
-- Reviewing and remediating risk events  
-- Integrating Microsoft Defender for Identity  
+- Reviewing and remediating risk events   
 - Optional: configuring automated remediation actions  
 
 ---
@@ -30,8 +29,8 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 
 ### Step 1: Navigate to Identity Protection
 
-- Go to **Entra Admin Center → Security → Identity Protection**  
-- Review dashboard with **Overview, Users at risk, Sign-ins at risk, and Risk detections**  
+- Go to **Entra Admin Center → Identity Protection**  
+- Review dashboard with **Users at risk, Sign-ins at risk, and Risk detections**  
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/identity-protection/01-dashboard.png`
@@ -42,13 +41,17 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 
 ### Step 2: User Risk Policy
 
-- Navigate to **Identity Protection → Policies → User risk policy**  
-- Click **+ New policy**  
+- Navigate to **Identity Protection → Protect → User risk policy**   
 - Configure:
   - **Users or groups**: target specific users or all users  
   - **Risk level**: Low, Medium, High  
   - **Controls**: Require password change, require MFA  
-- Enable policy and save  
+- Enable policy and save
+
+> 💡 **Tip:**
+> - **Low Risk:** Involving minor anomalies with less confidence of a real threat
+> - **Medium Risk:** Suggesting suspicious patterns (e.g., unfamiliar sign-ins)
+> - **High Risk:** Indicating a strong possibility of compromise (e.g., leaked credentials)
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/identity-protection/02-user-risk-policy.png`
@@ -57,13 +60,17 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 
 ### Step 3: Sign-in Risk Policy
 
-- Navigate to **Policies → Sign-in risk policy**  
-- Click **+ New policy**  
+- Navigate to **Protect → Sign-in risk policy**    
 - Configure:
   - **Users or groups**: target users for high-risk sign-ins  
   - **Risk level**: Medium and above  
   - **Controls**: Require MFA or block access  
 - Enable policy and save  
+
+> 💡 **Tip:**
+> - **Low Risk:** Minor anomalies are present, such as an unfamiliar sign-in property or a sign-in from an anonymous IP address
+> - **Medium Risk:** More suspicious signals are detected, such as a suspicious sending pattern or a combination of low-risk anomalies like multiple unfamiliar sign-in properties
+> - **High Risk:** There is a high confidence that the sign-in is unauthorized and the account is compromised
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/identity-protection/03-signin-risk-policy.png`
@@ -74,7 +81,7 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 
 ### Step 4: Review Risky Users
 
-- Go to **Identity Protection → Users at risk**  
+- Go to **Identity Protection → Report → Users at risk**  
 - Review detected risks, risk level, and remediation status  
 - Optionally, filter by **risk event type, user, or group**  
 
@@ -83,42 +90,18 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 
 ### Step 5: Review Risky Sign-ins
 
-- Go to **Identity Protection → Sign-ins at risk**  
+- Go to **Identity Protection → Report → Sign-ins at risk**  
 - Review each sign-in event for **risk type, device, location, and risk level**  
 - Trigger remediation if needed (require MFA or block access)  
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/identity-protection/05-risky-signins.png`
 
----
-
-## 🛡️ Integrate Microsoft Defender for Identity
-
-### Step 6: Configure Defender for Identity
-
-- Navigate to **Microsoft 365 Security → Microsoft Defender for Identity**  
-- Ensure **sensors are deployed** on your domain controllers  
-- Integrate with Identity Protection to correlate on-premises AD activities with cloud risk events  
-
-📸 **Screenshot Example:**  
-`/entra/screenshots/identity-protection/06-defender-for-identity.png`
-
-### Step 7: Review Alerts and Remediation
-
-- Monitor alerts from Defender for Identity  
-- Cross-reference with Identity Protection risky users and sign-ins  
-- Take remediation actions as needed (password resets, MFA prompts, account review)  
-
-📸 **Screenshot Example:**  
-`/entra/screenshots/identity-protection/07-remediation.png`
-
----
 
 ## ✅ Expected Behavior
 
 - Risky users are detected automatically based on sign-in and user activity  
 - Policies enforce MFA or password change for medium/high-risk users  
-- Defender for Identity alerts correlate on-premises events with cloud risk detections  
 - Administrators can review and remediate risks effectively  
 
 ---
@@ -126,8 +109,7 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 ## 🔄 Optional Enhancements
 
 - Configure **automated risk remediation** via Identity Protection policies  
-- Integrate with **Conditional Access** to block or limit risky sign-ins  
-- Use **Azure Sentinel** or other SIEM for additional alerting  
+- Integrate with **Conditional Access** to block or limit risky sign-ins    
 - Simulate risky sign-ins for lab testing using test accounts  
 
 ---
