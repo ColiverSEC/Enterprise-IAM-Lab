@@ -93,9 +93,32 @@ New-MgInvitation -BodyParameter $guest
 ### Step 5: Add a Social Identity Provider
 
 - Go to **External Identities** → **All identity providers** 
-- Select **provider type** (e.g., Google, Facebook)  
-- Enter required **Client ID / Secret** from the social provider  
-- Click **Save and enable**
+- Select **provider type** (e.g., Google, Facebook)
+- For **Google**:
+   - Go to the [Google Cloud Console]( https://console.cloud.google.com/)
+- Create or Select a Project:
+   - Click the project dropdown at the top of the page
+   - Either create a new project or select an existing one that you want to use for your B2C integration
+- Enable the OAuth Consent Screen:
+   - In the left-hand menu, navigate to APIs & Services → OAuth consent screen
+   - Choose External for the user type (this allows users outside your organization to log in — typical for B2C scenarios).
+   - Configure required details such as App name, User support email, and Developer contact information
+   - Click Save and Continue through the scopes and test users sections as needed
+- Create OAuth Credentials:
+   - Go to APIs & Services → Credentials
+   - Click Create Credentials → OAuth client ID
+   - Select Web application as the application type
+- Configure Authorized Redirect URIs:
+   - Enter a name for your OAuth client.
+- Under Authorized redirect URIs, add the redirect URI that corresponds to your Entra B2C tenant and policy:
+   - Example:https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/B2C_1A_signup_signin/oauth2/authresp
+- Create and Retrieve Client Credentials:
+   - Click Create to generate the OAuth client
+   - Copy the Client ID and Client Secret displayed, you will need these values when configuring the Google identity provider in Entra B2C
+- Add Google as an Identity Provider in Entra B2C:
+   - In the Entra B2C portal, navigate to Identity providers → Google
+   - Enter the Client ID and Client Secret from the Google Cloud Console
+- Save your configuration.
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/external-identities/04-social-idp.png`
