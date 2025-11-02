@@ -28,16 +28,28 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 
 ## 🔐 Enable Multi-Factor Authentication (MFA)
 
-### Step 1: Navigate to MFA Settings
+### Step 1: Configure Available MFA Methods
 
-- Go to **Entra Admin Center → Security → Authentication methods → Multi-Factor Authentication**  
-- Review **per-user MFA**, **conditional access policies**, and **service settings**
+- Go to **Entra Admin Center → Entra ID → Security → Authentication methods**  
+- Click **Policies → Multi-Factor Authentication**  
+- Review the available methods (e.g., Authenticator app, FIDO2, SMS, phone call)  
+- Enable the methods your organization allows  
 
-### Step 2: Enable MFA for Users
+### Step 2: Require Users to Register for MFA
 
-- Select users or groups  
-- Enable MFA and choose enforcement method (e.g., phone call, SMS, authenticator app)  
-- Save settings
+- Go to **Entra Admin Center → Entra ID → Identity Protection → Multifactor Authentication registration policy**  
+- Create a new policy:  
+  - Assign it to the users or groups you want to enforce MFA for  
+  - Set **Requirement** to "Require registration for MFA"  
+  - Choose enforcement timing (immediately or after a set number of days)  
+- Save the policy  
+
+### Step 3 (Optional): Enforce MFA via Conditional Access
+
+- Go to **Entra Admin Center → Entra ID → Security → Conditional Access**  
+- Create a policy targeting users, apps, or locations  
+- Under **Access controls**, select **Require multi-factor authentication**  
+- Enable and save the policy  
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/authentication-methods/01-enable-mfa.png`
