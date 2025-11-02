@@ -127,14 +127,49 @@ New-MgInvitation -BodyParameter $guest
 
 ### Step 6: Add a SAML Identity Provider
 
-- Go to **External Identities → All identity providers → Custom → SAML/WS-Fed**  
-- Enter:
-   - **Metadata URL** or manual configuration  
-   - **Name identifier and claim mappings**  
-- Click **Save and test the connection**
+To connect a **SAML-based Identity Provider (IdP)** (such as another Microsoft Entra tenant or a third-party IdP like Okta or Ping), follow these steps:
+
+#### Create a SAML App in the IdP Tenant
+
+If you’re using **another Microsoft Entra tenant** as the IdP:
+
+- Sign in to the **IdP tenant’s** [Microsoft Entra admin center](https://entra.microsoft.com/)
+- Go to **Enterprise applications → New application**
+- Choose **Create your own application → Integrate any other application (non-gallery)**
+- Select **Set up single sign-on → SAML**
+- Configure temporary values to generate metadata:  
+   - **Identifier (Entity ID):** `https://dummy`  
+   - **Reply URL (ACS):** `https://dummy`
+- Save the configuration
+- Go to **Single sign-on → SAML**, and copy the **App Federation Metadata URL**  
+   - Example:
+     ```
+     https://login.microsoftonline.com/<tenant-id>/federationmetadata/2007-06/federationmetadata.xml?appid=<app-id>
+     ```
+This **Metadata URL** will be used in the External Identities configuration step
+
+#### Configure the SAML IdP in the External Identities Tenant
+- In the **target (External Identities) tenant**, go to:
+   - **External Identities → All identity providers → Custom → SAML/WS-Fed**
+- Under **Metadata**, choose:
+   - **Metadata URL**, and paste the link you copied from the IdP tenant 
+   *(Alternatively, you can upload the metadata XML file.)*
+- Set up the **Name identifier** and **claim mappings**:  
+
+   | Claim Name   | Value                    |
+   |--------------|--------------------------|
+   | `NameID`     | `user.userprincipalname` |
+   | `email`      | `user.mail`              |
+   | `given_name` | `user.givenname`         |
+   | `surname`    | `user.surname`           |
+
+  - Click **Save** and then **Test connection**
+     - You should be redirected to the IdP’s sign-in page
+     - After successful authentication, you’ll be returned to your app
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/external-identities/05-saml-idp.png`
+
 
 ---
 
