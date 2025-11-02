@@ -41,8 +41,7 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 - Create a new policy:  
   - Assign it to the users or groups you want to enforce MFA for  
   - Set **Requirement** to "Require registration for MFA"  
-  - Choose enforcement timing (immediately or after a set number of days)  
-- Save the policy  
+- Save the policy and set to **Enabled** 
 
 ### Step 3 (Optional): Enforce MFA via Conditional Access
 
@@ -58,7 +57,7 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 
 ## ⚡ Configure FIDO2 Security Keys
 
-### Step 3: Enable FIDO2 for Passwordless Sign-In
+### Step 4: Enable FIDO2 for Passwordless Sign-In
 
 - Go to **Authentication methods → FIDO2 Security Key**  
 - Enable for users or groups  
@@ -72,12 +71,18 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 
 ## 🖐️ Configure Windows Hello for Business
 
-### Step 4: Enable Windows Hello
+### Step 5: Enable Windows Hello for Business
 
-- Go to **Authentication methods → Windows Hello for Business**  
-- Enable **key-based** or **certificate-based** sign-in  
-- Assign to users or groups  
-- Configure device restrictions as needed
+- Go to **Entra ID → Authentication Methods → Authentication Strengths**
+- Create a new authentication strength (or edit an existing one)
+  - Enable **Windows Hello for Business**
+  - Optionally include other methods like FIDO2
+-  Assign the authentication strength to users/groups via **Conditional Access policies**
+  - Go to **→ Entra ID → Conditional Access**
+  - Create a policy targeting users or groups
+  - Under **Grant controls**, select **Require authentication strength** and choose your WHfB strength
+- Save the policy
+
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/authentication-methods/03-windows-hello.png`
@@ -86,14 +91,14 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 
 ## 🔄 Enable Self-Service Password Reset (SSPR)
 
-### Step 5: Configure SSPR
+### Step 6: Configure SSPR
 
-- Navigate to **Entra Admin Center → Password reset → Properties**  
+- Navigate to **Entra ID → Password reset → Properties**  
 - Enable **SSPR for all or selected users**  
 - Configure **authentication methods** (email, mobile, security questions)  
 - Save changes
 
-### Step 6: Test SSPR
+### Step 7: Test SSPR
 
 - Log in as a test user  
 - Click **Forgot my password**  
@@ -106,7 +111,7 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 
 ## 🛡️ Configure Tenant Restrictions
 
-### Step 7: Set Authentication Method Policies
+### Step 8: Set Authentication Method Policies
 
 - Navigate to **Authentication methods → Policies**  
 - Configure:
@@ -121,9 +126,9 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 
 ## 📊 Monitor and Report Authentication Activity
 
-### Step 8: Review Sign-In Logs
+### Step 9: Review Sign-In Logs
 
-- Go to **Monitoring → Sign-ins**  
+- Go to **Authentication Methods → Monitoring → Activity or Monitoring & Health → Audit logs**  
 - Filter by authentication method, user, or status  
 - Verify MFA, passwordless, and SSPR events  
 
