@@ -103,14 +103,14 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
 
 ### Step 4: Enable Password Hash Sync (PHS) or Pass-Through Authentication (PTA)
 
-1. On your **domain-joined Entra Connect server**, launch **Microsoft Entra Connect**.  
-   - If it opens to **Additional Tasks**, select **Customize synchronization options** → **Next**.
+- On your **domain-joined Entra Connect server**, launch **Microsoft Entra Connect**  
+  - If it opens to **Additional Tasks**, select **Customize synchronization options** → **Next**
 
-2. Authenticate when prompted:  
-   - **Azure AD Global Admin credentials**  
-   - **On-premises AD credentials** (domain admin or delegated account)
+- Authenticate when prompted:  
+  - **Azure AD Global Admin credentials**  
+  - **On-premises AD credentials** (domain admin or delegated account)
 
-3. Navigate to the **User Sign-In / Authentication Options** page:  
+- Navigate to the **User Sign-In / Authentication Options** page:  
    - Here you’ll see three main choices:  
      - **Password Hash Synchronization (PHS):**  
        - Default method  
@@ -123,12 +123,12 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
      - **Seamless Single Sign-On (Seamless SSO):**  
        - Automatically signs in domain-joined devices without prompting for credentials
 
-4. Select **Password Hash Sync** for labs and test environments, then click **Next**.
+- Select **Password Hash Sync** for labs and test environments, then click **Next**
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/hybrid-identity/03-authentication-options.png`
 
-> 💡 **Tip:** PTA and SSO require additional agents and configuration. For simple lab scenarios, PHS + Seamless SSO is easiest.
+> 💡 **Tip:** PTA and SSO require additional agents and configuration. For simple lab scenarios, PHS + Seamless SSO is easiest
 
 ---
 
