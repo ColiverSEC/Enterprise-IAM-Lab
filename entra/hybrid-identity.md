@@ -36,17 +36,27 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
 - **Pass-through Authentication (PTA):** Users authenticate against on-prem AD  
 - **Federation (AD FS):** Optional, for advanced SSO scenarios  
 
-> 🧠 Tip: PHS + Seamless SSO is recommended for most environments.
+> 🧠 Tip: PHS + Seamless SSO is recommended for most environments
 
 ---
 
 ### Step 2: Review AD Forest & Domain Requirements
 
-- Verify domain functional level (Windows Server 2008 or higher)  
-- Ensure DNS resolution between AD and Entra ID  
-- Verify accounts for sync:  
-  - Entra Connect service account  
-  - AD Connector account (for reading and writing objects)  
+- **Verify domain functional level**: Ensure the AD forest and domain are Windows Server 2008 or higher
+- **Ensure DNS resolution between AD and Entra ID**:
+  - Configure the Entra Connect server with a **static IP** on the internal network
+  - Set the **preferred DNS server** to point to your **domain controller** (not `127.0.0.1`)
+  - Test connectivity and name resolution:
+    ```powershell
+    ping <DC_IP>
+    nslookup <domain_name> <DC_IP>
+    ```
+  - **Note:** For more detailed instructions on Active Directory DNS configuration for domain-joined Windows clients, see [DNS Configuration for Active Directory Clients](https://github.com/ColiverSEC/Enterprise-IAM-Lab/blob/main/activedirectory/dns-configuration-for-active-directory-clients.md)
+- **Verify domain join**:
+  - Ensure the Entra Connect server is **joined to the on-premises AD domain**
+- **Verify accounts for sync**:
+  - **Entra Connect service account**  
+  - **AD Connector account** (for reading and writing objects)
 
 ---
 
@@ -54,31 +64,44 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
 
 ### Step 3: Launch Installer
 
-1. Run the **Entra Connect installer** on a domain-joined server  
-2. Accept license terms  
+- **Sign in** to your **domain-joined Windows Server**  
+  - This server must be joined to your **on-premises Active Directory domain** (e.g., `ad.IDSentinelSolutions.com`)
+  - It should have line-of-sight to your domain controller and internet access
+
+- **Download the Microsoft Entra Connect installer**
+  - **Recommended:** Download directly from the **Microsoft Entra Admin Center** to ensure you get the latest version:
+    - Navigate to **Entra ID → Entra Connect → Get Started → Download Connect Sync Agent → Accept terms & download**  
+  - **Alternative:** Use the official Microsoft download page if portal access isn’t available:  
+     [Microsoft Entra Connect Download](https://www.microsoft.com/en-us/download/details.aspx?id=47594)
+
+- **Run the Entra Connect installer** on your domain-joined server  
+  - Right-click the downloaded file **Azure AD Connect** → **Run as Administrator**
+  - If prompted by SmartScreen, select **Run anyway**
+
+- Once the setup wizard opens, you’ll immediately see the **installation type** selection screen:
+  - **Express Settings** — Best for single-forest environments with PHS
+    - Uses default sync options
+    - Synchronizes all users, groups, and passwords 
+  - **Customize** — For advanced scenarios:
+    - Multiple forests  
+    - PTA or federation  
+    - Select OU filtering  
+    -  Enable password writeback  
+   
+  - Choose the option that fits your lab scenario and proceed to the next screen
+
+- When the wizard prepares the configuration steps, continue to **Step 4: Enable Password Hash Sync (PHS) or PTA**
+
+> 💡 **Tip:** Microsoft recommends installing Entra Connect on a **dedicated, domain-joined member server** rather than directly on your domain controller. This improves security and simplifies maintenance.
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/hybrid-identity/01-install-launch.png`
 
 ---
 
-### Step 4: Choose Installation Type
-
-- **Express Settings:** Best for single-forest environments with PHS  
-- **Custom Settings:** For advanced scenarios:
-  - Multiple forests  
-  - PTA or federation  
-  - Select OU filtering  
-  - Enable password writeback  
-
-📸 **Screenshot Example:**  
-`/entra/screenshots/hybrid-identity/02-install-options.png`
-
----
-
 ## 🔐 Configure Authentication Options
 
-### Step 5: Enable Password Hash Sync (PHS) or PTA
+### Step 4: Enable Password Hash Sync (PHS) or PTA
 
 - **Password Hash Sync:** Default, syncs password hashes to Entra ID  
 - **Pass-through Authentication:** Authenticates directly against on-prem AD  
@@ -89,21 +112,25 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
 
 ---
 
-### Step 6: Enable Password Writeback (Optional)
+### Step 5: Enable Password Writeback (Optional)
 
 - Allows cloud users to reset their passwords and sync them back to on-prem AD  
-- Navigate to **Optional Features** → enable **Password writeback**  
+- Navigate to **Optional Features** → enable **Password writeback**
+
+> 💡 **Tip:** To enable another authentication method after syncing you will need to relaunch Entra connect and navigate to **Customize synchronization options**, authenitcate again then choose the desired method and resync
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/hybrid-identity/04-password-writeback.png`
 
 ---
 
-### Step 7: Finish Installation & Initial Sync
+### Step 6: Finish Installation & Initial Sync
 
-- Click **Install**  
+- Click **Configure**  
 - Initial synchronization starts (can take a few minutes depending on AD size)  
-- Verify synchronization status in **Synchronization Service Manager** or **Azure AD Connect Health**
+- Verify synchronization status in  **Synchronization Service Manager** or **Azure AD Connect Health**
+
+
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/hybrid-identity/05-initial-sync.png`
@@ -112,7 +139,7 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
 
 ## 📊 Monitor and Manage Entra Connect
 
-### Step 8: Verify Synchronization
+### Step 7: Verify Synchronization
 
 - In Entra Admin Center → **Azure AD Connect Health** → check:
   - Sync status  
@@ -124,7 +151,7 @@ Get-ADSyncScheduler
 ```
 - Check last sync and next sync time
 
-### Step 9: Optional Filtering & Staging Mode
+### Step 8: Optional Filtering & Staging Mode
 
 - Use **OU filtering** to sync only specific OUs  
 - Use **Staging mode** on a second server to test changes before production  
