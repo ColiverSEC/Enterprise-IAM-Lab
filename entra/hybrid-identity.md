@@ -101,23 +101,59 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
 
 ## 🔐 Configure Authentication Options
 
-### Step 4: Enable Password Hash Sync (PHS) or PTA
+### Step 4: Enable Password Hash Sync (PHS) or Pass-Through Authentication (PTA)
 
-- **Password Hash Sync:** Default, syncs password hashes to Entra ID  
-- **Pass-through Authentication:** Authenticates directly against on-prem AD  
-- **Seamless SSO:** Automatically signs in domain-joined devices to Entra ID  
+1. On your **domain-joined Entra Connect server**, launch **Microsoft Entra Connect**.  
+   - If it opens to **Additional Tasks**, select **Customize synchronization options** → **Next**.
+
+2. Authenticate when prompted:  
+   - **Azure AD Global Admin credentials**  
+   - **On-premises AD credentials** (domain admin or delegated account)
+
+3. Navigate to the **User Sign-In / Authentication Options** page:  
+   - Here you’ll see three main choices:  
+     - **Password Hash Synchronization (PHS):**  
+       - Default method  
+       - Syncs hashed passwords from AD to Entra ID  
+       - Allows users to sign in using the same password in both environments  
+     - **Pass-Through Authentication (PTA):**  
+       - Authenticates users directly against on-prem AD  
+       - Does **not** store password hashes in the cloud  
+       - Useful for organizations with strict password policies  
+     - **Seamless Single Sign-On (Seamless SSO):**  
+       - Automatically signs in domain-joined devices without prompting for credentials
+
+4. Select **Password Hash Sync** for labs and test environments, then click **Next**.
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/hybrid-identity/03-authentication-options.png`
+
+> 💡 **Tip:** PTA and SSO require additional agents and configuration. For simple lab scenarios, PHS + Seamless SSO is easiest.
 
 ---
 
 ### Step 5: Enable Password Writeback (Optional)
 
-- Allows cloud users to reset their passwords and sync them back to on-prem AD  
-- Navigate to **Optional Features** → enable **Password writeback**
+Password writeback allows users to **reset their passwords in the cloud**, and those changes are written back to your on-prem AD
 
-> 💡 **Tip:** To enable another authentication method after syncing you will need to relaunch Entra connect and navigate to **Customize synchronization options**, authenitcate again then choose the desired method and resync
+- In the wizard, continue to the **Optional Features** page:  
+  - You’ll see checkboxes for optional functionality (Password writeback, Device writeback, Exchange hybrid, etc.)
+
+- Check the box for:
+  - Password writeback
+- Click **Next → Configure** to apply changes
+- Verification:  
+  - In **Microsoft Entra Admin Center → Identity → Password reset → On-premises integration**, you should see:
+    - Password writeback: Enabled
+
+- Test by changing a password in the Entra portal for a synced user — the new password should work on-prem AD
+
+> 💡 **Tip:** To enable another authentication method (like PTA) after syncing:  
+> - Relaunch Entra Connect  
+> - Select **Customize synchronization options**  
+> - Authenticate again  
+> - Choose the desired authentication method  
+> - Re-run the sync
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/hybrid-identity/04-password-writeback.png`
