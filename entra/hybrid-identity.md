@@ -67,17 +67,14 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
 - **Sign in** to your **domain-joined Windows Server**  
   - This server must be joined to your **on-premises Active Directory domain** (e.g., `ad.IDSentinelSolutions.com`)
   - It should have line-of-sight to your domain controller and internet access
-
 - **Download the Microsoft Entra Connect installer**
   - **Recommended:** Download directly from the **Microsoft Entra Admin Center** to ensure you get the latest version:
     - Navigate to **Entra ID → Entra Connect → Get Started → Download Connect Sync Agent → Accept terms & download**  
   - **Alternative:** Use the official Microsoft download page if portal access isn’t available:  
      [Microsoft Entra Connect Download](https://www.microsoft.com/en-us/download/details.aspx?id=47594)
-
 - **Run the Entra Connect installer** on your domain-joined server  
   - Right-click the downloaded file **Azure AD Connect** → **Run as Administrator**
   - If prompted by SmartScreen, select **Run anyway**
-
 - Once the setup wizard opens, you’ll immediately see the **installation type** selection screen:
   - **Express Settings** — Best for single-forest environments with PHS
     - Uses default sync options
@@ -86,10 +83,8 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
     - Multiple forests  
     - PTA or federation  
     - Select OU filtering  
-    -  Enable password writeback  
-   
-  - Choose the option that fits your lab scenario and proceed to the next screen
-
+    -  Enable password writeback 
+- Choose the option that fits your lab scenario and proceed to the next screen
 - When the wizard prepares the configuration steps, continue to **Step 4: Enable Password Hash Sync (PHS) or PTA**
 
 > 💡 **Tip:** Microsoft recommends installing Entra Connect on a **dedicated, domain-joined member server** rather than directly on your domain controller. This improves security and simplifies maintenance.
@@ -105,11 +100,9 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
 
 - On your **domain-joined Entra Connect server**, launch **Microsoft Entra Connect**  
   - If it opens to **Additional Tasks**, select **Customize synchronization options** → **Next**
-
 - Authenticate when prompted:  
   - **Azure AD Global Admin credentials**  
   - **On-premises AD credentials** (domain admin or delegated account)
-
 - Navigate to the **User Sign-In / Authentication Options** page:  
    - Here you’ll see three main choices:  
      - **Password Hash Synchronization (PHS):**  
@@ -122,30 +115,25 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
        - Useful for organizations with strict password policies  
      - **Seamless Single Sign-On (Seamless SSO):**  
        - Automatically signs in domain-joined devices without prompting for credentials
-
 - Select **Password Hash Sync** for labs and test environments, then click **Next**
+> 💡 **Tip:** PTA and SSO require additional agents and configuration. For simple lab scenarios, PHS + Seamless SSO is easiest
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/hybrid-identity/03-authentication-options.png`
-
-> 💡 **Tip:** PTA and SSO require additional agents and configuration. For simple lab scenarios, PHS + Seamless SSO is easiest
 
 ---
 
 ### Step 5: Enable Password Writeback (Optional)
 
-Password writeback allows users to **reset their passwords in the cloud**, and those changes are written back to your on-prem AD
-
+- Password writeback allows users to **reset their passwords in the cloud**, and those changes are written back to your on-prem AD
 - In the wizard, continue to the **Optional Features** page:  
   - You’ll see checkboxes for optional functionality (Password writeback, Device writeback, Exchange hybrid, etc.)
-
 - Check the box for:
   - Password writeback
 - Click **Next → Configure** to apply changes
 - Verification:  
   - In **Microsoft Entra Admin Center → Identity → Password reset → On-premises integration**, you should see:
     - Password writeback: Enabled
-
 - Test by changing a password in the Entra portal for a synced user — the new password should work on-prem AD
 
 > 💡 **Tip:** To enable another authentication method (like PTA) after syncing:  
@@ -160,41 +148,47 @@ Password writeback allows users to **reset their passwords in the cloud**, and t
 
 ---
 
-### Step 6: Finish Installation & Initial Sync
+### Step 6: Finish Installation & Initial Sync 
 
-- Click **Configure**  
+- Check **Start the synchronization process when configuration completes** → click **Configure**  
 - Initial synchronization starts (can take a few minutes depending on AD size)  
-- Verify synchronization status in  **Synchronization Service Manager** or **Azure AD Connect Health**
+- Once configuration completes, click **Exit**  
+- Verify the sync by going to **Entra ID → Users → All users** and filter by **On-premises sync enabled** to confirm your users are there
 
-
+> 💡 **Optional:** For more detailed verification, you can:
+> - Check **Synchronization Service Manager** on the server  
+> - Use **PowerShell**:
+> ```powershell
+> Import-Module ADSync
+> Get-ADSyncScheduler
+> ```
+> - Check **last sync** and **next scheduled sync**  
+> - View **Azure AD Connect Health** for alerts or errors (note: dashboards may appear mostly empty in a small lab)
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/hybrid-identity/05-initial-sync.png`
 
 ---
 
-## 📊 Monitor and Manage Entra Connect
+### Step 7: Optional Filtering & Staging Mode
 
-### Step 7: Verify Synchronization
+- After your initial sync is complete, you can optionally configure advanced settings:
+  - **OU Filtering**  
+    - Allows you to sync only specific OUs instead of the entire domain  
+    - Useful for labs or when you want to limit which users/groups are synced  
+    - To configure:  
+      - Launch **Microsoft Entra Connect** → **Customize synchronization options** → navigate to **Domain and OU filtering**  
+  - **Staging Mode**  
+    - Use on a secondary server to test changes without affecting production  
+    - The server in staging mode **does not export changes to Entra ID**  
+    - Great for multi-forest or large enterprise environments  
+    - To enable: select **Enable staging mode** in the wizard during configuration  
 
-- In Entra Admin Center → **Azure AD Connect Health** → check:
-  - Sync status  
-  - Errors or warnings  
-  - Password writeback logs  
-- Optionally, run PowerShell:
-```powershell
-Get-ADSyncScheduler
-```
-- Check last sync and next sync time
-
-### Step 8: Optional Filtering & Staging Mode
-
-- Use **OU filtering** to sync only specific OUs  
-- Use **Staging mode** on a second server to test changes before production  
-- Great for multi-forest or large enterprise environments  
+> 💡 **Tip:** In a small lab with a single forest, you can skip these options and sync the entire `_USERS` OU.
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/hybrid-identity/06-staging-filtering.png`
+
 
 ---
 
