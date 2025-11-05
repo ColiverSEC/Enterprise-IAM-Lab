@@ -1,4 +1,4 @@
-# 🛡️ Microsoft Entra Conditional Access Policy Walkthrough
+# 🛡️  Conditional Access Policies
 
 ⬅️ [Back to Entra ID Lab Overview](./README.md)
 
