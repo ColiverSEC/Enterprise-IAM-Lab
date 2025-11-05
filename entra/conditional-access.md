@@ -29,7 +29,7 @@ This walkthrough demonstrates how to create and test a Conditional Access policy
 
 ### Step 1: Navigate to Conditional Access
 
-- Go to **Microsoft Entra Admin Center** → **Entra ID** → **Security** → **Conditional Access**  
+- Go to **Microsoft Entra Admin Center** → **Entra ID** → **Conditional Access**  
 - Click **+ New policy** to create a new policy  
 
 📸 **Screenshot Example:**  
@@ -39,14 +39,14 @@ This walkthrough demonstrates how to create and test a Conditional Access policy
 
 ### Step 2: Define Policy Basics
 
-- **Name**: `Require MFA for Licensed Users`  
-- Optional description: `Enforces MFA for test lab users to validate Conditional Access`  
+- **Name**: `Force MFA for Admin Portals`   
 
 ---
 
 ### Step 3: Select Users or Groups
-
-- **Include**: Select your test group or a license-based group (e.g., `M365-E5-License-Group`)  
+- Click **users and groups selected**
+- **Include**:
+  -  **All users**
 - **Exclude**:  
   - Your **Global Admin** account to prevent accidental lockout  
   - Any **break-glass accounts**  
@@ -58,8 +58,9 @@ This walkthrough demonstrates how to create and test a Conditional Access policy
 
 ### Step 4: Choose Cloud Apps or Actions
 
-- Click **Cloud apps or actions** → **Select apps**  
-- Include **All cloud apps** for testing or select specific apps like Exchange Online, SharePoint, etc.  
+- Click **No target resources selected**
+- **Include:**
+  - **Select resources** → **Select specific resources** → **Microsoft Admin Portals** → **Select**
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/conditional-access/03-select-cloud-apps.png`
@@ -86,7 +87,7 @@ This walkthrough demonstrates how to create and test a Conditional Access policy
 - Under **Grant**, select:  
   - ✅ `Require multi-factor authentication`  
   - Ensure **Require all the selected controls** is checked  
-- Click **Select** → **Done**  
+- Click **Select** 
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/conditional-access/05-grant-access.png`
@@ -102,15 +103,42 @@ This walkthrough demonstrates how to create and test a Conditional Access policy
 `/entra/screenshots/conditional-access/06-enable-policy.png`
 
 ---
+## 🔍 Test Policies with the "What If" Tool
 
-## 🧪 Test the Conditional Access Policy
+The **What If** tool allows you to simulate the effect of a Conditional Access policy for a specific user **without enforcing it**, which is perfect for lab testing and troubleshooting.
 
-1. Confirm your test user is part of the targeted group.  
-2. Open a new browser or incognito window and sign in as the test user.  
-3. Verify that MFA is prompted according to the policy.  
-4. Ensure your **Global Admin or break-glass accounts** are excluded and can still sign in without MFA.  
+### Step 8: Open the What If Tool
 
-> ⚠️ **Important:** Always keep a backup Global Admin or break-glass account excluded to prevent lockout.
+- Go to **Microsoft Entra Admin Center → Entra ID → Conditional Access → What If**  
+
+📸 **Screenshot Example:**  
+`/entra/screenshots/conditional-access/07-what-if-tool.png`
+
+---
+
+### Step 9: Simulate a Policy
+
+- Select the **user** you want to test
+- Select the **Target resource** to simulate access to
+- Optionally, configure **conditions**:
+  - Sign-in risk  
+  - Device state  
+  - Location  
+  - Client apps  
+- Click **What If**
+
+📸 **Screenshot Example:**  
+`/entra/screenshots/conditional-access/08-what-if-simulation.png`
+
+---
+
+### Step 10: Review the Results
+
+- The tool shows whether access would be **granted or blocked**  
+- It highlights which policies are applied and which conditions triggered  
+- Useful for validating policies **before deploying them** in production
+
+> 💡 **Tip:** Use the What If tool in your lab to safely experiment with different combinations of users, apps, and conditions without affecting real access.
 
 ---
 
