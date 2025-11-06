@@ -137,7 +137,7 @@ If you’re integrating a modern application your team developed:
 
 ---
 
-### 🧪 Test Your SSO Configuration
+### Step 6: 🧪 Test Your SSO Configuration
 
 **For SAML Apps** 
 - In the app’s **Single sign-on** page, click **Test this application** 
