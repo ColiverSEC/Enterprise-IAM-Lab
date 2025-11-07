@@ -103,9 +103,39 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 
 ---
 
+## 🧱 Create Administrative Units (Scoped Delegation)
+
+### Step 8: Create an Administrative Unit  
+- Navigate to **Microsoft Entra ID → Administrative units → + Add**  
+- Enter a **name** (e.g., `Finance Department AU`) and an optional description  
+- Click **Create**
+
+### Step 9: Add Members  
+- Open your new Administrative Unit → **Members → + Add members**  
+- Select the **users or groups** belonging to that department or team  
+- Click **Add**
+
+### Step 10: Assign Scoped Roles  
+- Inside your AU, go to **Roles and administrators → + Add assignment**  
+- Choose a role (e.g., `User Administrator` or `Groups Administrator`)  
+- Assign it to a **department lead** or **delegated admin**  
+- Click **Assign**
+
+### Step 11: Verify Scoped Permissions  
+- Sign in as the delegated admin you assigned earlier  
+- Confirm that they can **only manage users within their Administrative Unit**
+
+💡 **Tip:**  
+> Administrative Units help separate management duties between departments (Finance, HR, IT) and reduce risk by scoping administrative privileges.  
+
+📸 **Screenshot Example:**  
+`/entra/screenshots/initial-tenant-config/07admin-unit.png`
+
+---
+
 ## 🧩 Create and Assign Custom Roles
 
-### Step 8: Create a Custom Role *(Optional – Requires P1/P2 License)*  
+### Step 9: Create a Custom Role *(Optional – Requires P1/P2 License)*  
 - Navigate to **Microsoft Entra ID** → **Roles and Administrators** → **+ New custom role**
 - Define:
   - **Name:** `Helpdesk - Password Reset`
@@ -125,7 +155,7 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
  
 ## 🔒 Delegate Admin Access with PIM *(Optional)*
 
-### Step 9: Enable Privileged Identity Management 
+### Step 10: Enable Privileged Identity Management 
 - In the **left-hand menu**, select **Identity Governance** → **Privileged Identity Management (PIM)**.  
 - In the PIM navigation pane on the left, click **Microsoft Entra roles**.  
 - From here you can:
@@ -143,13 +173,13 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 
 ## ⚙️ Review Tenant-Wide Settings
 
-### Step 10: Review Security Defaults  
+### Step 11: Review Security Defaults  
 - Navigate to **Microsoft Entra ID** → **Overview** → **Properties** → **Manage Security Defaults**
 - Choose to:
   - Keep **Security Defaults** enabled, or  
   - Disable and replace them later with **Conditional Access** (covered in a later module)
 
-### Step 11: Review External Collaboration Settings  
+### Step 12: Review External Collaboration Settings  
 - Navigate to **External Identities** → **External Collaboration Settings**
 - Review:
   - **Guest invitation permissions**
