@@ -96,38 +96,80 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 
 ---
 
-## 🛡️ Manage Privileged Identity Management (PIM)
+## 🔐 Configure Privileged Identity Management (PIM) — Microsoft Entra Roles
 
-### Step 5: Enable PIM for Roles
+> Goal: delegate privileged roles as **eligible** assignments (just-in-time elevation) with approval, MFA, and time limits.
 
-- Go to **Entra Admin Center → Privileged Identity Management → Azure AD roles**  
-- Select a role (e.g., Global Administrator, User Administrator)  
-- Enable **eligible assignment** and define activation requirements:
-  - MFA required  
-  - Just-In-Time (JIT) activation  
-  - Time-bound activation  
+### 1. Open PIM
+- Go to **Microsoft Entra Admin Center → Identity Governance → Privileged Identity Management (PIM)**.
+- Choose **Microsoft Entra roles**.
 
-📸 **Screenshot Example:**  
-`/entra/screenshots/identity-governance/05-pim-role.png`
+### 2. Review PIM sections (overview)
+- Use the left pane: **Overview, Roles, Assignments, Alerts, Access reviews, Discovery & insights**.
+- In the main area you may see quick actions: **Assign, Activate, Approve, Audit** — these are the common actions PIM supports.
 
-### Step 6: Activate Roles for Testing
+### 3. Add a role assignment (use **Assign**)
+1. Click **Roles** → find the built-in role you want to delegate (e.g., **User Administrator**, **Groups Administrator**, **Global Administrator**).  
+2. Click the role → click **Add assignment** (or **Assign**) in the role blade.  
+3. Choose **Select assignment type**:
+   - **Eligible** — recommended: user must **activate** the role when needed (JIT).  
+   - **Active** — user gets the role immediately (full time). Use sparingly.
+4. Choose the **member(s)** (user or group) to assign.
+5. Set **Assignment settings**:
+   - **Start / End date** (time-bound recommended)
+   - **Require multi-factor authentication (MFA)** on activation
+   - **Require approval to activate** (toggle on if you want approvers to review requests)
+   - **Require justification** (user must enter a reason when activating)
+   - **Ticketing or requestable reason** (optional: link an ITSM ticket number)
+6. Configure **Approvers** if approval is required (user, group, or role).
+7. Click **Assign** to create the eligible/active assignment.
 
-- Activate an eligible role as a test user  
-- Confirm access is granted and logs are generated  
+### 4. Test activation (user flow)
+- As the assigned user, go to **https://myapps.microsoft.com** or **Entra Admin Center → My roles**.
+- Select the role and click **Activate**.
+- Provide **justification**, complete **MFA**, and (if configured) wait for **approval**.
+- After activation, the user has the role for the configured duration.
 
-📸 **Screenshot Example:**  
-`/entra/screenshots/identity-governance/06-pim-activation.png`
+### 5. Configure periodic governance
+- **Access reviews**: create an access review for the role to periodically validate assignments.
+  - Entra → Identity Governance → Access reviews → + New review → target the role or the AU/group
+- **Alerts & Notifications**: enable PIM alerts (risky activations, expired assignments, etc.)
+- **Audit / Review logs**: use **Audit** or **Activity logs** to track assignments/activations/approvals.
+
+### 6. Discovery & Insights (optional)
+- Run **Discovery** to find privileged accounts and roles in your tenant — useful before large PIM rollouts.
 
 ---
 
 ## 🆘 Configure Emergency Access Accounts
 
-### Step 7: Create Break-Glass Accounts
+### Step 7: Create Break-Glass (Emergency) Administrator Accounts
 
-- Create a **dedicated Global Administrator account**  
-- Assign **permanent MFA bypass or known secure credentials**  
-- Store credentials securely offline  
-- Exclude this account from Conditional Access policies  
+> 💡 **Purpose:**  
+> Emergency access accounts (also called “break-glass” accounts) provide a secure way to regain administrative access to your tenant if normal accounts are locked out due to MFA, Conditional Access, or outages.
+
+1. **Create a Dedicated Global Administrator Account**  
+   - Go to **Microsoft Entra ID → Users → + New user**  
+   - **Name:** `BreakGlassAdmin01`  
+   - **Username:** `breakglassadmin01@yourdomain.onmicrosoft.com`  
+   - Assign the **Global Administrator** role  
+
+2. **Set a Strong, Long-Lived Password**  
+   - Use a complex, unique password that doesn’t expire automatically  
+   - Store the password securely (e.g., in a sealed envelope or offline password vault)
+
+3. **Exclude from Conditional Access Policies**  
+   - Navigate to **Entra → Protection → Conditional Access → Policies**  
+   - Edit each policy enforcing MFA or access restrictions  
+   - Under **Assignments → Exclude → Users and groups**, add the break-glass account  
+
+4. **(Optional) Configure Monitoring**  
+   - Enable **sign-in log alerts** for the account using **Microsoft Sentinel**, **Defender for Cloud Apps**, or **Log Analytics**  
+   - Alert the security team whenever a break-glass account signs in  
+
+5. **Store Credentials Securely Offline**  
+   - Keep the credentials in a secure physical location (e.g., safe or locked cabinet)  
+   - Document access procedures and authorization rules  
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/identity-governance/07-emergency-account.png`
@@ -138,11 +180,30 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 
 ### Step 8: Review Governance Activity
 
-- Monitor access package requests, access review outcomes, and PIM activations  
-- Navigate to **Reports → Identity Governance → Activity logs**  
+> 💡 **Purpose:**  
+> Monitoring ensures that access is being requested, approved, and revoked correctly. It also helps detect unusual activity or misconfigurations in your Identity Governance setup.
+
+1. **Monitor Access Packages**  
+   - Go to **Entra Admin Center → Identity Governance → Access packages → Requests**  
+   - Review pending, approved, and rejected requests  
+
+2. **Review Access Reviews**  
+   - Navigate to **Entra Admin Center → Identity Governance → Access reviews**  
+   - Check completed and ongoing reviews for compliance and anomalies  
+   - Note which users were removed or retained  
+
+3. **Audit PIM Activities**  
+   - Go to **Entra Admin Center → Identity Governance → Privileged Identity Management → Audit logs**  
+   - Monitor role activations, approvals, and expirations  
+
+4. **Activity Logs Overview**  
+   - Navigate to **Reports → Identity Governance → Activity logs**  
+   - Filter by date, user, or application to analyze trends and verify proper access management  
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/identity-governance/08-monitoring.png`
+
+> 💡 **Tip:** Schedule regular reviews of these logs to ensure governance policies are followed and to detect any unusual activity early.
 
 ---
 
