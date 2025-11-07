@@ -15,6 +15,7 @@ This lab demonstrates how enterprises:
 
 | Module | Description |
 |--------|-------------|
+| 🖥️ [Initial Environment Setup](./initial-setup/) | Step-by-step guide to create VMs, install Windows, configure Active Directory, and prepare your lab environment |
 | ☁️ [Microsoft Entra ID](./entra/) | Cloud and hybrid identity provisioning, group-based licensing, Conditional Access (MFA, device compliance), PowerShell automation |
 | 🔐 [Okta](./okta/) | SAML/OIDC app integrations, MFA policies, JIT provisioning, lifecycle automation with Okta Workflows |
 | 🧱 [Active Directory (On-Prem)](./activedirectory/) | OU structure, GPOs, delegated access, user/group management with PowerShell|
