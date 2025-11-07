@@ -136,19 +136,23 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 7. Click **Assign** to create the eligible/active assignment.
 
 ### 4. Test activation (user flow)
-- As the assigned user, go to **[https://myapps.microsoft.com](https://myapps.microsoft.com/)** or **[myaccess.com](https://myaccess.microsoft.com/)**
-- Select the role and click **Activate**.
-- Provide **justification**, complete **MFA**, and (if configured) wait for **approval**.
-- After activation, the user has the role for the configured duration.
+- As the assigned user, go to **Entra Admin Portal**
+- Go to **Identity Governance** → **Privileged Identity Management** → **My roles** 
+- Select the role and click **Activate**
+- Provide **justification**, complete **MFA**, and (if configured) wait for **approval**
+- After activation, the user has the role for the configured duration
 
 ### 5. Configure periodic governance
-- **Access reviews**: create an access review for the role to periodically validate assignments.
-  - Entra → Identity Governance → Access reviews → + New review → target the role or the AU/group
+- **Access reviews**: create an access review for the role to periodically validate assignments
+  - **Entra → Identity Governance → Microsoft Entra roles → Access reviews → New →** target the role or the AU/group
 - **Alerts & Notifications**: enable PIM alerts (risky activations, expired assignments, etc.)
-- **Audit / Review logs**: use **Audit** or **Activity logs** to track assignments/activations/approvals.
+- **Audit / Review logs**: use **Audit** or **Activity logs** to track assignments/activations/approvals
 
 ### 6. Discovery & Insights (optional)
 - Run **Discovery** to find privileged accounts and roles in your tenant — useful before large PIM rollouts.
+
+📸 **Screenshot Example:**  
+`/entra/screenshots/identity-governance/07-emergency-account.png`
 
 ---
 
