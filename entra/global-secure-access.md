@@ -29,12 +29,14 @@ This walkthrough covers how to configure **secure access policies for users and 
 
 ### Step 1: Define Trusted Locations
 
-- Go to **Entra Admin Center → Security → Conditional Access → Named locations**  
-- Click **+ New location**  
+- Go to **Entra Admin Center → Conditional Access → Named locations**  
+- Click **+ New location** → choose **+ IP ranges location** (recommended for lab/testing)  
 - Configure:
-  - Name (e.g., `Corporate HQ`)  
-  - IP ranges (CIDR blocks)  
-  - Country or region (optional)  
+  - **Name:** e.g., `Corporate HQ`  
+  - **IP ranges (CIDR blocks):** e.g., `10.0.0.0/24`  
+- **Create**
+
+💡 **Tip:** Using IP ranges is preferred in labs so you can simulate trusted/untrusted networks accurately.  
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/global-secure-access/01-named-locations.png`
@@ -45,27 +47,35 @@ This walkthrough covers how to configure **secure access policies for users and 
 
 ### Step 2: Enable Private Access
 
-- Navigate to **Entra Admin Center → Identity Governance → Private Access**  
+- Navigate to **Entra Admin Center → Global Secure Access → Connect → Traffic forwarding**  
+- Click **+ New Private Access Policy** or edit an existing one  
 - Configure:
-  - Internal apps accessible only from private network  
-  - Define IP ranges, subnets, or VPN endpoints  
-  - Enable access policies based on device or location  
+  - Internal applications accessible only from trusted networks  
+  - Define **IP ranges, subnets, or VPN endpoints** for allowed access  
+  - Optionally, enforce **device compliance or named locations** for policy conditions  
+- Save the policy  
 
-📸 **Screenshot Example:**  
-`/entra/screenshots/global-secure-access/02-private-access.png`
+💡 **Summary:** Private Access lets you secure internal applications by restricting access to trusted networks, VPNs, or compliant devices. It ensures that sensitive apps are only reachable from approved locations, helping simulate enterprise network security in a lab environment.  
 
 ---
 
 ## 🌍 Configure Remote Networks / VPN
 
-### Step 3: Set Up Remote Networks
+### Step 3: Set Up Trusted Remote Networks
 
-- Go to **Conditional Access → Named locations → + New location → Mark as trusted network**  
-- Add **VPN IP ranges** or **remote office subnets**  
-- Ensure network ranges align with Conditional Access rules  
+- Go to **Entra Admin Center → Global Secure Access → Conditional Access → Named locations**  
+- Click **+ New location** and choose one of the available types:  
+  - **IP ranges location** → Add VPN or remote office subnet IP ranges  
+  - **Countries location** → Restrict access based on geographic location (optional)  
+- Name your location (e.g., `HQ VPN` or `Remote Office`)  
+- Mark the location as **trusted** to allow Conditional Access policies to recognize it  
+- Ensure that the IP ranges you configure align with your Conditional Access rules for app access  
+
+💡 **Tip:** Use **IP ranges location** for VPNs or specific remote offices. **Countries location** is optional and useful for broader geographic restrictions.  
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/global-secure-access/03-remote-networks.png`
+
 
 ---
 
@@ -74,13 +84,20 @@ This walkthrough covers how to configure **secure access policies for users and 
 ### Step 4: Create Network-Based Conditional Access Policy
 
 - Go to **Conditional Access → + New Policy**  
-- Configure:
-  - **Users/Groups**: Select target users  
-  - **Cloud apps**: Select apps or resources  
+- **Name your policy**: `Lab - Network Resource Access Policy`  
+  - This helps distinguish it as a lab/demo policy for controlling access based on network location.
+- Configure the policy:
+  - **Users/Groups**: Select the target users or groups who will be affected (e.g., all test users)  
+  - **Cloud apps or actions**: Choose the apps or resources to protect (e.g., SharePoint, Teams, or lab apps)  
   - **Conditions → Locations**:
-    - Include all locations  
-    - Exclude trusted named locations (corporate network, VPN)  
-  - **Grant**: Require MFA or block access  
+    - **Include**: All locations  
+    - **Exclude**: Trusted named locations you defined earlier (e.g., `Corporate HQ`, `VPN Lab Network`)  
+  - **Access controls → Grant**:
+    - Require **Multi-Factor Authentication (MFA)** for users outside trusted networks  
+    - Or **Block access** entirely for untrusted locations  
+- **Enable policy**: Save and turn it on for lab testing  
+
+💡 **Tip:** Naming policies clearly (e.g., including `Lab` in the name) helps prevent confusion with production policies. This policy simulates enforcing MFA or blocking access based on network location, helping you test Conditional Access behavior in a controlled environment.
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/global-secure-access/04-network-ca-policy.png`
@@ -91,13 +108,32 @@ This walkthrough covers how to configure **secure access policies for users and 
 
 ### Step 5: Verify Policy Enforcement
 
-- Test access from:
-  - Trusted network (internal LAN or VPN)  
-  - Untrusted network (external internet)  
-- Validate Conditional Access enforcement:
+- Ensure your VM has two NICs configured:  
+  - **Internal NIC** → `192.168.56.x` (your trusted lab network, domain-joined)  
+  - **NAT NIC** → external/untrusted network  
+
+- Test access from both network types:
+
+  1. **Trusted Network (Internal NIC)**  
+     - Use the Internal NIC (`192.168.56.2`) to connect your VM to the lab network.  
+     - Log in to your Entra-protected application.  
+     - Expected result: Seamless access, no MFA prompt.  
+
+  2. **Untrusted Network (NAT NIC)**  
+     - Disable or deprioritize the Internal NIC so NAT is used.  
+     - Log in to the same application.  
+     - Expected result: Conditional Access triggers MFA or blocks access, depending on your policy.  
+
+- Validate Conditional Access enforcement:  
   - MFA prompt appears for untrusted networks  
   - Access is blocked if conditions are violated  
   - Trusted networks allow seamless access  
+
+- Optional: If you need to check network resolution for your internal domain, refer to your [DNS configuration walkthrough](https://github.com/ColiverSEC/Enterprise-IAM-Lab/blob/main/activedirectory/dns-configuration-for-active-directory-clients.md).
+
+📸 **Screenshot Example:**  
+`/entra/screenshots/global-secure-access/05-test-access.png`
+  
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/global-secure-access/05-test-access.png`
