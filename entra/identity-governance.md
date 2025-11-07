@@ -77,9 +77,18 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 ### Step 4: Create an Access Review
 
 - Go to **Identity Governance → Access Reviews → + New access review**  
-- Select **target group or application**  
-- Define **reviewers** (self, manager, or group owner)  
-- Set **review frequency** (one-time or recurring)  
+- Select **target group or application** → **Next**
+- Select reviewers:
+  - Could be the user’s manager, the user themselves (self-review), or specific admins
+- Set **review frequency** (one-time or recurring) → **Next**
+- Configure Additional settings:
+  - Decide what happens if reviewers don’t respond (e.g., keep, remove, or take no action on access)
+  - Choose what to do when users are denied — typically remove access automatically
+  - Enable or disable options like **Justification required*** and **Email notifications** for reviewers
+- Once configured, click **Review + Create** 
+- Name your review:
+  - e.g., `Finance Project Access Review`
+- Click **Create** to finalize your access review
 - Run review and take action on results (approve/revoke access)  
 
 📸 **Screenshot Example:**  
