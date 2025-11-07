@@ -83,9 +83,6 @@ This walkthrough covers how to monitor and report on Microsoft Entra ID activiti
   - **Storage account**  
   - **Event Hub** for SIEM integration  
 
-📸 **Screenshot Example:**  
-`/entra/screenshots/monitoring-reporting/05-diagnostic-settings.png`
-
 ---
 
 ## 📊 Use Workbooks and Dashboards
@@ -99,17 +96,12 @@ This walkthrough covers how to monitor and report on Microsoft Entra ID activiti
   - Risky users over time  
   - Policy enforcement outcomes  
 
-📸 **Screenshot Example:**  
-`/entra/screenshots/monitoring-reporting/06-workbook.png`
 
 ### Step 7: Optional: Use Microsoft Sentinel
 
 - Connect **Entra ID logs** to **Microsoft Sentinel**  
 - Use built-in dashboards to monitor security events  
 - Create custom queries and alerts for suspicious activities  
-
-📸 **Screenshot Example:**  
-`/entra/screenshots/monitoring-reporting/07-sentinel-dashboard.png`
 
 ---
 
