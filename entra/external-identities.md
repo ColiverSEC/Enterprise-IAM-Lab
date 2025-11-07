@@ -125,50 +125,63 @@ New-MgInvitation -BodyParameter $guest
 
 ---
 
-### Step 6: Add a SAML Identity Provider
+### Step 6: Add a SAML Identity Provider (using Okta)
 
-To connect a **SAML-based Identity Provider (IdP)** (such as another Microsoft Entra tenant or a third-party IdP like Okta or Ping), follow these steps:
+In this step, you’ll connect an external **SAML Identity Provider (IdP)** — in this case, **Okta** — to your Microsoft Entra tenant for cross-tenant authentication.
 
-#### Create a SAML App in the IdP Tenant
+> 💡 Note: You can use a free [Okta Developer Account](https://developer.okta.com/signup/) for this exercise.  
+> Okta will act as the **IdP**, and Microsoft Entra will act as the **Service Provider (SP)**.
 
-If you’re using **another Microsoft Entra tenant** as the IdP:
+#### 🏁 Part 1: Configure the SAML App in Okta (IdP Side)
 
-- Sign in to the **IdP tenant’s** [Microsoft Entra admin center](https://entra.microsoft.com/)
-- Go to **Enterprise applications → New application**
-- Choose **Create your own application → Integrate any other application (non-gallery)**
-- Select **Set up single sign-on → SAML**
-- Configure temporary values to generate metadata:  
-   - **Identifier (Entity ID):** `https://dummy`  
-   - **Reply URL (ACS):** `https://dummy`
-- Save the configuration
-- Go to **Single sign-on → SAML**, and copy the **App Federation Metadata URL**  
-   - Example:
-     ```
-     https://login.microsoftonline.com/<tenant-id>/federationmetadata/2007-06/federationmetadata.xml?appid=<app-id>
-     ```
-This **Metadata URL** will be used in the External Identities configuration step
+1. Sign in to your **Okta Developer Console** → switch to **Classic UI** if needed.
+2. Go to **Applications → Applications → Create App Integration**.
+3. Choose:
+   - **Sign-in method:** SAML 2.0  
+   - Click **Next**.
+4. Configure SAML settings with placeholder values (you’ll replace these later):
+   - **Single sign-on URL (ACS):** `https://dummy`
+   - **Audience URI (SP Entity ID):** `https://dummy`
+   - Click **Next → Finish**.
+5. In the new app’s **Sign On** tab, click **View SAML setup instructions**.
+6. Copy the **Identity Provider metadata URL** — you’ll need this for Entra configuration.
 
-#### Configure the SAML IdP in the External Identities Tenant
-- In the **target (External Identities) tenant**, go to:
-   - **External Identities → All identity providers → Custom → SAML/WS-Fed**
-- Under **Metadata**, choose:
-   - **Metadata URL**, and paste the link you copied from the IdP tenant 
-   *(Alternatively, you can upload the metadata XML file.)*
-- Set up the **Name identifier** and **claim mappings**:  
+---
+
+#### 🏗️ Part 2: Configure the SAML IdP in Microsoft Entra (External Identities Side)
+
+1. In the **Microsoft Entra admin center**, go to:
+   - **External Identities → All identity providers → + New SAML/WS-Fed IdP**
+2. Enter:
+   - **Display name:** `Okta-SAML-IdP`
+   - **Domain name of federating IdP:** `okta.com`
+3. Under **Metadata**, select **URL** and paste the **IdP metadata link** copied from Okta.
+4. Configure the following claim mappings:
 
    | Claim Name   | Value                    |
-   |--------------|--------------------------|
-   | `NameID`     | `user.userprincipalname` |
-   | `email`      | `user.mail`              |
-   | `given_name` | `user.givenname`         |
-   | `surname`    | `user.surname`           |
+   |---------------|--------------------------|
+   | NameID        | `user.email`             |
+   | email         | `user.email`             |
+   | given_name    | `user.firstName`         |
+   | surname       | `user.lastName`          |
 
-  - Click **Save** and then **Test connection**
-     - You should be redirected to the IdP’s sign-in page
-     - After successful authentication, you’ll be returned to your app
+5. Click **Save**.
+6. Test the connection — you should be redirected to the Okta sign-in page.
+7. After successful authentication, you’ll be redirected back to your app in Entra.
+
+---
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/external-identities/05-saml-idp.png`
+
+---
+
+✅ **Expected Result:**
+- Okta successfully authenticates the user via SAML.
+- Microsoft Entra accepts the SAML assertion and signs the user in.
+- You can now invite Okta users as external identities in Entra.
+
+> 🔗 For more details on SAML app creation and configuration, see the [Enterprise App Integrations – SAML Configuration](https://github.com/ColiverSEC/Enterprise-IAM-Lab/blob/main/entra/enterprise-apps.md) module.
 
 
 ---
