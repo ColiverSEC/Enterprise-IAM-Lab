@@ -84,12 +84,23 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 - Configure Additional settings:
   - Decide what happens if reviewers don’t respond (e.g., keep, remove, or take no action on access)
   - Choose what to do when users are denied — typically remove access automatically
-  - Enable or disable options like **Justification required*** and **Email notifications** for reviewers
+  - Enable or disable options like **Justification required** and **Email notifications** for reviewers
 - Once configured, click **Review + Create** 
 - Name your review:
   - e.g., `Finance Project Access Review`
 - Click **Create** to finalize your access review
 - Run review and take action on results (approve/revoke access)  
+
+### Step 5: Approve or Deny Access Review
+
+1. Go to [**My Access portal**](https://myaccess.microsoft.com) and sign in.  
+2. Select **Access reviews** from the left menu.  
+3. Open the access review assigned to you as a reviewer.  
+4. For each user listed:  
+   - Click **Approve** to keep their access  
+   - Click **Deny** to remove their access  
+   - Optionally, provide a justification if required  
+5. Submit your decisions. The system will apply changes once the review completes.  
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/identity-governance/04-access-review.png`
@@ -125,7 +136,7 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 7. Click **Assign** to create the eligible/active assignment.
 
 ### 4. Test activation (user flow)
-- As the assigned user, go to **https://myapps.microsoft.com** or **Entra Admin Center → My roles**.
+- As the assigned user, go to **[https://myapps.microsoft.com](https://myapps.microsoft.com/)** or **[myaccess.com](https://myaccess.microsoft.com/)**
 - Select the role and click **Activate**.
 - Provide **justification**, complete **MFA**, and (if configured) wait for **approval**.
 - After activation, the user has the role for the configured duration.
