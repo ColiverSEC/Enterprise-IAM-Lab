@@ -30,37 +30,42 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 
 ### Step 1: Navigate to Access Packages
 
-- Go to **Entra Admin Center → Identity Governance → Access packages → + New access package**  
+- Go to **Entra Admin Center → Identity Governance → Entitlement management → Access packages → + New access package**  
 
 ### Step 2: Configure Access Package
 
-- Enter a **name** (e.g., `Finance Project Access`)  
-- Define **resources** to include (groups, apps, SharePoint sites)  
+- Enter a **Name** (e.g., `Finance Project Access`)
+- Enter a **Descrition** (e.g.`Provides controlled access to finance-related resources and applications for project members, using Microsoft Entra Identity Governance to manage request, approval, and expiration workflows`)
+- Select **Create new catalog** and fill:
+  - **Name:** `Finance Project Catalog`
+  - **Description:** `Catalog containing finance-related apps and resources for project access management.`
+- Set to **Enabled** → **Create**
+- Click **Next**
+- Define **resources** to include (groups, apps, SharePoint sites) → **Next**
 - Configure **request settings**:
   - Who can request access  
-  - Approval workflow (single approver or multiple)  
+  - Approval workflow (single approver or multiple)
+- Click **Next**
+- Fill in the Requestor information **Question** and **Answer format**
+- Click **Review + Create** → **Create**
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/identity-governance/01-create-access-package.png`
-
-### Step 3: Assign Users
-
-- Assign test users to request access  
-- Approve requests to validate the workflow  
-
-📸 **Screenshot Example:**  
-`/entra/screenshots/identity-governance/02-assign-users.png`
 
 ---
 
 ## 📝 Configure Terms of Use
 
-### Step 4: Create Terms of Use Policy
+### Step 3: Create Terms of Use Policy
 
-- Navigate to **Terms of Use → + New policy**  
+- Navigate to **ID Governance → Entitlement management → Terms of Use → + New terms**  
+- **Name your policy (internal use):** `Finance Project Access Policy`  
+- **Display name (user-facing):** `Finance Project Access Terms`
+- Open Word or a text editor and create a **sample Terms of Use** (short, 1-page lab version) and save as PDF
 - Upload **PDF or URL** of your organization’s policy  
-- Assign to users or access packages  
+- Assign the terms to your **Finance Project Access** package (or other relevant access packages)  
 - Require users to **accept before access is granted**  
+- For reference on Conditional Access policies, see [CConditional Access Policies](https://github.com/ColiverSEC/Enterprise-IAM-Lab/blob/main/entra/conditional-access.md)
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/identity-governance/03-terms-of-use.png`
@@ -69,9 +74,9 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 
 ## 🔁 Configure Access Reviews
 
-### Step 5: Create an Access Review
+### Step 4: Create an Access Review
 
-- Go to **Access Reviews → + New access review**  
+- Go to **Identity Governance → Access Reviews → + New access review**  
 - Select **target group or application**  
 - Define **reviewers** (self, manager, or group owner)  
 - Set **review frequency** (one-time or recurring)  
@@ -84,7 +89,7 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 
 ## 🛡️ Manage Privileged Identity Management (PIM)
 
-### Step 6: Enable PIM for Roles
+### Step 5: Enable PIM for Roles
 
 - Go to **Entra Admin Center → Privileged Identity Management → Azure AD roles**  
 - Select a role (e.g., Global Administrator, User Administrator)  
@@ -96,7 +101,7 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 📸 **Screenshot Example:**  
 `/entra/screenshots/identity-governance/05-pim-role.png`
 
-### Step 7: Activate Roles for Testing
+### Step 6: Activate Roles for Testing
 
 - Activate an eligible role as a test user  
 - Confirm access is granted and logs are generated  
@@ -108,7 +113,7 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 
 ## 🆘 Configure Emergency Access Accounts
 
-### Step 8: Create Break-Glass Accounts
+### Step 7: Create Break-Glass Accounts
 
 - Create a **dedicated Global Administrator account**  
 - Assign **permanent MFA bypass or known secure credentials**  
@@ -122,7 +127,7 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 
 ## 📊 Monitor and Report
 
-### Step 9: Review Governance Activity
+### Step 8: Review Governance Activity
 
 - Monitor access package requests, access review outcomes, and PIM activations  
 - Navigate to **Reports → Identity Governance → Activity logs**  
