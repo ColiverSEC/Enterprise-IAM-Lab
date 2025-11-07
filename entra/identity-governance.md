@@ -184,7 +184,7 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 > Monitoring ensures that access is being requested, approved, and revoked correctly. It also helps detect unusual activity or misconfigurations in your Identity Governance setup.
 
 1. **Monitor Access Packages**  
-   - Go to **Entra Admin Center → Identity Governance → Access packages → Requests**  
+   - Go to **Entra Admin Center → Identity Governance → Entitlement management → Access packages → Requests**  
    - Review pending, approved, and rejected requests  
 
 2. **Review Access Reviews**  
@@ -193,11 +193,11 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
    - Note which users were removed or retained  
 
 3. **Audit PIM Activities**  
-   - Go to **Entra Admin Center → Identity Governance → Privileged Identity Management → Audit logs**  
+   - Go to **Entra Admin Center → Identity Governance → Privileged Identity Management → My Audit history**  
    - Monitor role activations, approvals, and expirations  
 
 4. **Activity Logs Overview**  
-   - Navigate to **Reports → Identity Governance → Activity logs**  
+   - Navigate to **Identity Governance → Entitlement management → Reports**  
    - Filter by date, user, or application to analyze trends and verify proper access management  
 
 📸 **Screenshot Example:**  
