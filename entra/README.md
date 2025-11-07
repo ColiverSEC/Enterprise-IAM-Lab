@@ -45,7 +45,6 @@ These walkthroughs simulate real-world IAM engineering tasks, preparing you to d
 | 🔑 [Authentication Methods & SSPR](./authentication-methods.md)       | Enable MFA, FIDO2, Windows Hello, self-service password reset, and tenant restrictions.                                   |
 | 🛡️ [Conditional Access](./conditional-access.md)                     | Plan and implement security defaults and Conditional Access policies with MFA, device compliance, and session management. |
 | ⚡ [Identity Protection](./identity-protection.md)                     | Configure user & sign-in risk policies, monitor risky users, and integrate Microsoft Defender for Identity.               |
-| ☁️ [Azure Resource Access Management](./azure-access.md)              | Assign RBAC roles, configure managed identities, and control access to Key Vault.                                         |
 | 📲 [Enterprise App Integrations & Registration](./enterprise-apps.md) | Configure gallery apps, custom apps, app proxy, token customization, SCIM provisioning, and monitoring.                   |
 | 🎛️ [Identity Governance](./identity-governance.md)                   | Implement access packages, terms of use, access reviews, PIM, and emergency access accounts.                              |
 | 📊 [Monitoring & Reporting](./monitoring-reporting.md)                | Review sign-in and audit logs, diagnostic logs, and use workbooks/Sentinel dashboards.                                    |
