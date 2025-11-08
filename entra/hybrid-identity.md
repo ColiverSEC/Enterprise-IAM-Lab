@@ -38,8 +38,6 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
 
 > 🧠 Tip: PHS + Seamless SSO is recommended for most environments
 
----
-
 ### Step 2: Review AD Forest & Domain Requirements
 
 - **Verify domain functional level**: Ensure the AD forest and domain are Windows Server 2008 or higher
@@ -62,7 +60,7 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
 
 ## ⚙️ Install Entra Connect
 
-### Step 3: Launch Installer
+### Launch Installer
 
 - **Sign in** to your **domain-joined Windows Server**  
   - This server must be joined to your **on-premises Active Directory domain** (e.g., `ad.IDSentinelSolutions.com`)
@@ -71,7 +69,7 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
   - **Recommended:** Download directly from the **Microsoft Entra Admin Center** to ensure you get the latest version:
     - Navigate to **Entra ID → Entra Connect → Get Started → Download Connect Sync Agent → Accept terms & download**  
   - **Alternative:** Use the official Microsoft download page if portal access isn’t available:  
-     [Microsoft Entra Connect Download](https://www.microsoft.com/en-us/download/details.aspx?id=47594)
+    - [Microsoft Entra Connect Download](https://www.microsoft.com/en-us/download/details.aspx?id=47594)
 - **Run the Entra Connect installer** on your domain-joined server  
   - Right-click the downloaded file **Azure AD Connect** → **Run as Administrator**
   - If prompted by SmartScreen, select **Run anyway**
@@ -83,11 +81,11 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
     - Multiple forests  
     - PTA or federation  
     - Select OU filtering  
-    -  Enable password writeback 
+    - Enable password writeback 
 - Choose the option that fits your lab scenario and proceed to the next screen
-- When the wizard prepares the configuration steps, continue to **Step 4: Enable Password Hash Sync (PHS) or PTA**
+- When the wizard prepares the configuration steps, continue to **🔐 Configure Authentication Options**
 
-> 💡 **Tip:** Microsoft recommends installing Entra Connect on a **dedicated, domain-joined member server** rather than directly on your domain controller. This improves security and simplifies maintenance.
+> 💡 **Tip:** Microsoft recommends installing Entra Connect on a **dedicated, domain-joined member server** rather than directly on your domain controller. This improves security and simplifies maintenance
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/hybrid-identity/01-install-launch.png`
@@ -96,7 +94,7 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
 
 ## 🔐 Configure Authentication Options
 
-### Step 4: Enable Password Hash Sync (PHS) or Pass-Through Authentication (PTA)
+### Step 1: Enable Password Hash Sync (PHS) or Pass-Through Authentication (PTA)
 
 - On your **domain-joined Entra Connect server**, launch **Microsoft Entra Connect**  
   - If it opens to **Additional Tasks**, select **Customize synchronization options** → **Next**
@@ -121,9 +119,7 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
 📸 **Screenshot Example:**  
 `/entra/screenshots/hybrid-identity/03-authentication-options.png`
 
----
-
-### Step 5: Enable Password Writeback (Optional)
+### Step 2: Enable Password Writeback (Optional)
 
 - Password writeback allows users to **reset their passwords in the cloud**, and those changes are written back to your on-prem AD
 - In the wizard, continue to the **Optional Features** page:  
@@ -146,9 +142,7 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
 📸 **Screenshot Example:**  
 `/entra/screenshots/hybrid-identity/04-password-writeback.png`
 
----
-
-### Step 6: Finish Installation & Initial Sync 
+### Step 3: Finish Installation & Initial Sync 
 
 - Check **Start the synchronization process when configuration completes** → click **Configure**  
 - Initial synchronization starts (can take a few minutes depending on AD size)  
@@ -168,9 +162,7 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
 📸 **Screenshot Example:**  
 `/entra/screenshots/hybrid-identity/05-initial-sync.png`
 
----
-
-### Step 7: Optional Filtering & Staging Mode
+### Step 4: Optional Filtering & Staging Mode
 
 - After your initial sync is complete, you can optionally configure advanced settings:
   - **OU Filtering**  
@@ -184,11 +176,10 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
     - Great for multi-forest or large enterprise environments  
     - To enable: select **Enable staging mode** in the wizard during configuration  
 
-> 💡 **Tip:** In a small lab with a single forest, you can skip these options and sync the entire `_USERS` OU.
+> 💡 **Tip:** In a small lab with a single forest, you can skip these options and sync the entire `_USERS` OU
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/hybrid-identity/06-staging-filtering.png`
-
 
 ---
 
