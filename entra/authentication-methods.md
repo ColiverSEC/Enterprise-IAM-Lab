@@ -57,7 +57,7 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 
 ## ⚡ Configure FIDO2 Security Keys
 
-### Step 4: Enable FIDO2 for Passwordless Sign-In
+### Enable FIDO2 for Passwordless Sign-In
 
 - Go to **Authentication methods → FIDO2 Security Key**  
 - Enable for users or groups  
@@ -71,7 +71,7 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 
 ## 🖐️ Configure Windows Hello for Business
 
-### Step 5: Enable Windows Hello for Business
+### Enable Windows Hello for Business
 
 - Go to **Entra ID → Authentication Methods → Authentication Strengths**
 - Create a new authentication strength (or edit an existing one)
@@ -91,14 +91,14 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 
 ## 🔄 Enable Self-Service Password Reset (SSPR)
 
-### Step 6: Configure SSPR
+### Step 1: Configure SSPR
 
 - Navigate to **Entra ID → Password reset → Properties**  
 - Enable **SSPR for all or selected users**  
 - Configure **authentication methods** (email, mobile, security questions)  
 - Save changes
 
-### Step 7: Test SSPR
+### Step 2: Test SSPR
 
 - Log in as a test user  
 - Click **Forgot my password**  
@@ -111,7 +111,7 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 
 ## 🛡️ Configure Tenant Restrictions
 
-### Step 8: Set Authentication Method Policies
+### Set Authentication Method Policies
 
 - Navigate to **Authentication methods → Policies**  
 - Configure:
@@ -126,7 +126,7 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 
 ## 📊 Monitor and Report Authentication Activity
 
-### Step 9: Review Sign-In Logs
+### Review Sign-In Logs
 
 - Go to **Authentication Methods → Monitoring → Activity or Monitoring & Health → Audit logs**  
 - Filter by authentication method, user, or status  
