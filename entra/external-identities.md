@@ -75,7 +75,7 @@ New-MgInvitation -BodyParameter $guest
 
 ## 🔑 Configure Collaboration Settings
 
-### Step 4: Guest User Settings
+### Guest User Settings
 
 - Navigate to **External Identities → External collaboration settings**
 - Configure:
@@ -90,7 +90,7 @@ New-MgInvitation -BodyParameter $guest
 
 ## 🌍 Configure Identity Providers for B2C
 
-### Step 5: Add a Social Identity Provider
+### Step 1: Add a Social Identity Provider
 
 - Go to **External Identities** → **All identity providers** 
 - Select **provider type** (e.g., Google, Facebook)
@@ -101,7 +101,7 @@ New-MgInvitation -BodyParameter $guest
    - Either create a new project or select an existing one that you want to use for your B2C integration
 - Enable the OAuth Consent Screen:
    - In the left-hand menu, navigate to APIs & Services → OAuth consent screen
-   - Choose External for the user type (this allows users outside your organization to log in — typical for B2C scenarios).
+   - Choose External for the user type (this allows users outside your organization to log in — typical for B2C scenarios)
    - Configure required details such as App name, User support email, and Developer contact information
    - Click Save and Continue through the scopes and test users sections as needed
 - Create OAuth Credentials:
@@ -109,7 +109,7 @@ New-MgInvitation -BodyParameter $guest
    - Click Create Credentials → OAuth client ID
    - Select Web application as the application type
 - Configure Authorized Redirect URIs:
-   - Enter a name for your OAuth client.
+   - Enter a name for your OAuth client
 - Under Authorized redirect URIs, add the redirect URI that corresponds to your Entra B2C tenant and policy:
    - Example:https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/B2C_1A_signup_signin/oauth2/authresp
 - Create and Retrieve Client Credentials:
@@ -118,19 +118,19 @@ New-MgInvitation -BodyParameter $guest
 - Add Google as an Identity Provider in Entra B2C:
    - In the Entra B2C portal, navigate to Identity providers → Google
    - Enter the Client ID and Client Secret from the Google Cloud Console
-- Save your configuration.
+- Save your configuration
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/external-identities/04-social-idp.png`
 
 ---
 
-### Step 6: Add a SAML Identity Provider (using Okta)
+### Step 2: Add a SAML Identity Provider (using Okta)
 
-In this step, you’ll connect an external **SAML Identity Provider (IdP)** — in this case, **Okta** — to your Microsoft Entra tenant for cross-tenant authentication.
+In this step, you’ll connect an external **SAML Identity Provider (IdP)** — in this case, **Okta** — to your Microsoft Entra tenant for cross-tenant authentication
 
-> 💡 Note: You can use a free [Okta Developer Account](https://developer.okta.com/signup/) for this exercise.  
-> Okta will act as the **IdP**, and Microsoft Entra will act as the **Service Provider (SP)**.
+> 💡 Note: You can use a free [Okta Developer Account](https://developer.okta.com/signup/) for this exercise
+> Okta will act as the **IdP**, and Microsoft Entra will act as the **Service Provider (SP)**
 
 #### 🏁 Part 1: Configure the SAML App in Okta (IdP Side)
 
