@@ -39,7 +39,7 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 
 ## ⚡ Configure Risk Policies
 
-### Step 2: User Risk Policy
+### Step 1: User Risk Policy
 
 - Navigate to **Identity Protection → Protect → User risk policy**   
 - Configure:
@@ -56,9 +56,7 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 📸 **Screenshot Example:**  
 `/entra/screenshots/identity-protection/02-user-risk-policy.png`
 
----
-
-### Step 3: Sign-in Risk Policy
+### Step 2: Sign-in Risk Policy
 
 - Navigate to **Protect → Sign-in risk policy**    
 - Configure:
@@ -79,7 +77,7 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 
 ## 📊 Monitor Risk Events
 
-### Step 4: Review Risky Users
+### Step 1: Review Risky Users
 
 - Go to **Identity Protection → Report → Users at risk**  
 - Review detected risks, risk level, and remediation status  
@@ -88,7 +86,7 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 📸 **Screenshot Example:**  
 `/entra/screenshots/identity-protection/04-risky-users.png`
 
-### Step 5: Review Risky Sign-ins
+### Step 2: Review Risky Sign-ins
 
 - Go to **Identity Protection → Report → Sign-ins at risk**  
 - Review each sign-in event for **risk type, device, location, and risk level**  
@@ -97,6 +95,7 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 📸 **Screenshot Example:**  
 `/entra/screenshots/identity-protection/05-risky-signins.png`
 
+---
 
 ## ✅ Expected Behavior
 
