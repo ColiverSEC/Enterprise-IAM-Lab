@@ -46,9 +46,9 @@ This walkthrough covers how to integrate and manage applications in Microsoft En
 - Open the app → **Users and groups → + Add user/group**  
 - Select the test users or groups you want to assign to the app  
 - **Assign a Role**  
-   - If the application supports roles, you can select a **role** for the user or group.  
-   - Roles define what level of access or permissions the user has within the app (e.g., Admin, Reader, Contributor).  
-   - If the app has no predefined roles, you can skip this step.  
+   - If the application supports roles, you can select a **role** for the user or group  
+   - Roles define what level of access or permissions the user has within the app (e.g., Admin, Reader, Contributor)  
+   - If the app has no predefined roles, you can skip this step
 - Click **Assign** to complete the assignment
 
 📸 **Screenshot Example:**  
@@ -58,7 +58,7 @@ This walkthrough covers how to integrate and manage applications in Microsoft En
 
 ## 🛠️ Register a Custom Enterprise Application
 
-### Step 4: Create a New App
+### Step 1: Create a New App
 
 - Go to **Enterprise applications → + New application → Create your own application**  
 - Enter app name (e.g., `Contoso Custom App`)  
@@ -67,7 +67,7 @@ This walkthrough covers how to integrate and manage applications in Microsoft En
 📸 **Screenshot Example:**  
 `/entra/screenshots/enterprise-apps/03-custom-app-registration.png`
 
-### Step 5: Configure Single Sign-On
+### Step 2: Configure Single Sign-On
 
 - Depending on your app type, you’ll configure **SAML** or **OIDC (OpenID Connect)** for authentication
 
@@ -107,8 +107,6 @@ This section shows how to configure SAML SSO for GitHub Enterprise Cloud using M
 📸 **Screenshot Example:**  
 `/entra/screenshots/enterprise-apps/04-sso-configuration-saml.png`
 
----
-
 #### 🅱️ OIDC (Typical for Modern or Custom Web Apps)
 
 If you’re integrating a modern application your team developed:
@@ -124,7 +122,7 @@ If you’re integrating a modern application your team developed:
    - This means Entra automatically linked the app registration’s OIDC settings (redirect URIs, tokens, etc.) — no manual SSO setup is needed 
 - Review the app’s **Properties** and **Permissions** to confirm configuration 
    - You can verify redirect URIs and token permissions under **App registrations → Authentication** 
-- Assign users or groups to the app under **Users and groups** in the Enterprise Application.  
+- Assign users or groups to the app under **Users and groups** in the Enterprise Application 
 
 > 💡 **Tip:** Use **OIDC** for internally developed or modern applications where you control the authentication flow 
 > Use **SAML** for third-party, legacy, or gallery-based enterprise apps 
@@ -137,7 +135,7 @@ If you’re integrating a modern application your team developed:
 
 ---
 
-### Step 6: 🧪 Test Your SSO Configuration
+### Step 3: 🧪 Test Your SSO Configuration
 
 **For SAML Apps** 
 - In the app’s **Single sign-on** page, click **Test this application** 
@@ -168,7 +166,7 @@ If you’re integrating a modern application your team developed:
 
 ## ⚡ Configure SCIM Provisioning
 
-### Step 7: Enable SCIM Provisioning with Harness (Free Trial)
+### Step 1: Enable SCIM Provisioning
 
 > 💡 **Note:** Harness provides a free trial that supports SCIM, allowing you to fully demonstrate automatic user provisioning with Microsoft Entra ID
 
@@ -179,7 +177,7 @@ If you’re integrating a modern application your team developed:
      ```
      https://app.harness.io/gateway/ng/api/scim/account/<ACCOUNT_ID>
      ```
-### Generate an API Token in Harness
+### Step 2: Generate an API Token in Harness
 - In Harness, go to **Account Settings → Service Accounts → + New Service Account**
 - Name it something like `SCIM-Entra-Provisioning` → **Save**
 - Open your new service account and click **+ API Key** → name it (e.g., `entra-scim-demo`) → **Save**
@@ -187,7 +185,7 @@ If you’re integrating a modern application your team developed:
 - Copy the token — it will only be shown once  
    - This token will serve as your **Secret Token** in Entra
 
-### Configure SCIM in Microsoft Entra ID
+### Step 3: Configure SCIM in Microsoft Entra ID
 - Go to **Microsoft Entra Admin Center → Enterprise Applications → Harness → Provisioning → Get started**
 - Set **Provisioning Mode** to **Automatic**
 - Under **Admin Credentials**, fill in the following:  
@@ -199,14 +197,14 @@ If you’re integrating a modern application your team developed:
 - Click **Test Connection** → You should see **“Connection successful”** if the token and Account ID are valid
 - Set **Provisioning Status** to **On** → **Save**
 
-### Configure Attribute Mappings
+### Step 4: Configure Attribute Mappings
 - Under **Mappings**, verify or adjust these default Entra → Harness mappings:
    - `userPrincipalName` → `userName`
    - `displayName` → `name.formatted`
    - `mail` → `emails[type eq "work"].value`
 - You can leave the rest as defaults for this lab
 
-### Assign a Test User
+### Step 5: Assign a Test User
 - In the Entra admin center, go to your **Harness Enterprise Application → Users and Groups**
 - Click **+ Add user/group**
 - Select a single **test user** (e.g., `test.user@yourdomain.com`)
@@ -214,30 +212,30 @@ If you’re integrating a modern application your team developed:
 
 > ⚠️ Only users assigned to the app will be provisioned via SCIM
 
-### Trigger an On-Demand Provisioning Cycle
+### Step 6: Trigger an On-Demand Provisioning Cycle
 - Go to the **Provisioning** tab in your Harness app in Entra
 - Scroll to **Start provisioning** (or similar section)
 - Click **Provision on demand**
 - Search for your test user → click **Provision**  
    - Entra will immediately send SCIM requests to Harness
 
-###  Verify User Creation in Harness
+### Step 7: Verify User Creation in Harness
 - Log in to **Harness** as an account admin
 - Go to **Account Settings → Access Control → Users**
 - Verify that your test user was created with the correct username and email
 
-### Test the Update Flow
+### Step 8: Test the Update Flow
 - In Entra, edit your test user’s profile (e.g., update **Job Title** or **Department**)
 - Wait a few minutes or trigger **Provision on demand** again
 - Check in Harness → confirm the update synced successfully
 
-### Test Deactivation / Deprovisioning
+### Step 9: Test Deactivation / Deprovisioning
 - In the Entra admin center, open your **Harness Enterprise Application**
 - Go to **Users and groups** → **Remove assignment** for your test user
 - Wait a few minutes or manually run **Provision on demand**
 - In Harness, confirm that the user is **deactivated or suspended**
 
-### Review Provisioning Logs
+### Step 10: Review Provisioning Logs
 - Monitor status and sync activity in **Provisioning Logs** within Entra  
 - Successful runs will confirm user lifecycle actions (create, update, delete) were performed correctly
 
@@ -249,16 +247,16 @@ If you’re integrating a modern application your team developed:
 
 ## 📝 **Customize Tokens and Claims**
 
-### Step 8: Token Configuration
+### Step 1: Token Configuration
 
 In this step, you’ll define **which user attributes** Entra ID sends to your application during authentication  
 These claims determine what user information (e.g., name, email, roles) your app receives after login — critical for user identification, authorization, and personalization
 
-####  Open Token & Claim Settings
+#### Step 2:  Open Token & Claim Settings
 - Go to your SAML or OIDC **Enterprise Application → Single sign-on → Attributes & Claims**  
 - This is where Entra defines what’s included inside the **SAML token** or **OIDC ID token** sent to the app
 
-#### Review or Add Common Claims
+#### Step 3: Review or Add Common Claims
 Add or verify these claims depending on your integration needs:
 
 | Claim Type | Example Attribute | Purpose |
@@ -270,12 +268,12 @@ Add or verify these claims depending on your integration needs:
 
 > 💡 **Tip:** Only include claims the target app requires — sending unnecessary claims can cause token bloat or errors
 
-#### Configure SAML Signing Certificate (If Required)
+#### Step 4: Configure SAML Signing Certificate (If Required)
 - If your app uses **SAML**, you may need to:
    - Download or configure the **SAML signing certificate** under **Single sign-on → SAML Certificates**  
    - This ensures that the token sent from Entra is **digitally signed** and **trusted** by the service provider (your app)
 
-#### Save and Test
+#### Step 5: Save and Test
 - After updating claims, click **Save**
 - Go to **Single sign-on → Test this application** to verify that your updated claims appear correctly in the token
 - For OIDC apps, you can also use tools like [https://jwt.ms](https://jwt.ms) to decode and inspect ID tokens
@@ -287,7 +285,7 @@ Add or verify these claims depending on your integration needs:
 
 ## 📊 Monitor Application Activity
 
-### Step 9: Review Sign-ins and Provisioning
+### Review Sign-ins and Provisioning
 
 - Go to **Enterprise applications → App → Sign-ins**  
 - Review authentication events and detect errors  
