@@ -35,13 +35,10 @@ This walkthrough demonstrates how to create and test a Conditional Access policy
 📸 **Screenshot Example:**  
 `/entra/screenshots/conditional-access/01-create-new-policy.png`
 
----
 
 ### Step 2: Define Policy Basics
 
 - **Name**: `Force MFA for Admin Portals`   
-
----
 
 ### Step 3: Select Users or Groups
 - Click **users and groups selected**
@@ -54,8 +51,6 @@ This walkthrough demonstrates how to create and test a Conditional Access policy
 📸 **Screenshot Example:**  
 `/entra/screenshots/conditional-access/02-select-users.png`
 
----
-
 ### Step 4: Choose Cloud Apps or Actions
 
 - Click **No target resources selected**
@@ -64,8 +59,6 @@ This walkthrough demonstrates how to create and test a Conditional Access policy
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/conditional-access/03-select-cloud-apps.png`
-
----
 
 ### Step 5: Configure Conditions (Optional)
 
@@ -78,9 +71,7 @@ This walkthrough demonstrates how to create and test a Conditional Access policy
 📸 **Screenshot Example:**  
 `/entra/screenshots/conditional-access/04-conditions.png`
 
-> 💡 **Tip:** Conditions are optional in a lab. For production, consider using trusted IP ranges and named locations.
-
----
+> 💡 **Tip:** Conditions are optional in a lab. For production, consider using trusted IP ranges and named locations
 
 ### Step 6: Configure Access Controls
 
@@ -92,8 +83,6 @@ This walkthrough demonstrates how to create and test a Conditional Access policy
 📸 **Screenshot Example:**  
 `/entra/screenshots/conditional-access/05-grant-access.png`
 
----
-
 ### Step 7: Enable the Policy
 
 - Set **Enable Policy** to `On`  
@@ -103,20 +92,19 @@ This walkthrough demonstrates how to create and test a Conditional Access policy
 `/entra/screenshots/conditional-access/06-enable-policy.png`
 
 ---
+
 ## 🔍 Test Policies with the "What If" Tool
 
 The **What If** tool allows you to simulate the effect of a Conditional Access policy for a specific user **without enforcing it**, which is perfect for lab testing and troubleshooting.
 
-### Step 8: Open the What If Tool
+### Step 1: Open the What If Tool
 
 - Go to **Microsoft Entra Admin Center → Entra ID → Conditional Access → What If**  
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/conditional-access/07-what-if-tool.png`
 
----
-
-### Step 9: Simulate a Policy
+### Step 2: Simulate a Policy
 
 - Select the **user** you want to test
 - Select the **Target resource** to simulate access to
@@ -130,15 +118,13 @@ The **What If** tool allows you to simulate the effect of a Conditional Access p
 📸 **Screenshot Example:**  
 `/entra/screenshots/conditional-access/08-what-if-simulation.png`
 
----
-
-### Step 10: Review the Results
+### Step 3: Review the Results
 
 - The tool shows whether access would be **granted or blocked**  
 - It highlights which policies are applied and which conditions triggered  
 - Useful for validating policies **before deploying them** in production
 
-> 💡 **Tip:** Use the What If tool in your lab to safely experiment with different combinations of users, apps, and conditions without affecting real access.
+> 💡 **Tip:** Use the What If tool in your lab to safely experiment with different combinations of users, apps, and conditions without affecting real access
 
 ---
 
