@@ -27,7 +27,7 @@ This walkthrough covers how to configure **secure access policies for users and 
 
 ## 🌐 Configure Named Locations
 
-### Step 1: Define Trusted Locations
+### Define Trusted Locations
 
 - Go to **Entra Admin Center → Conditional Access → Named locations**  
 - Click **+ New location** → choose **+ IP ranges location** (recommended for lab/testing)  
@@ -45,7 +45,7 @@ This walkthrough covers how to configure **secure access policies for users and 
 
 ## 🛡️ Configure Private Access
 
-### Step 2: Enable Private Access
+### Enable Private Access
 
 - Navigate to **Entra Admin Center → Global Secure Access → Connect → Traffic forwarding**  
 - Click **+ New Private Access Policy** or edit an existing one  
@@ -61,7 +61,7 @@ This walkthrough covers how to configure **secure access policies for users and 
 
 ## 🌍 Configure Remote Networks / VPN
 
-### Step 3: Set Up Trusted Remote Networks
+### Set Up Trusted Remote Networks
 
 - Go to **Entra Admin Center → Global Secure Access → Conditional Access → Named locations**  
 - Click **+ New location** and choose one of the available types:  
@@ -81,7 +81,7 @@ This walkthrough covers how to configure **secure access policies for users and 
 
 ## ⚡ Apply Conditional Access for Network Resources
 
-### Step 4: Create Network-Based Conditional Access Policy
+### Create Network-Based Conditional Access Policy
 
 - Go to **Conditional Access → + New Policy**  
 - **Name your policy**: `Lab - Network Resource Access Policy`  
@@ -106,29 +106,29 @@ This walkthrough covers how to configure **secure access policies for users and 
 
 ## 🔁 Test Access
 
-### Step 5: Verify Policy Enforcement
+### Step 1: Verify Policy Enforcement
 
 - Ensure your VM has two NICs configured:  
   - **Internal NIC** → `192.168.56.x` (your trusted lab network, domain-joined)  
   - **NAT NIC** → external/untrusted network  
-
 - Test access from both network types:
 
-  1. **Trusted Network (Internal NIC)**  
-     - Use the Internal NIC (`192.168.56.2`) to connect your VM to the lab network.  
-     - Log in to your Entra-protected application.  
-     - Expected result: Seamless access, no MFA prompt.  
+### Step 2: Trusted Network (Internal NIC)
 
-  2. **Untrusted Network (NAT NIC)**  
-     - Disable or deprioritize the Internal NIC so NAT is used.  
-     - Log in to the same application.  
-     - Expected result: Conditional Access triggers MFA or blocks access, depending on your policy.  
+     - Use the Internal NIC (`192.168.56.2`) to connect your VM to the lab network
+     - Log in to your Entra-protected application
+     - Expected result: Seamless access, no MFA prompt 
 
+### Step 3: Untrusted Network (NAT NIC)
+
+- Disable or deprioritize the Internal NIC so NAT is used 
+- Log in to the same application
+- Expected result:
+  - Conditional Access triggers MFA or blocks access, depending on your policy  
 - Validate Conditional Access enforcement:  
   - MFA prompt appears for untrusted networks  
   - Access is blocked if conditions are violated  
   - Trusted networks allow seamless access  
-
 - Optional: If you need to check network resolution for your internal domain, refer to your [DNS configuration walkthrough](https://github.com/ColiverSEC/Enterprise-IAM-Lab/blob/main/activedirectory/dns-configuration-for-active-directory-clients.md).
 
 📸 **Screenshot Example:**  
