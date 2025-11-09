@@ -51,7 +51,7 @@ This walkthrough covers how to monitor and report on Microsoft Entra ID activiti
 
 ## 📝 Review Audit Logs
 
-### Step 3: Navigate to Audit Logs
+### Step 1: Navigate to Audit Logs
 
 - Go to **Entra Admin Center → Monitoring → Audit logs**  
 - Review actions such as:
@@ -63,7 +63,7 @@ This walkthrough covers how to monitor and report on Microsoft Entra ID activiti
 📸 **Screenshot Example:**  
 `/entra/screenshots/monitoring-reporting/03-audit-logs.png`
 
-### Step 4: Filter and Export
+### Step 2: Filter and Export
 
 - Filter by **activity, user, or date range**  
 - Export logs for compliance reporting or investigation  
@@ -75,7 +75,7 @@ This walkthrough covers how to monitor and report on Microsoft Entra ID activiti
 
 ## 🛠️ Enable Diagnostic Logs
 
-### Step 5: Configure Diagnostic Settings
+### Configure Diagnostic Settings
 
 - Navigate to **Entra Admin Center → Monitoring → Diagnostic settings**  
 - Send logs to:
@@ -87,7 +87,7 @@ This walkthrough covers how to monitor and report on Microsoft Entra ID activiti
 
 ## 📊 Use Workbooks and Dashboards
 
-### Step 6: Explore Workbooks
+### Step 1: Explore Workbooks
 
 - Go to **Azure Monitor → Workbooks → + New**  
 - Use templates for **sign-in trends, risky sign-ins, or audit activity**  
@@ -97,7 +97,7 @@ This walkthrough covers how to monitor and report on Microsoft Entra ID activiti
   - Policy enforcement outcomes  
 
 
-### Step 7: Optional: Use Microsoft Sentinel
+### Step 2: Optional: Use Microsoft Sentinel
 
 - Connect **Entra ID logs** to **Microsoft Sentinel**  
 - Use built-in dashboards to monitor security events  
