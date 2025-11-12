@@ -65,7 +65,7 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 - Upload **PDF or URL** of your organization’s policy  
 - Assign the terms to your **Finance Project Access** package (or other relevant access packages)  
 - Require users to **accept before access is granted**  
-- For reference on Conditional Access policies, see [CConditional Access Policies](https://github.com/ColiverSEC/Enterprise-IAM-Lab/blob/main/entra/conditional-access.md)
+- For reference on Conditional Access policies, see [Conditional Access Policies](https://github.com/ColiverSEC/Enterprise-IAM-Lab/blob/main/entra/conditional-access.md)
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/identity-governance/03-terms-of-use.png`
