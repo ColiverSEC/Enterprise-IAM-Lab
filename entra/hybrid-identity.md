@@ -67,7 +67,7 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
   - It should have line-of-sight to your domain controller and internet access
 - **Download the Microsoft Entra Connect installer**
   - **Recommended:** Download directly from the **Microsoft Entra Admin Center** to ensure you get the latest version:
-    - Navigate to **Entra ID → Entra Connect → Get Started → Download Connect Sync Agent → Accept terms & download**  
+    - Navigate to **Entra ID → Entra Connect → Get Started → Manage → Download Connect Sync Agent → Accept terms & download**  
   - **Alternative:** Use the official Microsoft download page if portal access isn’t available:  
     - [Microsoft Entra Connect Download](https://www.microsoft.com/en-us/download/details.aspx?id=47594)
 - **Run the Entra Connect installer** on your domain-joined server  
