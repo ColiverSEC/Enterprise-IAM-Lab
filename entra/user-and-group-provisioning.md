@@ -48,7 +48,9 @@ This walkthrough covers how to create and manage users and groups in Microsoft E
 
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/user-and-group-provisioning/01-create-user.png`
+![User creation settings](/entra/screenshots/02-user-and-group-provisioning/01-create-user-settings.png)
+![User creation confirmation](/entra/screenshots/02-user-and-group-provisioning/02-user-confirmation.png
+)
 
 ---
 
@@ -94,7 +96,10 @@ This walkthrough covers how to create and manage users and groups in Microsoft E
 > Once visible, you can open each user profile to verify properties, reset passwords, or assign licenses
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/user-and-group-provisioning/02-bulk-upload.png`
+![Sample csv](/entra/screenshots/02-user-and-group-provisioning/03-sample-csv-edited.png)
+![CSV uploaded](/entra/screenshots/02-user-and-group-provisioning/04-csv-uploaded.png)
+![Bulk create confirmation results](/entra/screenshots/02-user-and-group-provisioning/05-bulk-create-confirmation.png)
+![Bulk creation confirmation user list](/entra/screenshots/02-user-and-group-provisioning/06-bulk-create-confirmation2.png)
 
 ---
 
@@ -113,7 +118,7 @@ This walkthrough covers how to create and manage users and groups in Microsoft E
 > - Microsoft 365 groups are used for collaboration, giving members access to a shared mailbox, calendar, files, SharePoint site, and so on
 
 📸 Screenshot Example:
-/entra/screenshots/user-and-group-provisioning/03-create-group.png
+![Group created results](/entra/screenshots/02-user-and-group-provisioning/07-group-created.png)
 
 ### Step 2: Add Members
 - Open the created group → **Members** → **+ Add members**
@@ -121,7 +126,7 @@ This walkthrough covers how to create and manage users and groups in Microsoft E
 - Click **Select**
 
 📸 Screenshot Example:
-/entra/screenshots/user-and-group-provisioning/04-add-members.png
+![Memeber added to group](/entra/screenshots/02-user-and-group-provisioning/08-members-added.png)
 
 ---
 
@@ -138,7 +143,7 @@ This walkthrough covers how to create and manage users and groups in Microsoft E
 - Click **Save changes**
 
 📸 **Screenshot Example:**  
-`/m365/screenshots/user-license-assign.png`
+![License assigned to user](/entra/screenshots/02-user-and-group-provisioning/09-license-assigned-to-user.png)
 
 ### Step 2: Assign Licenses to a Group (Group-based Licensing)
 
@@ -153,7 +158,7 @@ This walkthrough covers how to create and manage users and groups in Microsoft E
 - All current and future members of the group automatically receive the assigned licenses
 
 📸 **Screenshot Example:**  
-`/m365/screenshots/group-license-assign.png`
+![License assigned to group](/entra/screenshots/02-user-and-group-provisioning/10-license-assigned-to-group.png)
 
 ---
 
@@ -171,7 +176,8 @@ This walkthrough covers how to create and manage users and groups in Microsoft E
 - Click **Save** → **Create**
 
 📸 Screenshot Example:
-/entra/screenshots/user-and-group-provisioning/07-dynamic-group.png
+![Dynamic group created](/entra/screenshots/02-user-and-group-provisioning/11-dynamic-group.png)
+![Dyanmic rule](/entra/screenshots/02-user-and-group-provisioning/17-dynamic-query-rule.png)
 
 ### Step 2: Verify Membership
 
@@ -179,7 +185,7 @@ This walkthrough covers how to create and manage users and groups in Microsoft E
 - Check Members (Preview) or Dynamic Membership Rules to validate results
 
 📸 Screenshot Example:
-/entra/screenshots/user-and-group-provisioning/08-verify-dynamic.png
+![Dyanmic rule confirmation](/entra/screenshots/02-user-and-group-provisioning/12-dynamic-group-rule-confirmation.png)
 
 ---
 
@@ -208,6 +214,10 @@ This walkthrough covers how to create and manage users and groups in Microsoft E
 > - New-MgUser — create users
 > - New-MgGroup — create groups
 
+📸 **Screenshot Example:**  
+![Powershell module install](/entra/screenshots/02-user-and-group-provisioning/13-powershell-module-install.png)
+![Powershell module connecting to entra](/entra/screenshots/02-user-and-group-provisioning/14-powershell-connecting-to-entra.png)
+
 ### Step 2: Create a New User via PowerShell
 - Open Powershell and run:
 ```
@@ -231,7 +241,7 @@ foreach ($user in $users) {
         -PasswordProfile @{ForceChangePasswordNextSignIn=$true; Password=$user.passwordProfile}
 }
 ```
-📸 Screenshot Example: /entra/screenshots/user-and-group-provisioning/09-powershell.png
+![New user created via powershell](/entra/screenshots/02-user-and-group-provisioning/15-new-user-via-powershell.png)
 
 ### Step 3: Create a Group via PowerShell
 - Open Powershell and run:
@@ -241,7 +251,7 @@ New-MgGroup -DisplayName "Sales Team" -MailEnabled:$false -MailNickname "saleste
 ```
 
 📸 Screenshot Example:
-/entra/screenshots/user-and-group-provisioning/09-powershell.png
+![Group added via powershell](/entra/screenshots/02-user-and-group-provisioning/16-group-added-via-powershell.png)
 
 ---
 
