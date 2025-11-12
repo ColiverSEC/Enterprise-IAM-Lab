@@ -30,25 +30,24 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 
 ### Step 1: Configure Available MFA Methods
 
-- Go to **Entra Admin Center → Entra ID → Security → Authentication methods**  
-- Click **Policies → Multi-Factor Authentication**  
+- Go to **Entra Admin Center → Entra ID → Authentication methods**  
+- Click **Policies → Authentication method policies**  
 - Review the available methods (e.g., Authenticator app, FIDO2, SMS, phone call)  
 - Enable the methods your organization allows  
 
 ### Step 2: Require Users to Register for MFA
 
-- Go to **Entra Admin Center → Entra ID → Identity Protection → Multifactor Authentication registration policy**  
+- Go to **Entra ID → Identity Protection → Dashbaord → Multifactor Authentication registration policy**  
 - Create a new policy:  
-  - Assign it to the users or groups you want to enforce MFA for  
-  - Set **Requirement** to "Require registration for MFA"  
+  - Assign policy to the users or groups you want to enforce MFA for  
 - Save the policy and set to **Enabled** 
 
 ### Step 3 (Optional): Enforce MFA via Conditional Access
 
-- Go to **Entra Admin Center → Entra ID → Security → Conditional Access**  
+- Go to **Entra ID → Conditional Access**  
 - Create a policy targeting users, apps, or locations  
-- Under **Access controls**, select **Require multi-factor authentication**  
-- Enable and save the policy  
+- Under **Access controls** → **Grant**, select **Require multi-factor authentication**  
+- **Enable** and save the policy  
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/authentication-methods/01-enable-mfa.png`
@@ -59,7 +58,7 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 
 ### Enable FIDO2 for Passwordless Sign-In
 
-- Go to **Authentication methods → FIDO2 Security Key**  
+- Go to **Authentication methods → Passkey FIDO2**  
 - Enable for users or groups  
 - Define **enrollment restrictions** if needed  
 - Save configuration
