@@ -28,7 +28,7 @@ This walkthrough covers how to monitor and report on Microsoft Entra ID activiti
 
 ### Step 1: Navigate to Sign-In Logs
 
-- Go to **Entra Admin Center → Monitoring → Sign-ins**  
+- Go to **Entra Admin Center → Monitoring → Sign-in logs**  
 - Review recent sign-ins including:
   - User  
   - Application accessed  
