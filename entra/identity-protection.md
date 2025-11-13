@@ -33,7 +33,7 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 - Review dashboard with **Users at risk, Sign-ins at risk, and Risk detections**  
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/identity-protection/01-dashboard.png`
+![Identity Protection Dashboard](/entra/screenshots/07-identity-protection/01-id-protection-dashboard.png)
 
 ---
 
@@ -54,7 +54,7 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 > - **High Risk:** Indicating a strong possibility of compromise (e.g., leaked credentials)
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/identity-protection/02-user-risk-policy.png`
+![Configure User Risk](/entra/screenshots/07-identity-protection/02-user-risk-config.png)
 
 ### Step 2: Sign-in Risk Policy
 
@@ -71,7 +71,7 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 > - **High Risk:** There is a high confidence that the sign-in is unauthorized and the account is compromised
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/identity-protection/03-signin-risk-policy.png`
+![Configure Sign-in Risk](/entra/screenshots/07-identity-protection/03-sign-in-risk-config.png)
 
 ---
 
@@ -84,7 +84,7 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 - Optionally, filter by **risk event type, user, or group**  
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/identity-protection/04-risky-users.png`
+![Monitor User Risk](/entra/screenshots/07-identity-protection/04-risky-users-report.png)
 
 ### Step 2: Review Risky Sign-ins
 
@@ -93,7 +93,7 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 - Trigger remediation if needed (require MFA or block access)  
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/identity-protection/05-risky-signins.png`
+![Monitor Sign-in Risk](/entra/screenshots/07-identity-protection/05-sign-in-risk-report.png)
 
 ---
 
