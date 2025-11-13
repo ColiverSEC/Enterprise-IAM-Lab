@@ -50,7 +50,10 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 - Click **Review + Create** → **Create**
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/identity-governance/01-create-access-package.png`
+![New Access Package Resource settings](/entra/screenshots/09-identity-governance/01-resources-defined.png)
+![New Access Package Request settings](/entra/screenshots/09-identity-governance/02-request-settings.png)
+![New Access Package Requestor settings](/entra/screenshots/09-identity-governance/03-requestor-question.png)
+![New Access Package Review and Create](/entra/screenshots/09-identity-governance/04-review-and-create.png)
 
 ---
 
@@ -68,7 +71,8 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 - For reference on Conditional Access policies, see [Conditional Access Policies](https://github.com/ColiverSEC/Enterprise-IAM-Lab/blob/main/entra/conditional-access.md)
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/identity-governance/03-terms-of-use.png`
+![Terms of Use](/entra/screenshots/09-identity-governance/20-terms-of-use.png)
+![Terms of Use enforced with conditional access](/entra/screenshots/09-identity-governance/05-conditional-access-policy.png)
 
 ---
 
@@ -89,7 +93,13 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 - Name your review:
   - e.g., `Finance Project Access Review`
 - Click **Create** to finalize your access review
-- Run review and take action on results (approve/revoke access)  
+- Run review and take action on results (approve/revoke access)
+
+📸 **Screenshot Example:**  
+![Access Review Type](/entra/screenshots/09-identity-governance/06-review-type.png)
+![Access Review Settings](/entra/screenshots/09-identity-governance/07-review-settings.png)
+![Access Review Additional Settings](/entra/screenshots/09-identity-governance/08-review-additional-settings.png)
+![Access Review and Create](/entra/screenshots/09-identity-governance/09-access-review-and-create.png)
 
 ### Step 2: Approve or Deny Access Review
 
@@ -103,7 +113,7 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 - Submit your decisions (The system will apply changes once the review completes)
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/identity-governance/04-access-review.png`
+![Access Review Results](/entra/screenshots/09-identity-governance/16-access-review-approve-deny-options.png)
 
 ---
 
@@ -118,6 +128,9 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 ### Step 2: Review PIM sections (overview)
 - Use the left pane: **Overview, Roles, Assignments, Alerts, Access reviews, Discovery & insights**
 - In the main area you may see quick actions: **Assign, Activate, Approve, Audit** — these are the common actions PIM supports
+
+📸 **Screenshot Example:** 
+![PIM Menu](/entra/screenshots/09-identity-governance/11-pim-menu.png)
 
 ### Step 3: Add a role assignment (use **Assign**)
 - Click **Roles** → find the built-in role you want to delegate (e.g., **User Administrator**, **Groups Administrator**, **Global Administrator**)
@@ -135,12 +148,22 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 - Configure **Approvers** if approval is required (user, group, or role)
 - Click **Assign** to create the eligible/active assignment
 
+📸 **Screenshot Example:** 
+![User set to eligable](/entra/screenshots/09-identity-governance/12-user-set-to-eligable.png)
+![Assignment Settings](/entra/screenshots/09-identity-governance/13-default-assignment-settings.png)
+
+
 ### Step 4: Test activation (user flow)
 - As the assigned user, go to **Entra Admin Portal**
 - Go to **Identity Governance** → **Privileged Identity Management** → **My roles** 
 - Select the role and click **Activate**
 - Provide **justification**, complete **MFA**, and (if configured) wait for **approval**
 - After activation, the user has the role for the configured duration
+
+📸 **Screenshot Example:** 
+![PIM Activation Test](/entra/screenshots/09-identity-governance/17-pim-activation-test.png)
+![PIM Role Activated](/entra/screenshots/09-identity-governance/18-pim-role-activated-test.png)
+
 
 ### Step 5: Configure periodic governance
 - **Access reviews**:
@@ -151,11 +174,11 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 - **Audit / Review logs**:
   - Use **Audit** or **Activity logs** to track assignments/activations/approvals
 
+📸 **Screenshot Example:** 
+![PIM Access Review](/entra/screenshots/09-identity-governance/19-pim-access-review-user-admin.png)
+
 ### Step 6: Discovery & Insights (optional)
 - Run **Discovery** to find privileged accounts and roles in your tenant — useful before large PIM rollouts
-
-📸 **Screenshot Example:**  
-`/entra/screenshots/identity-governance/07-emergency-account.png`
 
 ---
 
@@ -195,7 +218,7 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
    - Document access procedures and authorization rules  
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/identity-governance/07-emergency-account.png`
+![Breakglass Account](/entra/screenshots/09-identity-governance/14-break-glass-account.png)
 
 ---
 
@@ -213,7 +236,10 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 
    - Navigate to **Entra Admin Center → Identity Governance → Access reviews**  
    - Check completed and ongoing reviews for compliance and anomalies  
-   - Note which users were removed or retained  
+   - Note which users were removed or retained
+
+📸 **Screenshot Example:**  
+![On going Access Reviews](/entra/screenshots/09-identity-governance/10-access-review-results.png)
 
 ### Step 3: Audit PIM Activities 
 
@@ -228,7 +254,7 @@ This walkthrough covers **Microsoft Entra Identity Governance**, which helps org
 > 💡 **Tip:** Schedule regular reviews of these logs to ensure governance policies are followed and to detect any unusual activity early.
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/identity-governance/08-monitoring.png`
+![PIM Audit History](/entra/screenshots/09-identity-governance/15-pim-audit-history.png)
 
 ---
 
