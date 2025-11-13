@@ -39,7 +39,7 @@ This walkthrough covers how to configure **secure access policies for users and 
 💡 **Tip:** Using IP ranges is preferred in labs so you can simulate trusted/untrusted networks accurately.  
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/global-secure-access/01-named-locations.png`
+![Trusted Location Defined](/entra/screenshots/11-global-secure-access/01-trusted-location-config.png)
 
 ---
 
@@ -74,7 +74,7 @@ This walkthrough covers how to configure **secure access policies for users and 
 💡 **Tip:** Use **IP ranges location** for VPNs or specific remote offices. **Countries location** is optional and useful for broader geographic restrictions.  
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/global-secure-access/03-remote-networks.png`
+![Remote Trusted Network](/entra/screenshots/11-global-secure-access/02-remote-office-settings.png)
 
 
 ---
@@ -100,7 +100,7 @@ This walkthrough covers how to configure **secure access policies for users and 
 💡 **Tip:** Naming policies clearly (e.g., including `Lab` in the name) helps prevent confusion with production policies. This policy simulates enforcing MFA or blocking access based on network location, helping you test Conditional Access behavior in a controlled environment.
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/global-secure-access/04-network-ca-policy.png`
+![Network based Conditional Access](/entra/screenshots/11-global-secure-access/03-remote-office-conditional-access.png)
 
 ---
 
@@ -132,11 +132,8 @@ This walkthrough covers how to configure **secure access policies for users and 
 - Optional: If you need to check network resolution for your internal domain, refer to your [DNS configuration walkthrough](https://github.com/ColiverSEC/Enterprise-IAM-Lab/blob/main/activedirectory/dns-configuration-for-active-directory-clients.md).
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/global-secure-access/05-test-access.png`
-  
-
-📸 **Screenshot Example:**  
-`/entra/screenshots/global-secure-access/05-test-access.png`
+![Test Policy](/entra/screenshots/11-global-secure-access/05-mfa-enforced-outside-of-range.png)
+![Test Policy Success](/entra/screenshots/11-global-secure-access/04-test-access.png)
 
 ---
 
