@@ -33,7 +33,7 @@ This walkthrough demonstrates how to create and test a Conditional Access policy
 - Click **+ New policy** to create a new policy  
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/conditional-access/01-create-new-policy.png`
+![Create CA Policy](/entra/screenshots/06-conditional-access/01-new-ca-policy.png)
 
 
 ### Step 2: Define Policy Basics
@@ -49,7 +49,7 @@ This walkthrough demonstrates how to create and test a Conditional Access policy
   - Any **break-glass accounts**  
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/conditional-access/02-select-users.png`
+![Define Policy Basics](/entra/screenshots/06-conditional-access/02-select-users-and-groups.png)
 
 ### Step 4: Choose Cloud Apps or Actions
 
@@ -58,7 +58,7 @@ This walkthrough demonstrates how to create and test a Conditional Access policy
   - **Select resources** → **Select specific resources** → **Microsoft Admin Portals** → **Select**
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/conditional-access/03-select-cloud-apps.png`
+![Policy Target Resources](/entra/screenshots/06-conditional-access/03-target-resources.png)
 
 ### Step 5: Configure Conditions (Optional)
 
@@ -67,11 +67,10 @@ This walkthrough demonstrates how to create and test a Conditional Access policy
 - **Location**:  
   - Include or exclude specific locations  
   - For lab purposes, you can skip this step  
+> 💡 **Tip:** Conditions are optional in a lab. For production, consider using trusted IP ranges and named locations
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/conditional-access/04-conditions.png`
-
-> 💡 **Tip:** Conditions are optional in a lab. For production, consider using trusted IP ranges and named locations
+![Configure Conditions](/entra/screenshots/06-conditional-access/04-conditions.png)
 
 ### Step 6: Configure Access Controls
 
@@ -81,7 +80,7 @@ This walkthrough demonstrates how to create and test a Conditional Access policy
 - Click **Select** 
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/conditional-access/05-grant-access.png`
+![Configure Grant](/entra/screenshots/06-conditional-access/05-grant.png)
 
 ### Step 7: Enable the Policy
 
@@ -89,7 +88,8 @@ This walkthrough demonstrates how to create and test a Conditional Access policy
 - Click **Create** to save and apply the policy  
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/conditional-access/06-enable-policy.png`
+![Enable the Policy](/entra/screenshots/06-conditional-access/06-enable-policy.png)
+![Policy Confirmation](/entra/screenshots/06-conditional-access/07-policy-confirmed.png)
 
 ---
 
@@ -102,7 +102,7 @@ The **What If** tool allows you to simulate the effect of a Conditional Access p
 - Go to **Microsoft Entra Admin Center → Entra ID → Conditional Access → What If**  
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/conditional-access/07-what-if-tool.png`
+![What If Policy](/entra/screenshots/06-conditional-access/08-what-if-tool.png)
 
 ### Step 2: Simulate a Policy
 
@@ -116,7 +116,7 @@ The **What If** tool allows you to simulate the effect of a Conditional Access p
 - Click **What If**
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/conditional-access/08-what-if-simulation.png`
+![What If Policy Test](/entra/screenshots/06-conditional-access/09-what-if-config.png)
 
 ### Step 3: Review the Results
 
@@ -125,6 +125,9 @@ The **What If** tool allows you to simulate the effect of a Conditional Access p
 - Useful for validating policies **before deploying them** in production
 
 > 💡 **Tip:** Use the What If tool in your lab to safely experiment with different combinations of users, apps, and conditions without affecting real access
+
+📸 **Screenshot Example:** 
+![What If Policy Results](/entra/screenshots/06-conditional-access/10-what-if-results.png)
 
 ---
 
