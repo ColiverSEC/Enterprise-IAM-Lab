@@ -19,7 +19,7 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 
 ## 📝 What You’ll Need
 
-🔹 **Microsoft Entra ID tenant** (trial or sandbox)  
+🔹 **Entra ID tenant** (trial or sandbox)  
 🔹 **Global Administrator** privileges  
 🔹 Access to **DNS management** for domain verification  
 🔹 *(Optional)* **Microsoft Entra ID P1/P2** license for role delegation or PIM
@@ -59,7 +59,7 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 
 ### Step 1: Add or Confirm a Custom Domain
 
-- Navigate to **Microsoft Entra ID** → **Domain names**
+- Navigate to **Entra ID** → **Domain names**
 - If you **already have a verified custom domain** (e.g., `contoso.com`), you can skip the add/verify steps and move on to the next section  
 - If not, follow these steps:
   - Click **+ Add custom domain**
@@ -106,17 +106,20 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 ## 🧱 Create Administrative Units (Scoped Delegation)
 
 ### Step 1: Create an Administrative Unit  
-- Navigate to **Microsoft Entra ID → Administrative units → + Add**  
+- Navigate to **Entra ID → Roles & admins → Admin units → + Add**  
 - Enter a **name** (e.g., `Finance Department AU`) and an optional description  
 - Click **Create**
 
 ### Step 2: Add Members  
-- Open your new Administrative Unit → **Members → + Add members**  
+- Open your new Administrative Unit:
+  - **Users → + Add members** To add users
+  - **Groups → + New group** to create new group for au
+  - **Groups → + Add** to add an existing group to au
 - Select the **users or groups** belonging to that department or team  
 - Click **Add**
 
 ### Step 3: Assign Scoped Roles  
-- Inside your AU, go to **Roles and administrators → + Add assignment**  
+- Inside your AU, go to **Roles and administrators
 - Choose a role (e.g., `User Administrator` or `Groups Administrator`)  
 - Assign it to a **department lead** or **delegated admin**  
 - Click **Assign**
@@ -161,13 +164,13 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 - From here you can:
   - View all **eligible**, **active**, and **expired** role assignments  
   - Configure **role settings** (activation duration, MFA requirement, approval workflow, justification, etc.)
-  - Assign users as **eligible** for specific roles (e.g., Global Administrator, User Administrator) 
+  - Assign users as **eligible** for specific roles (e.g., Global Administrator, User Administrator)
 - Use **Assignments** → **+ Add assignments** to make a user eligible for a role 
 - Optionally, configure **notifications** and **access reviews** under **Settings**
 
-📸 **Screenshot Example:**  
-`/entra/screenshots/initial-tenant-config/05pim-eligible.png`
-
+> 📒 **Note:**
+> - This section provides a quick overview of PIM.
+> - For a full, in-depth walkthrough—including access reviews, approval workflows, and governance settings—see the [Identity Governance module](https://github.com/ColiverSEC/Enterprise-IAM-Lab/blob/main/entra/identity-governance.md)
 
 ---
 
