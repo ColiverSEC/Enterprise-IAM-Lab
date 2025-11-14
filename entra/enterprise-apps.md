@@ -214,7 +214,7 @@ If you’re integrating a modern application your team developed:
 
 ### Step 6: Trigger an On-Demand Provisioning Cycle
 - Go to the **Provisioning** tab in your Harness app in Entra
-- Scroll to **Start provisioning** (or similar section)
+- Scroll to **Start provisioning** (or **Overview → Quick actions**)
 - Click **Provision on demand**
 - Search for your test user → click **Provision**  
    - Entra will immediately send SCIM requests to Harness
