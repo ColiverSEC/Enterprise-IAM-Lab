@@ -61,12 +61,10 @@ This walkthrough covers inviting external users (B2B), configuring B2C user flow
 
 ```powershell
 Connect-MgGraph -Scopes "User.Invite.All"
-$guest = @{
-    invitedUserEmailAddress = "bob.jones@example.com"
-    inviteRedirectUrl = "https://myapps.microsoft.com"
-    sendInvitationMessage = $true
-}
-New-MgInvitation -BodyParameter $guest
+
+New-MgInvitation -InvitedUserEmailAddress "user@email.com" `
+                 -InviteRedirectUrl "https://myapps.microsoft.com" `
+                 -SendInvitationMessage:$true
 ```
 📸 Screenshot Example:
 /entra/screenshots/external-identities/02-powershell-invite.png
