@@ -168,10 +168,10 @@ In this step, you’ll connect an external **SAML Identity Provider (IdP)** — 
 
 ## ⚡ Create and Configure User Flows (B2C)
 
-### Step 7: Create a Sign-Up / Sign-In Flow
+### Step 1: Create a Sign-Up / Sign-In Flow
 
 - Navigate to **External Identities → User flows → + New user flow**  
-- Choose **Sign up and sign in**  
+- Configure Name: `B2C_SignupSignin`
 - Select **identity providers** (social, local, SAML)  
 - Configure **page layouts and attributes** to collect  
 - Click **Create**
@@ -181,10 +181,10 @@ In this step, you’ll connect an external **SAML Identity Provider (IdP)** — 
 
 ---
 
-### Step 8: Create a Password Reset Flow
+### Step 2: Create a Password Reset Flow
 
 - Navigate to **External Identities → User flows → + New user flow**  
-- Choose **Password reset**  
+- Configure Name: `B2C_ForgotPassword`
 - Select **identity providers**  
 - Configure **attributes**  
 - Click **Create**
@@ -198,7 +198,7 @@ In this step, you’ll connect an external **SAML Identity Provider (IdP)** — 
 
 ### Step 9: Review Guest Activity
 
-- Navigate to **Users → Guest users → Activity logs**  
+- Navigate to **Users → Audit Logs**  
 - Monitor:
   - **Sign-ins**  
   - **Invitations sent/accepted**  
