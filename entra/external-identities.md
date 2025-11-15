@@ -98,23 +98,26 @@ New-MgInvitation -InvitedUserEmailAddress "user@email.com" `
    - Click the project dropdown at the top of the page
    - Either create a new project or select an existing one that you want to use for your B2C integration
 - Enable the OAuth Consent Screen:
-   - In the left-hand menu, navigate to APIs & Services → OAuth consent screen
-   - Choose External for the user type (this allows users outside your organization to log in — typical for B2C scenarios)
+   - In the left-hand menu, navigate to **APIs & Services → OAuth consent screen**
+   - From the OAuth Overview page click **Get started**
    - Configure required details such as App name, User support email, and Developer contact information
-   - Click Save and Continue through the scopes and test users sections as needed
+   - Choose **External** for the user type (this allows users outside your organization to log in — typical for B2C scenarios)
+   - Click **Create** and continue through the scopes and test users sections as needed
 - Create OAuth Credentials:
-   - Go to APIs & Services → Credentials
-   - Click Create Credentials → OAuth client ID
-   - Select Web application as the application type
+   - Go to **APIs & Services → Credentials**
+   - Click **+ Create Credentials → OAuth client ID**
+   - Select **Web application** as the application type
 - Configure Authorized Redirect URIs:
    - Enter a name for your OAuth client
-- Under Authorized redirect URIs, add the redirect URI that corresponds to your Entra B2C tenant and policy:
-   - Example:https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/B2C_1A_signup_signin/oauth2/authresp
+- Under Authorized redirect URIs, add the redirect URIs that corresponds to your Entra B2C tenant and policy:
+   - `https://login.microsoftonline.com`
+   - `https://login.microsoftonline.com/te/<tenant ID>/oauth2/authresp` (where <tenant ID> is your tenant ID)
+   - `https://login.microsoftonline.com/te/<tenant name>.onmicrosoft.com/oauth2/authresp` (where <tenant name> is your tenant name)
 - Create and Retrieve Client Credentials:
-   - Click Create to generate the OAuth client
-   - Copy the Client ID and Client Secret displayed, you will need these values when configuring the Google identity provider in Entra B2C
+   - Click **Create** to generate the OAuth client
+   - Copy the **Client ID** and **Client Secret** displayed, you will need these values when configuring the Google identity provider in Entra B2C
 - Add Google as an Identity Provider in Entra B2C:
-   - In the Entra B2C portal, navigate to Identity providers → Google
+   - In the Entra B2C portal, navigate to **External Identities → All identity providers → Google**
    - Enter the Client ID and Client Secret from the Google Cloud Console
 - Save your configuration
 
@@ -123,64 +126,43 @@ New-MgInvitation -InvitedUserEmailAddress "user@email.com" `
 
 ---
 
-### Step 2: Add a SAML Identity Provider (using Okta)
+### Step 2: Configure the SAML App in Okta (IdP Side)
 
 In this step, you’ll connect an external **SAML Identity Provider (IdP)** — in this case, **Okta** — to your Microsoft Entra tenant for cross-tenant authentication
 
 > 💡 Note: You can use a free [Okta Developer Account](https://developer.okta.com/signup/) for this exercise
 > Okta will act as the **IdP**, and Microsoft Entra will act as the **Service Provider (SP)**
 
-#### 🏁 Part 1: Configure the SAML App in Okta (IdP Side)
-
-1. Sign in to your **Okta Developer Console** → switch to **Classic UI** if needed.
-2. Go to **Applications → Applications → Create App Integration**.
-3. Choose:
+- Sign in to your **Okta Dashboard** → switch to **Admin Console**
+- Go to **Applications → Applications → Create App Integration**
+- Choose:
    - **Sign-in method:** SAML 2.0  
-   - Click **Next**.
-4. Configure SAML settings with placeholder values (you’ll replace these later):
-   - **Single sign-on URL (ACS):** `https://dummy`
-   - **Audience URI (SP Entity ID):** `https://dummy`
-   - Click **Next → Finish**.
-5. In the new app’s **Sign On** tab, click **View SAML setup instructions**.
-6. Copy the **Identity Provider metadata URL** — you’ll need this for Entra configuration.
+   - Click **Next**
+- In the Create SAML Integration General settings tab configure:
+   - App name
+   - App logo (optional)
+- Configure SAML settings with placeholder values (you’ll replace these later):
+   - **Single sign-on URL (ACS):** `https://placeholder.example.com`
+   - **Audience URI (SP Entity ID):** `https://placeholder.example.com`
+   - Click **Next → Finish**
+- In the new app’s **Sign On** tab, click **View SAML setup instructions**
+- Copy the **Identity Provider metadata URL** — you’ll need this for Entra configuration
 
 ---
 
-#### 🏗️ Part 2: Configure the SAML IdP in Microsoft Entra (External Identities Side)
+#### Step 3: Configure the SAML IdP in Microsoft Entra (External Identities Side)
 
-1. In the **Microsoft Entra admin center**, go to:
-   - **External Identities → All identity providers → + New SAML/WS-Fed IdP**
-2. Enter:
+- In the **Microsoft Entra admin center**, go to:
+   - **External Identities → All identity providers → + New SAML/WS-Fed IdP → Custom → + Add new → SAML/WS-Fed**
+- Enter:
    - **Display name:** `Okta-SAML-IdP`
-   - **Domain name of federating IdP:** `okta.com`
-3. Under **Metadata**, select **URL** and paste the **IdP metadata link** copied from Okta.
-4. Configure the following claim mappings:
-
-   | Claim Name   | Value                    |
-   |---------------|--------------------------|
-   | NameID        | `user.email`             |
-   | email         | `user.email`             |
-   | given_name    | `user.firstName`         |
-   | surname       | `user.lastName`          |
-
-5. Click **Save**.
-6. Test the connection — you should be redirected to the Okta sign-in page.
-7. After successful authentication, you’ll be redirected back to your app in Entra.
-
----
+   - **Identity provider protocol:** `SAML`
+   - **Domain name of federating IdP:** `trial-1111111.okta.com`
+   - **Select a method for populating metadata:** `Input metadata manually`
+- Paste the **Issuer URI, Passive authentication endpoint** and **Certificate** from okta → **Save**
 
 📸 **Screenshot Example:**  
 `/entra/screenshots/external-identities/05-saml-idp.png`
-
----
-
-✅ **Expected Result:**
-- Okta successfully authenticates the user via SAML.
-- Microsoft Entra accepts the SAML assertion and signs the user in.
-- You can now invite Okta users as external identities in Entra.
-
-> 🔗 For more details on SAML app creation and configuration, see the [Enterprise App Integrations – SAML Configuration](https://github.com/ColiverSEC/Enterprise-IAM-Lab/blob/main/entra/enterprise-apps.md) module.
-
 
 ---
 
