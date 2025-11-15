@@ -36,7 +36,7 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 
 ### Step 2: Choose Branding Type
 - In the **Getting Started** tab, you’ll see:  
-  - **Default sign-in experience** → Click **Customize** to edit your default branding  
+  - **Default sign-in experience** → Click **Edit** to customize your default branding  
   - **Customize by browser language** → Click **Add browser language** to create language-specific branding
 
 ### Step 3: Customize Your Branding
@@ -51,7 +51,13 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 - Preview your sign-in page to verify the updates
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/initial-tenant-config/01branding.png`
+![Custom Branding Basics Tab](/entra/screenshots/01-initial-tenant-configuration-roles/01-basics-tab.png)
+![Custom Branding Layout Tab](/entra/screenshots/01-initial-tenant-configuration-roles/02-layout-tab.png)
+![Custom Branding Header Tab](/entra/screenshots/01-initial-tenant-configuration-roles/03-header-tab.png)
+![Custom Branding Sign-in Tab](/entra/screenshots/01-initial-tenant-configuration-roles/04-sign-in-form.png)
+![Custom Branding Review Tab](/entra/screenshots/01-initial-tenant-configuration-roles/05-review-tab.png)
+![Custom CSS Preview](/entra/screenshots/01-initial-tenant-configuration-roles/06-custom-css-preview.png)
+![Custom CSS Sign-in Preview](/entra/screenshots/01-initial-tenant-configuration-roles/07-custom-css-sign-in.png)
 
 ---
 
@@ -65,6 +71,9 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
   - Click **+ Add custom domain**
   - Enter your domain name (e.g., `contoso.com`) → **Add domain**
 
+![Custom Domains Verified Domains](/entra/screenshots/01-initial-tenant-configuration-roles/08-verified-domain.png)
+![Verified Domain Records](/entra/screenshots/01-initial-tenant-configuration-roles/09-verified-domain.png)
+
 ### Step 2: Verify the Domain (if new)
 - Copy the **TXT record** provided by Microsoft  
 - Add the record to your domain registrar’s DNS settings  
@@ -75,7 +84,7 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 **Microsoft Entra ID → Domain names → [Your Domain] → Set as primary**
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/initial-tenant-config/02domain-verify.png`
+![Custom Domain DNS Records](/entra/screenshots/01-initial-tenant-configuration-roles/10-new-custom-domain-records-to-add-in-registrars-dns-settings.png)
 
 ---
 
@@ -89,6 +98,8 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
   - **Groups Administrator**
   - **Authentication Administrator**
 
+![Review Built-in Roles](/entra/screenshots/01-initial-tenant-configuration-roles/11-review-built-in-roles.png)
+
 ### Step 2 : Assign a Role to group or user  
 - Select a role → **Add assignments** → **Select Members** → **Select** → **Next** → **Assign**
 - Verify role assignment under **Active Assignments**
@@ -99,7 +110,8 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 > - Active role assignment means the user has the permissions of that role at all times
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/initial-tenant-config/03assign-roles.png`
+![Role Assignment Selection](/entra/screenshots/01-initial-tenant-configuration-roles/12-role-assignment-selection.png)
+![Role Assignment Verified](/entra/screenshots/01-initial-tenant-configuration-roles/13-verify-role-assignment.png)
 
 ---
 
@@ -110,6 +122,8 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 - Enter a **name** (e.g., `Finance Department AU`) and an optional description  
 - Click **Create**
 
+![Create Admin Unit](/entra/screenshots/01-initial-tenant-configuration-roles/14-create-admin-unit.png)
+
 ### Step 2: Add Members  
 - Open your new Administrative Unit:
   - **Users → + Add members** To add users
@@ -118,11 +132,15 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 - Select the **users or groups** belonging to that department or team  
 - Click **Add**
 
+![Add Memebers to Admin Unit](/entra/screenshots/01-initial-tenant-configuration-roles/15-add-members-or-groups.png)
+
 ### Step 3: Assign Scoped Roles  
 - Inside your AU, go to **Roles and administrators
 - Choose a role (e.g., `User Administrator` or `Groups Administrator`)  
 - Assign it to a **department lead** or **delegated admin**  
 - Click **Assign**
+
+![Assign Role Scope](/entra/screenshots/01-initial-tenant-configuration-roles/16-assign-role-scope.png)
 
 ### Step 4: Verify Scoped Permissions  
 - Sign in as the delegated admin you assigned earlier  
@@ -130,9 +148,6 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 
 💡 **Tip:**  
 > Administrative Units help separate management duties between departments (Finance, HR, IT) and reduce risk by scoping administrative privileges 
-
-📸 **Screenshot Example:**  
-`/entra/screenshots/initial-tenant-config/07admin-unit.png`
 
 ---
 
@@ -152,7 +167,8 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 > - Starting from scratch is best when you need a completely new permission set tailored to a different function
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/initial-tenant-config/04custom-role.png`
+![Custom Role Review](/entra/screenshots/01-initial-tenant-configuration-roles/17-custom-role-review.png)
+![Custom Role Confirmed](/entra/screenshots/01-initial-tenant-configuration-roles/18-custom-role-confirmed.png)
 
 ---
  
@@ -182,6 +198,8 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
   - Keep **Security Defaults** enabled, or  
   - Disable and replace them later with **Conditional Access** (covered in a later module)
 
+![Enable Security Defaults](/entra/screenshots/01-initial-tenant-configuration-roles/19-enable-security-defaults.png)
+
 ### Step 2: Review External Collaboration Settings  
 - Navigate to **External Identities** → **External Collaboration Settings**
 - Review:
@@ -190,7 +208,7 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
   - **Guest access expiration**
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/initial-tenant-config/06security-defaults.png`
+![External Collab Settings](/entra/screenshots/01-initial-tenant-configuration-roles/20-external-collab-settings.png)
 
 ---
 
