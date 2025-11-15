@@ -10,6 +10,7 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 
 - Configuring tenant branding (organization name, logos, and colors)
 - Adding and verifying a custom domain (e.g., `contoso.com`)
+- Assigning and managing permissions using Role-Based Access Control (RBAC)
 - Assigning built-in roles (Global Admin, User Admin, etc.)
 - Creating and assigning custom roles
 - Delegating admin access using Privileged Identity Management (PIM)
@@ -89,6 +90,10 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 ---
 
 ## 👤 Assign Built-In Admin Roles
+
+> - 💡 **Quick Note: What is RBAC?**
+> - Microsoft Entra uses Role-Based Access Control (RBAC) to delegate admin permissions using roles instead of direct permissions
+> - In this section, you'll work with these roles to assign and manage admin access
 
 ### Step 1: Review Built-In Roles  
 - Navigate to **Microsoft Entra ID** → **Roles and Administrators**  
