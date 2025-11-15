@@ -42,7 +42,7 @@ This walkthrough covers inviting external users (B2B), configuring B2C user flow
 > Make sure to use a valid email address for this step
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/external-identities/01-invite-guest.png`
+![User Invitation](/entra/screenshots/03-external-identities/01-invite-user.png)
 
 ---
 
@@ -53,7 +53,8 @@ This walkthrough covers inviting external users (B2B), configuring B2C user flow
 - Guest account appears in your Entra ID under **Users → Guest users**
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/external-identities/01-invite-guest.png`
+![User Invite Accept](/entra/screenshots/03-external-identities/02-accept-invite.png)
+![User Invite Accept Confirmation](/entra/screenshots/03-external-identities/03-invite-accept-confirmation.png)
 
 ---
 
@@ -67,7 +68,7 @@ New-MgInvitation -InvitedUserEmailAddress "user@email.com" `
                  -SendInvitationMessage:$true
 ```
 📸 Screenshot Example:
-/entra/screenshots/external-identities/02-powershell-invite.png
+![Users Invited Via Powershell](/entra/screenshots/03-external-identities/04-invite-via-powershell.png)
 
 ---
 
@@ -82,7 +83,7 @@ New-MgInvitation -InvitedUserEmailAddress "user@email.com" `
   - **Permissions for guests** (directory read/write, group membership)
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/external-identities/03-guest-settings.png`
+![Collaboration Settings](/entra/screenshots/03-external-identities/05-collab-settings.png)
 
 ---
 
@@ -122,7 +123,8 @@ New-MgInvitation -InvitedUserEmailAddress "user@email.com" `
 - Save your configuration
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/external-identities/04-social-idp.png`
+![Google Cloud IdP](/entra/screenshots/03-external-identities/06-google-identity-provider.png)
+![Google Cloud IdP](/entra/screenshots/03-external-identities/07-google-cloud-configuration.png)
 
 ---
 
@@ -148,6 +150,9 @@ In this step, you’ll connect an external **SAML Identity Provider (IdP)** — 
 - In the new app’s **Sign On** tab, click **View SAML setup instructions**
 - Copy the **Identity Provider metadata URL** — you’ll need this for Entra configuration
 
+![Okta SAML Settings](/entra/screenshots/03-external-identities/08-okta-saml-config.png)
+![Okta Placeholder Values](/entra/screenshots/03-external-identities/09-okta-saml-settings-placeholder-values.png)
+
 ---
 
 #### Step 3: Configure the SAML IdP in Microsoft Entra (External Identities Side)
@@ -162,7 +167,8 @@ In this step, you’ll connect an external **SAML Identity Provider (IdP)** — 
 - Paste the **Issuer URI, Passive authentication endpoint** and **Certificate** from okta → **Save**
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/external-identities/05-saml-idp.png`
+![Okta Metadata in Entra](/entra/screenshots/03-external-identities/10-metadata.png)
+![Successful Config](/entra/screenshots/03-external-identities/11-successful-config-saml.png)
 
 ---
 
@@ -177,7 +183,8 @@ In this step, you’ll connect an external **SAML Identity Provider (IdP)** — 
 - Click **Create**
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/external-identities/06-signin-flow.png`
+![New User Flow](/entra/screenshots/03-external-identities/12-new-user-flow.png)
+![User Flow Settings](/entra/screenshots/03-external-identities/13-user-flow-settings.png)
 
 ---
 
@@ -190,7 +197,7 @@ In this step, you’ll connect an external **SAML Identity Provider (IdP)** — 
 - Click **Create**
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/external-identities/07-password-reset.png`
+![Password Flow](/entra/screenshots/03-external-identities/14-password-flow.png)
 
 ---
 
@@ -206,7 +213,7 @@ In this step, you’ll connect an external **SAML Identity Provider (IdP)** — 
   - **Group memberships**
 
 📸 **Screenshot Example:**  
-`/entra/screenshots/external-identities/08-guest-activity.png`
+![Audit Log](/entra/screenshots/03-external-identities/15-external-audit-logs.png)
 
 ---
 
