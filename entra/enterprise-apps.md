@@ -38,7 +38,7 @@ This walkthrough covers how to integrate and manage applications in Microsoft En
 - Search for a test app (e.g., **Salesforce**, **ServiceNow**)  
 - Click **Create** to add it to your tenant  
 
-📸 **Screenshot Example:**  
+📸 **Salesforce Overview**  
 ![Salesforce added](/entra/screenshots/08-enterprise-app-integrations-and-registration/01-salesforce-creation.png)
 ![Salesforce Overview](/entra/screenshots/08-enterprise-app-integrations-and-registration/02-salesforce-overview.png)
 
@@ -52,7 +52,7 @@ This walkthrough covers how to integrate and manage applications in Microsoft En
    - If the app has no predefined roles, you can skip this step
 - Click **Assign** to complete the assignment
 
-📸 **Screenshot Example:**  
+📸 **Users and Groups Added to Salesforce**  
 ![Users added to app](/entra/screenshots/08-enterprise-app-integrations-and-registration/03-users-and-roles-assigned-to-salesforce.png)
 
 ---
@@ -65,7 +65,7 @@ This walkthrough covers how to integrate and manage applications in Microsoft En
 - Enter app name (e.g., `Contoso Custom App`)  
 - Choose **Integrate any other application you don’t find in the gallery** → **Create**
 
-📸 **Screenshot Example:**  
+📸 **Custom App Creation**  
 ![New app created](/entra/screenshots/08-enterprise-app-integrations-and-registration/04-custom-app-config.png)
 
 ### Step 2: Configure Single Sign-On
@@ -86,7 +86,7 @@ This section shows how to configure SAML SSO for GitHub Enterprise Cloud using M
   - Search for **GitHub Enterprise Cloud** and click **Add**  
   - Once added, the app will appear under **Enterprise Applications**
 
-📸 **Screenshot Example:**  
+📸 **Github Enterprise Cloud Added**  
 ![Github SAML app added](/entra/screenshots/08-enterprise-app-integrations-and-registration/05-SAML-GitHub.png)
 
 - **Configure SAML Single Sign-On:**  
@@ -99,7 +99,7 @@ This section shows how to configure SAML SSO for GitHub Enterprise Cloud using M
   - Click **Save**  
   - *(Optional)* Download the **Federation Metadata XML** for your app — this can be uploaded to GitHub if needed
   
-📸 **Screenshot Example:**  
+📸 **Github SAML SSO Configuration**  
 ![Github SAML app configuration](/entra/screenshots/08-enterprise-app-integrations-and-registration/06-configure-saml-single-sign-on.png)
 
 - **Assign Users or Groups:**  
@@ -109,7 +109,7 @@ This section shows how to configure SAML SSO for GitHub Enterprise Cloud using M
 
  > 💡 **Tip:** Even if your GitHub Enterprise org is not fully active, you can still configure SAML in Entra to demonstrate SSO integration
   
-📸 **Screenshot Example:**  
+📸 **Users Assigned to Github Enterprise Cloud**  
 ![Users added to github app](/entra/screenshots/08-enterprise-app-integrations-and-registration/07-saml-assign-users-or-groups.png)
 
 #### 🅱️ OIDC (Typical for Modern or Custom Web Apps)
@@ -132,10 +132,10 @@ If you’re integrating a modern application your team developed:
 > 💡 **Tip:** Use **OIDC** for internally developed or modern applications where you control the authentication flow 
 > Use **SAML** for third-party, legacy, or gallery-based enterprise apps 
 
-📸 **Screenshot Example:**  
+📸 **Custom OIDC App Configuration**  
 ![Custom OIDC App](/entra/screenshots/08-enterprise-app-integrations-and-registration/08-custom-app-oidc-config.png)
 
-📸 **Screenshot Example:**  
+📸 **Users and Groups Add to Custom OIDC App**  
 ![Users added to App](/entra/screenshots/08-enterprise-app-integrations-and-registration/09-groups-assigned-to-oidc-app.png)
 
 ---
@@ -167,7 +167,10 @@ If you’re integrating a modern application your team developed:
 
 > ✅ This allows you to verify OIDC authentication in a lab environment without a live application endpoint
 
+📸 **Github SAML SSO Test Success** 
 ![SAML Github Test](/entra/screenshots/08-enterprise-app-integrations-and-registration/11-saml-github-test.png)
+
+📸 **Custom OIDC App Test Success via Debugger** 
 ![OIDC Test process](/entra/screenshots/08-enterprise-app-integrations-and-registration/12-oidc-test-config.png)
 ![OIDC Test Successful](/entra/screenshots/08-enterprise-app-integrations-and-registration/13-oidc-test-success.png)
 
@@ -206,7 +209,10 @@ If you’re integrating a modern application your team developed:
 - Click **Test Connection** → You should see **“Connection successful”** if the token and Account ID are valid
 - Set **Provisioning Status** to **On** → **Save**
 
+📸 **Harness Overview** 
 ![Harness SCIM enabled](/entra/screenshots/08-enterprise-app-integrations-and-registration/14-harness-scim-enabled.png)
+
+📸 **Harness Provisioning Settings** 
 ![Harness SCIM enabled](/entra/screenshots/08-enterprise-app-integrations-and-registration/15-harness-scim-enabled.png)
 
 ### Step 4: Configure Attribute Mappings
@@ -216,6 +222,7 @@ If you’re integrating a modern application your team developed:
    - `mail` → `emails[type eq "work"].value`
 - You can leave the rest as defaults for this lab
 
+📸 **Harness Attribute Mapping** 
 ![Harness Attributes Mapping](/entra/screenshots/08-enterprise-app-integrations-and-registration/16-harness-attribute-mapping.png)
 
 ### Step 5: Assign a Test User
@@ -226,6 +233,7 @@ If you’re integrating a modern application your team developed:
 
 > ⚠️ Only users assigned to the app will be provisioned via SCIM
 
+📸 **New Group Added to Harness for SCIM Provisioning** 
 ![Harness Test Users Assigned](/entra/screenshots/08-enterprise-app-integrations-and-registration/17-harness-test-users-assigned.png)
 
 ### Step 6: Trigger an On-Demand Provisioning Cycle
@@ -235,7 +243,10 @@ If you’re integrating a modern application your team developed:
 - Search for your test user → click **Provision**  
    - Entra will immediately send SCIM requests to Harness
 
+📸 **Provision on Demand Triggered and Target Group Selected** 
 ![Harness Provision on Demand](/entra/screenshots/08-enterprise-app-integrations-and-registration/18-harness-provision-on-demand.png)
+
+📸 **Confirmation of Users Provisioned** 
 ![Successful Harness Provision on Demand](/entra/screenshots/08-enterprise-app-integrations-and-registration/19-provision-on-demand-success.png)
 
 ### Step 7: Verify User Creation in Harness
@@ -243,6 +254,7 @@ If you’re integrating a modern application your team developed:
 - Go to **Account Settings → Access Control → Users**
 - Verify that your test user was created with the correct username and email
 
+📸 **User Confirmed in Harness After SCIM Provision** 
 ![Users Confirmed in Harness](/entra/screenshots/08-enterprise-app-integrations-and-registration/20-users-confirmed-in-harness.png)
 
 ### Step 8: Test the Update Flow
@@ -256,6 +268,7 @@ If you’re integrating a modern application your team developed:
 - Wait a few minutes or manually run **Provision on demand**
 - In Harness, confirm that the user is **deactivated or suspended**
 
+📸 **Users Deleted in Entra and Automatically Removed in Harness** 
 ![Users Deprovisioned From Harness](/entra/screenshots/08-enterprise-app-integrations-and-registration/21-assignment-removed.png)
 ![Users Deprovisioned From Harness](/entra/screenshots/08-enterprise-app-integrations-and-registration/22-users-auto-deactivated-harness.png)
 
@@ -263,7 +276,7 @@ If you’re integrating a modern application your team developed:
 - Monitor status and sync activity in **Provisioning Logs** within Entra  
 - Successful runs will confirm user lifecycle actions (create, update, delete) were performed correctly
 
-📸 **Screenshot Example:**  
+📸 **Harness Provisioning Logs**  
 ![Harness Provisioning Logs](/entra/screenshots/08-enterprise-app-integrations-and-registration/23-harness-provision-logs.png)
 
 > 💡 **Tip:** Harness is ideal for SCIM labs — it supports bearer token authentication, a full SCIM v2 endpoint, and a free trial environment for hands-on demos
@@ -305,6 +318,7 @@ Add or verify these claims depending on your integration needs:
 > 🎯 **Purpose:**  
 > This step ensures the application receives the **right user information** from Entra ID for authentication, authorization, and profile mapping — an essential part of any SSO configuration
 
+📸 **Attributes and Claims** 
 ![Github Attributes and Claims](/entra/screenshots/08-enterprise-app-integrations-and-registration/24-attributes-and-claims.png)
 
 ---
@@ -317,7 +331,7 @@ Add or verify these claims depending on your integration needs:
 - Review authentication events and detect errors  
 - Check **Provisioning logs** for SCIM user sync status  
 
-📸 **Screenshot Example:**  
+📸 **Github Enterprise Cloud Sign in Logs**  
 ![Sign in Log](/entra/screenshots/08-enterprise-app-integrations-and-registration/25-Sign-in-logs.png)
 
 ---
