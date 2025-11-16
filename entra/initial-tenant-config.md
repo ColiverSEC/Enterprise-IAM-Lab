@@ -53,14 +53,19 @@ This walkthrough covers how to set up your Microsoft Entra ID tenant for the fir
 
 📸 **Basics Tab**  
 ![Custom Branding Basics Tab](/entra/screenshots/01-initial-tenant-configuration-roles/01-basics-tab.png)
+
 📸 **Layout Tab With Custom CSS Applied**  
 ![Custom Branding Layout Tab](/entra/screenshots/01-initial-tenant-configuration-roles/02-layout-tab.png)
+
 📸 **Header Tab** 
 ![Custom Branding Header Tab](/entra/screenshots/01-initial-tenant-configuration-roles/03-header-tab.png)
+
 📸 **Sign-in Form** 
 ![Custom Branding Sign-in Tab](/entra/screenshots/01-initial-tenant-configuration-roles/04-sign-in-form.png)
+
 📸 **Review Tab** 
 ![Custom Branding Review Tab](/entra/screenshots/01-initial-tenant-configuration-roles/05-review-tab.png)
+
 📸 **Custom CSS Login Experience** 
 ![Custom CSS Preview](/entra/screenshots/01-initial-tenant-configuration-roles/06-custom-css-preview.png)
 ![Custom CSS Sign-in Preview](/entra/screenshots/01-initial-tenant-configuration-roles/07-custom-css-sign-in.png)
