@@ -38,7 +38,7 @@ This walkthrough covers how to configure **secure access policies for users and 
 
 💡 **Tip:** Using IP ranges is preferred in labs so you can simulate trusted/untrusted networks accurately.  
 
-📸 **Screenshot Example:**  
+📸 **Trusted Location Created**  
 ![Trusted Location Defined](/entra/screenshots/11-global-secure-access/01-trusted-location-config.png)
 
 ---
@@ -73,7 +73,7 @@ This walkthrough covers how to configure **secure access policies for users and 
 
 💡 **Tip:** Use **IP ranges location** for VPNs or specific remote offices. **Countries location** is optional and useful for broader geographic restrictions.  
 
-📸 **Screenshot Example:**  
+📸 **Remote Network Created and Marked as Trust Location**  
 ![Remote Trusted Network](/entra/screenshots/11-global-secure-access/02-remote-office-settings.png)
 
 
@@ -99,7 +99,7 @@ This walkthrough covers how to configure **secure access policies for users and 
 
 💡 **Tip:** Naming policies clearly (e.g., including `Lab` in the name) helps prevent confusion with production policies. This policy simulates enforcing MFA or blocking access based on network location, helping you test Conditional Access behavior in a controlled environment.
 
-📸 **Screenshot Example:**  
+📸 **Conditional Access Policy Configuration to Enforce Remote Network**  
 ![Network based Conditional Access](/entra/screenshots/11-global-secure-access/03-remote-office-conditional-access.png)
 
 ---
@@ -131,7 +131,7 @@ This walkthrough covers how to configure **secure access policies for users and 
   - Trusted networks allow seamless access  
 - Optional: If you need to check network resolution for your internal domain, refer to your [DNS configuration walkthrough](https://github.com/ColiverSEC/Enterprise-IAM-Lab/blob/main/activedirectory/dns-configuration-for-active-directory-clients.md).
 
-📸 **Screenshot Example:**  
+📸 **User Prompted for MFA When Signing in From Outside the Trusted Locations**  
 ![Test Policy](/entra/screenshots/11-global-secure-access/05-mfa-enforced-outside-of-range.png)
 ![Test Policy Success](/entra/screenshots/11-global-secure-access/04-test-access.png)
 
