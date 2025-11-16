@@ -35,7 +35,7 @@ This walkthrough covers how to monitor and report on Microsoft Entra ID activiti
   - Sign-in status (success/failure)  
   - Location and device information  
 
-📸 **Screenshot Example:**  
+📸 **Example of Sign-In Logs**  
 ![Sign in Logs](/entra/screenshots/10-monitoring-and-reporting/01-sign-in-logs.png)
 
 ### Step 2: Filter and Analyze
@@ -44,7 +44,7 @@ This walkthrough covers how to monitor and report on Microsoft Entra ID activiti
 - Look for suspicious or failed sign-ins  
 - Export logs for offline analysis if needed  
 
-📸 **Screenshot Example:**  
+📸 **Sign-In Log Filtered to Failed Sign-Ins**  
 ![Filter and Analyze](/entra/screenshots/10-monitoring-and-reporting/02-failed-sign-ins.png)
 
 ---
@@ -60,7 +60,7 @@ This walkthrough covers how to monitor and report on Microsoft Entra ID activiti
   - Policy changes  
   - Group and access package changes  
 
-📸 **Screenshot Example:**  
+📸 **Example of Audit Logs**  
 ![Audit Log](/entra/screenshots/10-monitoring-and-reporting/03-audit-log.png)
 
 ### Step 2: Filter and Export
@@ -68,7 +68,7 @@ This walkthrough covers how to monitor and report on Microsoft Entra ID activiti
 - Filter by **activity, user, or date range**  
 - Export logs for compliance reporting or investigation  
 
-📸 **Screenshot Example:**  
+📸 **Audit Log Filtered and Exported**  
 ![Audit Log Filter and Analyze](/entra/screenshots/10-monitoring-and-reporting/04-export-audit-log.png)
 
 ---
