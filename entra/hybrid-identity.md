@@ -87,7 +87,7 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
 
 > 💡 **Tip:** Microsoft recommends installing Entra Connect on a **dedicated, domain-joined member server** rather than directly on your domain controller. This improves security and simplifies maintenance
 
-📸 **Screenshot Example:**  
+📸 **Azure AD Download Prompt**  
 ![Azure AD connect installed](/entra/screenshots/04-hybrid-identity-with-entra-connect/01-entra-connect-installed.png)
 
 ---
@@ -116,7 +116,7 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
 - Select **Password Hash Sync** for labs and test environments, then click **Next**
 > 💡 **Tip:** PTA and SSO require additional agents and configuration. For simple lab scenarios, PHS + Seamless SSO is easiest
 
-📸 **Screenshot Example:**  
+📸 **Password Hash and Password Writeback Enabled in Entra Connect**  
 ![Password Hash enabled](/entra/screenshots/04-hybrid-identity-with-entra-connect/02-pha-password-writeback-enabled.png)
 
 ### Step 2: Enable Password Writeback (Optional)
@@ -139,7 +139,7 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
 > - Choose the desired authentication method  
 > - Re-run the sync
 
-📸 **Screenshot Example:**  
+📸 **Password Writeback Confirmed in Entra Portal**  
 ![Password writeback enabled](/entra/screenshots/04-hybrid-identity-with-entra-connect/05-confirmation-password-writeback.png)
 
 ### Step 3: Finish Installation & Initial Sync 
@@ -159,9 +159,13 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
 > - Check **last sync** and **next scheduled sync**  
 > - View **Azure AD Connect Health** for alerts or errors (note: dashboards may appear mostly empty in a small lab)
 
-📸 **Screenshot Example:**  
+📸 **Configuration Complete**  
 ![Initial sync complete](/entra/screenshots/04-hybrid-identity-with-entra-connect/03-initial-sync-complete.png)
+
+📸 **Synced Users Confirmed in Entra**
 ![Synced users confirmed](/entra/screenshots/04-hybrid-identity-with-entra-connect/04-synced-users-confirmed.png)
+
+📸 **Example of the Health with No Errors**
 ![Entra connect monitor](/entra/screenshots/04-hybrid-identity-with-entra-connect/08-monitoring-and-health.png)
 
 ### Step 4: Optional Filtering & Staging Mode
@@ -180,7 +184,7 @@ This walkthrough covers planning, installing, and managing **Microsoft Entra Con
 
 > 💡 **Tip:** In a small lab with a single forest, you can skip these options and sync the entire `_USERS` OU
 
-📸 **Screenshot Example:**  
+📸 **Example of OU Filtering and Staging Mode**  
 ![Domain filtering](/entra/screenshots/04-hybrid-identity-with-entra-connect/06-domain-and-ou-filtering.png)
 ![Staging mode](/entra/screenshots/04-hybrid-identity-with-entra-connect/07-staging-mode.png)
 
