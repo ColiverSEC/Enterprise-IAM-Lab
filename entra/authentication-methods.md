@@ -35,7 +35,7 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 - Review the available methods (e.g., Authenticator app, FIDO2, SMS, phone call)  
 - Enable the methods your organization allows
 
-📸 Screenshot Example:
+📸 **Available MFA Methods**
 ![Available MFA methods](/entra/screenshots/05-authentication-methods-and-sspr/01-mfa-settings.png)
 
 ### Step 2: Require Users to Register for MFA
@@ -45,7 +45,7 @@ This walkthrough covers enabling and managing authentication methods in Microsof
   - Assign policy to the users or groups you want to enforce MFA for  
 - Save the policy and set to **Enabled**
 
-📸 Screenshot Example:
+📸 **Example of MFA Policy for All Users**
 ![Require MFA](/entra/screenshots/05-authentication-methods-and-sspr/02-mfa-enforced.png)
 
 ### Step 3 (Optional): Enforce MFA via Conditional Access
@@ -55,7 +55,7 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 - Under **Access controls** → **Grant**, select **Require multi-factor authentication**  
 - **Enable** and save the policy  
 
-📸 **Screenshot Example:**  
+📸 **Example of MFA Being Enforced via Conditional Access**  
 ![Enforce MFA with Conditional Access](/entra/screenshots/05-authentication-methods-and-sspr/03-mfa-enforced-via-ca-policy.png)
 
 ---
@@ -69,7 +69,7 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 - Define **enrollment restrictions** if needed  
 - Save configuration
 
-📸 **Screenshot Example:**  
+📸 **FIDO2 Enabled**  
 ![FIDO2 Passkey](/entra/screenshots/05-authentication-methods-and-sspr/04-fido2-setup.png)
 
 ---
@@ -89,7 +89,7 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 - Save the policy
 
 
-📸 **Screenshot Example:**  
+📸 **Windows Hello for Business**  
 ![Windows Hello for Business](/entra/screenshots/05-authentication-methods-and-sspr/05-windows-hello-for-business.png)
 
 ---
@@ -103,7 +103,7 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 - Configure **authentication methods** (email, mobile, security questions)  
 - Save changes
 
-📸 **Screenshot Example:**  
+📸 **SSPR Enabled**  
 ![Configure SSPR](/entra/screenshots/05-authentication-methods-and-sspr/06-sspr-config.png)
 
 ### Step 2: Test SSPR
@@ -112,7 +112,7 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 - Click **Forgot my password**  
 - Verify reset process works correctly
 
-📸 **Screenshot Example:**  
+📸 **SSPR Test**  
 ![Test SSPR](/entra/screenshots/05-authentication-methods-and-sspr/07-test-sspr.png)
 ![Test SSPR Successful](/entra/screenshots/05-authentication-methods-and-sspr/08-test-sspr-confirmation.png)
 
@@ -128,7 +128,7 @@ This walkthrough covers enabling and managing authentication methods in Microsof
   - MFA requirements per user or group  
   - Temporary access and exclusions  
 
-📸 **Screenshot Example:**  
+📸 **Tenant Restrictions for MS Authenticator**  
 ![Configure tenant restrictions](/entra/screenshots/05-authentication-methods-and-sspr/09-tenant-restrictions.png)
 
 ---
@@ -141,7 +141,7 @@ This walkthrough covers enabling and managing authentication methods in Microsof
 - Filter by authentication method, user, or status  
 - Verify MFA, passwordless, and SSPR events  
 
-📸 **Screenshot Example:**  
+📸 **Monitoring Authentication Activity and Audit Logs**  
 ![Auth Methods Monitor](/entra/screenshots/05-authentication-methods-and-sspr/10-monitor.png)
 ![SSPR Activity Log](/entra/screenshots/05-authentication-methods-and-sspr/11-sspr-log.png)
 
