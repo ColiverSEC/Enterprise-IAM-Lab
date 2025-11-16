@@ -20,9 +20,9 @@ These walkthroughs mirror **enterprise IAM engineer tasks** for securing access 
 | 👥 [User & Group Management](./01-user-and-group-management.md)         | Create users, manage custom attributes, assign admin roles, and automate group membership with rules.      |
 | 📦 [Application Setup with OIN (SAML/OIDC)](./02-application-integrations.md)     | Integrate apps using SAML & OIDC via Okta Integration Network (OIN). Configure provisioning and SSO.       |
 | 🧩 [App Attribute Mapping & Offboarding](./03-app-attribute-mapping-offboarding.md) | Map user attributes between Okta and an integrated app, and manage user offboarding.          |
-| 🔐 [Authentication & MFA Policies](./authentication-mfa-policies.md) | Set up authenticators, enrollment policies, session rules, authentication policies, and password/self-service recovery. |
-| 🧰 [Troubleshooting & User Access](./troubleshooting.md)  | Troubleshoot login issues, app access problems, session expirations, and group assignment errors for users in Okta.       |
-| 📡 [Syslog & Okta Support](./syslog-support.md) | Search and filter events in the Okta System Log, and identify resources to get help and support from Okta. |
+| 🔐 [Authentication & MFA Policies](./04-authentication-mfa-policies.md) | Set up authenticators, enrollment policies, session rules, authentication policies, and password/self-service recovery. |
+| 🧰 [Troubleshooting & User Access](./05-troubleshooting.md)  | Troubleshoot login issues, app access problems, session expirations, and group assignment errors for users in Okta.       |
+| 📡 [Syslog & Okta Support](./06-syslog-support.md) | Search and filter events in the Okta System Log, and identify resources to get help and support from Okta. |
 
 ---
 
