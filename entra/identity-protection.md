@@ -32,7 +32,7 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 - Go to **Entra Admin Center → Identity Protection**  
 - Review dashboard with **Users at risk, Sign-ins at risk, and Risk detections**  
 
-📸 **Screenshot Example:**  
+📸 **Identity Protection Dashboard**  
 ![Identity Protection Dashboard](/entra/screenshots/07-identity-protection/01-id-protection-dashboard.png)
 
 ---
@@ -53,7 +53,7 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 > - **Medium Risk:** Suggesting suspicious patterns (e.g., unfamiliar sign-ins)
 > - **High Risk:** Indicating a strong possibility of compromise (e.g., leaked credentials)
 
-📸 **Screenshot Example:**  
+📸 **User Risk Policy Configuration**  
 ![Configure User Risk](/entra/screenshots/07-identity-protection/02-user-risk-config.png)
 
 ### Step 2: Sign-in Risk Policy
@@ -70,7 +70,7 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 > - **Medium Risk:** More suspicious signals are detected, such as a suspicious sending pattern or a combination of low-risk anomalies like multiple unfamiliar sign-in properties
 > - **High Risk:** There is a high confidence that the sign-in is unauthorized and the account is compromised
 
-📸 **Screenshot Example:**  
+📸 **Sign-in Risk Policy Configuration**  
 ![Configure Sign-in Risk](/entra/screenshots/07-identity-protection/03-sign-in-risk-config.png)
 
 ---
@@ -83,7 +83,7 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 - Review detected risks, risk level, and remediation status  
 - Optionally, filter by **risk event type, user, or group**  
 
-📸 **Screenshot Example:**  
+📸 **Example of Risky Users Report**  
 ![Monitor User Risk](/entra/screenshots/07-identity-protection/04-risky-users-report.png)
 
 ### Step 2: Review Risky Sign-ins
@@ -92,7 +92,7 @@ This walkthrough covers configuring **Microsoft Entra Identity Protection** to d
 - Review each sign-in event for **risk type, device, location, and risk level**  
 - Trigger remediation if needed (require MFA or block access)  
 
-📸 **Screenshot Example:**  
+📸 **Example of Risky Sign-in Reprot**  
 ![Monitor Sign-in Risk](/entra/screenshots/07-identity-protection/05-sign-in-risk-report.png)
 
 ---
