@@ -41,7 +41,7 @@ This walkthrough covers inviting external users (B2B), configuring B2C user flow
 > 💡 **Tip:**
 > Make sure to use a valid email address for this step
 
-📸 **Screenshot Example:**  
+📸 **Example of the Invite External User Review+Create Page**  
 ![User Invitation](/entra/screenshots/03-external-identities/01-invite-user.png)
 
 ---
@@ -52,8 +52,10 @@ This walkthrough covers inviting external users (B2B), configuring B2C user flow
 - She clicks the link and signs in with her existing Microsoft or organizational account  
 - Guest account appears in your Entra ID under **Users → Guest users**
 
-📸 **Screenshot Example:**  
+📸 **External User Accepting Invite**
 ![User Invite Accept](/entra/screenshots/03-external-identities/02-accept-invite.png)
+
+📸 **External User Added to Organization After Accepting Invite**
 ![User Invite Accept Confirmation](/entra/screenshots/03-external-identities/03-invite-accept-confirmation.png)
 
 ---
@@ -67,7 +69,7 @@ New-MgInvitation -InvitedUserEmailAddress "user@email.com" `
                  -InviteRedirectUrl "https://myapps.microsoft.com" `
                  -SendInvitationMessage:$true
 ```
-📸 Screenshot Example:
+📸 **User Invited via Powershell Along with the Script Used**  
 ![Users Invited Via Powershell](/entra/screenshots/03-external-identities/04-invite-via-powershell.png)
 
 ---
@@ -82,7 +84,7 @@ New-MgInvitation -InvitedUserEmailAddress "user@email.com" `
   - **Collaboration restrictions** (domains allowed/blocked)
   - **Permissions for guests** (directory read/write, group membership)
 
-📸 **Screenshot Example:**  
+📸 **Example of Guest User Settings**  
 ![Collaboration Settings](/entra/screenshots/03-external-identities/05-collab-settings.png)
 
 ---
@@ -122,8 +124,10 @@ New-MgInvitation -InvitedUserEmailAddress "user@email.com" `
    - Enter the Client ID and Client Secret from the Google Cloud Console
 - Save your configuration
 
-📸 **Screenshot Example:**  
+📸 **Google Idp Configured**  
 ![Google Cloud IdP](/entra/screenshots/03-external-identities/06-google-identity-provider.png)
+
+📸 **Google Idp Configuration Settings in The Google Portal** 
 ![Google Cloud IdP](/entra/screenshots/03-external-identities/07-google-cloud-configuration.png)
 
 ---
@@ -150,6 +154,7 @@ In this step, you’ll connect an external **SAML Identity Provider (IdP)** — 
 - In the new app’s **Sign On** tab, click **View SAML setup instructions**
 - Copy the **Identity Provider metadata URL** — you’ll need this for Entra configuration
 
+📸 **Example of Create SAML App Configuration Process in Okta** 
 ![Okta SAML Settings](/entra/screenshots/03-external-identities/08-okta-saml-config.png)
 ![Okta Placeholder Values](/entra/screenshots/03-external-identities/09-okta-saml-settings-placeholder-values.png)
 
@@ -166,8 +171,10 @@ In this step, you’ll connect an external **SAML Identity Provider (IdP)** — 
    - **Select a method for populating metadata:** `Input metadata manually`
 - Paste the **Issuer URI, Passive authentication endpoint** and **Certificate** from okta → **Save**
 
-📸 **Screenshot Example:**  
+📸 **Example of Create SAML App Configuration Process in Entra ID**  
 ![Okta Metadata in Entra](/entra/screenshots/03-external-identities/10-metadata.png)
+
+**Okta SAML IdP Successful Configuration**
 ![Successful Config](/entra/screenshots/03-external-identities/11-successful-config-saml.png)
 
 ---
@@ -182,7 +189,7 @@ In this step, you’ll connect an external **SAML Identity Provider (IdP)** — 
 - Configure **page layouts and attributes** to collect  
 - Click **Create**
 
-📸 **Screenshot Example:**  
+📸 **User Flow Confiuration Details**  
 ![New User Flow](/entra/screenshots/03-external-identities/12-new-user-flow.png)
 ![User Flow Settings](/entra/screenshots/03-external-identities/13-user-flow-settings.png)
 
@@ -196,7 +203,7 @@ In this step, you’ll connect an external **SAML Identity Provider (IdP)** — 
 - Configure **attributes**  
 - Click **Create**
 
-📸 **Screenshot Example:**  
+📸 **Password Reset User Flow Configuration**  
 ![Password Flow](/entra/screenshots/03-external-identities/14-password-flow.png)
 
 ---
@@ -212,7 +219,7 @@ In this step, you’ll connect an external **SAML Identity Provider (IdP)** — 
   - **License assignments**  
   - **Group memberships**
 
-📸 **Screenshot Example:**  
+📸 **Example of Audit Logs**  
 ![Audit Log](/entra/screenshots/03-external-identities/15-external-audit-logs.png)
 
 ---
