@@ -2,14 +2,17 @@
 
 [⬅️ Back to Enterprise IAM Lab Overview](../README.md)
 
-This lab provides **hands-on experience** with **Okta Identity Cloud**, a leading identity provider (IdP) for cloud and enterprise apps. It focuses on:
+This lab provides **hands-on experience** with **Okta Identity Cloud**, a leading identity provider (IdP) for cloud and enterprise apps. Through these modules, you’ll practice real-world IAM engineer tasks across user lifecycle management, application integrations, security enforcement, and troubleshooting.
 
-- ✅ Application integrations using SAML & OIDC
-- ✅ Single Sign-On (SSO) and Just-in-Time (JIT) provisioning
-- ✅ Multi-Factor Authentication (MFA) enforcement with custom policies
-- ✅ User lifecycle automation with Okta Workflows
+It focuses on:
 
-These walkthroughs mirror **enterprise IAM engineer tasks** for securing access and automating identity processes.
+✅ **Automating user lifecycle tasks**: create and manage users, configure custom attributes, assign admin roles, and manage group memberships.  
+✅ **Integrating applications using SAML & OIDC**: set up Single Sign-On (SSO) and Just-in-Time (JIT) provisioning via the Okta Integration Network (OIN).  
+✅ **Mapping user attributes & managing offboarding**: synchronize attributes with integrated apps and handle user deprovisioning.  
+✅ **Enforcing Multi-Factor Authentication (MFA)**: implement authenticators, session rules, authentication policies, and password/self-service recovery.  
+✅ **Troubleshooting and monitoring user access**: investigate login issues, app access problems, session expirations, and incorrect group assignments.  
+✅ **Monitoring System Logs & accessing support**: analyze Okta System Log events and utilize Okta support resources effectively.
+
 
 ---
 
