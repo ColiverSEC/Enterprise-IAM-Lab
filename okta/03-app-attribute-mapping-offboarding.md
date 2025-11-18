@@ -1,19 +1,17 @@
-# 🔐 Authentication & MFA Policies  
+# 🧩 Attribute Mapping & Offboarding  
 
 ⬅️ [Back to Okta IAM Lab Overview](./README.md)
 
-This walkthrough covers how to enforce security policies in Okta, including multi-factor authentication (MFA), authentication and enrollment policies, global session rules, and password/self-service recovery policies.
+This walkthrough covers how to map user attributes between Okta and an integrated application, and how to manage offboarding by deactivating users and verifying access removal.
 
 ---
 
 ## 📚 What This Lab Covers
 
-- Setting up authenticators (Okta Verify, SMS, etc.)  
-- Creating enrollment policies for MFA  
-- Adding rules to the global session policy  
-- Configuring authentication policies for users or groups  
-- Setting up password policies and self-service recovery  
-- Verifying that users are required to use the configured authenticators  
+- Mapping user attributes between Okta and a connected application  
+- Extending the Okta user profile with custom attributes  
+- Configuring attribute mapping in provisioning settings  
+- Deactivating users and verifying that access to apps is removed  
 
 ---
 
@@ -21,120 +19,74 @@ This walkthrough covers how to enforce security policies in Okta, including mult
 
 - 🔹 Okta Developer or Enterprise Org  
 - 🔹 Administrator privileges (Super Admin or equivalent)  
+- 🔹 A test application integrated via SAML/OIDC or SCIM  
 - 🔹 Test users and groups created from previous labs  
-- 🔹 Browser (incognito recommended for testing)  
 
 ---
 
-## 👥 Set Up Authenticators
+## 🔗 Map Attributes Between Okta and an App
 
-### Step 1: Navigate to Authenticators
-- Go to **Security → Authenticators** in the Okta Admin Console  
-- Select an authenticator type (e.g., **Okta Verify**, **SMS Authentication**)  
+### Step 1: Open App Provisioning Settings
+- Navigate to **Applications → [Your App] → Provisioning → To App**  
+- Click **Edit Attribute Mappings**  
 
-### Step 2: Configure the Authenticator
-- Enable the authenticator for your Org  
-- Configure required options (enrollment, verification methods, push notifications, etc.)  
-- Save the configuration  
+### Step 2: Configure Mappings
+- Map Okta attributes to application attributes, for example:  
+  - Okta **firstName** → App **givenName**  
+  - Okta **lastName** → App **surname**  
+  - Okta **email** → App **userPrincipalName**  
+- Click **Save Mappings**  
 
 📸 **Screenshot Example:**  
-`![Authenticator settings](./screenshots/01-authenticator-settings.png)`  
-`![Authenticator enabled](./screenshots/02-authenticator-enabled.png)`
+`![Attribute mapping page](./screenshots/01-attribute-mapping.png)`  
+`![Edit mapping confirmation](./screenshots/02-mapping-saved.png)`
+
+### Step 3: Test Attribute Mapping
+- Update a user attribute in Okta (e.g., change last name)  
+- Verify the updated value syncs to the app after the next provisioning cycle  
+
+📸 **Screenshot Example:**  
+`![Attribute updated in app](./screenshots/03-attribute-sync.png)`
 
 ---
 
-## 🧩 Create Enrollment Policies
+## 🧹 Deactivate a User
 
-### Step 1: Navigate to Enrollment Policies
-- Go to **Security → Multifactor → Enrollment Policies**  
-- Click **Add Policy**  
+### Step 1: Deactivate the User in Okta
+- Navigate to **Directory → People → [User] → More Actions → Deactivate**  
+- Confirm deactivation  
 
-### Step 2: Configure Rules
-- Name the policy (e.g., **MFA Required for All Users**)  
-- Assign policy to a group (e.g., `All Users`)  
-- Set the required authenticators and verification methods  
-- Save the policy  
-
-📸 **Screenshot Example:**  
-`![Enrollment policy](./screenshots/03-enrollment-policy.png)`  
-`![Policy rules](./screenshots/04-policy-rules.png)`
-
----
-
-## 🔄 Configure Global Session Policies
-
-### Step 1: Open Global Session Policies
-- Go to **Security → Sessions → Global Session Policy**  
-- Click **Add Rule** or edit an existing rule  
-
-### Step 2: Configure Session Rules
-- Define conditions (e.g., network zone, group, MFA required)  
-- Set session behavior (e.g., sign-on frequency, idle timeout)  
-- Save changes  
+### Step 2: Verify Access Removal
+- Attempt to log in to the integrated app with the deactivated user account  
+- Access should be denied  
+- Check the app’s provisioning logs to ensure deactivation was synced  
 
 📸 **Screenshot Example:**  
-`![Global session rule](./screenshots/05-session-rule.png)`
-
----
-
-## 🔐 Configure Authentication Policies
-
-### Step 1: Navigate to Authentication Policies
-- Go to **Security → Authentication → Policies**  
-- Select **Add Policy**  
-
-### Step 2: Add Rules
-- Define which groups/users the policy applies to  
-- Configure allowed authenticators and access conditions  
-- Save policy  
-
-📸 **Screenshot Example:**  
-`![Authentication policy](./screenshots/06-authentication-policy.png)`
-
----
-
-## 🧾 Password & Self-Service Recovery Policies
-
-### Step 1: Open Password Policies
-- Go to **Security → Authentication → Password**  
-- Edit **Password Policy** for your org or group  
-
-### Step 2: Configure Recovery Options
-- Enable self-service password reset  
-- Define complexity, expiration, and history settings  
-- Save policy  
-
-📸 **Screenshot Example:**  
-`![Password policy](./screenshots/07-password-policy.png)`  
-`![Self-service recovery](./screenshots/08-password-recovery.png)`
-
----
-
-## ✅ Verify MFA Enforcement
-
-- Log in as a test user in the assigned group  
-- Attempt to access the Org or assigned app  
-- Ensure MFA enrollment is prompted and required authenticators are enforced  
-- Confirm users cannot bypass MFA  
-
-📸 **Screenshot Example:**  
-`![MFA prompt](./screenshots/09-mfa-prompt.png)`  
-`![MFA verified](./screenshots/10-mfa-success.png)`
+`![Deactivate user in Okta](./screenshots/04-deactivate-user.png)`  
+`![Access denied confirmation](./screenshots/05-user-access-denied.png)`
 
 ---
 
 ## 🔄 Optional Enhancements
 
-- Configure contextual access policies based on network zones, device trust, or user groups  
-- Enforce step-up authentication for sensitive applications  
-- Combine MFA policies with adaptive authentication rules  
+- Automate deactivation workflows with Okta Workflows  
+- Extend attribute mapping to include custom attributes (e.g., EmployeeID, Department)  
+- Enable notifications to app owners or managers upon user deactivation  
+- Configure automated offboarding for group membership changes  
+
+---
+
+## ✅ Expected Behavior
+
+- Attribute changes in Okta sync correctly to the app  
+- Deactivated users can no longer access the integrated application  
+- Logs reflect successful mapping and deprovisioning  
 
 ---
 
 ## 🔗 Next Steps
 
-You’ve successfully implemented authentication and MFA policies in Okta.  
-Next, you’ll troubleshoot user and app access issues, analyze Syslog events, and ensure policy enforcement.
+You’ve successfully mapped attributes and managed offboarding for users in Okta.  
+Next, you’ll configure **security enforcement policies including MFA and authentication rules**.
 
-➡️ Continue to: [Troubleshooting & Syslog Analysis](./troubleshooting-syslog.md)
-
+➡️ Continue to: [Authentication & MFA Policies](./authentication-mfa-policies.md)
