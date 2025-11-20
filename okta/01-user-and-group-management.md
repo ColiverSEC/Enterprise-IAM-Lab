@@ -30,19 +30,33 @@ This walkthrough covers how to create and manage users and groups in **Okta Iden
 ## 👥 Create Users Manually
 
 ### Step 1: Open Okta Admin Console
-- Go to your Okta Org URL (e.g., `https://dev-123456.okta.com`)  
+- Go to your Okta Org URL (e.g., [https://dev-123456.okta.com](https://dev-123456.okta.com))  
 - Navigate to **Directory → People → Add Person**
 
 ### Step 2: Add a New User
-- Fill in required fields:
-  - **First Name / Last Name**  
-  - **Username / Email**  
-  - **Password** (auto-generate or set manually)  
-- (Optional) Assign **Groups** or **Roles**  
+- Fill in the required fields:  
+  - First Name / Last Name  
+  - Username / Email  
+  - Password (auto-generate or set manually)  
+  - (Optional) Assign Groups or Roles  
 - Click **Save**
 
 > 🏷️ **Note:**  
-> Replace email domains with your org’s verified domain when following these steps.
+> Replace email domains with your organization’s verified domain when following these steps.
+
+### Step 3: Activate Now vs Activate Later
+When creating a new user, Okta provides an option to **Activate Now** or **Activate Later**:
+
+- **Activate Now:**  
+  - Sends an activation email to the user immediately.  
+  - The user can sign in right away and complete the setup (password reset if required).  
+- **Activate Later:**  
+  - Creates the account but does **not send an activation email**.  
+  - Useful if you want to **pre-stage accounts** before giving users access.  
+  - Admins can manually activate the user later from the user profile.
+
+> 💡 **Tip:**  
+> Use **Activate Later** for bulk imports or staged onboarding, and **Activate Now** for immediate access for individual users.
 
 📸 **Screenshot Example:**  
 `![User creation form](./screenshots/01-add-user.png)`  
