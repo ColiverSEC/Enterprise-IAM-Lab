@@ -14,6 +14,7 @@ This walkthrough covers how to create and manage users and groups in **Okta Iden
 - Creating group rules to automate membership  
 - Assigning standard administrator roles to groups  
 - Creating custom roles and resource sets and assigning them to groups  
+- **Performing user account maintenance (unlock, suspend, reset password, etc.)**  
 - Managing users and groups with Okta Workflows (optional advanced step)  
 
 ---
@@ -22,43 +23,32 @@ This walkthrough covers how to create and manage users and groups in **Okta Iden
 
 - 🔹 Okta Developer or Enterprise Org  
 - 🔹 Administrator privileges (Super Admin or equivalent)  
-- 🔹 Browser (incognito recommended for testing)  
-- 🔹 Optional: Okta Workflows access for lifecycle automation  
+- 🔹 Browser (incognito recommended)  
+- 🔹 Optional: Okta Workflows access  
 
 ---
 
 ## 👥 Create Users Manually
 
 ### Step 1: Open Okta Admin Console
-- Go to your Okta Org URL (e.g., [https://dev-123456.okta.com](https://dev-123456.okta.com))  
+- Go to your Okta Org URL (e.g., https://dev-123456.okta.com)  
 - Navigate to **Directory → People → Add Person**
 
 ### Step 2: Add a New User
-- Fill in the required fields:  
+- Fill in required fields:  
   - First Name / Last Name  
   - Username / Email  
-  - Password (auto-generate or set manually)  
+  - Password (auto-generate or manual)  
   - (Optional) Assign Groups or Roles  
 - Click **Save**
 
-> 🏷️ **Note:**  
-> Replace email domains with your organization’s verified domain when following these steps.
+> 🏷️ **Note:** Replace email domains with your org’s verified domain.
 
 ### Step 3: Activate Now vs Activate Later
-When creating a new user, Okta provides an option to **Activate Now** or **Activate Later**:
+- **Activate Now:** Sends activation email immediately  
+- **Activate Later:** Pre-stages account without sending email  
 
-- **Activate Now:**  
-  - Sends an activation email to the user immediately.  
-  - The user can sign in right away and complete the setup (password reset if required).  
-- **Activate Later:**  
-  - Creates the account but does **not send an activation email**.  
-  - Useful if you want to **pre-stage accounts** before giving users access.  
-  - Admins can manually activate the user later from the user profile.
-
-> 💡 **Tip:**  
-> Use **Activate Later** for bulk imports or staged onboarding, and **Activate Now** for immediate access for individual users.
-
-📸 **Screenshot Example:**  
+📸 Example Screenshots  
 `![User creation form](./screenshots/01-add-user.png)`  
 `![User creation confirmation](./screenshots/02-user-created.png)`
 
@@ -67,22 +57,19 @@ When creating a new user, Okta provides an option to **Activate Now** or **Activ
 ## 🧩 Add and Edit Custom Attributes
 
 ### Step 1: Open Profile Editor
-- Navigate to **Directory → Profile Editor**  
-- Select **User (Okta)** profile  
-- Click **Add Attribute**  
+- Directory → **Profile Editor**  
+- Select **User (Okta)** → **Add Attribute**
 
 ### Step 2: Configure Attribute
-- Name: `EmployeeID`  
-- Data type: `String`  
-- Click **Save Attribute**  
+- Example:  
+  - Name: `EmployeeID`  
+  - Type: `String`
 
-### Step 3: Edit User Profile
-- Navigate to **Directory → People**  
-- Select a user → **Profile** → **Edit**  
-- Update the newly added attribute and any other profile fields  
-- Click **Save**
+### Step 3: Edit a User Profile
+- Directory → People → Select User → **Profile → Edit**  
+- Update new attribute → Save
 
-📸 **Screenshot Example:**  
+📸 Example Screenshots  
 `![Add custom attribute](./screenshots/03-add-attribute.png)`  
 `![Edit user profile](./screenshots/04-edit-user.png)`
 
@@ -91,17 +78,16 @@ When creating a new user, Okta provides an option to **Activate Now** or **Activ
 ## 🧑‍🤝‍🧑 Create Groups
 
 ### Step 1: Create a New Group
-- Navigate to **Directory → Groups → Add Group**  
-- Name: `Finance Team`  
-- Description: `Finance department members`  
-- Click **Add Group**
+- Directory → Groups → **Add Group**  
+- Example:  
+  - Name: `Finance Team`  
+  - Description: `Finance department members`
 
 ### Step 2: Add Members
-- Open the created group → **Manage People → Add Members**  
-- Select users to add (e.g., Alex Johnson, Mary Lopez)  
-- Click **Save**
+- Select the group → **Manage People → Add Members**  
+- Select users → Save
 
-📸 **Screenshot Example:**  
+📸 Example Screenshots  
 `![Group creation](./screenshots/05-group-created.png)`  
 `![Add members to group](./screenshots/06-add-members.png)`
 
@@ -109,18 +95,17 @@ When creating a new user, Okta provides an option to **Activate Now** or **Activ
 
 ## ⚡ Create Group Rules
 
-### Step 1: Create Rule
-- Navigate to **Directory → Groups → Rules → Add Rule**  
+### Step 1: Create a Rule
+- Directory → Groups → **Rules → Add Rule**  
 - Name: `Finance Dept Auto Assignment`  
-- Conditions: `If user.department equals Finance`  
-- Assign to group: `Finance Team`  
-- Click **Create Rule**
+- Condition: `If user.department equals "Finance"`  
+- Assign to group: `Finance Team`
 
 ### Step 2: Verify Rule
-- Navigate to **Directory → Groups → [Group Name] → Members**  
-- Confirm that eligible users were automatically added
+- Directory → Groups → [Group] → **Members**  
+- Confirm auto-membership
 
-📸 **Screenshot Example:**  
+📸 Example Screenshots  
 `![Group rule created](./screenshots/07-rule-created.png)`  
 `![Updated membership](./screenshots/08-rule-members.png)`
 
@@ -129,29 +114,105 @@ When creating a new user, Okta provides an option to **Activate Now** or **Activ
 ## 🔐 Assign Roles to Groups
 
 ### Step 1: Assign Standard Admin Role
-- Navigate to **Directory → Groups → [Group Name] → Roles**  
-- Assign a standard role (e.g., **Help Desk Admin**)  
-- Click **Save**
+- Directory → Groups → Select Group → **Roles**  
+- Assign role such as **Help Desk Admin**
 
-### Step 2: Create Custom Role and Resource Set
-- Navigate to **Security → Administrators → Add Administrator**  
-- Create a **Custom Role** (define permissions)  
-- Assign it to a **Resource Set**  
-- Link the role to your group  
+### Step 2: Create Custom Role & Resource Set
+- Security → Administrators → **Add Administrator**  
+- Create custom role → Create resource set → Assign to group
 
-📸 **Screenshot Example:**  
+📸 Example Screenshots  
 `![Custom role creation](./screenshots/09-custom-role.png)`  
 `![Assign role to group](./screenshots/10-role-assignment.png)`
 
 ---
 
+# 🔧 User Account Maintenance Tasks  
+
+These tasks are essential for daily user lifecycle administration.
+
+---
+
+## 🔓 Unlock User Accounts
+
+### Unlock an Individual User
+1. Directory → People  
+2. Select a user  
+3. Click **Unlock**
+
+### Unlock Multiple Users
+1. Directory → People  
+2. **More Actions → Unlock Users**  
+3. Filter by **Locked Out**  
+4. Select users → **Unlock Selected Users**
+
+---
+
+## 🚫 Suspend & Unsuspend Users
+
+### Suspend a User
+1. Directory → People  
+2. Select user  
+3. **More Actions → Suspend**
+
+### Unsuspend a User
+1. Open the suspended user  
+2. Click **Unsuspend**
+
+---
+
+## 🔐 Reset Passwords
+
+### Reset an Individual Password
+1. Directory → People  
+2. Select user  
+3. Click **Reset Password**  
+4. Choose “Send Email” or “Set Manually”
+
+### Reset Multiple Passwords
+1. Directory → People  
+2. **More Actions → Reset Passwords**  
+3. Select users → Confirm
+
+---
+
+## ⏳ Manage Password Expiry
+
+### Force Password Expiration
+1. Directory → People → Select user  
+2. **More Actions → Expire Password**
+
+### Check Password Age
+- Open the user → **Security** / **Authentication** tab  
+
+---
+
+## 🧭 View User Account Status
+
+Common statuses:
+
+| Status | Meaning |
+|--------|---------|
+| **Active** | User can log in normally |
+| **Password Reset** | User must change password |
+| **Staged** | Account created but not activated |
+| **Pending Activation** | Activation email sent |
+| **Locked Out** | Too many failed sign-ins |
+| **Suspended** | Admin temporarily disabled access |
+| **Deactivated** | Fully disabled |
+
+To view status:  
+**Directory → People → Status column** or open user.
+
+---
+
 ## 💻 Optional: Manage Users & Groups with Okta Workflows
 
-- Navigate to **Workflows → Console**  
-- Create a workflow to automate user onboarding/offboarding, update attributes, or assign groups  
-- Test by triggering workflow actions on a test user  
+- Workflows → Console  
+- Create automation for onboarding/offboarding, attribute updates, or group assignment  
+- Test workflows using a test user  
 
-📸 **Screenshot Example:**  
+📸 Example Screenshots  
 `![Workflow creation](./screenshots/11-workflow.png)`  
 `![Workflow testing](./screenshots/12-workflow-testing.png)`
 
@@ -159,26 +220,26 @@ When creating a new user, Okta provides an option to **Activate Now** or **Activ
 
 ## ✅ Expected Behavior
 
-- Users appear correctly in the Okta directory  
-- Groups reflect assigned and rule-based memberships  
-- Roles (standard and custom) are correctly applied  
-- Optional workflows execute as expected  
+- Users appear correctly in the directory  
+- Groups reflect assigned and automated membership  
+- Roles (standard & custom) apply correctly  
+- User account maintenance tasks work as expected  
+- Optional workflows trigger and execute successfully  
 
 ---
 
 ## 🔄 Optional Enhancements
 
-- Enable **self-service group management**  
-- Automate user onboarding with **SCIM connectors**  
-- Set up **Okta APIs** for programmatic user and group management  
-- Configure **group-based MFA or app assignment policies**
+- Enable self-service group management  
+- Automate user provisioning via SCIM  
+- Use Okta APIs for automation and integrations  
+- Apply MFA or app policies based on group membership  
 
 ---
 
 ## 🔗 Next Steps
 
-You’ve successfully provisioned users and groups in Okta.  
-Next, you’ll configure **application integrations using SAML & OIDC** to enable SSO and automated provisioning.
+You’ve successfully completed core user and group management in Okta.  
+Next, configure **SAML & OIDC** application integrations.
 
 ➡️ Continue to: [Application Integrations (SAML/OIDC)](./app-integrations.md)
-
