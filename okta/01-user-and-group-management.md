@@ -21,10 +21,10 @@ This walkthrough covers how to create and manage users and groups in **Okta Iden
 
 ## 📝 What You’ll Need
 
-- 🔹 Okta Developer or Enterprise Org  
-- 🔹 Administrator privileges (Super Admin or equivalent)  
-- 🔹 Browser (incognito recommended)  
-- 🔹 Optional: Okta Workflows access  
+🔹 Okta Developer or Enterprise Org  
+🔹 Administrator privileges (Super Admin or equivalent)  
+🔹 Browser (incognito recommended)  
+🔹 Optional: Okta Workflows access  
 
 ---
 
