@@ -24,10 +24,10 @@ This walkthrough covers how to create and manage users and groups in **Okta Iden
 
 ## 📝 What You’ll Need
 
-- 🔹 Okta Developer or Enterprise Org  
-- 🔹 Administrator privileges (Super Admin or equivalent)  
-- 🔹 Browser (incognito recommended)  
-- 🔹 Optional: Okta Workflows access  
+🔹 Okta Developer or Enterprise Org  
+🔹 Administrator privileges (Super Admin or equivalent)  
+🔹 Browser (incognito recommended)  
+🔹 Optional: Okta Workflows access  
 
 ---
 
@@ -62,8 +62,8 @@ This walkthrough covers how to create and manage users and groups in **Okta Iden
 ## Import Users from a CSV File
 
 ### Step 1: Download Okta CSV Template
-- Directory → People → **More Actions → Import Users from CSV**  
-- Download sample CSV
+- **Directory** → **People** → **More Actions → Import Users from CSV**  
+- Click **this template** to download sample CSV
 
 ### Step 2: Populate the File
 - Common fields include:  
