@@ -20,7 +20,7 @@ It focuses on:
 
 | Walkthrough                                                          | Description                                                                                                |
 | -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| 👥 [User & Group Management](./01-user-and-group-management.md)         | Create users, manage custom attributes, assign admin roles, and automate group membership with rules.      |
+| 👥 [User & Group Management](./01-user-and-group-management.md) | Create and import users, manage profiles and custom attributes, configure groups and rules, assign admin roles, and perform account maintenance tasks. |
 | 📦 [Application Setup with OIN (SAML/OIDC)](./02-application-integrations.md)     | Integrate apps using SAML & OIDC via Okta Integration Network (OIN). Configure provisioning and SSO.       |
 | 🧩 [App Attribute Mapping & Offboarding](./03-app-attribute-mapping-offboarding.md) | Map user attributes between Okta and an integrated app, and manage user offboarding.          |
 | 🔐 [Authentication & MFA Policies](./04-authentication-mfa-policies.md) | Set up authenticators, enrollment policies, session rules, authentication policies, and password/self-service recovery. |
