@@ -67,19 +67,27 @@ This walkthrough covers how to create and manage users and groups in **Okta Iden
 
 ### Step 2: Populate the File
 - Common fields include:  
+  - `login`  
   - `firstName`  
   - `lastName`  
-  - `email`  
-  - `login`  
+  - `email`
+  - `displayName`  
   - (Optional) Custom attributes
 
 ### Step 3: Upload CSV
-- Upload completed CSV  
+- Upload completed CSV → **Next**
+- Choose to:
+  - Automatically active new users
+  - Do not create a password and only allow login via Identity Provider
 - Click **Import Users**
 
 ### Step 4: Review & Confirm
 - Confirm field matching  
 - Apply changes  
+
+📸 Example Screenshots:  
+`![User creation form](./screenshots/01-add-user.png)`  
+`![User creation confirmation](./screenshots/02-user-created.png)`
 
 ---
 
