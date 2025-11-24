@@ -91,42 +91,57 @@ This walkthrough covers how to create and manage users and groups in **Okta Iden
 
 ---
 
-## Import Users from an Application (SCIM or App Integration)
-
-### Step 1: Go to the App
-- Applications → Applications → Select app
-
-### Step 2: Open the Provisioning Tab
-- Enable **SCIM** or **Provisioning**  
-- Configure API token or connection  
-
-### Step 3: Run an Import
-- Provisioning → **Import**  
-- Click **Import Now**
-
-### Step 4: Match & Confirm Users
-- Approve new users  
-- Confirm profile updates  
-- Assign users to applications if needed  
-
----
-
 # 🧩 Add and Edit Custom Attributes
 
 ### Step 1: Open Profile Editor
-- Directory → **Profile Editor** → **User (Okta)**
+- Navigate to **Directory → Profile Editor**  
+- Select the profile you want to modify (usually **User (Okta)**)  
+- Click **Add Attribute**
 
-### Step 2: Add Attribute
-- Example:  
-  - Name: `EmployeeID`  
-  - Type: `String`
+### Step 2: Define the Attribute
+- When creating a new attribute:  
+  - Name: `EmployeeID` (or any custom name you prefer)  
+  - Data Type: `String, Number, Boolean`, etc.  
+  - Description (Optional): Brief description of what this attribute stores  
+  - User Permission / Visibility: Determine if this field is editable by users or admins only  
+- Click **Save Attribute** when done  
 
-### Step 3: Edit a User Profile
-- Directory → People → Select user → **Profile → Edit → Save**  
+💡 **Tip:** Avoid using spaces or special characters in attribute names. Keep them lowercase and readable.
+
+### Step 3: Assign the Attribute to a User Profile
+- Navigate to **Directory → People**  
+- Select the user you want to update  
+- Click **Profile → Edit**  
+- Locate the new attribute in the profile  
+- Enter a value (e.g., `12345` for `EmployeeID`)  
+- Click **Save**  
+
+🏷️ **Note:** The attribute will now appear in profile exports, SCIM provisioning, and group rules if applicable.
 
 📸 Example Screenshots:  
 `![Add custom attribute](./screenshots/03-add-attribute.png)`  
 `![Edit user profile](./screenshots/04-edit-user.png)`
+
+### Step 4: Optional – Use Attribute in Rules or Workflows
+- Once created, custom attributes can be used in:  
+  - **Group rules** – auto-assign users to groups based on `EmployeeID`, `department`, or other custom attributes  
+  - **Okta Workflows** – automate provisioning, notifications, or other actions triggered by attribute changes  
+
+### Step 5: Test the Custom Attribute (Optional Demo)
+1. Create or select a test user in Okta.  
+2. Edit the profile and enter a value for the new attribute (e.g., `EmployeeID = 12345`).  
+3. Save the changes.  
+4. Verify the attribute is visible in:  
+   - The user profile  
+   - Directory exports  
+   - Any group rules or workflows that might use it  
+
+💡 **Tip:** Use a workflow to trigger actions when the attribute changes to see automation in action.  
+
+📸 Example Demo Screenshots:  
+`![Attribute updated](./screenshots/attribute-demo.png)`  
+`![Attribute in group rule](./screenshots/attribute-group-rule.png)`
+
 
 ---
 
