@@ -14,6 +14,8 @@ Key focus areas include:
 
 ✅ Hybrid identity with Azure AD Connect (PHS/PTA, SSO, password writeback, monitoring)
 
+✅ Declarative identity infrastructure with Terraform – automate provisioning and management of users, groups, roles, licenses, and hybrid AD sync in a repeatable, version-controlled way
+
 ✅ Authentication methods, MFA, Windows Hello, and self-service password reset
 
 ✅ Conditional Access policies with device compliance and session management
@@ -42,6 +44,7 @@ These walkthroughs simulate real-world IAM engineering tasks, preparing you to d
 | 👤 [User & Group Provisioning](./user-and-group-provisioning.md)      | Create users and groups manually, via CSV, or PowerShell. Assign licenses and configure dynamic groups.                   |
 | 🌐 [External Identities (B2B/B2C)](./external-identities.md)          | Invite external users, configure collaboration, social & SAML identity providers, and manage guest lifecycle.             |
 | 🔗 [Hybrid Identity with Entra Connect](./hybrid-identity.md)         | Plan, install, and manage Entra Connect. Configure PHS/PTA, seamless SSO, password writeback, and monitoring.             |
+|    [🛠️ Terraform – Infrastructure as Code](./hybrid-identity.md)      | Provision and manage Entra ID and hybrid identity resources declaratively. Automate users, groups, licenses, roles, and hybrid sync. |
 | 🔑 [Authentication Methods & SSPR](./authentication-methods.md)       | Enable MFA, FIDO2, Windows Hello, self-service password reset, and tenant restrictions.                                   |
 | 🛡️ [Conditional Access](./conditional-access.md)                     | Plan and implement security defaults and Conditional Access policies with MFA, device compliance, and session management. |
 | ⚡ [Identity Protection](./identity-protection.md)                     | Configure user & sign-in risk policies, monitor risky users, and integrate Microsoft Defender for Identity.               |
