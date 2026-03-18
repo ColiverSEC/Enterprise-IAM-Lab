@@ -14,7 +14,7 @@ Key focus areas include:
 
 ✅ Hybrid identity with Azure AD Connect (PHS/PTA, SSO, password writeback, monitoring)
 
-✅ Declarative identity infrastructure with Terraform – automate provisioning and management of users, groups, roles, licenses, and hybrid AD sync in a repeatable, version-controlled way
+✅ Automate Entra ID and hybrid AD users, groups, roles, licenses, and sync declaratively using Infrastructure as Code
 
 ✅ Authentication methods, MFA, Windows Hello, and self-service password reset
 
